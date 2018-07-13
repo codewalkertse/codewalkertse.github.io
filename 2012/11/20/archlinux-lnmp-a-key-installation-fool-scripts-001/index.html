@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SimonXie的博客">
+    <meta name="keyword"  content="SimonXie">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        archlinux lnmp 一键安装傻瓜脚本0.0.1 - SimonXie的博客 | SimonXie&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> All magic comess with a price. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Simon Xie</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> All magic comess with a price. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        archlinux lnmp 一键安装傻瓜脚本0.0.1
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2012-11-20 15:21:30</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#linux" title="linux">linux</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#archlinux" title="archlinux">archlinux</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>写在前边：</p>
+<p>以前安装lnmp总是一个一个安装很耗时而且经常出错，于是在网上搜啊搜的，搜不到一个适合arch安装的一键傻瓜安装脚本，于是在网上搜索了一个其他系统的稍作修改而成。</p>
+<p>本脚本是按照<a href="http://www.lnmp.org中centos.sh修改而成。所用软件全部为源码安装" target="_blank" rel="noopener">http://www.lnmp.org中centos.sh修改而成。所用软件全部为源码安装</a></p>
+<p>因为是源码安装所以基本上之需要把启动脚本的位置init.d替换为arch中的rc.d即可。</p>
+<p>编译的时候mysql可能会比较耗时，推荐替换pacman安装。再去掉相应的设置即可。</p>
+<p>codewalker@codehost:/tmp/lnmp0.9</p>
+<p>$ cat archos.sh </p>
+<p>#!/bin/bash</p>
+<p>PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin</p>
+<p>export PATH</p>
+<p># Check if user is root</p>
+<p>if [ $(id -u) != “0” ]; then</p>
+<pre><code>echo &quot;Error: You must be root to run this script, please use root to install lnmp&quot;
+
+exit 1
+</code></pre><p>fi</p>
+<p>clear</p>
+<p>echo “=========================================================================”</p>
+<p>echo “LNMP V0.0.1 for Archlinux base on Licess Written by codewalkertse”</p>
+<p>echo “=========================================================================”</p>
+<p>echo “A tool to auto-compile &amp; install Nginx+MySQL+PHP on Linux “</p>
+<p>echo “=========================================================================”</p>
+<p>cur_dir=$(pwd)</p>
+<p>if [ “$1” != “–help” ]; then</p>
+<p>#set main domain name</p>
+<p>domain=”<a href="http://www.lnmp.org&quot;" target="_blank" rel="noopener">www.lnmp.org&quot;</a></p>
+<p>echo “Please input domain:”</p>
+<p>read -p “(Default domain: <a href="http://www.lnmp.org):&quot;" target="_blank" rel="noopener">www.lnmp.org):&quot;</a> domain</p>
+<p>if [ “$domain” = “” ]; then</p>
+<p>domain=”<a href="http://www.lnmp.org&quot;" target="_blank" rel="noopener">www.lnmp.org&quot;</a></p>
+<p>fi</p>
+<p>echo “===========================”</p>
+<p>echo domain=”$domain”</p>
+<p>echo “===========================”</p>
+<p>#set mysql root password</p>
+<p>echo “===========================”</p>
+<p>mysqlrootpwd=”root”</p>
+<p>echo “Please input the root password of mysql:”</p>
+<p>read -p “(Default password: root):” mysqlrootpwd</p>
+<p>if [ “$mysqlrootpwd” = “” ]; then</p>
+<p>mysqlrootpwd=”root”</p>
+<p>fi</p>
+<p>echo “===========================”</p>
+<p>echo mysqlrootpwd=”$mysqlrootpwd”</p>
+<p>echo “===========================”</p>
+<p>#do you want to install the InnoDB Storage Engine?</p>
+<p>echo “===========================”</p>
+<p>installinnodb=”n”</p>
+<p>echo “Do you want to install the InnoDB Storage Engine?”</p>
+<p>read -p “(Default no,if you want please input: y ,if not please press the enter button):” installinnodb</p>
+<p>case “$installinnodb” in</p>
+<p>y|Y|Yes|YES|yes|yES|yEs|YeS|yeS)</p>
+<p>echo “You will install the InnoDB Storage Engine”</p>
+<p>installinnodb=”y”</p>
+<p>;;</p>
+<p>n|N|No|NO|no|nO)</p>
+<p>echo “You will NOT install the InnoDB Storage Engine!”</p>
+<p>installinnodb=”n”</p>
+<p>;;</p>
+<p>*)</p>
+<p>echo “INPUT error,The InnoDB Storage Engine will NOT install!”</p>
+<p>installinnodb=”n”</p>
+<p>esac</p>
+<p>get_char()</p>
+<p>{</p>
+<p>SAVEDSTTY=`stty -g`</p>
+<p>stty -echo</p>
+<p>stty cbreak</p>
+<p>dd if=/dev/tty bs=1 count=1 2&gt; /dev/null</p>
+<p>stty -raw</p>
+<p>stty echo</p>
+<p>stty $SAVEDSTTY</p>
+<p>}</p>
+<p>echo “”</p>
+<p>echo “Press any key to start…”</p>
+<p>char=`get_char`</p>
+<p>#Set timezone</p>
+<p>pacman -R httpd*</p>
+<p>pacman -R php*</p>
+<p>pacman -R mysql-server mysql</p>
+<p>pacman -R php-mysql</p>
+<p>pacman -Syu</p>
+<p>#Disable SeLinux</p>
+<p>if [ -s /etc/selinux/config ]; then</p>
+<p>sed -i ‘s/SELINUX=enforcing/SELINUX=disabled/g’ /etc/selinux/config</p>
+<p>fi</p>
+<p>for packages in patch make gcc gcc-c++ gcc-g77 flex bison file libtool libtool-libs autoconf kernel-devel libjpeg libjpeg-devel libpng libpng-devel libpng10 libpng10-devel gd gd-devel freetype freetype-devel libxml2 libxml2-devel zlib zlib-devel glib2 glib2-devel bzip2 bzip2-devel libevent libevent-devel ncurses ncurses-devel curl curl-devel e2fsprogs e2fsprogs-devel krb5 krb5-devel libidn libidn-devel openssl openssl-devel vim-minimal nano fonts-chinese gettext gettext-devel ncurses-devel gmp-devel pspell-devel unzip libcap;</p>
+<p>do pacman -S $packages; done</p>
+<p>echo “============================check files==================================”</p>
+<p>if [ -s php-5.2.17.tar.gz ]; then</p>
+<p>  echo “php-5.2.17.tar.gz [found]“</p>
+<p>  else</p>
+<p>  echo “Error: php-5.2.17.tar.gz not found!!!download now……”</p>
+<p>  wget -c <a href="http://soft.vpser.net/web/php/php-5.2.17.tar.gz" target="_blank" rel="noopener">http://soft.vpser.net/web/php/php-5.2.17.tar.gz</a></p>
+<p>fi</p>
+<p>if [ -s php-5.2.17-fpm-0.5.14.diff.gz ]; then</p>
+<p>  echo “php-5.2.17-fpm-0.5.14.diff.gz [found]“</p>
+<p>  else</p>
+<p>  echo “Error: php-5.2.17-fpm-0.5.14.diff.gz not found!!!download now……”</p>
+<p>  wget -c <a href="http://soft.vpser.net/web/phpfpm/php-5.2.17-fpm-0.5.14.diff.gz" target="_blank" rel="noopener">http://soft.vpser.net/web/phpfpm/php-5.2.17-fpm-0.5.14.diff.gz</a></p>
+<p>fi</p>
+<p>if [ -s memcache-3.0.6.tgz ]; then</p>
+<p>  echo “memcache-3.0.6.tgz [found]“</p>
+<p>  else</p>
+<p>  echo “Error: memcache-3.0.6.tgz not found!!!download now……”</p>
+<p>  wget -c <a href="http://soft.vpser.net/web/memcache/memcache-3.0.6.tgz" target="_blank" rel="noopener">http://soft.vpser.net/web/memcache/memcache-3.0.6.tgz</a></p>
+<p>fi</p>
+<p>if [ -s pcre-8.12.tar.gz ]; then</p>
+<p>  echo “pcre-8.12.tar.gz [found]“</p>
+<p>  else</p>
+<p>  echo “Error: pcre-8.12.tar.gz not found!!!download now……”</p>
+<p>  wget -c <a href="http://soft.vpser.net/web/pcre/pcre-8.12.tar.gz" target="_blank" rel="noopener">http://soft.vpser.net/web/pcre/pcre-8.12.tar.gz</a></p>
+<p>fi</p>
+<p>if [ -s nginx-1.0.15.tar.gz ]; then</p>
+<p>  echo “nginx-1.0.15.tar.gz [found]“</p>
+<p>  else</p>
+<p>  echo “Error: nginx-1.0.15.tar.gz not found!!!download now……”</p>
+<p>  wget -c <a href="http://soft.vpser.net/web/nginx/nginx-1.0.15.tar.gz" target="_blank" rel="noopener">http://soft.vpser.net/web/nginx/nginx-1.0.15.tar.gz</a></p>
+<p>fi</p>
+<p>if [ -s mysql-5.1.60.tar.gz ]; then</p>
+<p>  echo “mysql-5.1.60.tar.gz [found]“</p>
+<p>  else</p>
+<p>  echo “Error: mysql-5.1.60.tar.gz not found!!!download now……”</p>
+<p>  wget -c <a href="http://soft.vpser.net/datebase/mysql/mysql-5.1.60.tar.gz" target="_blank" rel="noopener">http://soft.vpser.net/datebase/mysql/mysql-5.1.60.tar.gz</a></p>
+<p>fi</p>
+<p>if [ -s libiconv-1.14.tar.gz ]; then</p>
+<p>  echo “libiconv-1.14.tar.gz [found]“</p>
+<p>  else</p>
+<p>  echo “Error: libiconv-1.14.tar.gz not found!!!download now……”</p>
+<p>  wget -c <a href="http://soft.vpser.net/web/libiconv/libiconv-1.14.tar.gz" target="_blank" rel="noopener">http://soft.vpser.net/web/libiconv/libiconv-1.14.tar.gz</a></p>
+<p>fi</p>
+<p>if [ -s libmcrypt-2.5.8.tar.gz ]; then</p>
+<p>  echo “libmcrypt-2.5.8.tar.gz [found]“</p>
+<p>  else</p>
+<p>  echo “Error: libmcrypt-2.5.8.tar.gz not found!!!download now……”</p>
+<p>  wget -c  <a href="http://soft.vpser.net/web/libmcrypt/libmcrypt-2.5.8.tar.gz" target="_blank" rel="noopener">http://soft.vpser.net/web/libmcrypt/libmcrypt-2.5.8.tar.gz</a></p>
+<p>fi</p>
+<p>if [ -s mhash-0.9.9.9.tar.gz ]; then</p>
+<p>  echo “mhash-0.9.9.9.tar.gz [found]“</p>
+<p>  else</p>
+<p>  echo “Error: mhash-0.9.9.9.tar.gz not found!!!download now……”</p>
+<p>  wget -c <a href="http://soft.vpser.net/web/mhash/mhash-0.9.9.9.tar.gz" target="_blank" rel="noopener">http://soft.vpser.net/web/mhash/mhash-0.9.9.9.tar.gz</a></p>
+<p>fi</p>
+<p>if [ -s mcrypt-2.6.8.tar.gz ]; then</p>
+<p>  echo “mcrypt-2.6.8.tar.gz [found]“</p>
+<p>  else</p>
+<p>  echo “Error: mcrypt-2.6.8.tar.gz not found!!!download now……”</p>
+<p>  wget -c <a href="http://soft.vpser.net/web/mcrypt/mcrypt-2.6.8.tar.gz" target="_blank" rel="noopener">http://soft.vpser.net/web/mcrypt/mcrypt-2.6.8.tar.gz</a></p>
+<p>fi</p>
+<p>if [ -s phpmyadmin-latest.tar.gz ]; then</p>
+<p>  echo “phpmyadmin-latest.tar.gz [found]“</p>
+<p>  else</p>
+<p>  echo “Error: phpmyadmin-latest.tar.gz not found!!!download now……”</p>
+<p>  wget -c <a href="http://soft.vpser.net/datebase/phpmyadmin/phpmyadmin-latest.tar.gz" target="_blank" rel="noopener">http://soft.vpser.net/datebase/phpmyadmin/phpmyadmin-latest.tar.gz</a></p>
+<p>fi</p>
+<p>if [ -s p.tar.gz ]; then</p>
+<p>  echo “p.tar.gz [found]“</p>
+<p>  else</p>
+<p>  echo “Error: p.tar.gz not found!!!download now……”</p>
+<p>  wget -c <a href="http://soft.vpser.net/prober/p.tar.gz" target="_blank" rel="noopener">http://soft.vpser.net/prober/p.tar.gz</a></p>
+<p>fi</p>
+<p>if [ -s autoconf-2.13.tar.gz ]; then</p>
+<p>  echo “autoconf-2.13.tar.gz [found]“</p>
+<p>  else</p>
+<p>  echo “Error: autoconf-2.13.tar.gz not found!!!download now……”</p>
+<p>  wget -c <a href="http://soft.vpser.net/lib/autoconf/autoconf-2.13.tar.gz" target="_blank" rel="noopener">http://soft.vpser.net/lib/autoconf/autoconf-2.13.tar.gz</a></p>
+<p>fi</p>
+<p>echo “============================check files==================================”</p>
+<p>cd $cur_dir</p>
+<p>tar zxvf autoconf-2.13.tar.gz</p>
+<p>cd autoconf-2.13/</p>
+<p>./configure –prefix=/usr/local/autoconf-2.13</p>
+<p>make &amp;&amp; make install</p>
+<p>cd ../</p>
+<p>tar zxvf libiconv-1.14.tar.gz</p>
+<p>cd libiconv-1.14/</p>
+<p>./configure</p>
+<p>make &amp;&amp; make install</p>
+<p>cd ../</p>
+<p>cd $cur_dir</p>
+<p>tar zxvf libmcrypt-2.5.8.tar.gz</p>
+<p>cd libmcrypt-2.5.8/</p>
+<p>./configure</p>
+<p>make &amp;&amp; make install</p>
+<p>/sbin/ldconfig</p>
+<p>cd libltdl/</p>
+<p>./configure –enable-ltdl-install</p>
+<p>make &amp;&amp; make install</p>
+<p>cd ../../</p>
+<p>cd $cur_dir</p>
+<p>tar zxvf mhash-0.9.9.9.tar.gz</p>
+<p>cd mhash-0.9.9.9/</p>
+<p>./configure</p>
+<p>make &amp;&amp; make install</p>
+<p>cd ../</p>
+<p>ln -s /usr/local/lib/libmcrypt.la /usr/lib/libmcrypt.la</p>
+<p>ln -s /usr/local/lib/libmcrypt.so /usr/lib/libmcrypt.so</p>
+<p>ln -s /usr/local/lib/libmcrypt.so.4 /usr/lib/libmcrypt.so.4</p>
+<p>ln -s /usr/local/lib/libmcrypt.so.4.4.8 /usr/lib/libmcrypt.so.4.4.8</p>
+<p>ln -s /usr/local/lib/libmhash.a /usr/lib/libmhash.a</p>
+<p>ln -s /usr/local/lib/libmhash.la /usr/lib/libmhash.la</p>
+<p>ln -s /usr/local/lib/libmhash.so /usr/lib/libmhash.so</p>
+<p>ln -s /usr/local/lib/libmhash.so.2 /usr/lib/libmhash.so.2</p>
+<p>ln -s /usr/local/lib/libmhash.so.2.0.1 /usr/lib/libmhash.so.2.0.1</p>
+<p>cd $cur_dir</p>
+<p>tar zxvf mcrypt-2.6.8.tar.gz</p>
+<p>cd mcrypt-2.6.8/</p>
+<p>./configure</p>
+<p>make &amp;&amp; make install</p>
+<p>cd ../</p>
+<p>if [ `getconf WORD_BIT` = ‘32’ ] &amp;&amp; [ `getconf LONG_BIT` = ‘64’ ] ; then</p>
+<pre><code>ln -s /usr/lib64/libpng.* /usr/lib/
+
+ln -s /usr/lib64/libjpeg.* /usr/lib/
+</code></pre><p>fi</p>
+<p>ulimit -v unlimited</p>
+<p>if [ ! <code>grep -l &quot;/lib&quot;    &#39;/etc/ld.so.conf&#39;</code> ]; then</p>
+<p>echo “/lib” &gt;&gt; /etc/ld.so.conf</p>
+<p>fi</p>
+<p>if [ ! <code>grep -l &#39;/usr/lib&#39;    &#39;/etc/ld.so.conf&#39;</code> ]; then</p>
+<p>echo “/usr/lib” &gt;&gt; /etc/ld.so.conf</p>
+<p>fi</p>
+<p>if [ -d “/usr/lib64” ] &amp;&amp; [ ! <code>grep -l &#39;/usr/lib64&#39;    &#39;/etc/ld.so.conf&#39;</code> ]; then</p>
+<p>echo “/usr/lib64” &gt;&gt; /etc/ld.so.conf</p>
+<p>fi</p>
+<p>if [ ! <code>grep -l &#39;/usr/local/lib&#39;    &#39;/etc/ld.so.conf&#39;</code> ]; then</p>
+<p>echo “/usr/local/lib” &gt;&gt; /etc/ld.so.conf</p>
+<p>fi</p>
+<p>ldconfig</p>
+<p>cat &gt;&gt;/etc/security/limits.conf&lt;&lt;eof</p>
+<p>* soft nproc 65535</p>
+<p>* hard nproc 65535</p>
+<p>* soft nofile 65535</p>
+<p>* hard nofile 65535</p>
+<p>eof</p>
+<p>cat &gt;&gt;/etc/sysctl.conf&lt;&lt;eof</p>
+<p>fs.file-max=65535</p>
+<p>eof</p>
+<p>echo “============================mysql install==================================”</p>
+<p>cd $cur_dir</p>
+<p>tar zxvf mysql-5.1.60.tar.gz</p>
+<p>cd mysql-5.1.60/</p>
+<p>if [ $installinnodb = “y” ]; then</p>
+<p>./configure –prefix=/usr/local/mysql –with-extra-charsets=complex –enable-thread-safe-client –enable-assembler –with-mysqld-ldflags=-all-static –with-charset=utf8 –enable-thread-safe-client –with-big-tables –with-readline –with-ssl –with-embedded-server –enable-local-infile –with-plugins=innobase</p>
+<p>else</p>
+<p>./configure –prefix=/usr/local/mysql –with-extra-charsets=complex –enable-thread-safe-client –enable-assembler –with-mysqld-ldflags=-all-static –with-charset=utf8 –enable-thread-safe-client –with-big-tables –with-readline –with-ssl –with-embedded-server –enable-local-infile</p>
+<p>fi</p>
+<p>make &amp;&amp; make install</p>
+<p>cd ../</p>
+<p>groupadd mysql</p>
+<p>useradd -s /sbin/nologin -M -g mysql mysql</p>
+<p>cp /usr/local/mysql/share/mysql/my-medium.cnf /etc/my.cnf</p>
+<p>sed -i ‘s/skip-locking/skip-external-locking/g’ /etc/my.cnf</p>
+<p>if [ $installinnodb = “y” ]; then</p>
+<p>sed -i ‘s:#innodb:innodb:g’ /etc/my.cnf</p>
+<p>fi</p>
+<p>/usr/local/mysql/bin/mysql_install_db –user=mysql</p>
+<p>chown -R mysql /usr/local/mysql/var</p>
+<p>chgrp -R mysql /usr/local/mysql/.</p>
+<p>cp /usr/local/mysql/share/mysql/mysql.server /etc/rc.d/mysql</p>
+<p>chmod 755 /etc/rc.d/mysql</p>
+<p>cat &gt; /etc/ld.so.conf.d/mysql.conf&lt;&lt;EOF</p>
+<p>/usr/local/mysql/lib/mysql</p>
+<p>/usr/local/lib</p>
+<p>EOF</p>
+<p>ldconfig</p>
+<p>ln -s /usr/local/mysql/lib/mysql /usr/lib/mysql</p>
+<p>ln -s /usr/local/mysql/include/mysql /usr/include/mysql</p>
+<p>/etc/rc.d/mysql start</p>
+<p>ln -s /usr/local/mysql/bin/mysql /usr/bin/mysql</p>
+<p>ln -s /usr/local/mysql/bin/mysqldump /usr/bin/mysqldump</p>
+<p>ln -s /usr/local/mysql/bin/myisamchk /usr/bin/myisamchk</p>
+<p>/usr/local/mysql/bin/mysqladmin -u root password $mysqlrootpwd</p>
+<p>cat &gt; /tmp/mysql_sec_script&lt;&lt;EOF</p>
+<p>use mysql;</p>
+<p>update user set password=password(‘$mysqlrootpwd’) where user=’root’;</p>
+<p>delete from user where not (user=’root’) ;</p>
+<p>delete from user where user=’root’ and password=’’; </p>
+<p>drop database test;</p>
+<p>DROP USER ‘‘@’%’;</p>
+<p>flush privileges;</p>
+<p>EOF</p>
+<p>/usr/local/mysql/bin/mysql -u root -p$mysqlrootpwd -h localhost &lt; /tmp/mysql_sec_script</p>
+<p>rm -f /tmp/mysql_sec_script</p>
+<p>/etc/rc.d/mysql restart</p>
+<p>/etc/rc.d/mysql stop</p>
+<p>echo “============================mysql intall completed=========================”</p>
+<p>echo “============================php+eaccelerator install======================”</p>
+<p>cd $cur_dir</p>
+<p>export PHP_AUTOCONF=/usr/local/autoconf-2.13/bin/autoconf</p>
+<p>export PHP_AUTOHEADER=/usr/local/autoconf-2.13/bin/autoheader</p>
+<p>tar zxvf php-5.2.17.tar.gz</p>
+<p>gzip -cd php-5.2.17-fpm-0.5.14.diff.gz | patch -d php-5.2.17 -p1</p>
+<p>cd php-5.2.17/</p>
+<p>wget -c <a href="http://soft.vpser.net/web/php/bug/php-5.2.17-max-input-vars.patch" target="_blank" rel="noopener">http://soft.vpser.net/web/php/bug/php-5.2.17-max-input-vars.patch</a></p>
+<p>patch -p1 &lt; php-5.2.17-max-input-vars.patch</p>
+<p>./buildconf –force</p>
+<p>./configure –prefix=/usr/local/php –with-config-file-path=/usr/local/php/etc –with-mysql=/usr/local/mysql –with-mysqli=/usr/local/mysql/bin/mysql_config –with-iconv-dir –with-freetype-dir –with-jpeg-dir –with-png-dir –with-zlib –with-libxml-dir=/usr –enable-xml –disable-rpath –enable-discard-path –enable-magic-quotes –enable-safe-mode –enable-bcmath –enable-shmop –enable-sysvsem –enable-inline-optimization –with-curl –with-curlwrappers –enable-mbregex –enable-fastcgi –enable-fpm –enable-force-cgi-redirect –enable-mbstring –with-mcrypt –enable-ftp –with-gd –enable-gd-native-ttf –with-openssl –with-mhash –enable-pcntl –enable-sockets –with-xmlrpc –enable-zip –enable-soap –without-pear –with-gettext –with-mime-magic </p>
+<p>make ZEND_EXTRA_LIBS=’-liconv’</p>
+<p>make install</p>
+<p>mkdir -p /usr/local/php/etc</p>
+<p>cp php.ini-dist /usr/local/php/etc/php.ini</p>
+<p>cd ../</p>
+<p>ln -s /usr/local/php/bin/php /usr/bin/php</p>
+<p>ln -s /usr/local/php/bin/phpize /usr/bin/phpize</p>
+<p>ln -s /usr/local/php/sbin/php-fpm /usr/bin/php-fpm</p>
+<p>cd $cur_dir</p>
+<p>tar zxvf memcache-3.0.6.tgz</p>
+<p>cd memcache-3.0.6/</p>
+<p>/usr/local/php/bin/phpize</p>
+<p>./configure –with-php-config=/usr/local/php/bin/php-config</p>
+<p>make &amp;&amp; make install</p>
+<p>cd ../</p>
+<p>cd $cur_dir/php-5.2.17/ext/pdo_mysql/</p>
+<p>/usr/local/php/bin/phpize</p>
+<p>./configure –with-php-config=/usr/local/php/bin/php-config –with-pdo-mysql=/usr/local/mysql</p>
+<p>make &amp;&amp; make install</p>
+<p>cd $cur_dir/</p>
+<p># php extensions</p>
+<p>sed -i ‘s#extension_dir = “./“#extension_dir = “/usr/local/php/lib/php/extensions/no-debug-non-zts-20060613/“nextension = “memcache.so”nextension = “pdo_mysql.so”n#’ /usr/local/php/etc/php.ini</p>
+<p>sed -i ‘s#output_buffering = Off#output_buffering = On#’ /usr/local/php/etc/php.ini</p>
+<p>sed -i ‘s/post_max_size = 8M/post_max_size = 50M/g’ /usr/local/php/etc/php.ini</p>
+<p>sed -i ‘s/upload_max_filesize = 2M/upload_max_filesize = 50M/g’ /usr/local/php/etc/php.ini</p>
+<p>sed -i ‘s/;date.timezone =/date.timezone = PRC/g’ /usr/local/php/etc/php.ini</p>
+<p>sed -i ‘s/short_open_tag = Off/short_open_tag = On/g’ /usr/local/php/etc/php.ini</p>
+<p>sed -i ‘s/; cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g’ /usr/local/php/etc/php.ini</p>
+<p>sed -i ‘s/; cgi.fix_pathinfo=0/cgi.fix_pathinfo=0/g’ /usr/local/php/etc/php.ini</p>
+<p>sed -i ‘s/max_execution_time = 30/max_execution_time = 300/g’ /usr/local/php/etc/php.ini</p>
+<p>sed -i ‘s/disable_functions =.*/disable_functions = passthru,exec,system,chroot,scandir,chgrp,chown,shell_exec,proc_open,proc_get_status,ini_alter,ini_alter,ini_restore,dl,pfsockopen,openlog,syslog,readlink,symlink,popepassthru,stream_socket_server,fsocket,fsockopen/g’ /usr/local/php/etc/php.ini</p>
+<p>if [ `getconf WORD_BIT` = ‘32’ ] &amp;&amp; [ `getconf LONG_BIT` = ‘64’ ] ; then</p>
+<pre><code>wget -c http://soft.vpser.net/web/zend/ZendOptimizer-3.3.9-linux-glibc23-x86_64.tar.gz
+
+tar zxvf ZendOptimizer-3.3.9-linux-glibc23-x86_64.tar.gz
+</code></pre><p>mkdir -p /usr/local/zend/</p>
+<p>cp ZendOptimizer-3.3.9-linux-glibc23-x86_64/data/5_2_x_comp/ZendOptimizer.so /usr/local/zend/</p>
+<p>else</p>
+<pre><code>wget -c http://soft.vpser.net/web/zend/ZendOptimizer-3.3.9-linux-glibc23-i386.tar.gz
+</code></pre><p>tar zxvf ZendOptimizer-3.3.9-linux-glibc23-i386.tar.gz</p>
+<p>mkdir -p /usr/local/zend/</p>
+<p>cp ZendOptimizer-3.3.9-linux-glibc23-i386/data/5_2_x_comp/ZendOptimizer.so /usr/local/zend/</p>
+<p>fi</p>
+<p>cat &gt;&gt;/usr/local/php/etc/php.ini&lt;&lt;EOF</p>
+<p>;eaccelerator</p>
+<p>;ionCube</p>
+<p>[Zend Optimizer] </p>
+<p>zend_optimizer.optimization_level=1 </p>
+<p>zend_extension=”/usr/local/zend/ZendOptimizer.so” </p>
+<p>EOF</p>
+<p>groupadd www</p>
+<p>useradd -s /sbin/nologin -g www www</p>
+<p>mkdir -p /home/wwwroot</p>
+<p>chmod +w /home/wwwroot</p>
+<p>mkdir -p /home/wwwlogs</p>
+<p>chmod 777 /home/wwwlogs</p>
+<p>chown -R www:www /home/wwwroot</p>
+<p>rm -f /usr/local/php/etc/php-fpm.conf</p>
+<p>cp conf/php-fpm.conf /usr/local/php/etc/php-fpm.conf</p>
+<p>wget -c <a href="http://soft.vpser.net/lnmp/ext/rc.d.php-fpm5.2" target="_blank" rel="noopener">http://soft.vpser.net/lnmp/ext/rc.d.php-fpm5.2</a></p>
+<p>cp rc.d.php-fpm5.2 /etc/rc.d/php-fpm</p>
+<p>chmod +x /etc/rc.d/php-fpm</p>
+<p>echo “============================php+eaccelerator install completed======================”</p>
+<p>echo “============================nginx install=================================”</p>
+<p>cd $cur_dir</p>
+<p>tar zxvf pcre-8.12.tar.gz</p>
+<p>cd pcre-8.12/</p>
+<p>./configure</p>
+<p>make &amp;&amp; make install</p>
+<p>cd ../</p>
+<p>ldconfig</p>
+<p>tar zxvf nginx-1.0.15.tar.gz</p>
+<p>cd nginx-1.0.15/</p>
+<p>./configure –user=www –group=www –prefix=/usr/local/nginx –with-http_stub_status_module –with-http_ssl_module –with-http_gzip_static_module –with-ipv6</p>
+<p>make &amp;&amp; make install</p>
+<p>cd ../</p>
+<p>rm -f /usr/local/nginx/conf/nginx.conf</p>
+<p>cd $cur_dir</p>
+<p>cp conf/nginx.conf /usr/local/nginx/conf/nginx.conf</p>
+<p>cp conf/dabr.conf /usr/local/nginx/conf/dabr.conf</p>
+<p>cp conf/discuz.conf /usr/local/nginx/conf/discuz.conf</p>
+<p>cp conf/sablog.conf /usr/local/nginx/conf/sablog.conf</p>
+<p>cp conf/typecho.conf /usr/local/nginx/conf/typecho.conf</p>
+<p>cp conf/wordpress.conf /usr/local/nginx/conf/wordpress.conf</p>
+<p>cp conf/discuzx.conf /usr/local/nginx/conf/discuzx.conf</p>
+<p>cp conf/none.conf /usr/local/nginx/conf/none.conf</p>
+<p>cp conf/wp2.conf /usr/local/nginx/conf/wp2.conf</p>
+<p>cp conf/phpwind.conf /usr/local/nginx/conf/phpwind.conf</p>
+<p>sed -i ‘s/<a href="http://www.lnmp.org/&#39;$domain&#39;/g&#39;" target="_blank" rel="noopener">www.lnmp.org/&#39;$domain&#39;/g&#39;</a> /usr/local/nginx/conf/nginx.conf</p>
+<p>rm -f /usr/local/nginx/conf/fcgi.conf</p>
+<p>cp conf/fcgi.conf /usr/local/nginx/conf/fcgi.conf</p>
+<p>cd $cur_dir</p>
+<p>cp lnmp /root/lnmp</p>
+<p>chmod +x /root/lnmp</p>
+<p>cp vhost.sh /root/vhost.sh</p>
+<p>chmod +x /root/vhost.sh</p>
+<p>echo “============================nginx install completed=================================”</p>
+<p>#phpinfo</p>
+<p>cat &gt;/home/wwwroot/phpinfo.php&lt;&lt;eof</p>
+<p>–&gt;</p>
+<p>分享： <a href="javascript:;" target="_blank" rel="noopener"><img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="" title="分享到新浪Qing">分享到新浪Qing</a> <a href="javascript:;" target="_blank" rel="noopener"><img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="" title="分享到新浪邮箱"></a></p>
+<p><img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="">喜欢</p>
+<p>–&gt;</p>
+<p>阅读_┊_ <a href="#commonComment">评论</a> _┊_ <a href="javascript:;" target="_blank" rel="noopener">收藏</a> _┊_<a href="#">转载</a><a href="#"></a> _┊_ <a href="javascript:;" target="_blank" rel="noopener">喜欢</a><a href="javascript:;" target="_blank" rel="noopener"><strong>▼</strong></a> _┊_<a href="http://blog.sina.com.cn/main_v5/ria/print.html?blog_id=blog_6c7cb60701014ygd" target="_blank" rel="noopener">打印</a>_┊_<a href="#">举报</a></p>
+<p>已投稿到：</p>
+<p> <img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="" title="排行榜"> <a href="http://blog.sina.com.cn/lm/114/113/day.html" target="_blank" rel="noopener">排行榜</a> <img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="" title="圈子"> <a href="http://q.sina.com.cn/blog_groups.php?fid=6c7cb60701014ygd" target="_blank" rel="noopener">圈子</a></p>
+<p>加载中，请稍候……</p>
+<p>前一篇：<a href="http://blog.sina.com.cn/s/blog_6c7cb60701014y8a.html" target="_blank" rel="noopener">bash script for auto install pptpd server</a></p>
+<p>后一篇：<a href="http://blog.sina.com.cn/s/blog_6c7cb60701014zzs.html" target="_blank" rel="noopener">关于pacman Tips 小贴士</a></p>
+<p><strong>评论</strong> <a href="http://blog.sina.com.cn/lm/8/2009/0325/105340.html" target="_blank" rel="noopener">重要提示：警惕虚假中奖信息</a>       <a href="http://blog.sina.com.cn/s/blog_4bb440080102ef01.html?tj=1" target="_blank" rel="noopener">岛国宛如仙境樱花城</a>       <a href="http://sina.allyes.com/main/adfclick?db=sina&amp;bid=118883,251213,256255&amp;cid=0,0,0&amp;sid=247096&amp;advid=358&amp;camid=19809&amp;show=ignore&amp;url=http://weibo.com/blogkefu" target="_blank" rel="noopener">关注每日最热门博客</a> </p>
+<p><a href="#post">[发评论]</a></p>
+<p>–&gt;*   评论加载中，请稍候…<br>–&gt;</p>
+<p><strong>发评论</strong> <a href="http://blog.sina.com.cn/s/blog_4a8a80490102e7zm.html?tj=1" target="_blank" rel="noopener">最适合调情西班牙海湾</a>       <a href="http://sina.allyes.com/main/adfclick?db=sina&amp;bid=118883,251212,256254&amp;cid=0,0,0&amp;sid=247095&amp;advid=358&amp;camid=19809&amp;show=ignore&amp;url=http://weibo.com/blogkefu" target="_blank" rel="noopener">关注每日最热门博客</a></p>
+<p>登录名： 密码： <a href="http://login.sina.com.cn/getpass.html" target="_blank" rel="noopener">找回密码</a> <a href="http://login.sina.com.cn/signup/signup.php?entry=blog&amp;src=blogicp&amp;srcuid=1820112391" target="_blank" rel="noopener">注册</a> 记住登录状态</p>
+<p>昵   称：</p>
+<p> <img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="">分享到微博 <img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="" title="新">    评论并转载此博文<img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="" title="新"></p>
+<p>验证码： 请点击后输入验证码 <a href="#">收听验证码</a></p>
+<p>匿名评论</p>
+<p><a href="javascript:;" target="_blank" rel="noopener">发评论</a></p>
+<p>以上网友发言只代表其个人观点，不代表新浪网的观点或立场。</p>
+<p>&lt; 前一篇<a href="http://blog.sina.com.cn/s/blog_6c7cb60701014y8a.html" target="_blank" rel="noopener">bash script for auto install pptpd server</a></p>
+<p>后一篇 &gt;<a href="http://blog.sina.com.cn/s/blog_6c7cb60701014zzs.html" target="_blank" rel="noopener">关于pacman Tips 小贴士</a></p>
+<p>var voteid=””;</p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">donate</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/206000504">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/codewalkerxie">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/simon-xie-11426829">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/gitment.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: 'archlinux lnmp 一键安装傻瓜脚本0.0.1',
+        owner: 'codewalkertse',
+        repo: 'hexo_blog_codewalker',
+        oauth: {
+            client_id: 'y3cabff4367aa2366b062',
+            client_secret: 'cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b',
+        },
+    })
+    gitment.render('comment-container')
+</script>
+
+</html>

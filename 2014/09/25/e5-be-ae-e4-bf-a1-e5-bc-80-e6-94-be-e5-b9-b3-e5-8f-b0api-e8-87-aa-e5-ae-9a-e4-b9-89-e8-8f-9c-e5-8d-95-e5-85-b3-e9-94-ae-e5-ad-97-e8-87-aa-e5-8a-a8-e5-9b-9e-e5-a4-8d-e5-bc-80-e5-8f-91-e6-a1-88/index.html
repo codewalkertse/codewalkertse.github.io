@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SimonXie的博客">
+    <meta name="keyword"  content="SimonXie">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        微信开放平台api自定义菜单关键字自动回复开发案例 - SimonXie的博客 | SimonXie&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> All magic comess with a price. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Simon Xie</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> All magic comess with a price. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        微信开放平台api自定义菜单关键字自动回复开发案例
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2014-09-25 17:06:57</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#linux" title="linux">linux</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#php" title="php">php</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#weixin" title="weixin">weixin</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>前段时间做了微信开放平台的项目，一下为此项目重点，其实就是<strong>源代码</strong>啦～ 当然删掉了一些数据库的操作以及敏感信息. 并感谢前人共享在网上的资料.更多的信息还请参考官方手册.</p>
+<p>creatMenu();//创建菜单</p>
+<p>$wechatObj = new wechatCallbackapi();<br>$wechatObj-&gt;weixin_run(); //执行接收器方法</p>
+<p>function getCurl($url){//get https的内容<br>    $ch = curl_init();<br>    curl_setopt($ch, CURLOPT_URL,$url);<br>    curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);//不输出内容<br>    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);<br>    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);<br>    $result =  curl_exec($ch);<br>    curl_close ($ch);<br>    return $result;<br>}</p>
+<p>function dataPost($post_string, $url) {//POST方式提交数据<br>    $context = array (‘http’ =&gt; array (‘method’ =&gt; “POST”, ‘header’ =&gt; “User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US) \r\n Accept: <em>/</em>“, ‘content’ =&gt; $post_string ) );<br>    $stream_context = stream_context_create ( $context );<br>    $data = file_get_contents ( $url, FALSE, $stream_context );<br>    return $data;<br>}</p>
+<p>class wechatCallbackapi<br>{<br>    private $fromUsername;<br>    private $toUsername;<br>    private $times;<br>    private $keyword;<br>    private $keyevent;<br>    private $event;<br>    private $default_string_inbuilding = ‘建设中…’;</p>
+<pre><code>public function AutomaticReplyFromMenu($k){
+    //do some CURD
+    return $r;
+}
+public function AutomaticReplyFromKeywordDynamic($k){
+    //do some CURD
+    return $r;
+}
+public function weixin_run(){
+    $this-&gt;responseMsg();
+    // $arr\[\]=array(&quot;title1&quot;,&quot;Description1&quot;,&quot;http://www.chuangen.com/pic/hj/s_4.png&quot;,&quot;http://www.smesc.gov.cn/&quot;);
+    // $arr\[\]=array(&quot;title2&quot;,&quot;Description2&quot;,&quot;http://www.chuangen.com/pic/hj/s_4.png&quot;,&quot;http://www.smesc.gov.cn/&quot;);
+    // $arr\[\]=array(&quot;title3&quot;,&quot;Description3&quot;,&quot;http://www.chuangen.com/pic/hj/s_4.png&quot;,&quot;http://www.smesc.gov.cn/&quot;);
+    // $this-&gt;create_xml(&quot;news&quot;,$arr,array(2,0));
+    $default_string=&quot;
+    这里的信息可以
+    这样设置
+    你返回的微信信息也可以换行
+    拉啦拉啦这里是新的一行&quot;;
+    if($this-&gt;keyword){
+        // $arr\[\]=&quot;$this-&gt;keyword&quot;;
+        // $this-&gt;create_xml(&quot;text&quot;,$arr,array(2,0));
+         //$this-&gt;create_xml(&quot;news&quot;,$arr,array(2,0));
+        //判断关键词自动回复
+        //do something...
+        switch ($this-&gt;keyword) {
+            case &apos;1001&apos;:
+                $r=$this-&gt;AutomaticReplyFromMenu(1001);
+                $this-&gt;create_xml(&quot;news&quot;,$r,array(2,0));
+                break;
+            case &apos;1002&apos;:
+                //按照发送的关键词处理信息
+            case &apos;?&apos;:
+                //keyword default.
+                break;
+            default:
+                $arr\[\]= $default_string;
+                $this-&gt;create_xml(&quot;text&quot;,$arr,array(2,0));
+                break;
+        }
+    }elseif(!$this-&gt;keyword){
+        if ($this-&gt;event==&apos;CLICK&apos;) {//按照自定义菜单的值处理并生成返回信息.
+            switch ($this-&gt;keyevent){
+                case &apos;1001&apos;:
+                    $r=$this-&gt;AutomaticReplyFromMenu(1001);
+                    $this-&gt;create_xml(&quot;news&quot;,$r,array(2,0));
+                  break;
+                case &apos;1002&apos;:
+                    //do some by your keyword.
+                default:
+                  //default.
+        } else {
+            $arr\[\]=$default_string;
+            $this-&gt;create_xml(&quot;text&quot;,$arr,array(2,0));
+        }
+
+        //根据自定义菜单点击事件判断关键词自动回复
+
+    }else{
+        $arr\[\]=$default_string;
+        $this-&gt;create_xml(&quot;text&quot;,$arr,array(2,0));
+    } 
+}   
+
+
+
+// 初始化信息
+// fromUsername
+// toUsername
+// keyword
+// times
+public function responseMsg()// 初始化信息
+{
+    $postStr = $GLOBALS\[&quot;HTTP\_RAW\_POST_DATA&quot;\];
+    if (!empty($postStr)){
+        $postObj = simplexml\_load\_string($postStr, &apos;SimpleXMLElement&apos;, LIBXML_NOCDATA);
+        $this-&gt;fromUsername = $postObj-&gt;FromUserName;
+        $this-&gt;toUsername = $postObj-&gt;ToUserName;
+        $this-&gt;keyword = trim($postObj-&gt;Content);//收到的内容
+        $this-&gt;times = time();
+        $this-&gt;keyevent = $postObj-&gt;EventKey;//事件keyword
+        $this-&gt;event = $postObj-&gt;Event;//事件
+    }else {
+        echo &quot;this file only for weixin API!  
+</code></pre><p><a href="http://codewalker.me" target="_blank" rel="noopener">SA</a>“;<br>            exit;<br>        }<br>    }</p>
+<pre><code>//微信封装类,
+//type: text 文本类型, news 图文类型
+//text,array(内容),array(ID)
+//news,array(array(标题,介绍,图片,超链接),...小于10条),array(条数,ID)
+
+private function create\_xml($type,$value\_arr,$o_arr=array(0)){
+    //=================xml header============
+    $con=&quot; fromUsername}\]\]&gt;
+    toUsername}\]\]&gt;
+    {$this-&gt;times}
+    &quot;;
+
+          //=================type content============
+    switch($type){
+
+        case &quot;text&quot; : 
+            $con.=&quot;
+            {$o_arr}&quot;;  
+            break;
+        case &quot;news&quot; : 
+            $con.=&quot;{$o_arr\[0\]}&quot;;
+            foreach($value_arr as $id=&gt;$v){
+                if($id&gt;=$o_arr\[0\]) break; else null; //判断数组数不超过设置数
+                         $con.=&quot; &lt;!\[CDATA\[{$v\[0\]}\]\]&gt; &quot;;
+            }
+            $con.=&quot;{$o_arr\[1\]}&quot;;
+            break;
+    } //end switch
+
+    //=================end return============
+     echo $con.&quot;&quot;;
+}
+
+//===========default DO NOT MODIFY======//
+public function valid()
+{
+    $echoStr = $_GET\[&quot;echostr&quot;\];
+
+    //valid signature , option
+    if($this-&gt;checkSignature()){
+     echo $echoStr;
+     exit;
+    }
+}
+private function checkSignature()
+{
+        $signature = $_GET\[&quot;signature&quot;\];
+        $timestamp = $_GET\[&quot;timestamp&quot;\];
+        $nonce = $_GET\[&quot;nonce&quot;\]; 
+
+        $token = TOKEN;
+        $tmpArr = array($token, $timestamp, $nonce);
+        sort($tmpArr);
+        $tmpStr = implode( $tmpArr );
+        $tmpStr = sha1( $tmpStr );
+
+        if( $tmpStr == $signature ){
+            return true;
+        }else{
+            return false;
+        }
+}
+//===========default DO NOT MODIFY======//
+</code></pre><p>}</p>
+<p>class WechatMenu<br>{<br>    private function getAccessToken() //获取access_token<br>    {<br>     $url = “<a href="https://api.weixin.qq.com/cgi-bin/token?grant\_type=client\_credential&amp;appid=&quot;.AppId.&quot;&amp;secret=&quot;.AppSecret" target="_blank" rel="noopener">https://api.weixin.qq.com/cgi-bin/token?grant\_type=client\_credential&amp;appid=&quot;.AppId.&quot;&amp;secret=&quot;.AppSecret</a>;<br>     $data = getCurl($url);//通过自定义函数getCurl得到https的内容<br>     $resultArr = json_decode($data, true);//转为数组<br>     return $resultArr[“access_token”];//获取access_token<br>    }</p>
+<pre><code>public function creatMenu()//创建菜单
+{
+    $accessToken = $this-&gt;getAccessToken();//获取access_token
+    $menuPostString = &apos;
+    {
+    &quot;button&quot;: \[
+        {
+            &quot;name&quot;: &quot;资讯&quot;,
+            &quot;sub_button&quot;: \[
+                {
+                    &quot;type&quot;: &quot;click&quot;,
+                    &quot;name&quot;: &quot;通知公告&quot;,
+                    &quot;key&quot;: &quot;1001&quot;
+                },
+                {
+                    &quot;type&quot;: &quot;click&quot;,
+                    &quot;name&quot;: &quot;政策法规&quot;,
+                    &quot;key&quot;: &quot;1002&quot;
+                },
+                {
+                    &quot;type&quot;: &quot;click&quot;,
+                    &quot;name&quot;: &quot;服务体系&quot;,
+                    &quot;key&quot;: &quot;1003&quot;
+                },
+                {
+                    &quot;type&quot;: &quot;click&quot;,
+                    &quot;name&quot;: &quot;手机报&quot;,
+                    &quot;key&quot;: &quot;1004&quot;
+                }
+            \]
+        },
+        {
+            &quot;name&quot;: &quot;E服务&quot;,
+            &quot;sub_button&quot;: \[
+                {
+                    &quot;type&quot;: &quot;click&quot;,
+                    &quot;name&quot;: &quot;服务产品&quot;,
+                    &quot;key&quot;: &quot;2001&quot;
+                },
+                {
+                    &quot;type&quot;: &quot;click&quot;,
+                    &quot;name&quot;: &quot;服务需求&quot;,
+                    &quot;key&quot;: &quot;2002&quot;
+                },
+                {
+                    &quot;type&quot;: &quot;click&quot;,
+                    &quot;name&quot;: &quot;服务专家&quot;,
+                    &quot;key&quot;: &quot;2003&quot;
+                },
+                {
+                    &quot;type&quot;: &quot;click&quot;,
+                    &quot;name&quot;: &quot;订单服务&quot;,
+                    &quot;key&quot;: &quot;2004&quot;
+                }
+            \]
+        },
+        {
+            &quot;name&quot;: &quot;互动&quot;,
+            &quot;sub_button&quot;: \[
+                {
+                    &quot;type&quot;: &quot;click&quot;,
+                    &quot;name&quot;: &quot;调查问卷&quot;,
+                    &quot;key&quot;: &quot;3001&quot;
+                },
+                {
+                    &quot;type&quot;: &quot;click&quot;,
+                    &quot;name&quot;: &quot;联系我们&quot;,
+                    &quot;key&quot;: &quot;3002&quot;
+                }
+            \]
+        }
+    \]
+    }
+    &apos;;
+    $menuPostUrl = &quot;https://api.weixin.qq.com/cgi-bin/menu/create?access_token=&quot;.$accessToken;//POST的url
+    $menu = dataPost($menuPostString, $menuPostUrl);//将菜单结构体POST给微信服务器
+}
+</code></pre><p>}</p>
+<p>class sqltool<br>{<br> //do some sql.<br>}<br>?&gt;</p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">donate</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/206000504">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/codewalkerxie">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/simon-xie-11426829">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/gitment.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: '微信开放平台api自定义菜单关键字自动回复开发案例',
+        owner: 'codewalkertse',
+        repo: 'hexo_blog_codewalker',
+        oauth: {
+            client_id: 'y3cabff4367aa2366b062',
+            client_secret: 'cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b',
+        },
+    })
+    gitment.render('comment-container')
+</script>
+
+</html>

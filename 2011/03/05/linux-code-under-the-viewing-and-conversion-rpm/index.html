@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SimonXie的博客">
+    <meta name="keyword"  content="SimonXie">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Linux下编码的查看与转换（转） - SimonXie的博客 | SimonXie&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> All magic comess with a price. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Simon Xie</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> All magic comess with a price. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Linux下编码的查看与转换（转）
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2011-03-05 14:36:38</span></span>
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>一、文件内容编码的查看与转换（enca或者 iconv）</p>
+<p>在linux做开发或者系统管理遇到乱码是经常的事情，主要windows下中 文的默认编码是gb2312，而linux下是utf-8。很多时候 涉及到和windows平台系统的通信免不了编码的转化，可能大部分人都用iconv库函数（包含在glib中）和iconv命令来执行编码转换，今天我 要推荐的是另一个shell下编码转换工具enca。用它不仅可以转换编码，还可以查看文件的原始编码，使用上也比iconv方便一些。</p>
+<p>enca用法如下：</p>
+<p>enca -L zh_CN file  #检查文件的编码</p>
+<p>enca -L zh_CN -x UTF-8 file  #将文件编码转换为”UTF-8″编码</p>
+<p>enca -L zh_CN -x UTF-8 &lt; file1 &gt; file2  #如果不想覆盖原文件可以这样</p>
+<p>除了有检查文件编码的功能以外，”enca”还有一个好处就是如果文件本来就是你要转换的那种编码，它不会报错，还是会print出结果来， 而”iconv”则会报错。这对于脚本编写是比较方便的事情</p>
+<p>源地址：<a href="http://blog.sina.com.cn/s/blog_44c07fb30100em10.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_44c07fb30100em10.html</a></p>
+<p>======================================================================================</p>
+<p>#安装enca</p>
+<p>yum install enca</p>
+<p>#查询单个文件的编码</p>
+<p>enca index.html</p>
+<p>或者</p>
+<p>enca  -L zh_CN  index.html</p>
+<p>#转换单个文件的编码</p>
+<p>enca -L none -x utf-8  index.html</p>
+<p>#转换批量文件的编码</p>
+<p>find  ./ -type f -name “<em>.htm</em>“ | cat $1 |  sort | grep -v svn &gt;  files.list</p>
+<p>vim enca_list.sh</p>
+<p>插入以下代码：</p>
+<p>#!/bin/sh</p>
+<p>cat $1 | while read LINE</p>
+<p>do</p>
+<p>echo $LINE</p>
+<p>#enca $LINE</p>
+<p>enca -x utf-8 $LINE</p>
+<p>#enca $LINE</p>
+<p>done</p>
+<p>保存退出后</p>
+<p>chmod +x enca_list.sh</p>
+<p>执行脚本： ./enca_list.sh files.list</p>
+<p>源地址：<a href="http://www.itqun.net/content-detail/140488.html" target="_blank" rel="noopener">http://www.itqun.net/content-detail/140488.html</a></p>
+<p>也可以使用：iconv –list  &amp;&amp; iconv -f GB2312 -t UTF-8 baidu.htm &gt; new_baidu.htm</p>
+<p>二、文件名编码的转换 </p>
+<p>从Linux往windows拷贝文件或者从windows往Linux拷贝文件，有时会出现中文文件名乱码的情况，出现这种问题的原因是因为，windows的文件名中文编码默认为GBK，而Linux中默认文件名编码为UTF8，由于编码不一致，所以导致了文件名乱码的问题，解决这个问题需要对文件名进行转码。而在Linux中专门提供了一种工具convmv进行文件名编码的转换，可以将文件名从GBK转换成UTF-8编码，或者从UTF-8转换到GBK</p>
+<p>1、安装convmv</p>
+<p>yum -y install convmv</p>
+<p>2、用法</p>
+<p>convmv -f 源编码 -t 新编码 [选项] 文件名</p>
+<p>常用参数：</p>
+<p>-r  递归处理子文件夹</p>
+<p>–notest  真正进行操作，请注意在默认情况下是不对文件进行真实操作的，而只是试验。</p>
+<p>–list   显示所有支持的编码</p>
+<p>–unescap  可以做一下转义，比如把 变成空格</p>
+<p>例如：我们有一个utf8编码的文件名，转换成GBK编码，命令如下：</p>
+<p>convmv -f UTF-8 -t GBK –notest utf8编码的文件名</p>
+<p>这样转换以后”utf8编码的文件名”会被转换成GBK编码（只是文件名编码的转换，文件内容不会发生变化）</p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">donate</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/206000504">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/codewalkerxie">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/simon-xie-11426829">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/gitment.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: 'Linux下编码的查看与转换（转）',
+        owner: 'codewalkertse',
+        repo: 'hexo_blog_codewalker',
+        oauth: {
+            client_id: 'y3cabff4367aa2366b062',
+            client_secret: 'cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b',
+        },
+    })
+    gitment.render('comment-container')
+</script>
+
+</html>
