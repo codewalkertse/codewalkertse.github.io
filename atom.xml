@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Simon Xie</title>
+  <icon>https://www.gravatar.com/avatar/32db771918c67cb8f4969f34b77012cf</icon>
+  <subtitle>All magic comess with a price.</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://codewalkertse.github.io/"/>
+  <updated>2018-07-14T11:14:13.000Z</updated>
+  <id>https://codewalkertse.github.io/</id>
+  
+  <author>
+    <name>Simon Xie</name>
+    <email>simon.xie@codewalker.me</email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>whats wrong with npm</title>
+    <link href="https://codewalkertse.github.io/2018/07/14/whats-wrong-with-npm/"/>
+    <id>https://codewalkertse.github.io/2018/07/14/whats-wrong-with-npm/</id>
+    <published>2018-07-14T10:42:25.000Z</published>
+    <updated>2018-07-14T11:14:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="WTF-不知道为啥升级Node导致了npm用不了了"><a href="#WTF-不知道为啥升级Node导致了npm用不了了" class="headerlink" title="WTF 不知道为啥升级Node导致了npm用不了了"></a>WTF 不知道为啥升级Node导致了npm用不了了</h2><h3 id="悲剧的起源还是来自于最近折腾的Hexo"><a href="#悲剧的起源还是来自于最近折腾的Hexo" class="headerlink" title="悲剧的起源还是来自于最近折腾的Hexo"></a>悲剧的起源还是来自于最近折腾的Hexo</h3><h4 id="hexo-wordcount"><a href="#hexo-wordcount" class="headerlink" title="hexo-wordcount"></a>hexo-wordcount</h4><p>悲剧的开始是之前在安装<code>hexo-wordcount</code>的时候一直给我说<code>Error: Unable to call &#39;wordcount&#39;, which is undefined or falsey</code>就以为是这个插件安装的时候的问题，在反复<code>安装 卸载 安装 卸载</code>*n</p><h4 id="难道是nunjucks转义出问题了"><a href="#难道是nunjucks转义出问题了" class="headerlink" title="难道是nunjucks转义出问题了?"></a>难道是nunjucks转义出问题了?</h4><p>非法字符又去修改<code>nunjucks</code>中的转义文件<code>src/lib.js</code>完全是在乱弄。</p><h4 id="难道是npm出问题了"><a href="#难道是npm出问题了" class="headerlink" title="难道是npm出问题了?"></a>难道是npm出问题了?</h4><p>结果还是不行索性重装了<code>npm</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -0 -L http://npmjs.org/install.sh | sudo sh</span><br></pre></td></tr></table></figure><p>欲哭无泪的感觉一样还是不行，现在到好了<code>npm -v</code>都不行了。可是尼玛明明node全家桶已经安装好了啊。<br>于是<code>which npm</code>查看尼玛 npm木有了。<br>现在才想起来Node全家桶是拿<code>Brew</code>装的哦<br>如果我再手动安装肯定会有冲突我这不是在脑残是什么.</p><h4 id="难道是Node版本不匹配"><a href="#难道是Node版本不匹配" class="headerlink" title="难道是Node版本不匹配?"></a>难道是Node版本不匹配?</h4><p>那么就<code>reinstall node 到最新版</code>吧很简单</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; node -v</span><br><span class="line">v10.6.0</span><br><span class="line">brew reisntall node</span><br></pre></td></tr></table></figure><p>肯定没问题撒，老司机出马安个软件还会有问题吗?结果悲剧又发生了…<br>安装完之后告诉我说需要<code>brew postinstall node</code><br>WHT</p><blockquote><p>  Permission denied @ rb_sysopen - /usr/local/lib/node_modules/npm/.npmignore<br>    /usr/local/lib/node_modules<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">drwxr-xr-x   9 codewalkertes  admin   288B Nov 23  2017 cnpm</span><br><span class="line">drwxr-xr-x   9 codewalkertes  admin   288B Nov 23  2017 express</span><br><span class="line">drwxr-xr-x   9 codewalkertes  admin   288B Nov 23  2017 grunt-cli</span><br><span class="line">drwxr-xr-x  16 codewalkertes  admin   512B Jul 13 17:58 hexo-cli</span><br><span class="line">drwxr-xr-x   7 codewalkertes  admin   224B Jul 14 15:59 n</span><br><span class="line">drwxr-xr-x  25 root           admin   800B Jul 14 16:07 npm</span><br></pre></td></tr></table></figure></p></blockquote><p>看吧自己种下的恶果还是要自己吃下去才行。都是因为之前sudo安装造成的。不怕生命还是在于折腾把虽然这都三十好几了.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R codewalkertes npm</span><br></pre></td></tr></table></figure></p><h2 id="Voila"><a href="#Voila" class="headerlink" title="Voilà"></a>Voilà</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm -v</span><br><span class="line">6.1.0</span><br></pre></td></tr></table></figure><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>遇到问题了还是要想办法<code>debug</code>, 这次主要原因还是因为手动安装和Brew安装起了冲突所致。<br>总结嘛吃一堑长一智，不过有时候真是也因为记性的原因或者现代软件包管理的原因太过于复杂了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;WTF-不知道为啥升级Node导致了npm用不了了&quot;&gt;&lt;a href=&quot;#WTF-不知道为啥升级Node导致了npm用不了了&quot; class=&quot;headerlink&quot; title=&quot;WTF 不知道为啥升级Node导致了npm用不了了&quot;&gt;&lt;/a&gt;WTF 不知道为啥升级
+      
+    
+    </summary>
+    
+    
+      <category term="MacOS" scheme="https://codewalkertse.github.io/tags/MacOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>what plugs I installed</title>
+    <link href="https://codewalkertse.github.io/2018/07/14/what-plugs-I-installed/"/>
+    <id>https://codewalkertse.github.io/2018/07/14/what-plugs-I-installed/</id>
+    <published>2018-07-14T07:00:06.000Z</published>
+    <updated>2018-07-14T11:14:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>迁移到Hexo之后首要的是先学习MD语法其次再慢慢的安装一些适合的插件，这里就慢慢的列出来吧</p><h3 id="订阅"><a href="#订阅" class="headerlink" title="订阅"></a>订阅</h3><p>首先是订阅订阅插件, 虽然没什么人看为了方便还是提供一下这个功能吧 嘻嘻~</p><ol><li><p>在你的项目文件的根目录执行，先安装<code>hexo-generator-feed</code>插件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-generator-feed</span><br></pre></td></tr></table></figure></li><li><p>编辑Hexo的配置文件<code>_config.yml</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim _config.yml</span><br></pre></td></tr></table></figure><p>找到<code>#Extensions</code> 之后添加变成这样</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line">plugins: hexo-generate-feed</span><br><span class="line"><span class="comment">#Feed Atom</span></span><br><span class="line">feed:</span><br><span class="line">    <span class="built_in">type</span>: atom</span><br><span class="line">    path: atom.xml</span><br><span class="line">    <span class="built_in">limit</span>: 20</span><br></pre></td></tr></table></figure></li><li><p>生成<code>rss文件</code>就可以看到效果了</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure><p>之后就可以看到<code>/public/atom.xml</code>已经按照上面配置的参数生成了</p></li></ol><h3 id="字数统计"><a href="#字数统计" class="headerlink" title="字数统计"></a>字数统计</h3><ol><li><p>安装<code>hexo-wordcount</code>字数统计</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-wordcount --save</span><br></pre></td></tr></table></figure></li><li><p>随便在<code>footer</code>或者什么通用文件的最下面加入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span class=<span class="string">"post-count"</span>&gt;Words count: wordcount(site) 字&lt;/span&gt;</span><br></pre></td></tr></table></figure></li></ol><ul><li>notice *<br>这里可能会遇见<code>Error: Unable to call</code>wordcount<code>, which is undefined or falsey</code>的问题那是因为node版本太低所致<br>可以安装低版本的<code>words count</code>或者升级<code>node</code></li></ul><h4 id="查看升级Node"><a href="#查看升级Node" class="headerlink" title="查看升级Node"></a>查看升级Node</h4><p>然后嫩，悲剧的事情发生了导致npm直接<code>command not found: npm</code>这就是后话了可以<a href="#">查看杯具</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;迁移到Hexo之后首要的是先学习MD语法其次再慢慢的安装一些适合的插件，这里就慢慢的列出来吧&lt;/p&gt;
+&lt;h3 id=&quot;订阅&quot;&gt;&lt;a href=&quot;#订阅&quot; class=&quot;headerlink&quot; title=&quot;订阅&quot;&gt;&lt;/a&gt;订阅&lt;/h3&gt;&lt;p&gt;首先是订阅订阅插件, 虽然没什么
+      
+    
+    </summary>
+    
+    
+      <category term="杂谈" scheme="https://codewalkertse.github.io/tags/%E6%9D%82%E8%B0%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hello hexo</title>
+    <link href="https://codewalkertse.github.io/2018/07/14/hello-hexo/"/>
+    <id>https://codewalkertse.github.io/2018/07/14/hello-hexo/</id>
+    <published>2018-07-13T16:08:51.000Z</published>
+    <updated>2018-07-13T16:47:55.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天终于把github+hexo搭建好了中间也踩了不少的坑也要感谢前辈们在网上分享的经验,感谢在最后.</p><ol><li><p>首先是发布不了<br> Google了之后才发现是没有安装发布插件，很简单装好就ok了</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></li><li><p>然后是</p><blockquote><p>Deployer not found: git<br>起码Google了两分钟，都说的是1的问题。想应该是repo地址的问题，不应该是http的地址，应为按照教程来说之前配置过ssh那么就应该是ssh的方式commit，那么立即改成ssh git地址， it’s works。<br>修改_config.yml中找到repo<br>由<br><code>https://github.com/codewalkertse/codewalkertse.github.io.git</code><br>改成<br><code>git@github.com:codewalkertse/codewalkertse.github.io.git</code><br> 就好了.</p></blockquote></li><li><p>这个问题更无厘头了。已经commit了为啥给我显示 <code>There isn&#39;t a GitHub Pages site here.</code> 喃？</p><p> 还是来修改_config.yml找到 &gt; url: 修改成</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url: https://codewalkertse.github.io</span><br></pre></td></tr></table></figure><p> ok 这样就可以直接访问<a href="https://codewalkertse.github.io">我的hexo]</a>搭建的最初版本了</p></li></ol><p>感谢<br>    <a href="http://baixin.io" target="_blank" rel="noopener">baixin.io</a><br>    <a href="https://segmentfault.com/a/1190000005624504" target="_blank" rel="noopener">jsyzchen</a><br>    <a href="https://formulahendry.github.io/2016/12/04/hexo-ci/" target="_blank" rel="noopener">formulahendry</a></p><p>Markdown语法还不是很熟悉排版简直惨不忍睹见谅</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天终于把github+hexo搭建好了中间也踩了不少的坑也要感谢前辈们在网上分享的经验,感谢在最后.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;首先是发布不了&lt;br&gt; Google了之后才发现是没有安装发布插件，很简单装好就ok了&lt;/p&gt;
+ &lt;figure class=&quot;highl
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://codewalkertse.github.io/2018/07/13/hello-world/"/>
+    <id>https://codewalkertse.github.io/2018/07/13/hello-world/</id>
+    <published>2018-07-13T12:33:48.000Z</published>
+    <updated>2018-07-13T12:33:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>python reverse iterator and generator ways</title>
+    <link href="https://codewalkertse.github.io/2018/07/12/python-reverse-iterator-way/"/>
+    <id>https://codewalkertse.github.io/2018/07/12/python-reverse-iterator-way/</id>
+    <published>2018-07-12T15:30:50.000Z</published>
+    <updated>2018-07-14T03:22:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line">\<span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line">\<span class="comment"># @Date    : 2018-07-12 23:20:45</span></span><br><span class="line">\<span class="comment"># @Author  : Simon (simon.xie@codewalker.meg)</span></span><br><span class="line">\<span class="comment"># @Link    : http://www.codewalker.me</span></span><br><span class="line">\<span class="comment"># @Version : 1.0.0</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ReverseIterator</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> \<span class="title">_</span>\<span class="title">_init</span>\<span class="title">_</span>\<span class="title">_</span><span class="params">(self, str_data)</span>:</span></span><br><span class="line">        self.str\_data = str\_data</span><br><span class="line">        self.index = len(str_data)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> \<span class="title">_</span>\<span class="title">_iter</span>\<span class="title">_</span>\<span class="title">_</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line">    <span class="function"><span class="keyword">def</span> \<span class="title">_</span>\<span class="title">_next</span>\<span class="title">_</span>\<span class="title">_</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.index == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">raise</span> StopIteration</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.index = self.index - <span class="number">1</span></span><br><span class="line">            <span class="keyword">return</span> self.str_data\[self.index\]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reservse_genertor</span><span class="params">(data)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> range(len(data)<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>):</span><br><span class="line">        <span class="keyword">yield</span> data\[index\]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    example_string = <span class="string">'simon.xie'</span> </span><br><span class="line">    ri = ReverseIterator(example_string)</span><br><span class="line">    new\_str\_list = \[\]</span><br><span class="line">    <span class="keyword">for</span> char <span class="keyword">in</span> ri:</span><br><span class="line">        new\_str\_list.append(char)</span><br><span class="line">    print(<span class="string">''</span>.join(new\_str\_list))</span><br><span class="line"></span><br><span class="line">    other\_str\_list = \[\]</span><br><span class="line">    rg = reservse\_genertor(example\_string)</span><br><span class="line">    <span class="keyword">for</span> char <span class="keyword">in</span> rg:</span><br><span class="line">        other\_str\_list.append(char)</span><br><span class="line">    print(<span class="string">''</span>.join(other\_str\_list))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> \_\_name\_\_ == <span class="string">"\_\_main\_\_"</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span clas
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://codewalkertse.github.io/categories/python/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>python fib nums using iterator</title>
+    <link href="https://codewalkertse.github.io/2018/07/12/python-fib-nums-using-iterator/"/>
+    <id>https://codewalkertse.github.io/2018/07/12/python-fib-nums-using-iterator/</id>
+    <published>2018-07-12T15:11:14.000Z</published>
+    <updated>2018-07-13T12:49:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>#!/usr/bin/env python3<br># -<em>- coding: utf-8 -</em>-<br># @Date    : 2018-07-12 22:59:07<br># @Author  : Simon (<a href="mailto:simon.xie@codewalker.meg" target="_blank" rel="noopener">simon.xie@codewalker.meg</a>)<br># @Link    : <a href="http://www.codewalker.me" target="_blank" rel="noopener">http://www.codewalker.me</a><br># @Version : 1.0.0</p><p>class Fib:<br>    def __init__(self):<br>        self.prev = 0<br>        self.curr = 1<br>    def __iter__(self):<br>        return self<br>    def __next__(self):<br>        self.curr, self.prev = self.prev + self.curr, self.curr<br>        return self.curr</p><p>def main():<br>    fib = Fib()<br>    fib_list = []<br>    for _ in range(10):<br>        fib_list.append(next(fib))<br>    print(fib_list)<br>if __name__ == “__main__“:<br>    main()</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#!/usr/bin/env python3&lt;br&gt;# -&lt;em&gt;- coding: utf-8 -&lt;/em&gt;-&lt;br&gt;# @Date    : 2018-07-12 22:59:07&lt;br&gt;# @Author  : Simon (&lt;a href=&quot;mailto:simon
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://codewalkertse.github.io/categories/python/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>python fib nums using generator</title>
+    <link href="https://codewalkertse.github.io/2018/07/12/python-fib-nums-using-generator/"/>
+    <id>https://codewalkertse.github.io/2018/07/12/python-fib-nums-using-generator/</id>
+    <published>2018-07-12T14:57:50.000Z</published>
+    <updated>2018-07-13T12:49:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>#!/usr/bin/env python3<br># -<em>- coding: utf-8 -</em>-<br># @Date    : 2018-07-12 22:48:30<br># @Author  : Simon (<a href="mailto:simon.xie@codewalker.meg" target="_blank" rel="noopener">simon.xie@codewalker.meg</a>)<br># @Link    : <a href="http://www.codewalker.me" target="_blank" rel="noopener">http://www.codewalker.me</a><br># @Version : 1.0.0</p><p>def fib_num_generator():<br>    a, b = 0, 1<br>    while True:<br>        a, b = b, a + b<br>        yield a</p><p>def main():<br>    f = fib_num_generator()<br>    fib_list = []<br>    for _ in range(10):<br>        fib_list.append(next(f))<br>    print(fib_list)<br>if __name__ == “__main__“:<br>    main()</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#!/usr/bin/env python3&lt;br&gt;# -&lt;em&gt;- coding: utf-8 -&lt;/em&gt;-&lt;br&gt;# @Date    : 2018-07-12 22:48:30&lt;br&gt;# @Author  : Simon (&lt;a href=&quot;mailto:simon
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://codewalkertse.github.io/categories/python/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>python iterator generator yield first look</title>
+    <link href="https://codewalkertse.github.io/2018/07/12/python-iterator-generator-yield-first-look/"/>
+    <id>https://codewalkertse.github.io/2018/07/12/python-iterator-generator-yield-first-look/</id>
+    <published>2018-07-12T14:29:14.000Z</published>
+    <updated>2018-07-13T12:49:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>#!/usr/bin/env python3<br># -<em>- coding: utf-8 -</em>-<br># @Date    : 2018-07-12 16:14:53<br># @Author  : Simon (<a href="mailto:simon.xie@codewalker.meg" target="_blank" rel="noopener">simon.xie@codewalker.meg</a>)<br># @Link    : <a href="http://www.codewalker.me" target="_blank" rel="noopener">http://www.codewalker.me</a><br># @Version : 1.0.0<br>a_list = [ x  for x in range(5)]<br>print(‘we have a list: {}’.format(a_list))<br>pick_one_item = iter(a_list)<br>print(next(pick_one_item))<br>print(next(pick_one_item))<br>print(next(pick_one_item))<br>print(next(pick_one_item))<br>print(next(pick_one_item))<br># print(next(pick_one_item))<br># Traceback (most recent call last):<br>#   File “/Users/codewalkertes/Documents/script/python/yield_produce_consume.py”, line 15, in #     print(next(pick_one_item))<br># StopIteration<br>print(‘now we can see each of them we call next(), it will pick one item of list’)<br>print(‘But notic that it will throght out a stopIteration exception when cross the bounds’)<br>print(‘-‘*20)</p><p>def native_way(n):<br>    num, nums = 0, []<br>    while num &lt; n:<br>        nums.append(num)<br>        num += 1<br>    return nums</p><p>def genrator_way(n):<br>    num = 0<br>    while num &lt; n:<br>        yield num<br>        num += 1<br>print(sum(native_way(100)))<br>print(sum(genrator_way(100)))<br>print(‘-‘*20)</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#!/usr/bin/env python3&lt;br&gt;# -&lt;em&gt;- coding: utf-8 -&lt;/em&gt;-&lt;br&gt;# @Date    : 2018-07-12 16:14:53&lt;br&gt;# @Author  : Simon (&lt;a href=&quot;mailto:simon
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://codewalkertse.github.io/categories/python/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>tax calculator</title>
+    <link href="https://codewalkertse.github.io/2018/07/12/tax-calculator/"/>
+    <id>https://codewalkertse.github.io/2018/07/12/tax-calculator/</id>
+    <published>2018-07-12T09:24:58.000Z</published>
+    <updated>2018-07-13T12:49:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>#!/usr/bin/env python3<br># -<em>- coding: utf-8 -</em>-<br># @Date    : 2018-07-12 16:14:53<br># @Author  : Simon (<a href="mailto:simon.xie@codewalker.meg" target="_blank" rel="noopener">simon.xie@codewalker.meg</a>)<br># @Link    : <a href="http://www.codewalker.me" target="_blank" rel="noopener">http://www.codewalker.me</a><br># @Version : 1.0.0</p><p>import sys, bisect</p><p>def tax_calculator(income):<br>    if income &lt; 5000:<br>        return 0.0<br>    above = income - 5000<br>    ranges = [ 0, 1500, 4500, 9000, 35000, 55000, 80000 ]<br>    rate = [ .03, .1, .2, .25, .30, .35, .45 ]<br>    i =  bisect.bisect_left(ranges, above)<br>    j = 0<br>    tax = 0.0<br>    while j &lt; i:<br>        if j + 1 &lt; i:<br>            tax += (ranges[j+1]-ranges[j])<em>rate[j]<br>        else:<br>            tax += (above-ranges[j]) </em> rate[j]<br>        j += 1<br>    return tax<br>def main(income):<br>    tax = tax_calculator(income)<br>    print(‘Tax is {}’.format(tax))</p><p>if __name__ == “__main__“:<br>    if len(sys.argv) &lt; 2:<br>        print(‘Usage: {} ‘.format(sys.argv[0]))<br>        sys.exit(1)<br>    main(float(sys.argv[1]))</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;#!/usr/bin/env python3&lt;br&gt;# -&lt;em&gt;- coding: utf-8 -&lt;/em&gt;-&lt;br&gt;# @Date    : 2018-07-12 16:14:53&lt;br&gt;# @Author  : Simon (&lt;a href=&quot;mailto:simon
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://codewalkertse.github.io/categories/python/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>mysql ORDER BY Optimization</title>
+    <link href="https://codewalkertse.github.io/2018/07/12/mysql-order-by-optimization/"/>
+    <id>https://codewalkertse.github.io/2018/07/12/mysql-order-by-optimization/</id>
+    <published>2018-07-12T04:39:22.000Z</published>
+    <updated>2018-07-13T14:20:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>See table structure<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">desc t1;</span><br><span class="line">+<span class="comment">----+-----+</span></span><br><span class="line">| id | num |</span><br><span class="line">+<span class="comment">----+-----+</span></span><br><span class="line">|  1 |  -1 |</span><br><span class="line">|  2 |   0 |</span><br><span class="line">|  3 |   1 |</span><br><span class="line">|  4 |   2 |</span><br><span class="line">|  5 |   3 |</span><br><span class="line">|  6 |   4 |</span><br><span class="line">|  7 |   5 |</span><br><span class="line">+<span class="comment">----+-----+</span></span><br></pre></td></tr></table></figure></p><p>How to get a result by select which is num=3 at the first of list? #1</p><p>select * from t1 order by case when num = 3 then 1 else 0 end desc, num asc;</p><p>Making suborder, it will make a subfield invisible when num=3 and it’s value is 1 and others is 0. #2<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">users</span> <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">field</span>(<span class="keyword">num</span>,<span class="number">3</span>) <span class="keyword">desc</span>,<span class="keyword">num</span> <span class="keyword">asc</span>;</span><br></pre></td></tr></table></figure></p><p>Same way to do it again. Than we can get select result like this:<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">idnum</span><br><span class="line">53</span><br><span class="line">1-1</span><br><span class="line">20</span><br><span class="line">31</span><br><span class="line">42</span><br><span class="line">64</span><br><span class="line">75</span><br></pre></td></tr></table></figure></p><p>Those are super genius ways to pick some row out for some reason. but #1 is more easier to comprehend. 今天干活的时候遇到了一个非常无语的问题，产品列表中因为业务问题又又又又又又要调整顺序。 谁让他是老板呢 就是这么随性。 这次是一个很少用到的特别的排序问题。需要把某个Column等于特殊值的rows放在前面。 几经搜索后发现了上面的方法。其实就是分条件搜索都一种应用，case then 更便于理解. EOF.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;See table structure&lt;br&gt;&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;
+      
+    
+    </summary>
+    
+      <category term="database" scheme="https://codewalkertse.github.io/categories/database/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>hailstone Python_alogorithm</title>
+    <link href="https://codewalkertse.github.io/2018/07/07/hailstone-python-alogorithm/"/>
+    <id>https://codewalkertse.github.io/2018/07/07/hailstone-python-alogorithm/</id>
+    <published>2018-07-07T14:43:50.000Z</published>
+    <updated>2018-07-13T13:56:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3 </span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*- </span></span><br><span class="line"><span class="comment"># @Date : 2018-07-07 17:23:04 </span></span><br><span class="line"><span class="comment"># @Author : Simon (simon.xie@codewalker.meg) </span></span><br><span class="line"><span class="comment"># @Link : http://www.codewalker.me </span></span><br><span class="line"><span class="comment"># @Version : 1.0.0 </span></span><br><span class="line"><span class="keyword">import</span> os </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hailstone</span><span class="params">(n)</span>:</span> </span><br><span class="line">  hai_list = [] </span><br><span class="line">  <span class="keyword">while</span> n &gt; <span class="number">1</span>: </span><br><span class="line">    hai_list.append(n) </span><br><span class="line">    <span class="keyword">if</span> n%<span class="number">2</span>: </span><br><span class="line">    <span class="comment">#奇数 </span></span><br><span class="line">      n = <span class="number">3</span>*n + <span class="number">1</span> </span><br><span class="line">    <span class="keyword">else</span>: </span><br><span class="line">    <span class="comment">#偶数 </span></span><br><span class="line">      n = n//<span class="number">2</span> </span><br><span class="line">  <span class="keyword">else</span>: </span><br><span class="line">    hai_list.append(<span class="number">1</span>) </span><br><span class="line">  <span class="keyword">return</span> hai_list </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_result</span><span class="params">(r)</span>:</span> </span><br><span class="line">  length=len(r) </span><br><span class="line">  print(<span class="string">'list:&#123;list&#125;\nlength:&#123;length&#125;'</span>.format(list=r,length=length)) </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>: </span><br><span class="line">  print_result(hailstone(<span class="number">7</span>)) </span><br><span class="line">  print(<span class="string">'*'</span>*<span class="number">80</span>) print_result(hailstone(<span class="number">27</span>))`</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span clas
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://codewalkertse.github.io/categories/python/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>sum_recursion python_alogorithm</title>
+    <link href="https://codewalkertse.github.io/2018/07/07/sum-recursion-python-alogorithm/"/>
+    <id>https://codewalkertse.github.io/2018/07/07/sum-recursion-python-alogorithm/</id>
+    <published>2018-07-07T14:42:09.000Z</published>
+    <updated>2018-07-13T12:49:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>#!/usr/bin/env python3# -*- coding: utf-8 -*-# @Date    : 2018-07-07 21:54:33# @Author  : Simon (simon.xie@codewalker.meg)# @Link    : http://www.codewalker.me# @Version : 1.0.0import osfrom random import randintdef create_list(length=10):    return [ randint(0,10) for _ in range(length) ]def wrapper(func):    def wrapper(*arg, **kwargs):        # --- 附加功能 ---        print(&apos;calling{}..&apos;.format(func.__name__))        return func(*arg, **kwargs)    return wrapper@wrapperdef sum_normal(l):    sum_for_list = 0    for i in l:        sum_for_list += i    return sum_for_list@wrapperdef sum_recursion(l):    if l == []:        return 0    return l[0] + sum_recursion(l[1:])def main():    l = create_list(3)        print(&apos;list:{l}\nsum:{sum}&apos;.format(l=l,sum=sum_normal(l)))    print(&apos;-&apos;*80)    print(&apos;list:{l}\nsum:{sum}&apos;.format(l=l,sum=sum_recursion(l)))if __name__ == &quot;__main__&quot;:    main()</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;pre&gt;&lt;code&gt;#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# @Date    : 2018-07-07 21:54:33
+# @Author  : Simon (simon.xie@codewalker.meg)
+# @
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://codewalkertse.github.io/categories/python/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>#WTH url_for with Flask</title>
+    <link href="https://codewalkertse.github.io/2018/07/04/wth-url-for-with-flask/"/>
+    <id>https://codewalkertse.github.io/2018/07/04/wth-url-for-with-flask/</id>
+    <published>2018-07-04T08:33:40.000Z</published>
+    <updated>2018-07-13T14:27:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="http://codewalker.me/wp-content/uploads/2018/07/1530692660635.jpg" alt="flask url_for"> </p><h3 id="The-endpoint-in-url-for-MUST-be-your-function-name-NOT-your-auth-route-path"><a href="#The-endpoint-in-url-for-MUST-be-your-function-name-NOT-your-auth-route-path" class="headerlink" title="The endpoint in url_for(), MUST be your function name. NOT your @auth.route path"></a>The endpoint in url_for(), MUST be your function name. NOT your @auth.route path</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;http://codewalker.me/wp-content/uploads/2018/07/1530692660635.jpg&quot; alt=&quot;flask url_for&quot;&gt; &lt;/p&gt;
+&lt;h3 id=&quot;The-endpoint-in-url-for-MU
+      
+    
+    </summary>
+    
+      <category term="web" scheme="https://codewalkertse.github.io/categories/web/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Are you scare.</title>
+    <link href="https://codewalkertse.github.io/2018/06/10/are-you-scare/"/>
+    <id>https://codewalkertse.github.io/2018/06/10/are-you-scare/</id>
+    <published>2018-06-10T12:37:45.000Z</published>
+    <updated>2018-07-13T12:49:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>随着年岁的增加，随着社会阅历的丰富. 当你进入人生这场戏剧的剧场, 在窥视这幕布后面人性之后, 所感受到的Cthulhu式的恐惧感和无力感时. 年幼时心中的那些花朵, 早已不知在何时枯萎凋谢. 眼 不得不随着你的视野而打开; 脑 不得不随着你的经验而思考; 身 不得不随着你的体验而防御; 盔甲 不得不随着经历或未经历的事情而披上. 珍惜每一个应该珍惜的身边人， 即使你根本没有意识到他们或她们为了你付出了什么. 远离每一个应该远离的身边人， 即使你根本没有意识到他们或她们伤害你了什么. 即使身处黑暗的隧道之中， 但也不要忘记前方的光明 即使身处风雨之中， 但也不要忘记雨后的彩虹. May God bless you &amp; me. EOF</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;随着年岁的增加，随着社会阅历的丰富. 当你进入人生这场戏剧的剧场, 在窥视这幕布后面人性之后, 所感受到的Cthulhu式的恐惧感和无力感时. 年幼时心中的那些花朵, 早已不知在何时枯萎凋谢. 眼 不得不随着你的视野而打开; 脑 不得不随着你的经验而思考; 身 不得不随着你
+      
+    
+    </summary>
+    
+      <category term="杂谈" scheme="https://codewalkertse.github.io/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>DOWNLOAD FILES AND TRANSCODING THEN MAILING THEM ALL AUTOMATICALLY</title>
+    <link href="https://codewalkertse.github.io/2017/12/21/download-files-and-transcoding-then-mailing-them-all-automatically-3/"/>
+    <id>https://codewalkertse.github.io/2017/12/21/download-files-and-transcoding-then-mailing-them-all-automatically-3/</id>
+    <published>2017-12-21T06:28:08.000Z</published>
+    <updated>2018-07-13T14:00:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line"><span class="comment">#version 2.1</span></span><br><span class="line"><span class="comment">#auther simon@codewalker.me</span></span><br><span class="line">LF=/var/<span class="built_in">log</span>/statement/daily/statement.log</span><br><span class="line"></span><br><span class="line"><span class="comment">#current work directory</span></span><br><span class="line">CW=<span class="string">'/path/to/work/space'</span></span><br><span class="line">YESTERDAY=\`date +%Y%m%d -d <span class="string">'yesterday'</span>\`</span><br><span class="line"><span class="keyword">if</span> \[ <span class="variable">$1</span> \]; <span class="keyword">then</span></span><br><span class="line">YESTERDAY=<span class="variable">$1</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">download ()</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> \[ -f <span class="string">"Statement/zip/<span class="variable">$YESTERDAY</span>.Statement.zip"</span> \]; <span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Already sending <span class="variable">$YESTERDAY</span>.statement"</span> | tee -a <span class="variable">$LF</span></span><br><span class="line"><span class="built_in">read</span> -n1 -p <span class="string">"Do you want force to send mail \[Y|N\]? "</span> current_input</span><br><span class="line"><span class="keyword">case</span> <span class="variable">$current_input</span> <span class="keyword">in</span></span><br><span class="line">Y|y)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Downloading <span class="variable">$&#123;YESTERDAY&#125;</span>_zhye-yh-cqg.zip file"</span> | tee -a <span class="variable">$LF</span></span><br><span class="line">curl <span class="string">"http://www.someurl.com/files"</span></span><br><span class="line">;;</span><br><span class="line">N|n)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'Choice no. exit'</span> | tee -a <span class="variable">$LF</span></span><br><span class="line">;;</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="keyword">if</span> \[ ! -f <span class="string">"download/<span class="variable">$YESTERDAY</span>/<span class="variable">$YESTERDAY</span>"</span>_zhye-yh-cqg.zip \];<span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Downloading <span class="variable">$&#123;YESTERDAY&#125;</span>_zhye-yh-cqg.zip file"</span> | tee -a <span class="variable">$LF</span></span><br><span class="line">curl <span class="string">"http://www.someurl.com/files"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Found <span class="variable">$&#123;YESTERDAY&#125;</span>_*.zip zips will not download..."</span> | tee -a <span class="variable">$LF</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">makedirs()</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> \[ ! -x <span class="string">"Statement/utf8/<span class="variable">$YESTERDAY</span>"</span> \]; <span class="keyword">then</span>  </span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Making dirs utf8/<span class="variable">$YESTERDAY</span>"</span> | tee -a <span class="variable">$LF</span></span><br><span class="line">mkdir -p <span class="string">"Statement/utf8/<span class="variable">$YESTERDAY</span>/"</span> </span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"dir Statement/utf8/<span class="variable">$YESTERDAY</span> existed."</span> |tee -a <span class="variable">$LF</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> \[ ! -x <span class="string">"Statement/zip/"</span> \]; <span class="keyword">then</span>  </span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Making dir zip"</span> | tee -a <span class="variable">$LF</span></span><br><span class="line">mkdir -p <span class="string">"Statement/zip/"</span> </span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'dir Statement/zip/ existed.'</span> | tee -a <span class="variable">$LF</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> \[ ! -x <span class="string">"Statement/GBK/<span class="variable">$YESTERDAY</span>"</span> \]; <span class="keyword">then</span>  </span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Making dirs GBK/<span class="variable">$YESTERDAY</span>"</span> | tee -a <span class="variable">$LF</span></span><br><span class="line">mkdir -p <span class="string">"Statement/GBK/<span class="variable">$YESTERDAY</span>/"</span> </span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"dir Statement/GBK/<span class="variable">$YESTERDAY</span> existed."</span> | tee -a <span class="variable">$LF</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">unzipFiles()</span><br><span class="line">&#123;</span><br><span class="line">targetFile=\`ls Statement/GBK/<span class="variable">$YESTERDAY</span>/ | wc -l\` </span><br><span class="line"><span class="keyword">if</span> \[ <span class="string">"<span class="variable">$targetFile</span>"</span> -ge <span class="string">'1'</span> \];<span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"GBK/<span class="variable">$YESTERDAY</span>/*.csv found, will not unzip file"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="keyword">if</span> \[ -f <span class="string">"download/<span class="variable">$YESTERDAY</span>/<span class="variable">$&#123;YESTERDAY&#125;</span>_zhye-yh-cqg.zip"</span> \];<span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Finding *.zip then unzip them"</span>| tee -a <span class="variable">$LF</span></span><br><span class="line">find download -name <span class="string">"*.zip"</span> -<span class="built_in">exec</span> unzip -o -d Statement/GBK/<span class="variable">$YESTERDAY</span> &#123;&#125; \\;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">       <span class="built_in">echo</span> <span class="string">"Zip file download/<span class="variable">$YESTERDAY</span>/<span class="variable">$&#123;YESTERDAY&#125;</span>_zhye-yh-cqg.zip no found. Download failed"</span> | tee -a <span class="variable">$LF</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line">clearFiles()</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Clear up...*.zip"</span>| tee -a <span class="variable">$LF</span></span><br><span class="line">find download -name <span class="string">"*.zip"</span> -<span class="built_in">exec</span> rm -f &#123;&#125; \\;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">transaferFiles()</span><br><span class="line">&#123;</span><br><span class="line">targetFile=\`ls Statement/GBK/<span class="variable">$YESTERDAY</span>/ | wc -l\` </span><br><span class="line"><span class="keyword">if</span> \[ <span class="string">"<span class="variable">$targetFile</span>"</span> -ge <span class="string">'1'</span> \];<span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Encoding start..."</span> | tee -a <span class="variable">$LF</span></span><br><span class="line">files=\`find Statement/GBK/<span class="variable">$YESTERDAY</span> -name <span class="string">"*.csv"</span>\`</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"iconf GBK to UTF8"</span> | tee -a <span class="variable">$LF</span></span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> <span class="variable">$files</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  filename=\`basename <span class="variable">$file</span>\`</span><br><span class="line">  iconv -f GBK -t UTF-8 -c <span class="variable">$file</span> &gt; Statement/utf8/<span class="variable">$YESTERDAY</span>/<span class="variable">$filename</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"GBK/<span class="variable">$YESTERDAY</span>/<span class="variable">$YESTERDAY</span>/.csv files no found"</span> | tee -a <span class="variable">$LF</span></span><br><span class="line">errorReport</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">zipFiles()</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span> \[ ! -f <span class="string">"Statement/zip/<span class="variable">$YESTERDAY</span>.Statement.zip"</span> \]; <span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Zipping files into <span class="variable">$YESTERDAY</span>.Statement.zip"</span> | tee -a <span class="variable">$LF</span></span><br><span class="line">zip Statement/zip/<span class="variable">$YESTERDAY</span>.Statement.zip Statement/utf8/<span class="variable">$YESTERDAY</span>/*</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Found zip file will not zip them"</span> | tee -a <span class="variable">$LF</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sendingFiles()</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Sending <span class="variable">$YESTERDAY</span>.Statement.zip to someone and simon"</span> | tee -a <span class="variable">$LF</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$YESTERDAY</span> 对账单已发送"</span> |mail -s <span class="string">"Statements for <span class="variable">$YESTERDAY</span>"</span> -a Statement/zip/<span class="variable">$YESTERDAY</span>.Statement.zip -c someone@address.com me@email.com </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sendingSingleFile()</span><br><span class="line">&#123;</span><br><span class="line">targetFile=\`find Statement/utf8/<span class="variable">$&#123;YESTERDAY&#125;</span>/ -name <span class="string">"<span class="variable">$&#123;YESTERDAY&#125;</span>_jymx-zjtg*"</span>\`</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$YESTERDAY</span> 对账单已发送"</span> |mail -s <span class="string">"Statements for <span class="variable">$YESTERDAY</span>"</span> -a <span class="variable">$targetFile</span> -c someone@address.com me@email.com </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">errorReport</span></span>()&#123;</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"对账单发送错误了快查看"</span> |mail -s <span class="string">"ERROR:Statements sending error"</span> -a /var/<span class="built_in">log</span>/statement/daily/statement.log  alert@email.com  </span><br><span class="line"><span class="built_in">echo</span> <span class="string">"对账单发送错误"</span> | tee -a <span class="variable">$LF</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'-------------------------------'</span> &gt;&gt; <span class="variable">$LF</span></span><br><span class="line"><span class="built_in">exit</span> 1</span><br><span class="line">&#125;</span><br><span class="line">main()</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'Start... '</span>\`date +%Y%m%d-%H:%M:%S\` | tee -a <span class="variable">$LF</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Moving to <span class="variable">$CW</span>"</span> | tee -a <span class="variable">$LF</span></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$CW</span></span><br><span class="line">download</span><br><span class="line">makedirs</span><br><span class="line">unzipFiles</span><br><span class="line">transaferFiles</span><br><span class="line">zipFiles</span><br><span class="line"><span class="keyword">if</span> \[ ! -f <span class="string">"Statement/zip/<span class="variable">$YESTERDAY</span>.Statement.zip"</span> \]; <span class="keyword">then</span></span><br><span class="line">errorReport</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="comment">#sendingFiles</span></span><br><span class="line">sendingSingleFile</span><br><span class="line">clearFiles</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'Done...'</span>\`date +%Y%m%d-%H:%M:%S\` &gt;&gt; <span class="variable">$LF</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'-------------------------------'</span> &gt;&gt; <span class="variable">$LF</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://codewalkertse.github.io/categories/Linux/"/>
+    
+      <category term="web" scheme="https://codewalkertse.github.io/categories/Linux/web/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Fadada(法大大) sucks！！！</title>
+    <link href="https://codewalkertse.github.io/2017/10/19/fadada-e6-b3-95-e5-a4-a7-e5-a4-a7-sucks-ef-bc-81-ef-bc-81-ef-bc-81/"/>
+    <id>https://codewalkertse.github.io/2017/10/19/fadada-e6-b3-95-e5-a4-a7-e5-a4-a7-sucks-ef-bc-81-ef-bc-81-ef-bc-81/</id>
+    <published>2017-10-19T09:26:40.000Z</published>
+    <updated>2018-07-13T12:49:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>最近在对接法大大的接口，看给的案例完全没有封装看到这种没有Class 没有 function的代码就像吃了一勺苍蝇一样难受。 最后自己封装一个class FDD感觉舒坦多了. EOF</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;最近在对接法大大的接口，看给的案例完全没有封装看到这种没有Class 没有 function的代码就像吃了一勺苍蝇一样难受。 最后自己封装一个class FDD感觉舒坦多了. EOF&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="杂谈" scheme="https://codewalkertse.github.io/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Fix when ssh shows you &quot;Host key verification failed&quot;</title>
+    <link href="https://codewalkertse.github.io/2017/09/30/fix-when-ssh-shows-you-host-key-verification-failed/"/>
+    <id>https://codewalkertse.github.io/2017/09/30/fix-when-ssh-shows-you-host-key-verification-failed/</id>
+    <published>2017-09-30T02:42:51.000Z</published>
+    <updated>2018-07-13T12:49:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>This simple and easy. Delete the line contain IP which you connect to. 1 Using your favourite editor to open /home/yourname/.ssh/known_hosts 2 Find and delete the line contain IP which is you connect to.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;This simple and easy. Delete the line contain IP which you connect to. 1 Using your favourite editor to open /home/yourname/.ssh/known_ho
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://codewalkertse.github.io/categories/Linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>How to enable IPv6 on Centos 6.X</title>
+    <link href="https://codewalkertse.github.io/2017/09/30/how-to-enable-ipv6-on-centos-6-x/"/>
+    <id>https://codewalkertse.github.io/2017/09/30/how-to-enable-ipv6-on-centos-6-x/</id>
+    <published>2017-09-30T02:38:06.000Z</published>
+    <updated>2018-07-13T12:49:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Step 1. Check IPv6 module is enable for Kernel lsmod | grep ipv6 step 2.Enable IT. 2.1 ##notice may file name is different## Editing the file /etc/modprobe.d/disable_ipv6.conf Change options ipv6 disable=0 to options ipv6 disable=1 2.2 Editing the file /etc/sysconfig/network Change NETWORKING_IPV6=no to NETWORKING_IPV6=yes step 3 rebooting your server step 4 configure kernel parameters to enable IPv6 sysctl -w net.ipv6.conf.all.disable_ipv6=0 then reboot step 5 Checking if it works. sysctl -a | grep ipv6 then it will outputting something like net.ipv6.confXXXXXXX = 0. all done.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Step 1. Check IPv6 module is enable for Kernel lsmod | grep ipv6 step 2.Enable IT. 2.1 ##notice may file name is different## Editing the 
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://codewalkertse.github.io/categories/Linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>cover jks to pem using key tool</title>
+    <link href="https://codewalkertse.github.io/2017/08/15/cover-jks-to-pem-using-key-tool/"/>
+    <id>https://codewalkertse.github.io/2017/08/15/cover-jks-to-pem-using-key-tool/</id>
+    <published>2017-08-15T08:59:10.000Z</published>
+    <updated>2018-07-13T12:49:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>step 1. cover file.jks to file.p12<br>keytool -importkeystore -srckeystore filename.jks -destkeystore new.filename.p12 -srcstoretype jks -deststoretype pkcs12 step 2.1 cover file.p12 to pem with password<br>openssl pkcs12 -in new.filename.p12 -out file.pem<br>step 2.1 cover file.p12 to pem without password<br>openssl pkcs12 -nodes -in new.filename.p12 -out file.pem</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;step 1. cover file.jks to file.p12&lt;br&gt;keytool -importkeystore -srckeystore filename.jks -destkeystore new.filename.p12 -srcstoretype jks 
+      
+    
+    </summary>
+    
+      <category term="未分类" scheme="https://codewalkertse.github.io/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>First tattoo</title>
+    <link href="https://codewalkertse.github.io/2017/08/04/first-tattoo/"/>
+    <id>https://codewalkertse.github.io/2017/08/04/first-tattoo/</id>
+    <published>2017-08-03T16:29:49.000Z</published>
+    <updated>2018-07-13T12:49:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Take my first Tattoo at 20170729 Hah. <img src="http://codewalker.me/wp-content/uploads/2017/08/IMG_7035.jpg" alt="60% finish"> <img src="http://codewalker.me/wp-content/uploads/2017/08/IMG_7032.jpg" alt="prosessing"> <img src="http://codewalker.me/wp-content/uploads/2017/08/WechatIMG2161501778079_.pic_hd.jpg" alt=""> <img src="http://codewalker.me/wp-content/uploads/2017/08/WechatIMG2171501778080_.pic_hd.jpg" alt="null"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Take my first Tattoo at 20170729 Hah. &lt;img src=&quot;http://codewalker.me/wp-content/uploads/2017/08/IMG_7035.jpg&quot; alt=&quot;60% finish&quot;&gt; &lt;img src=
+      
+    
+    </summary>
+    
+      <category term="杂谈" scheme="https://codewalkertse.github.io/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+      <category term="tattoo" scheme="https://codewalkertse.github.io/tags/tattoo/"/>
+    
+  </entry>
+  
+</feed>
