@@ -1,6 +1,6 @@
 /*varibles*/
 * {
-  font-family: "italic", Helvetica, Arial, "Heiti SC", "Microsoft YaHei";
+  font-family: "source-sans-pro", Helvetica, Arial, "Heiti SC", "Microsoft YaHei";
 }
 body,
 html {
@@ -119,7 +119,7 @@ body {
 }
 .nav .avatar-name .name i {
   font-size: 16px;
-  font-family: "italic" !important;
+  font-family: "source-sans-pro" !important;
   font-weight: 300;
   color: #666666;
 }
@@ -709,7 +709,7 @@ body {
 }
 .index-about i {
   font-size: 15px;
-  font-family: "italic" !important;
+  font-family: "source-sans-pro" !important;
   font-weight: 300;
   color: #444444;
 }
@@ -779,7 +779,7 @@ body {
   }
   .index-about-mobile i {
     font-size: 15px;
-    font-family: "italic" !important;
+    font-family: "source-sans-pro" !important;
     font-weight: 300;
     color: #444444;
   }
@@ -919,9 +919,9 @@ code {
 code {
   padding: 2px 4px;
   word-wrap: break-word;
-  color: #555;
+  color: #c7254e; 
   background: #eee;
-  border-radius: 3px;
+  border-radius: 4px;
   font-size: 13px;
 }
 pre {
@@ -934,7 +934,7 @@ pre code {
   text-shadow: none;
 }
 .highlight {
-  border-radius: 1px;
+  border-radius: 4px;
 }
 .highlight pre {
   border: none;
