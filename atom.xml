@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.codewalker.me/"/>
-  <updated>2018-07-15T13:01:59.000Z</updated>
+  <updated>2018-07-15T13:58:42.000Z</updated>
   <id>https://blog.codewalker.me/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://blog.codewalker.me/2018/07/15/hexo-bind-your-onw-domain/"/>
     <id>https://blog.codewalker.me/2018/07/15/hexo-bind-your-onw-domain/</id>
     <published>2018-07-15T12:39:51.000Z</published>
-    <updated>2018-07-15T13:01:59.000Z</updated>
+    <updated>2018-07-15T13:58:42.000Z</updated>
     
-    <content type="html"><![CDATA[<p>There’s only <strong>3</strong> stpes to set up.</p><ol><li><p>Create CNAME file<br> Create a file named <strong>CNAME</strong> that path should be <code>/source/CNAME</code> and field in your domain. In my case, it should be <code>blog.codewalker.me</code>. <code>notice</code> There would be no <code>http://</code> or <code>https://</code> etc.</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat CNAME</span><br><span class="line">blog.codewalker.me</span><br></pre></td></tr></table></figure></li><li><p>Setup domain<br> Setup you DNS to add a subdomain as CNAME to you GitHub pages domain.<br> Refers mine, it should be <code>blog.codewalker.me</code> to <code>codewalkertse.github.io</code></p></li><li><p>Step 3<br> Oops.. no Step 3</p></li></ol><p>Have fun with hexo</p><p>I love this world</p><p>EOF</p>]]></content>
+    <content type="html"><![CDATA[<p>There’s only <strong>3</strong> stpes to set up.</p><ol><li><p>Create CNAME file<br> Create a file named <strong>CNAME</strong> that path should be <code>/source/CNAME</code> and field in your domain. In my case, it should be <code>blog.codewalker.me</code>. <code>notice</code> There would be no <code>http://</code> or <code>https://</code> etc.</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat CNAME</span><br><span class="line">blog.codewalker.me</span><br></pre></td></tr></table></figure></li><li><p>Setup domain<br> Setup you DNS to add a subdomain as CNAME to you GitHub pages domain.<br> Refers mine, it should be <code>blog.codewalker.me</code> to <code>codewalkertse.github.io</code></p></li><li><p>Step 3 or not<br> In my case, I should make <a href="http://codewalker.me" target="_blank" rel="noopener">codewalker.me</a> redirect to <a href="http://blog.codewalker.me">blog.codewalker.me</a>.<br> In my Nginx Server the <code>.conf</code> should be like this:</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name codewalker.me www.codewalker.me;</span><br><span class="line">    rewrite ^/(.*) http://blog.codewalker.me/<span class="variable">$1</span> permanent;</span><br><span class="line">    access_log off;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p> To make all request redirect to blog.codewalker.me by 301 signal.</p></li></ol><p>Have fun with hexo</p><p>I love this world</p><p>EOF</p>]]></content>
     
     <summary type="html">
     
@@ -36,6 +36,8 @@
     
     </summary>
     
+    
+      <category term="Hexo" scheme="https://blog.codewalker.me/tags/Hexo/"/>
     
   </entry>
   
