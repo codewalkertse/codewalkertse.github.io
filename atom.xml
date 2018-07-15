@@ -5,9 +5,9 @@
   <subtitle>All magic comess with a price.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://codewalkertse.github.io/"/>
-  <updated>2018-07-15T12:33:05.000Z</updated>
-  <id>https://codewalkertse.github.io/</id>
+  <link href="https://blog.codewalker.me/"/>
+  <updated>2018-07-15T13:01:59.000Z</updated>
+  <id>https://blog.codewalker.me/</id>
   
   <author>
     <name>Simon Xie</name>
@@ -17,9 +17,32 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Hexo bind your onw domain</title>
+    <link href="https://blog.codewalker.me/2018/07/15/hexo-bind-your-onw-domain/"/>
+    <id>https://blog.codewalker.me/2018/07/15/hexo-bind-your-onw-domain/</id>
+    <published>2018-07-15T12:39:51.000Z</published>
+    <updated>2018-07-15T13:01:59.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>There’s only <strong>3</strong> stpes to set up.</p><ol><li><p>Create CNAME file<br> Create a file named <strong>CNAME</strong> that path should be <code>/source/CNAME</code> and field in your domain. In my case, it should be <code>blog.codewalker.me</code>. <code>notice</code> There would be no <code>http://</code> or <code>https://</code> etc.</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat CNAME</span><br><span class="line">blog.codewalker.me</span><br></pre></td></tr></table></figure></li><li><p>Setup domain<br> Setup you DNS to add a subdomain as CNAME to you GitHub pages domain.<br> Refers mine, it should be <code>blog.codewalker.me</code> to <code>codewalkertse.github.io</code></p></li><li><p>Step 3<br> Oops.. no Step 3</p></li></ol><p>Have fun with hexo</p><p>I love this world</p><p>EOF</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;There’s only &lt;strong&gt;3&lt;/strong&gt; stpes to set up.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Create CNAME file&lt;br&gt; Create a file named &lt;strong&gt;CNAME&lt;/strong&gt; that pa
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Knowing python3 socket deeply</title>
-    <link href="https://codewalkertse.github.io/2018/07/15/Knowing-python3-socket-deeply/"/>
-    <id>https://codewalkertse.github.io/2018/07/15/Knowing-python3-socket-deeply/</id>
+    <link href="https://blog.codewalker.me/2018/07/15/Knowing-python3-socket-deeply/"/>
+    <id>https://blog.codewalker.me/2018/07/15/Knowing-python3-socket-deeply/</id>
     <published>2018-07-15T05:08:16.000Z</published>
     <updated>2018-07-15T12:33:05.000Z</updated>
     
@@ -39,8 +62,8 @@
   
   <entry>
     <title>Why there are only request-response model but how to explain push</title>
-    <link href="https://codewalkertse.github.io/2018/07/15/Why-there-are-only-request-response-model-but-how-to-explain-push/"/>
-    <id>https://codewalkertse.github.io/2018/07/15/Why-there-are-only-request-response-model-but-how-to-explain-push/</id>
+    <link href="https://blog.codewalker.me/2018/07/15/Why-there-are-only-request-response-model-but-how-to-explain-push/"/>
+    <id>https://blog.codewalker.me/2018/07/15/Why-there-are-only-request-response-model-but-how-to-explain-push/</id>
     <published>2018-07-14T17:47:59.000Z</published>
     <updated>2018-07-14T17:52:04.000Z</updated>
     
@@ -60,8 +83,8 @@
   
   <entry>
     <title>whats wrong with npm</title>
-    <link href="https://codewalkertse.github.io/2018/07/14/whats-wrong-with-npm/"/>
-    <id>https://codewalkertse.github.io/2018/07/14/whats-wrong-with-npm/</id>
+    <link href="https://blog.codewalker.me/2018/07/14/whats-wrong-with-npm/"/>
+    <id>https://blog.codewalker.me/2018/07/14/whats-wrong-with-npm/</id>
     <published>2018-07-14T10:42:25.000Z</published>
     <updated>2018-07-14T11:14:13.000Z</updated>
     
@@ -77,14 +100,14 @@
     </summary>
     
     
-      <category term="MacOS" scheme="https://codewalkertse.github.io/tags/MacOS/"/>
+      <category term="MacOS" scheme="https://blog.codewalker.me/tags/MacOS/"/>
     
   </entry>
   
   <entry>
     <title>what plugs I installed</title>
-    <link href="https://codewalkertse.github.io/2018/07/14/what-plugs-I-installed/"/>
-    <id>https://codewalkertse.github.io/2018/07/14/what-plugs-I-installed/</id>
+    <link href="https://blog.codewalker.me/2018/07/14/what-plugs-I-installed/"/>
+    <id>https://blog.codewalker.me/2018/07/14/what-plugs-I-installed/</id>
     <published>2018-07-14T07:00:06.000Z</published>
     <updated>2018-07-14T11:14:40.000Z</updated>
     
@@ -101,18 +124,18 @@
     </summary>
     
     
-      <category term="杂谈" scheme="https://codewalkertse.github.io/tags/%E6%9D%82%E8%B0%88/"/>
+      <category term="杂谈" scheme="https://blog.codewalker.me/tags/%E6%9D%82%E8%B0%88/"/>
     
   </entry>
   
   <entry>
     <title>hello hexo</title>
-    <link href="https://codewalkertse.github.io/2018/07/14/hello-hexo/"/>
-    <id>https://codewalkertse.github.io/2018/07/14/hello-hexo/</id>
+    <link href="https://blog.codewalker.me/2018/07/14/hello-hexo/"/>
+    <id>https://blog.codewalker.me/2018/07/14/hello-hexo/</id>
     <published>2018-07-13T16:08:51.000Z</published>
     <updated>2018-07-13T16:47:55.000Z</updated>
     
-    <content type="html"><![CDATA[<p>今天终于把github+hexo搭建好了中间也踩了不少的坑也要感谢前辈们在网上分享的经验,感谢在最后.</p><ol><li><p>首先是发布不了<br> Google了之后才发现是没有安装发布插件，很简单装好就ok了</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></li><li><p>然后是</p><blockquote><p>Deployer not found: git<br>起码Google了两分钟，都说的是1的问题。想应该是repo地址的问题，不应该是http的地址，应为按照教程来说之前配置过ssh那么就应该是ssh的方式commit，那么立即改成ssh git地址， it’s works。<br>修改_config.yml中找到repo<br>由<br><code>https://github.com/codewalkertse/codewalkertse.github.io.git</code><br>改成<br><code>git@github.com:codewalkertse/codewalkertse.github.io.git</code><br> 就好了.</p></blockquote></li><li><p>这个问题更无厘头了。已经commit了为啥给我显示 <code>There isn&#39;t a GitHub Pages site here.</code> 喃？</p><p> 还是来修改_config.yml找到 &gt; url: 修改成</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url: https://codewalkertse.github.io</span><br></pre></td></tr></table></figure><p> ok 这样就可以直接访问<a href="https://codewalkertse.github.io">我的hexo]</a>搭建的最初版本了</p></li></ol><p>感谢<br>    <a href="http://baixin.io" target="_blank" rel="noopener">baixin.io</a><br>    <a href="https://segmentfault.com/a/1190000005624504" target="_blank" rel="noopener">jsyzchen</a><br>    <a href="https://formulahendry.github.io/2016/12/04/hexo-ci/" target="_blank" rel="noopener">formulahendry</a></p><p>Markdown语法还不是很熟悉排版简直惨不忍睹见谅</p>]]></content>
+    <content type="html"><![CDATA[<p>今天终于把github+hexo搭建好了中间也踩了不少的坑也要感谢前辈们在网上分享的经验,感谢在最后.</p><ol><li><p>首先是发布不了<br> Google了之后才发现是没有安装发布插件，很简单装好就ok了</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></li><li><p>然后是</p><blockquote><p>Deployer not found: git<br>起码Google了两分钟，都说的是1的问题。想应该是repo地址的问题，不应该是http的地址，应为按照教程来说之前配置过ssh那么就应该是ssh的方式commit，那么立即改成ssh git地址， it’s works。<br>修改_config.yml中找到repo<br>由<br><code>https://github.com/codewalkertse/codewalkertse.github.io.git</code><br>改成<br><code>git@github.com:codewalkertse/codewalkertse.github.io.git</code><br> 就好了.</p></blockquote></li><li><p>这个问题更无厘头了。已经commit了为啥给我显示 <code>There isn&#39;t a GitHub Pages site here.</code> 喃？</p><p> 还是来修改_config.yml找到 &gt; url: 修改成</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url: https://codewalkertse.github.io</span><br></pre></td></tr></table></figure><p> ok 这样就可以直接访问<a href="https://codewalkertse.github.io" target="_blank" rel="noopener">我的hexo]</a>搭建的最初版本了</p></li></ol><p>感谢<br>    <a href="http://baixin.io" target="_blank" rel="noopener">baixin.io</a><br>    <a href="https://segmentfault.com/a/1190000005624504" target="_blank" rel="noopener">jsyzchen</a><br>    <a href="https://formulahendry.github.io/2016/12/04/hexo-ci/" target="_blank" rel="noopener">formulahendry</a></p><p>Markdown语法还不是很熟悉排版简直惨不忍睹见谅</p>]]></content>
     
     <summary type="html">
     
@@ -131,8 +154,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://codewalkertse.github.io/2018/07/13/hello-world/"/>
-    <id>https://codewalkertse.github.io/2018/07/13/hello-world/</id>
+    <link href="https://blog.codewalker.me/2018/07/13/hello-world/"/>
+    <id>https://blog.codewalker.me/2018/07/13/hello-world/</id>
     <published>2018-07-13T12:33:48.000Z</published>
     <updated>2018-07-13T12:33:48.000Z</updated>
     
@@ -152,8 +175,8 @@
   
   <entry>
     <title>python reverse iterator and generator ways</title>
-    <link href="https://codewalkertse.github.io/2018/07/12/python-reverse-iterator-way/"/>
-    <id>https://codewalkertse.github.io/2018/07/12/python-reverse-iterator-way/</id>
+    <link href="https://blog.codewalker.me/2018/07/12/python-reverse-iterator-way/"/>
+    <id>https://blog.codewalker.me/2018/07/12/python-reverse-iterator-way/</id>
     <published>2018-07-12T15:30:50.000Z</published>
     <updated>2018-07-14T03:22:22.000Z</updated>
     
@@ -168,15 +191,15 @@
     
     </summary>
     
-      <category term="python" scheme="https://codewalkertse.github.io/categories/python/"/>
+      <category term="python" scheme="https://blog.codewalker.me/categories/python/"/>
     
     
   </entry>
   
   <entry>
     <title>python fib nums using iterator</title>
-    <link href="https://codewalkertse.github.io/2018/07/12/python-fib-nums-using-iterator/"/>
-    <id>https://codewalkertse.github.io/2018/07/12/python-fib-nums-using-iterator/</id>
+    <link href="https://blog.codewalker.me/2018/07/12/python-fib-nums-using-iterator/"/>
+    <id>https://blog.codewalker.me/2018/07/12/python-fib-nums-using-iterator/</id>
     <published>2018-07-12T15:11:14.000Z</published>
     <updated>2018-07-13T12:49:34.000Z</updated>
     
@@ -191,15 +214,15 @@
     
     </summary>
     
-      <category term="python" scheme="https://codewalkertse.github.io/categories/python/"/>
+      <category term="python" scheme="https://blog.codewalker.me/categories/python/"/>
     
     
   </entry>
   
   <entry>
     <title>python fib nums using generator</title>
-    <link href="https://codewalkertse.github.io/2018/07/12/python-fib-nums-using-generator/"/>
-    <id>https://codewalkertse.github.io/2018/07/12/python-fib-nums-using-generator/</id>
+    <link href="https://blog.codewalker.me/2018/07/12/python-fib-nums-using-generator/"/>
+    <id>https://blog.codewalker.me/2018/07/12/python-fib-nums-using-generator/</id>
     <published>2018-07-12T14:57:50.000Z</published>
     <updated>2018-07-13T12:49:34.000Z</updated>
     
@@ -214,15 +237,15 @@
     
     </summary>
     
-      <category term="python" scheme="https://codewalkertse.github.io/categories/python/"/>
+      <category term="python" scheme="https://blog.codewalker.me/categories/python/"/>
     
     
   </entry>
   
   <entry>
     <title>python iterator generator yield first look</title>
-    <link href="https://codewalkertse.github.io/2018/07/12/python-iterator-generator-yield-first-look/"/>
-    <id>https://codewalkertse.github.io/2018/07/12/python-iterator-generator-yield-first-look/</id>
+    <link href="https://blog.codewalker.me/2018/07/12/python-iterator-generator-yield-first-look/"/>
+    <id>https://blog.codewalker.me/2018/07/12/python-iterator-generator-yield-first-look/</id>
     <published>2018-07-12T14:29:14.000Z</published>
     <updated>2018-07-13T12:49:34.000Z</updated>
     
@@ -237,15 +260,15 @@
     
     </summary>
     
-      <category term="python" scheme="https://codewalkertse.github.io/categories/python/"/>
+      <category term="python" scheme="https://blog.codewalker.me/categories/python/"/>
     
     
   </entry>
   
   <entry>
     <title>tax calculator</title>
-    <link href="https://codewalkertse.github.io/2018/07/12/tax-calculator/"/>
-    <id>https://codewalkertse.github.io/2018/07/12/tax-calculator/</id>
+    <link href="https://blog.codewalker.me/2018/07/12/tax-calculator/"/>
+    <id>https://blog.codewalker.me/2018/07/12/tax-calculator/</id>
     <published>2018-07-12T09:24:58.000Z</published>
     <updated>2018-07-13T12:49:34.000Z</updated>
     
@@ -260,15 +283,15 @@
     
     </summary>
     
-      <category term="python" scheme="https://codewalkertse.github.io/categories/python/"/>
+      <category term="python" scheme="https://blog.codewalker.me/categories/python/"/>
     
     
   </entry>
   
   <entry>
     <title>mysql ORDER BY Optimization</title>
-    <link href="https://codewalkertse.github.io/2018/07/12/mysql-order-by-optimization/"/>
-    <id>https://codewalkertse.github.io/2018/07/12/mysql-order-by-optimization/</id>
+    <link href="https://blog.codewalker.me/2018/07/12/mysql-order-by-optimization/"/>
+    <id>https://blog.codewalker.me/2018/07/12/mysql-order-by-optimization/</id>
     <published>2018-07-12T04:39:22.000Z</published>
     <updated>2018-07-13T14:20:42.000Z</updated>
     
@@ -283,15 +306,15 @@
     
     </summary>
     
-      <category term="database" scheme="https://codewalkertse.github.io/categories/database/"/>
+      <category term="database" scheme="https://blog.codewalker.me/categories/database/"/>
     
     
   </entry>
   
   <entry>
     <title>hailstone Python_alogorithm</title>
-    <link href="https://codewalkertse.github.io/2018/07/07/hailstone-python-alogorithm/"/>
-    <id>https://codewalkertse.github.io/2018/07/07/hailstone-python-alogorithm/</id>
+    <link href="https://blog.codewalker.me/2018/07/07/hailstone-python-alogorithm/"/>
+    <id>https://blog.codewalker.me/2018/07/07/hailstone-python-alogorithm/</id>
     <published>2018-07-07T14:43:50.000Z</published>
     <updated>2018-07-13T13:56:16.000Z</updated>
     
@@ -306,15 +329,15 @@
     
     </summary>
     
-      <category term="python" scheme="https://codewalkertse.github.io/categories/python/"/>
+      <category term="python" scheme="https://blog.codewalker.me/categories/python/"/>
     
     
   </entry>
   
   <entry>
     <title>sum_recursion python_alogorithm</title>
-    <link href="https://codewalkertse.github.io/2018/07/07/sum-recursion-python-alogorithm/"/>
-    <id>https://codewalkertse.github.io/2018/07/07/sum-recursion-python-alogorithm/</id>
+    <link href="https://blog.codewalker.me/2018/07/07/sum-recursion-python-alogorithm/"/>
+    <id>https://blog.codewalker.me/2018/07/07/sum-recursion-python-alogorithm/</id>
     <published>2018-07-07T14:42:09.000Z</published>
     <updated>2018-07-13T12:49:34.000Z</updated>
     
@@ -333,15 +356,15 @@
     
     </summary>
     
-      <category term="python" scheme="https://codewalkertse.github.io/categories/python/"/>
+      <category term="python" scheme="https://blog.codewalker.me/categories/python/"/>
     
     
   </entry>
   
   <entry>
     <title>#WTH url_for with Flask</title>
-    <link href="https://codewalkertse.github.io/2018/07/04/wth-url-for-with-flask/"/>
-    <id>https://codewalkertse.github.io/2018/07/04/wth-url-for-with-flask/</id>
+    <link href="https://blog.codewalker.me/2018/07/04/wth-url-for-with-flask/"/>
+    <id>https://blog.codewalker.me/2018/07/04/wth-url-for-with-flask/</id>
     <published>2018-07-04T08:33:40.000Z</published>
     <updated>2018-07-13T14:27:46.000Z</updated>
     
@@ -357,15 +380,15 @@
     
     </summary>
     
-      <category term="web" scheme="https://codewalkertse.github.io/categories/web/"/>
+      <category term="web" scheme="https://blog.codewalker.me/categories/web/"/>
     
     
   </entry>
   
   <entry>
     <title>Are you scare.</title>
-    <link href="https://codewalkertse.github.io/2018/06/10/are-you-scare/"/>
-    <id>https://codewalkertse.github.io/2018/06/10/are-you-scare/</id>
+    <link href="https://blog.codewalker.me/2018/06/10/are-you-scare/"/>
+    <id>https://blog.codewalker.me/2018/06/10/are-you-scare/</id>
     <published>2018-06-10T12:37:45.000Z</published>
     <updated>2018-07-13T12:49:34.000Z</updated>
     
@@ -380,15 +403,15 @@
     
     </summary>
     
-      <category term="杂谈" scheme="https://codewalkertse.github.io/categories/%E6%9D%82%E8%B0%88/"/>
+      <category term="杂谈" scheme="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
     
     
   </entry>
   
   <entry>
     <title>DOWNLOAD FILES AND TRANSCODING THEN MAILING THEM ALL AUTOMATICALLY</title>
-    <link href="https://codewalkertse.github.io/2017/12/21/download-files-and-transcoding-then-mailing-them-all-automatically-3/"/>
-    <id>https://codewalkertse.github.io/2017/12/21/download-files-and-transcoding-then-mailing-them-all-automatically-3/</id>
+    <link href="https://blog.codewalker.me/2017/12/21/download-files-and-transcoding-then-mailing-them-all-automatically-3/"/>
+    <id>https://blog.codewalker.me/2017/12/21/download-files-and-transcoding-then-mailing-them-all-automatically-3/</id>
     <published>2017-12-21T06:28:08.000Z</published>
     <updated>2018-07-13T14:00:06.000Z</updated>
     
@@ -403,17 +426,17 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://codewalkertse.github.io/categories/Linux/"/>
+      <category term="Linux" scheme="https://blog.codewalker.me/categories/Linux/"/>
     
-      <category term="web" scheme="https://codewalkertse.github.io/categories/Linux/web/"/>
+      <category term="web" scheme="https://blog.codewalker.me/categories/Linux/web/"/>
     
     
   </entry>
   
   <entry>
     <title>Fadada(法大大) sucks！！！</title>
-    <link href="https://codewalkertse.github.io/2017/10/19/fadada-e6-b3-95-e5-a4-a7-e5-a4-a7-sucks-ef-bc-81-ef-bc-81-ef-bc-81/"/>
-    <id>https://codewalkertse.github.io/2017/10/19/fadada-e6-b3-95-e5-a4-a7-e5-a4-a7-sucks-ef-bc-81-ef-bc-81-ef-bc-81/</id>
+    <link href="https://blog.codewalker.me/2017/10/19/fadada-e6-b3-95-e5-a4-a7-e5-a4-a7-sucks-ef-bc-81-ef-bc-81-ef-bc-81/"/>
+    <id>https://blog.codewalker.me/2017/10/19/fadada-e6-b3-95-e5-a4-a7-e5-a4-a7-sucks-ef-bc-81-ef-bc-81-ef-bc-81/</id>
     <published>2017-10-19T09:26:40.000Z</published>
     <updated>2018-07-13T12:49:34.000Z</updated>
     
@@ -429,15 +452,15 @@
     
     </summary>
     
-      <category term="杂谈" scheme="https://codewalkertse.github.io/categories/%E6%9D%82%E8%B0%88/"/>
+      <category term="杂谈" scheme="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
     
     
   </entry>
   
   <entry>
     <title>Fix when ssh shows you &quot;Host key verification failed&quot;</title>
-    <link href="https://codewalkertse.github.io/2017/09/30/fix-when-ssh-shows-you-host-key-verification-failed/"/>
-    <id>https://codewalkertse.github.io/2017/09/30/fix-when-ssh-shows-you-host-key-verification-failed/</id>
+    <link href="https://blog.codewalker.me/2017/09/30/fix-when-ssh-shows-you-host-key-verification-failed/"/>
+    <id>https://blog.codewalker.me/2017/09/30/fix-when-ssh-shows-you-host-key-verification-failed/</id>
     <published>2017-09-30T02:42:51.000Z</published>
     <updated>2018-07-13T12:49:34.000Z</updated>
     
@@ -452,30 +475,7 @@
     
     </summary>
     
-      <category term="Linux" scheme="https://codewalkertse.github.io/categories/Linux/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>How to enable IPv6 on Centos 6.X</title>
-    <link href="https://codewalkertse.github.io/2017/09/30/how-to-enable-ipv6-on-centos-6-x/"/>
-    <id>https://codewalkertse.github.io/2017/09/30/how-to-enable-ipv6-on-centos-6-x/</id>
-    <published>2017-09-30T02:38:06.000Z</published>
-    <updated>2018-07-13T12:49:34.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Step 1. Check IPv6 module is enable for Kernel lsmod | grep ipv6 step 2.Enable IT. 2.1 ##notice may file name is different## Editing the file /etc/modprobe.d/disable_ipv6.conf Change options ipv6 disable=0 to options ipv6 disable=1 2.2 Editing the file /etc/sysconfig/network Change NETWORKING_IPV6=no to NETWORKING_IPV6=yes step 3 rebooting your server step 4 configure kernel parameters to enable IPv6 sysctl -w net.ipv6.conf.all.disable_ipv6=0 then reboot step 5 Checking if it works. sysctl -a | grep ipv6 then it will outputting something like net.ipv6.confXXXXXXX = 0. all done.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Step 1. Check IPv6 module is enable for Kernel lsmod | grep ipv6 step 2.Enable IT. 2.1 ##notice may file name is different## Editing the 
-      
-    
-    </summary>
-    
-      <category term="Linux" scheme="https://codewalkertse.github.io/categories/Linux/"/>
+      <category term="Linux" scheme="https://blog.codewalker.me/categories/Linux/"/>
     
     
   </entry>
