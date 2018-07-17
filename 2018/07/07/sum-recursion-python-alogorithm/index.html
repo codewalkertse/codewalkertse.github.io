@@ -125,53 +125,23 @@
     <div class="post-meta">
         <span class="attr">Post：<span>2018-07-07 22:42:09</span></span>
         
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#python" title="python">python</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#alogorithm" title="alogorithm">alogorithm</a>
+        <span>/</span>
+        
+        
         </span>
         <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
 </span>
 </span>
     </div>
     <div class="post-content ">
-        <pre><code>#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-# @Date    : 2018-07-07 21:54:33
-# @Author  : Simon (simon.xie@codewalker.meg)
-# @Link    : http://www.codewalker.me
-# @Version : 1.0.0
-
-import os
-from random import randint
-
-def create_list(length=10):
-    return [ randint(0,10) for _ in range(length) ]
-
-def wrapper(func):
-    def wrapper(*arg, **kwargs):
-        # --- 附加功能 ---
-        print(&apos;calling{}..&apos;.format(func.__name__))
-        return func(*arg, **kwargs)
-    return wrapper
-
-@wrapper
-def sum_normal(l):
-    sum_for_list = 0
-    for i in l:
-        sum_for_list += i
-    return sum_for_list
-
-@wrapper
-def sum_recursion(l):
-    if l == []:
-        return 0
-    return l[0] + sum_recursion(l[1:])
-
-def main():
-    l = create_list(3)    
-    print(&apos;list:{l}\nsum:{sum}&apos;.format(l=l,sum=sum_normal(l)))
-    print(&apos;-&apos;*80)
-    print(&apos;list:{l}\nsum:{sum}&apos;.format(l=l,sum=sum_recursion(l)))
-if __name__ == &quot;__main__&quot;:
-    main()
-</code></pre>
+        <p><code>Talk is cheap</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Date    : 2018-07-07 21:54:33</span></span><br><span class="line"><span class="comment"># @Author  : Simon (simon.xie@codewalker.meg)</span></span><br><span class="line"><span class="comment"># @Link    : http://www.codewalker.me</span></span><br><span class="line"><span class="comment"># @Version : 1.0.0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_list</span><span class="params">(length=<span class="number">10</span>)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> [ randint(<span class="number">0</span>,<span class="number">10</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(length) ]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*arg, **kwargs)</span>:</span></span><br><span class="line">        <span class="comment"># --- 附加功能 ---</span></span><br><span class="line">        print(<span class="string">'calling&#123;&#125;..'</span>.format(func.__name__))</span><br><span class="line">        <span class="keyword">return</span> func(*arg, **kwargs)</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@wrapper</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_normal</span><span class="params">(l)</span>:</span></span><br><span class="line">    sum_for_list = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> l:</span><br><span class="line">        sum_for_list += i</span><br><span class="line">    <span class="keyword">return</span> sum_for_list</span><br><span class="line">    </span><br><span class="line"><span class="meta">@wrapper</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_recursion</span><span class="params">(l)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> l == []:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> l[<span class="number">0</span>] + sum_recursion(l[<span class="number">1</span>:])</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    l = create_list(<span class="number">3</span>)    </span><br><span class="line">    print(<span class="string">'list:&#123;l&#125;\nsum:&#123;sum&#125;'</span>.format(l=l,sum=sum_normal(l)))</span><br><span class="line">    print(<span class="string">'-'</span>*<span class="number">80</span>)</span><br><span class="line">    print(<span class="string">'list:&#123;l&#125;\nsum:&#123;sum&#125;'</span>.format(l=l,sum=sum_recursion(l)))</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
         
             <div class="donate-container">
     <div class="donate-button">

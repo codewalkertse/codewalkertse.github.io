@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.codewalker.me/"/>
-  <updated>2018-07-15T13:58:42.000Z</updated>
+  <updated>2018-07-17T09:10:53.000Z</updated>
   <id>https://blog.codewalker.me/</id>
   
   <author>
@@ -17,11 +17,67 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>using code_dir on a elegant way</title>
+    <link href="https://blog.codewalker.me/2018/07/17/using-code-dir-in-elegant-way/"/>
+    <id>https://blog.codewalker.me/2018/07/17/using-code-dir-in-elegant-way/</id>
+    <published>2018-07-17T08:39:19.000Z</published>
+    <updated>2018-07-17T09:10:53.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Howto"><a href="#Howto" class="headerlink" title="Howto"></a>Howto</h1><ol><li><p>Create folders if not exist.</p><p> In your hexo root.</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p <span class="built_in">source</span>/downloads/code</span><br></pre></td></tr></table></figure></li><li><p>Include your source code in your post</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% include_code base_socket_client lang:python base_socket_client.py %&#125;</span><br></pre></td></tr></table></figure></li></ol><h1 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h1><figure class="highlight python"><figcaption><span>base_socket_client.py</span><a href="/downloads/code/base_socket_client.py">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Date    : 2018-07-15 12:55:35</span></span><br><span class="line"><span class="comment"># @Author  : Simon (simon.xie@codewalker.meg)</span></span><br><span class="line"><span class="comment"># @Link    : http://www.codewalker.me</span></span><br><span class="line"><span class="comment"># @Version : 1.0.0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Main</span><span class="params">()</span>:</span></span><br><span class="line">        host = <span class="string">'127.0.0.1'</span></span><br><span class="line">        port = <span class="number">5000</span></span><br><span class="line">         </span><br><span class="line">        mySocket = socket.socket()</span><br><span class="line">        mySocket.connect((host,port))</span><br><span class="line">         </span><br><span class="line">        message = input(<span class="string">" -&gt; "</span>)</span><br><span class="line">         </span><br><span class="line">        <span class="keyword">while</span> message != <span class="string">'q'</span>:</span><br><span class="line">                mySocket.send(message.encode())</span><br><span class="line">                data = mySocket.recv(<span class="number">1024</span>).decode()</span><br><span class="line">                 </span><br><span class="line">                <span class="keyword">print</span> (<span class="string">'Received from server: '</span> + data)</span><br><span class="line">                 </span><br><span class="line">                message = input(<span class="string">" -&gt; "</span>)</span><br><span class="line">                 </span><br><span class="line">        mySocket.close()</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    Main()</span><br><span class="line"></span><br><span class="line">    print(<span class="string">'xxxx'</span>)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Howto&quot;&gt;&lt;a href=&quot;#Howto&quot; class=&quot;headerlink&quot; title=&quot;Howto&quot;&gt;&lt;/a&gt;Howto&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Create folders if not exist.&lt;/p&gt;
+&lt;p&gt; In your hexo
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="https://blog.codewalker.me/tags/hexo/"/>
+    
+      <category term="howto" scheme="https://blog.codewalker.me/tags/howto/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sina api v1.5.4 trade_related_no</title>
+    <link href="https://blog.codewalker.me/2018/07/17/sina-api-v1-5-4-trade-related-no/"/>
+    <id>https://blog.codewalker.me/2018/07/17/sina-api-v1-5-4-trade-related-no/</id>
+    <published>2018-07-17T03:09:34.000Z</published>
+    <updated>2018-07-17T03:11:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="接口改造"><a href="#接口改造" class="headerlink" title="接口改造"></a>接口改造</h1><pre><code>- 代收    1. **create_hosting_collect_trade**    2. 投资    3. 还本金    4. 充值利息    5. 充值本金    6. 债权认购-投资人扣款- 代付    1. **create_single_hosting_pay_trade**    2. 发放利息    3. 放款        - 到存钱罐账户        - **create_single_hosting_pay_to_card_trade**到银行卡    4. 还款本金    5. 债权成功回调-债权人收钱    6. 投资退款    7. 债券退款- 交易关联号查询</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;接口改造&quot;&gt;&lt;a href=&quot;#接口改造&quot; class=&quot;headerlink&quot; title=&quot;接口改造&quot;&gt;&lt;/a&gt;接口改造&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;- 代收
+
+    1. **create_hosting_collect_trade**
+
+    2. 
+      
+    
+    </summary>
+    
+    
+      <category term="php" scheme="https://blog.codewalker.me/tags/php/"/>
+    
+      <category term="sina" scheme="https://blog.codewalker.me/tags/sina/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hexo bind your onw domain</title>
     <link href="https://blog.codewalker.me/2018/07/15/hexo-bind-your-onw-domain/"/>
     <id>https://blog.codewalker.me/2018/07/15/hexo-bind-your-onw-domain/</id>
     <published>2018-07-15T12:39:51.000Z</published>
-    <updated>2018-07-15T13:58:42.000Z</updated>
+    <updated>2018-07-17T09:09:40.000Z</updated>
     
     <content type="html"><![CDATA[<p>There’s only <strong>3</strong> stpes to set up.</p><ol><li><p>Create CNAME file<br> Create a file named <strong>CNAME</strong> that path should be <code>/source/CNAME</code> and field in your domain. In my case, it should be <code>blog.codewalker.me</code>. <code>notice</code> There would be no <code>http://</code> or <code>https://</code> etc.</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat CNAME</span><br><span class="line">blog.codewalker.me</span><br></pre></td></tr></table></figure></li><li><p>Setup domain<br> Setup you DNS to add a subdomain as CNAME to you GitHub pages domain.<br> Refers mine, it should be <code>blog.codewalker.me</code> to <code>codewalkertse.github.io</code></p></li><li><p>Step 3 or not<br> In my case, I should make <a href="http://codewalker.me" target="_blank" rel="noopener">codewalker.me</a> redirect to <a href="http://blog.codewalker.me">blog.codewalker.me</a>.<br> In my Nginx Server the <code>.conf</code> should be like this:</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name codewalker.me www.codewalker.me;</span><br><span class="line">    rewrite ^/(.*) http://blog.codewalker.me/<span class="variable">$1</span> permanent;</span><br><span class="line">    access_log off;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p> To make all request redirect to blog.codewalker.me by 301 signal.</p></li></ol><p>Have fun with hexo</p><p>I love this world</p><p>EOF</p>]]></content>
     
@@ -39,6 +95,8 @@
     
       <category term="Hexo" scheme="https://blog.codewalker.me/tags/Hexo/"/>
     
+      <category term="Howto" scheme="https://blog.codewalker.me/tags/Howto/"/>
+    
   </entry>
   
   <entry>
@@ -46,7 +104,7 @@
     <link href="https://blog.codewalker.me/2018/07/15/Knowing-python3-socket-deeply/"/>
     <id>https://blog.codewalker.me/2018/07/15/Knowing-python3-socket-deeply/</id>
     <published>2018-07-15T05:08:16.000Z</published>
-    <updated>2018-07-15T12:33:05.000Z</updated>
+    <updated>2018-07-17T09:10:06.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>昨天的<a href="/2018/07/15/Why-there-are-only-request-response-model-but-how-to-explain-push">初识PythonSocket</a>大概讲了下<code>Python Socket</code>的知识，觉得不是很深入(其实这篇也只是个皮毛对知识的一个总结), 觉得理解Socket的原理对自己还是挺有帮助的. 对于 Web 的原理对于为什么 <code>RESTful</code> 为什么会成为Api接口的公认形式的理解还是非常有帮助.在深入之前我们还是首先要理解一些<code>术语</code>.</p><h2 id="Socket"><a href="#Socket" class="headerlink" title="Socket"></a>Socket</h2><blockquote><p>网络上的两个程序通过一个双向的通信连接实现数据的交换，这个连接的一端称为一个socket<br>A socket is an endpoint for communication between two machines.</p></blockquote><p>是的，从名字上我们可以知道 <code>Socket</code> 一个管道中两端的末端。试想网络通信好比一个水管，而 <code>Socket</code> 就是入水口(发送方)或是出水口(接收方). 那么既然只是两个端点她就不会在乎中间经过的媒介是什么，是水管(直连)，是游泳池(局域网)，是城市管网(城域网)，是世界地下水系统(Internet)的方式都无所谓了.</p><h2 id="协议-protocol"><a href="#协议-protocol" class="headerlink" title="协议(protocol)"></a>协议(protocol)</h2><h3 id="又称为通信协议"><a href="#又称为通信协议" class="headerlink" title="又称为通信协议"></a>又称为通信协议</h3><blockquote><p>是对数据格式和计算机之间交换数据时必须遵守的规则的正式描述<br>a communication protocol is a system of rules that allow two or more entities of a communications system to transmit information via any kind of variation of a physical quantity.</p></blockquote><p>Socket支持 <code>TCP</code> 以及 <code>UDP</code>. 这里就不扩展开来了.</p><h2 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h2><p>服务端，一个用于等待客户端<code>请求</code>以及<code>服务和处理</code>客户端请求的并<code>响应</code>的一端</p><h2 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h2><p>客户端， 是这个<code>服务</code>的另外一端. 用于发送<code>请求</code>.</p><h1 id="What-we-are-building-我们将要做什么"><a href="#What-we-are-building-我们将要做什么" class="headerlink" title="What we are building 我们将要做什么"></a>What we are building 我们将要做什么</h1><p>我们将要简单的实现一个服务端和一个客户端。 服务端开启了一个<code>Socket</code>端口等待客户端的链接。一旦客户端连接上了，她可以发送一些信息。同时，服务端可以处理(在这里就只是简单的转换为大写)客户端发送过来的信息再返还回客户端.这是很简单感觉但也很直白说明的一种实现方式，基本上都是 <code>等待响应 -&gt; 发送信息 -&gt; 处理信息 -&gt; 返回信息</code> 这样即完成了一次通信.下面我们先来看看代码的实现其实就是昨天的<code>service代码</code>以及今天新增的<code>client代码</code>, 然后在讲讲她们的实现过程.</p><h2 id="创建两个文件"><a href="#创建两个文件" class="headerlink" title="创建两个文件"></a>创建两个文件</h2><ul><li>server.py</li><li>client.py</li></ul><h3 id="server-py"><a href="#server-py" class="headerlink" title="server.py"></a>server.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Main</span><span class="params">()</span>:</span></span><br><span class="line">    host = <span class="string">"127.0.0.1"</span></span><br><span class="line">    port = <span class="number">5000</span></span><br><span class="line">     </span><br><span class="line">    mySocket = socket.socket()</span><br><span class="line">    mySocket.bind((host,port))</span><br><span class="line">     </span><br><span class="line">    mySocket.listen(<span class="number">1</span>)</span><br><span class="line">    conn, addr = mySocket.accept()</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"Connection from: "</span> + str(addr))</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">            data = conn.recv(<span class="number">1024</span>).decode()</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> data:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">print</span> (<span class="string">"from connected  user: "</span> + str(data))</span><br><span class="line">             </span><br><span class="line">            data = str(data).upper()</span><br><span class="line">            <span class="keyword">print</span> (<span class="string">"sending: "</span> + str(data))</span><br><span class="line">            conn.send(data.encode())</span><br><span class="line">             </span><br><span class="line">    conn.close()</span><br><span class="line">     </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    Main()</span><br></pre></td></tr></table></figure><p>下面我们来看看上面的服务端代码做了什么</p><ol><li>首先我们导入了Python的Socket库</li><li>接着我们定义了 <code>main</code> 函数</li><li>我们定义了两个变量 <code>host</code> 以及 <code>port</code> 用于保存服务端接受数据的IP地址和端口，这里是本地网所以往往就是 <code>127.0.0.1</code>, <code>5000</code> 端口只是我随意选择的一个如果你自己也可以随意选择一个另外的，只是这里需要注意一下必须是超过1024的端口号，因为&lt;=1024是系统预留的，不然会引起不必要的麻烦比如23 24 53 80 8080这些等等.</li><li>之后我们定义了一个变量 <code>mySocket</code>, 这是Python socket的一个实例</li><li>在服务端我们必须要绑定IP地址和端口号，调用的方法是 <code>.bind()</code> . 这里需要注意的是 <code>.bind()</code> 接受的是一个Tuple. 因此我用了<code>双括号</code>. 其实你也可以写成 <code>address = (&quot;127.0.0.1&quot;, 5000)</code> 然后直接传入 <code>.bind</code> 也可以。上面的写法更便于理解而已.</li><li>接下来我们调用了 <code>.listen()</code> 并且给了个<code>1</code>给她，意思就是开始持续地监听上面我们绑定的IP地址下面的<code>5000</code>端口直到我们关闭连接.</li><li>一切都设置好了，那么我们怎么知道 <code>Who</code> 发送过来的 <code>What</code> 呢，我们就定义了两个变量 <code>conn连接</code> 和 <code>addr地址</code> 用来保存这两个东西.</li><li>While 循环中就是server代码的核心了. 我们知道连接已经建立起来的那么久设置了一个<code>while True</code>的循环用于等待接收接下来 <code>client.py</code>发送过来的信息，但这个过程当中连接状态是没有关闭的. 我们申明了一个变量 <code>data</code> 用于接收客户端发送过来的数据并且解码了它, 这里非常注意在Python3中使用的是<code>decode</code>而不是<code>str()</code>来转换buffer的数据了. <code>.rect(1024)</code>中的1024是缓存接受到数据的一个大小.</li><li>接下来把接收到的data进行处理, 判断是否为空 转换大小写 打印接收到的数据等等 内部的一些操作. 之后把加工完的数据在<code>.encode()</code>之后通过<code>.send()</code>返回给客户端.</li><li>直到我们的客户端不再发送信息过来的时候我们就调用 <code>.close()</code>来关闭这个连接了。或者自己关闭服务端的运行.</li></ol><h3 id="client-py"><a href="#client-py" class="headerlink" title="client.py"></a>client.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Main</span><span class="params">()</span>:</span></span><br><span class="line">        host = <span class="string">'127.0.0.1'</span></span><br><span class="line">        port = <span class="number">5000</span></span><br><span class="line">         </span><br><span class="line">        mySocket = socket.socket()</span><br><span class="line">        mySocket.connect((host,port))</span><br><span class="line">         </span><br><span class="line">        message = input(<span class="string">" -&gt; "</span>)</span><br><span class="line">         </span><br><span class="line">        <span class="keyword">while</span> message != <span class="string">'q'</span>:</span><br><span class="line">                mySocket.send(message.encode())</span><br><span class="line">                data = mySocket.recv(<span class="number">1024</span>).decode()</span><br><span class="line">                 </span><br><span class="line">                <span class="keyword">print</span> (<span class="string">'Received from server: '</span> + data)</span><br><span class="line">                 </span><br><span class="line">                message = input(<span class="string">" -&gt; "</span>)</span><br><span class="line">                 </span><br><span class="line">        mySocket.close()</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    Main()</span><br></pre></td></tr></table></figure><p>我们来看看客户端做了些什么, 和服务端很差不多其相似的地方就简单带过。</p><ol><li>导入socket库，申明变量用于存放IP地址、端口、Socket实例等</li><li>不同于server端需要的是 <code>.bind()</code> 绑定，客户端需要的是 <code>.connect()</code> 连接, 这里注意地址和端口都是服务端的。很容易理解，你要写信给别人就需要填写对方的收信地址和收件人。</li><li>接下来就是等待我们出入需要发送的信息，直到输入的内容是<code>q</code>就关闭这个连接， 同时由于服务端收到了关闭连接的状态，也会关闭这个connection</li></ol><h1 id="Let’s-runing-it"><a href="#Let’s-runing-it" class="headerlink" title="Let’s runing it"></a>Let’s runing it</h1><h2 id="Server-1"><a href="#Server-1" class="headerlink" title="Server"></a>Server</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; python3 server.py</span><br><span class="line">Connection from: (<span class="string">'127.0.0.1'</span>, 53703)</span><br><span class="line">from connected  user: I am Simon</span><br><span class="line">sending: I AM SIMON</span><br><span class="line">from connected  user: This is a <span class="built_in">test</span></span><br><span class="line">sending: THIS IS A TEST</span><br></pre></td></tr></table></figure><h2 id="Client-1"><a href="#Client-1" class="headerlink" title="Client"></a>Client</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; python3 client.py</span><br><span class="line"> -&gt; I am Simon</span><br><span class="line">Received from server: I AM SIMON</span><br><span class="line"> -&gt; This is a <span class="built_in">test</span></span><br><span class="line">Received from server: THIS IS A TEST</span><br><span class="line"> -&gt; q</span><br></pre></td></tr></table></figure><p> EOF.</p>]]></content>
     
@@ -60,6 +118,8 @@
     </summary>
     
     
+      <category term="Python" scheme="https://blog.codewalker.me/tags/Python/"/>
+    
   </entry>
   
   <entry>
@@ -67,7 +127,7 @@
     <link href="https://blog.codewalker.me/2018/07/15/Why-there-are-only-request-response-model-but-how-to-explain-push/"/>
     <id>https://blog.codewalker.me/2018/07/15/Why-there-are-only-request-response-model-but-how-to-explain-push/</id>
     <published>2018-07-14T17:47:59.000Z</published>
-    <updated>2018-07-14T17:52:04.000Z</updated>
+    <updated>2018-07-17T09:10:43.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Why-there-are-only-request-response-model-but-how-to-explain-push"><a href="#Why-there-are-only-request-response-model-but-how-to-explain-push" class="headerlink" title="Why there are only request-response model but how to explain push"></a>Why there are only request-response model but how to explain push</h2><p>今天看帖子浏览到一篇文章讲<a href="http://cizixs.com/2015/09/21/what-is-a-web-framework" target="_blank" rel="noopener"><code>什么是 web 框架</code>what-is-a-web-framework</a>其中说到<code>HTTP 协议的基础是 请求-应答 (request-response) 模型</code>看到这里我突然就萌发了一个疑问。因为这里说到<code>request-response model</code>那么就是主动的一个请求 应答的过程，从<code>客户端请求-request</code>到<code>web server-response</code>的应答。那么这又怎么解释<code>push(推送)</code>呢？先把挖个坑在这.好吧其实这片文章真正的题目叫做</p><h3 id="Python-3-socket-programming-example"><a href="#Python-3-socket-programming-example" class="headerlink" title="Python 3 socket programming example"></a>Python 3 socket programming example</h3><h4 id="Server端"><a href="#Server端" class="headerlink" title="Server端"></a>Server端</h4><p>上面文章中给出了一个最基本的socket的例子但是是2.x版本的。这里提供一个3.x版本的<br>把下面的代码保存为<code>socket_base.py</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Date    : 2018-07-15 00:56:20</span></span><br><span class="line"><span class="comment"># @Author  : Simon (simon.xie@codewalker.meg)</span></span><br><span class="line"><span class="comment"># @Link    : http://www.codewalker.me</span></span><br><span class="line"><span class="comment"># @Version : 1.0.0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    host = <span class="string">"127.0.0.1"</span></span><br><span class="line">    port = <span class="number">5000</span></span><br><span class="line">     </span><br><span class="line">    mySocket = socket.socket()</span><br><span class="line">    mySocket.bind((host,port))</span><br><span class="line">     </span><br><span class="line">    mySocket.listen(<span class="number">1</span>)</span><br><span class="line">    conn, addr = mySocket.accept()</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"Connection from: "</span> + str(addr))</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">            data = conn.recv(<span class="number">1024</span>).decode()</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> data:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">print</span> (<span class="string">"from connected  user: "</span> + str(data))</span><br><span class="line">             </span><br><span class="line">            data = str(data).upper()</span><br><span class="line">            <span class="keyword">print</span> (<span class="string">"sending: "</span> + str(data))</span><br><span class="line">            conn.send(data.encode())</span><br><span class="line">             </span><br><span class="line">    conn.close()</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure></p><p>在终端A执行<code>python3 socket_base.py</code></p><h4 id="Client端"><a href="#Client端" class="headerlink" title="Client端"></a>Client端</h4><p>然后在开一个终端B执行<code>curl http://127.0.0.1:5000</code><br>在A中可以看到来自B的请求<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; python3 ./base_socket.py</span><br><span class="line">Connection from: (<span class="string">'127.0.0.1'</span>, 50285)</span><br><span class="line">from connected  user: GET / HTTP/1.1</span><br><span class="line">Host: 127.0.0.1:5000</span><br><span class="line">User-Agent: curl/7.54.0</span><br><span class="line">Accept: */*</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sending: GET / HTTP/1.1</span><br><span class="line">HOST: 127.0.0.1:5000</span><br><span class="line">USER-AGENT: CURL/7.54.0</span><br><span class="line">ACCEPT: */*</span><br></pre></td></tr></table></figure></p><h4 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h4><p>可以看出来B通过127.0.0.1的50285端口发送了get request到5000.<code>注: 本地请求所以都是127.0.0.1</code>得到下面的结果<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;HTTP Method&gt; &lt;URL&gt; &lt;HTTP version&gt;</span><br><span class="line">GET / HTTP/1.1</span><br></pre></td></tr></table></figure></p><p>在b中可以看到<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; curl http://127.0.0.1:5000</span><br><span class="line">GET / HTTP/1.1</span><br><span class="line">HOST: 127.0.0.1:5000</span><br><span class="line">USER-AGENT: CURL/7.54.0</span><br><span class="line">ACCEPT: */*</span><br></pre></td></tr></table></figure></p>]]></content>
     
@@ -80,6 +140,10 @@
     
     </summary>
     
+    
+      <category term="python" scheme="https://blog.codewalker.me/tags/python/"/>
+    
+      <category term="socket" scheme="https://blog.codewalker.me/tags/socket/"/>
     
   </entry>
   
@@ -135,9 +199,9 @@
     <link href="https://blog.codewalker.me/2018/07/14/hello-hexo/"/>
     <id>https://blog.codewalker.me/2018/07/14/hello-hexo/</id>
     <published>2018-07-13T16:08:51.000Z</published>
-    <updated>2018-07-13T16:47:55.000Z</updated>
+    <updated>2018-07-17T09:09:21.000Z</updated>
     
-    <content type="html"><![CDATA[<p>今天终于把github+hexo搭建好了中间也踩了不少的坑也要感谢前辈们在网上分享的经验,感谢在最后.</p><ol><li><p>首先是发布不了<br> Google了之后才发现是没有安装发布插件，很简单装好就ok了</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></li><li><p>然后是</p><blockquote><p>Deployer not found: git<br>起码Google了两分钟，都说的是1的问题。想应该是repo地址的问题，不应该是http的地址，应为按照教程来说之前配置过ssh那么就应该是ssh的方式commit，那么立即改成ssh git地址， it’s works。<br>修改_config.yml中找到repo<br>由<br><code>https://github.com/codewalkertse/codewalkertse.github.io.git</code><br>改成<br><code>git@github.com:codewalkertse/codewalkertse.github.io.git</code><br> 就好了.</p></blockquote></li><li><p>这个问题更无厘头了。已经commit了为啥给我显示 <code>There isn&#39;t a GitHub Pages site here.</code> 喃？</p><p> 还是来修改_config.yml找到 &gt; url: 修改成</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url: https://codewalkertse.github.io</span><br></pre></td></tr></table></figure><p> ok 这样就可以直接访问<a href="https://codewalkertse.github.io" target="_blank" rel="noopener">我的hexo]</a>搭建的最初版本了</p></li></ol><p>感谢<br>    <a href="http://baixin.io" target="_blank" rel="noopener">baixin.io</a><br>    <a href="https://segmentfault.com/a/1190000005624504" target="_blank" rel="noopener">jsyzchen</a><br>    <a href="https://formulahendry.github.io/2016/12/04/hexo-ci/" target="_blank" rel="noopener">formulahendry</a></p><p>Markdown语法还不是很熟悉排版简直惨不忍睹见谅</p>]]></content>
+    <content type="html"><![CDATA[<p>今天终于把github+hexo搭建好了中间也踩了不少的坑也要感谢前辈们在网上分享的经验,感谢在最后.</p><ol><li><p>首先是发布不了<br> Google了之后才发现是没有安装发布插件，很简单装好就ok了</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></li><li><p>然后是</p><blockquote><p>Deployer not found: git</p></blockquote><p> Google了两分钟，都说的是1的问题。想应该是repo地址的问题，不应该是http的地址，应为按照教程来说之前配置过ssh那么就应该是ssh的方式commit，那么立即改成ssh git地址， it’s works。</p><p> 修改_config.yml中找到repo</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    git@github.com:codewalkertse/codewalkertse.github.io.git</span><br><span class="line">    ``` </span><br><span class="line"></span><br><span class="line">3. 这个问题更无厘头了。已经commit了为啥给我显示 ` There isn<span class="string">'t a GitHub Pages site here. ` 喃？</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    还是来修改_config.yml找到 &gt; url: 修改成</span></span><br><span class="line"><span class="string">    ``` bash</span></span><br><span class="line"><span class="string">    url: https://codewalkertse.github.io</span></span><br></pre></td></tr></table></figure><p> ok 这样就可以直接访问<a href="https://codewalkertse.github.io" target="_blank" rel="noopener">我的hexo]</a>搭建的最初版本了</p><ul><li>之后绑定了自己域名方法可以看<a href="/2018/07/15/hexo-bind-your-onw-domain/">这里</a></li></ul></li><li><p>接下来Gitment的问题需要详细阅读<a href="https://imsun.net/posts/gitment-introduction/" target="_blank" rel="noopener">这里</a></p></li></ol><p>感谢</p><pre><code>- [baixin.io](http://baixin.io) - [jsyzchen](https://segmentfault.com/a/1190000005624504) - [formulahendry](https://formulahendry.github.io/2016/12/04/hexo-ci/)</code></pre><p>Markdown语法还不是很熟悉排版简直惨不忍睹见谅</p>]]></content>
     
     <summary type="html">
     
@@ -151,6 +215,8 @@
     
     </summary>
     
+    
+      <category term="Hexo" scheme="https://blog.codewalker.me/tags/Hexo/"/>
     
   </entry>
   
@@ -320,25 +386,26 @@
     <link href="https://blog.codewalker.me/2018/07/07/sum-recursion-python-alogorithm/"/>
     <id>https://blog.codewalker.me/2018/07/07/sum-recursion-python-alogorithm/</id>
     <published>2018-07-07T14:42:09.000Z</published>
-    <updated>2018-07-13T12:49:34.000Z</updated>
+    <updated>2018-07-17T09:08:53.000Z</updated>
     
-    <content type="html"><![CDATA[<pre><code>#!/usr/bin/env python3# -*- coding: utf-8 -*-# @Date    : 2018-07-07 21:54:33# @Author  : Simon (simon.xie@codewalker.meg)# @Link    : http://www.codewalker.me# @Version : 1.0.0import osfrom random import randintdef create_list(length=10):    return [ randint(0,10) for _ in range(length) ]def wrapper(func):    def wrapper(*arg, **kwargs):        # --- 附加功能 ---        print(&apos;calling{}..&apos;.format(func.__name__))        return func(*arg, **kwargs)    return wrapper@wrapperdef sum_normal(l):    sum_for_list = 0    for i in l:        sum_for_list += i    return sum_for_list@wrapperdef sum_recursion(l):    if l == []:        return 0    return l[0] + sum_recursion(l[1:])def main():    l = create_list(3)        print(&apos;list:{l}\nsum:{sum}&apos;.format(l=l,sum=sum_normal(l)))    print(&apos;-&apos;*80)    print(&apos;list:{l}\nsum:{sum}&apos;.format(l=l,sum=sum_recursion(l)))if __name__ == &quot;__main__&quot;:    main()</code></pre>]]></content>
+    <content type="html"><![CDATA[<p><code>Talk is cheap</code></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Date    : 2018-07-07 21:54:33</span></span><br><span class="line"><span class="comment"># @Author  : Simon (simon.xie@codewalker.meg)</span></span><br><span class="line"><span class="comment"># @Link    : http://www.codewalker.me</span></span><br><span class="line"><span class="comment"># @Version : 1.0.0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_list</span><span class="params">(length=<span class="number">10</span>)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> [ randint(<span class="number">0</span>,<span class="number">10</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(length) ]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*arg, **kwargs)</span>:</span></span><br><span class="line">        <span class="comment"># --- 附加功能 ---</span></span><br><span class="line">        print(<span class="string">'calling&#123;&#125;..'</span>.format(func.__name__))</span><br><span class="line">        <span class="keyword">return</span> func(*arg, **kwargs)</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@wrapper</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_normal</span><span class="params">(l)</span>:</span></span><br><span class="line">    sum_for_list = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> l:</span><br><span class="line">        sum_for_list += i</span><br><span class="line">    <span class="keyword">return</span> sum_for_list</span><br><span class="line">    </span><br><span class="line"><span class="meta">@wrapper</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_recursion</span><span class="params">(l)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> l == []:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> l[<span class="number">0</span>] + sum_recursion(l[<span class="number">1</span>:])</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    l = create_list(<span class="number">3</span>)    </span><br><span class="line">    print(<span class="string">'list:&#123;l&#125;\nsum:&#123;sum&#125;'</span>.format(l=l,sum=sum_normal(l)))</span><br><span class="line">    print(<span class="string">'-'</span>*<span class="number">80</span>)</span><br><span class="line">    print(<span class="string">'list:&#123;l&#125;\nsum:&#123;sum&#125;'</span>.format(l=l,sum=sum_recursion(l)))</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;pre&gt;&lt;code&gt;#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-# @Date    : 2018-07-07 21:54:33
-# @Author  : Simon (simon.xie@codewalker.meg)
-# @
+        &lt;p&gt;&lt;code&gt;Talk is cheap&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span c
       
     
     </summary>
     
       <category term="python" scheme="https://blog.codewalker.me/categories/python/"/>
     
+    
+      <category term="python" scheme="https://blog.codewalker.me/tags/python/"/>
+    
+      <category term="alogorithm" scheme="https://blog.codewalker.me/tags/alogorithm/"/>
     
   </entry>
   
@@ -434,52 +501,6 @@
     </summary>
     
       <category term="杂谈" scheme="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Fix when ssh shows you &quot;Host key verification failed&quot;</title>
-    <link href="https://blog.codewalker.me/2017/09/30/fix-when-ssh-shows-you-host-key-verification-failed/"/>
-    <id>https://blog.codewalker.me/2017/09/30/fix-when-ssh-shows-you-host-key-verification-failed/</id>
-    <published>2017-09-30T02:42:51.000Z</published>
-    <updated>2018-07-13T12:49:34.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>This simple and easy. Delete the line contain IP which you connect to. 1 Using your favourite editor to open /home/yourname/.ssh/known_hosts 2 Find and delete the line contain IP which is you connect to.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;This simple and easy. Delete the line contain IP which you connect to. 1 Using your favourite editor to open /home/yourname/.ssh/known_ho
-      
-    
-    </summary>
-    
-      <category term="Linux" scheme="https://blog.codewalker.me/categories/Linux/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>How to enable IPv6 on Centos 6.X</title>
-    <link href="https://blog.codewalker.me/2017/09/30/how-to-enable-ipv6-on-centos-6-x/"/>
-    <id>https://blog.codewalker.me/2017/09/30/how-to-enable-ipv6-on-centos-6-x/</id>
-    <published>2017-09-30T02:38:06.000Z</published>
-    <updated>2018-07-13T12:49:34.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Step 1. Check IPv6 module is enable for Kernel lsmod | grep ipv6 step 2.Enable IT. 2.1 ##notice may file name is different## Editing the file /etc/modprobe.d/disable_ipv6.conf Change options ipv6 disable=0 to options ipv6 disable=1 2.2 Editing the file /etc/sysconfig/network Change NETWORKING_IPV6=no to NETWORKING_IPV6=yes step 3 rebooting your server step 4 configure kernel parameters to enable IPv6 sysctl -w net.ipv6.conf.all.disable_ipv6=0 then reboot step 5 Checking if it works. sysctl -a | grep ipv6 then it will outputting something like net.ipv6.confXXXXXXX = 0. all done.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Step 1. Check IPv6 module is enable for Kernel lsmod | grep ipv6 step 2.Enable IT. 2.1 ##notice may file name is different## Editing the 
-      
-    
-    </summary>
-    
-      <category term="Linux" scheme="https://blog.codewalker.me/categories/Linux/"/>
     
     
   </entry>
