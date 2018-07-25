@@ -1,1 +1,274 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="SimonXie的博客"><meta name="keyword" content="SimonXie"><link rel="shortcut icon" href="/img/favicon.ico"><title> Experience of XenServer - SimonXie的博客 | SimonXie&#39;s Blog</title><link rel="stylesheet" href="/css/aircloud.css"><link rel="stylesheet" href="/css/gitment.css"><link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css"><script></script></head><body><div class="site-nav-toggle" id="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div><div class="index-about"> <i>All magic comess with a price.</i></div><div class="index-container"><div class="index-left"><div class="nav" id="nav"><div class="avatar-name"><div class="avatar"> <img src="/img/avatar.jpg"></div><div class="name"> <i>Simon Xie</i></div></div><div class="contents" id="nav-content"><ul><li><a href="/"><i class="iconfont icon-shouye1"></i> <span>HOME</span></a></li><li><a href="/tags"><i class="iconfont icon-biaoqian1"></i> <span>TAGS</span></a></li><li><a href="/archives"><i class="iconfont icon-guidang2"></i> <span>ARCHIVES</span></a></li><li><a href="/about/"><i class="iconfont icon-guanyu2"></i> <span>ABOUT</span></a></li><li><a id="search"><i class="iconfont icon-sousuo1"></i> <span>SEARCH</span></a></li></ul></div><div id="toc" class="toc-article"></div></div><div class="search-field" id="search-field"><div class="search-container"><div class="search-input"><span id="esc-search"><i class="icon-fanhui iconfont"></i></span> <input id="search-input"> <span id="begin-search">search</span></div><div class="search-result-container" id="search-result-container"></div></div></div><div class="index-about-mobile"> <i>All magic comess with a price.</i></div></div><div class="index-middle"><div class="post-container"><div class="post-title"> Experience of XenServer</div><div class="post-meta"> <span class="attr">Post：<span>2015-04-08 16:03:29</span></span> <span class="attr">Tags：/ <a class="tag" href="/tags/#linux" title="linux">linux</a> <span>/</span> <a class="tag" href="/tags/#XenServer" title="XenServer">XenServer</a> <span>/</span></span> <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span></span></div><div class="post-content"><p>记得在前年在顶呱呱工作的时候初次接触到了XenServer，当时是王工安装的这东西。感觉虚拟化是个很高端的东西. 不过这一切在上周一切的迷雾已被拨开原来这货就这么简单. 安装什么的网上很多资料不过这里还是推荐直接看官网文档里面非常详细这里不赘述. <a href="http://codewalker.me/wp-content/uploads/2015/04/Screen-Shot-2015-04-08-at-16.15.36.png" target="_blank" rel="noopener"><img src="http://codewalker.me/wp-content/uploads/2015/04/Screen-Shot-2015-04-08-at-16.15.36.png" alt="Screen Shot 2015-04-08 at 16.15.36"></a> <strong>Basic</strong>: 1 XenServer 这是安装在服务器上相当于一个OS. 2 XenCenter 这是安装的Client用于远程管理XenServer. 这里需要注意的是XenServer激活需要用到一个叫做Licensing Server的东西. 以上这两个(XenCenter以及Licensing Server)只能安装到win下面，这点比较苦逼. 授权服务器需要独立主机。或者你安装在内网把27000端口做一个映射到外网. 之前的疑惑: 怎么把公网IP分配给VMs以及硬件上网络环境怎么配置说的直白一点就是网线怎么插? 之前一直不知道怎么把公网的IP给VMs，以为先需要在Host上配置. 结果尼玛太简单了，Host上自带虚拟交换机。只需要一根网线插刀eth0上. 直接在VMs上设置为公网IP即可.VMs的IP<strong>可以</strong>与Host的IP在同一网段。不同网段行不行不知道，因为在我配置的时候手头没有不同网段的. 3 关于安装VMs 安装VMs需要用到iso，这里比较特殊只能通过CIFS(windows file sharing)就是win的共享。另一种是通过Linux的NFS。 我还是比较喜欢Linux所以只需要在另一台有公网IP的LInux中修改/etc/exports。 加入一个nfs出来设置为RO(read only)给XenServer的IP 例如: 在/etc/exports中加入一行 /path/to/iso/files/ a.b.c.d(ro) 重启nfs服务这样就可以了。 同时需要注意的是ISO文件只能存放在files下不能再在files西面建立文件夹 /path/to/iso/files/a.iso /path/to/iso/files/b.iso 经试验,即下面这样的写法是不行的 如果XenServer中ISO library写成/path/to/iso/files/ 但文件存放位置是这样 /path/to/iso/files/OSa/1.1/a.iso /path/to/iso/files/OSb/1.1/b.iso XenServer不会读取子文件夹。 最后附上以上机房刚装好XenServer图. <a href="http://codewalker.me/wp-content/uploads/2015/04/2.pic_hd.jpg" target="_blank" rel="noopener"><img src="http://codewalker.me/wp-content/uploads/2015/04/2.pic_hd.jpg" alt="2.pic_hd"></a> EOF.</p><div class="donate-container"><div class="donate-button"> <button id="donate-button">donate</button></div><div class="donate-img-container hide" id="donate-img-container"> <img id="donate-img" src="" data-src="/img/donate.jpg"><p> 感谢鼓励</p></div></div><div id="comment-container"></div></div></div></div></div><footer class="footer"><ul class="list-inline text-center"><li><a target="_blank" href="https://twitter.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-twitter"></i></span></a></li><li><a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8"><span class="fa-stack fa-lg"><i class="iconfont icon-zhihu"></i></span></a></li><li><a target="_blank" href="http://weibo.com/206000504"><span class="fa-stack fa-lg"><i class="iconfont icon-weibo"></i></span></a></li><li><a target="_blank" href="https://www.facebook.com/codewalkerxie"><span class="fa-stack fa-lg"><i class="iconfont icon-facebook"></i></span></a></li><li><a target="_blank" href="https://github.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-github"></i></span></a></li><li><a target="_blank" href="https://www.linkedin.com/in/simon-xie-11426829"><span class="fa-stack fa-lg"><i class="iconfont icon-linkedin"></i></span></a></li></ul><p> <span>/</span> <span><a href="https://codewalker.me">Old blog</a></span> <span>/</span></p><p><span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> PV</span><span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> UV</span> Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p></footer></body><script>window.hexo_search_path="search.json",window.hexo_root="/",window.isPost=!0</script><script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script src="/js/index.js"></script><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="/js/gitment.js"></script><script>var gitment=new Gitment({id:"Experience of XenServer",owner:"codewalkertse",repo:"codewalkertse.github.io",oauth:{client_id:"3cabff4367aa2366b062",client_secret:"cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b"}});gitment.render("comment-container")</script></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SimonXie的博客">
+    <meta name="keyword"  content="SimonXie">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Experience of XenServer - SimonXie的博客 | SimonXie&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> All magic comess with a price. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Simon Xie</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> All magic comess with a price. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Experience of XenServer
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2015-04-08 16:03:29</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#linux" title="linux">linux</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#XenServer" title="XenServer">XenServer</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>记得在前年在顶呱呱工作的时候初次接触到了XenServer，当时是王工安装的这东西。感觉虚拟化是个很高端的东西. 不过这一切在上周一切的迷雾已被拨开原来这货就这么简单. 安装什么的网上很多资料不过这里还是推荐直接看官网文档里面非常详细这里不赘述. <a href="http://codewalker.me/wp-content/uploads/2015/04/Screen-Shot-2015-04-08-at-16.15.36.png" target="_blank" rel="noopener"><img src="http://codewalker.me/wp-content/uploads/2015/04/Screen-Shot-2015-04-08-at-16.15.36.png" alt="Screen Shot 2015-04-08 at 16.15.36"></a> <strong>Basic</strong>: 1 XenServer 这是安装在服务器上相当于一个OS. 2 XenCenter 这是安装的Client用于远程管理XenServer. 这里需要注意的是XenServer激活需要用到一个叫做Licensing Server的东西. 以上这两个(XenCenter以及Licensing Server)只能安装到win下面，这点比较苦逼. 授权服务器需要独立主机。或者你安装在内网把27000端口做一个映射到外网. 之前的疑惑: 怎么把公网IP分配给VMs以及硬件上网络环境怎么配置说的直白一点就是网线怎么插? 之前一直不知道怎么把公网的IP给VMs，以为先需要在Host上配置. 结果尼玛太简单了，Host上自带虚拟交换机。只需要一根网线插刀eth0上. 直接在VMs上设置为公网IP即可.VMs的IP<strong>可以</strong>与Host的IP在同一网段。不同网段行不行不知道，因为在我配置的时候手头没有不同网段的. 3 关于安装VMs 安装VMs需要用到iso，这里比较特殊只能通过CIFS(windows file sharing)就是win的共享。另一种是通过Linux的NFS。 我还是比较喜欢Linux所以只需要在另一台有公网IP的LInux中修改/etc/exports。 加入一个nfs出来设置为RO(read only)给XenServer的IP 例如: 在/etc/exports中加入一行 /path/to/iso/files/ a.b.c.d(ro) 重启nfs服务这样就可以了。 同时需要注意的是ISO文件只能存放在files下不能再在files西面建立文件夹 /path/to/iso/files/a.iso /path/to/iso/files/b.iso 经试验,即下面这样的写法是不行的 如果XenServer中ISO library写成/path/to/iso/files/ 但文件存放位置是这样 /path/to/iso/files/OSa/1.1/a.iso /path/to/iso/files/OSb/1.1/b.iso XenServer不会读取子文件夹。 最后附上以上机房刚装好XenServer图. <a href="http://codewalker.me/wp-content/uploads/2015/04/2.pic_hd.jpg" target="_blank" rel="noopener"><img src="http://codewalker.me/wp-content/uploads/2015/04/2.pic_hd.jpg" alt="2.pic_hd"></a> EOF.</p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">donate</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/206000504">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/codewalkerxie">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/simon-xie-11426829">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/gitment.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: 'Experience of XenServer',
+        owner: 'codewalkertse',
+        repo: 'codewalkertse.github.io',
+        oauth: {
+            client_id: '3cabff4367aa2366b062',
+            client_secret: 'cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b',
+        },
+    })
+    gitment.render('comment-container')
+</script>
+
+</html>

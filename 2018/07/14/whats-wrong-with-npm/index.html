@@ -1,1 +1,284 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="SimonXie的博客"><meta name="keyword" content="SimonXie"><link rel="shortcut icon" href="/img/favicon.ico"><title> whats wrong with npm - SimonXie的博客 | SimonXie&#39;s Blog</title><link rel="stylesheet" href="/css/aircloud.css"><link rel="stylesheet" href="/css/gitment.css"><link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css"><script></script></head><body><div class="site-nav-toggle" id="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div><div class="index-about"> <i>All magic comess with a price.</i></div><div class="index-container"><div class="index-left"><div class="nav" id="nav"><div class="avatar-name"><div class="avatar"> <img src="/img/avatar.jpg"></div><div class="name"> <i>Simon Xie</i></div></div><div class="contents" id="nav-content"><ul><li><a href="/"><i class="iconfont icon-shouye1"></i> <span>HOME</span></a></li><li><a href="/tags"><i class="iconfont icon-biaoqian1"></i> <span>TAGS</span></a></li><li><a href="/archives"><i class="iconfont icon-guidang2"></i> <span>ARCHIVES</span></a></li><li><a href="/about/"><i class="iconfont icon-guanyu2"></i> <span>ABOUT</span></a></li><li><a id="search"><i class="iconfont icon-sousuo1"></i> <span>SEARCH</span></a></li></ul></div><div id="toc" class="toc-article"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#WTF-不知道为啥升级Node导致了npm用不了了"><span class="toc-text">WTF 不知道为啥升级Node导致了npm用不了了</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#悲剧的起源还是来自于最近折腾的Hexo"><span class="toc-text">悲剧的起源还是来自于最近折腾的Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#hexo-wordcount"><span class="toc-text">hexo-wordcount</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#难道是nunjucks转义出问题了"><span class="toc-text">难道是nunjucks转义出问题了?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#难道是npm出问题了"><span class="toc-text">难道是npm出问题了?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#难道是Node版本不匹配"><span class="toc-text">难道是Node版本不匹配?</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Voila"><span class="toc-text">Voilà</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol></div></div><div class="search-field" id="search-field"><div class="search-container"><div class="search-input"><span id="esc-search"><i class="icon-fanhui iconfont"></i></span> <input id="search-input"> <span id="begin-search">search</span></div><div class="search-result-container" id="search-result-container"></div></div></div><div class="index-about-mobile"> <i>All magic comess with a price.</i></div></div><div class="index-middle"><div class="post-container"><div class="post-title"> whats wrong with npm</div><div class="post-meta"> <span class="attr">Post：<span>2018-07-14 18:42:25</span></span> <span class="attr">Tags：/ <a class="tag" href="/tags/#MacOS" title="MacOS">MacOS</a> <span>/</span></span> <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span></span></div><div class="post-content"><h2 id="WTF-不知道为啥升级Node导致了npm用不了了"><a href="#WTF-不知道为啥升级Node导致了npm用不了了" class="headerlink" title="WTF 不知道为啥升级Node导致了npm用不了了"></a>WTF 不知道为啥升级Node导致了npm用不了了</h2><h3 id="悲剧的起源还是来自于最近折腾的Hexo"><a href="#悲剧的起源还是来自于最近折腾的Hexo" class="headerlink" title="悲剧的起源还是来自于最近折腾的Hexo"></a>悲剧的起源还是来自于最近折腾的Hexo</h3><h4 id="hexo-wordcount"><a href="#hexo-wordcount" class="headerlink" title="hexo-wordcount"></a>hexo-wordcount</h4><p>悲剧的开始是之前在安装<code>hexo-wordcount</code>的时候一直给我说<code>Error: Unable to call &#39;wordcount&#39;, which is undefined or falsey</code>就以为是这个插件安装的时候的问题，在反复<code>安装 卸载 安装 卸载</code>*n</p><h4 id="难道是nunjucks转义出问题了"><a href="#难道是nunjucks转义出问题了" class="headerlink" title="难道是nunjucks转义出问题了?"></a>难道是nunjucks转义出问题了?</h4><p>非法字符又去修改<code>nunjucks</code>中的转义文件<code>src/lib.js</code>完全是在乱弄。</p><h4 id="难道是npm出问题了"><a href="#难道是npm出问题了" class="headerlink" title="难道是npm出问题了?"></a>难道是npm出问题了?</h4><p>结果还是不行索性重装了<code>npm</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -0 -L http://npmjs.org/install.sh | sudo sh</span><br></pre></td></tr></table></figure><p>欲哭无泪的感觉一样还是不行，现在到好了<code>npm -v</code>都不行了。可是尼玛明明node全家桶已经安装好了啊。<br>于是<code>which npm</code>查看尼玛 npm木有了。<br>现在才想起来Node全家桶是拿<code>Brew</code>装的哦<br>如果我再手动安装肯定会有冲突我这不是在脑残是什么.</p><h4 id="难道是Node版本不匹配"><a href="#难道是Node版本不匹配" class="headerlink" title="难道是Node版本不匹配?"></a>难道是Node版本不匹配?</h4><p>那么就<code>reinstall node 到最新版</code>吧很简单</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; node -v</span><br><span class="line">v10.6.0</span><br><span class="line">brew reisntall node</span><br></pre></td></tr></table></figure><p>肯定没问题撒，老司机出马安个软件还会有问题吗?结果悲剧又发生了…<br>安装完之后告诉我说需要<code>brew postinstall node</code><br>WHT</p><blockquote><p> Permission denied @ rb_sysopen - /usr/local/lib/node_modules/npm/.npmignore<br> /usr/local/lib/node_modules<br></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">drwxr-xr-x   9 codewalkertes  admin   288B Nov 23  2017 cnpm</span><br><span class="line">drwxr-xr-x   9 codewalkertes  admin   288B Nov 23  2017 express</span><br><span class="line">drwxr-xr-x   9 codewalkertes  admin   288B Nov 23  2017 grunt-cli</span><br><span class="line">drwxr-xr-x  16 codewalkertes  admin   512B Jul 13 17:58 hexo-cli</span><br><span class="line">drwxr-xr-x   7 codewalkertes  admin   224B Jul 14 15:59 n</span><br><span class="line">drwxr-xr-x  25 root           admin   800B Jul 14 16:07 npm</span><br></pre></td></tr></table></figure><p></p></blockquote><p>看吧自己种下的恶果还是要自己吃下去才行。都是因为之前sudo安装造成的。不怕生命还是在于折腾把虽然这都三十好几了.<br></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R codewalkertes npm</span><br></pre></td></tr></table></figure><p></p><h2 id="Voila"><a href="#Voila" class="headerlink" title="Voilà"></a>Voilà</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm -v</span><br><span class="line">6.1.0</span><br></pre></td></tr></table></figure><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>遇到问题了还是要想办法<code>debug</code>, 这次主要原因还是因为手动安装和Brew安装起了冲突所致。<br>总结嘛吃一堑长一智，不过有时候真是也因为记性的原因或者现代软件包管理的原因太过于复杂了。</p><div class="donate-container"><div class="donate-button"> <button id="donate-button">donate</button></div><div class="donate-img-container hide" id="donate-img-container"> <img id="donate-img" src="" data-src="/img/donate.jpg"><p> 感谢鼓励</p></div></div><div id="comment-container"></div></div></div></div></div><footer class="footer"><ul class="list-inline text-center"><li><a target="_blank" href="https://twitter.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-twitter"></i></span></a></li><li><a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8"><span class="fa-stack fa-lg"><i class="iconfont icon-zhihu"></i></span></a></li><li><a target="_blank" href="http://weibo.com/206000504"><span class="fa-stack fa-lg"><i class="iconfont icon-weibo"></i></span></a></li><li><a target="_blank" href="https://www.facebook.com/codewalkerxie"><span class="fa-stack fa-lg"><i class="iconfont icon-facebook"></i></span></a></li><li><a target="_blank" href="https://github.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-github"></i></span></a></li><li><a target="_blank" href="https://www.linkedin.com/in/simon-xie-11426829"><span class="fa-stack fa-lg"><i class="iconfont icon-linkedin"></i></span></a></li></ul><p> <span>/</span> <span><a href="https://codewalker.me">Old blog</a></span> <span>/</span></p><p><span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> PV</span><span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> UV</span> Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p></footer></body><script>window.hexo_search_path="search.json",window.hexo_root="/",window.isPost=!0</script><script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script src="/js/index.js"></script><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="/js/gitment.js"></script><script>var gitment=new Gitment({id:"whats wrong with npm",owner:"codewalkertse",repo:"codewalkertse.github.io",oauth:{client_id:"3cabff4367aa2366b062",client_secret:"cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b"}});gitment.render("comment-container")</script></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SimonXie的博客">
+    <meta name="keyword"  content="SimonXie">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        whats wrong with npm - SimonXie的博客 | SimonXie&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> All magic comess with a price. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Simon Xie</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#WTF-不知道为啥升级Node导致了npm用不了了"><span class="toc-text">WTF 不知道为啥升级Node导致了npm用不了了</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#悲剧的起源还是来自于最近折腾的Hexo"><span class="toc-text">悲剧的起源还是来自于最近折腾的Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#hexo-wordcount"><span class="toc-text">hexo-wordcount</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#难道是nunjucks转义出问题了"><span class="toc-text">难道是nunjucks转义出问题了?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#难道是npm出问题了"><span class="toc-text">难道是npm出问题了?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#难道是Node版本不匹配"><span class="toc-text">难道是Node版本不匹配?</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Voila"><span class="toc-text">Voilà</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> All magic comess with a price. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        whats wrong with npm
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2018-07-14 18:42:25</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#MacOS" title="MacOS">MacOS</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="WTF-不知道为啥升级Node导致了npm用不了了"><a href="#WTF-不知道为啥升级Node导致了npm用不了了" class="headerlink" title="WTF 不知道为啥升级Node导致了npm用不了了"></a>WTF 不知道为啥升级Node导致了npm用不了了</h2><h3 id="悲剧的起源还是来自于最近折腾的Hexo"><a href="#悲剧的起源还是来自于最近折腾的Hexo" class="headerlink" title="悲剧的起源还是来自于最近折腾的Hexo"></a>悲剧的起源还是来自于最近折腾的Hexo</h3><h4 id="hexo-wordcount"><a href="#hexo-wordcount" class="headerlink" title="hexo-wordcount"></a>hexo-wordcount</h4><p>悲剧的开始是之前在安装<code>hexo-wordcount</code>的时候一直给我说<code>Error: Unable to call &#39;wordcount&#39;, which is undefined or falsey</code>就以为是这个插件安装的时候的问题，在反复<code>安装 卸载 安装 卸载</code>*n</p>
+<h4 id="难道是nunjucks转义出问题了"><a href="#难道是nunjucks转义出问题了" class="headerlink" title="难道是nunjucks转义出问题了?"></a>难道是nunjucks转义出问题了?</h4><p>非法字符又去修改<code>nunjucks</code>中的转义文件<code>src/lib.js</code>完全是在乱弄。</p>
+<h4 id="难道是npm出问题了"><a href="#难道是npm出问题了" class="headerlink" title="难道是npm出问题了?"></a>难道是npm出问题了?</h4><p>结果还是不行索性重装了<code>npm</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -0 -L http://npmjs.org/install.sh | sudo sh</span><br></pre></td></tr></table></figure>
+<p>欲哭无泪的感觉一样还是不行，现在到好了<code>npm -v</code>都不行了。可是尼玛明明node全家桶已经安装好了啊。<br>于是<code>which npm</code>查看尼玛 npm木有了。<br>现在才想起来Node全家桶是拿<code>Brew</code>装的哦<br>如果我再手动安装肯定会有冲突我这不是在脑残是什么.</p>
+<h4 id="难道是Node版本不匹配"><a href="#难道是Node版本不匹配" class="headerlink" title="难道是Node版本不匹配?"></a>难道是Node版本不匹配?</h4><p>那么就<code>reinstall node 到最新版</code>吧很简单</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; node -v</span><br><span class="line">v10.6.0</span><br><span class="line">brew reisntall node</span><br></pre></td></tr></table></figure>
+<p>肯定没问题撒，老司机出马安个软件还会有问题吗?结果悲剧又发生了…<br>安装完之后告诉我说需要<code>brew postinstall node</code><br>WHT</p>
+<blockquote>
+<p>  Permission denied @ rb_sysopen - /usr/local/lib/node_modules/npm/.npmignore<br>    /usr/local/lib/node_modules<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">drwxr-xr-x   9 codewalkertes  admin   288B Nov 23  2017 cnpm</span><br><span class="line">drwxr-xr-x   9 codewalkertes  admin   288B Nov 23  2017 express</span><br><span class="line">drwxr-xr-x   9 codewalkertes  admin   288B Nov 23  2017 grunt-cli</span><br><span class="line">drwxr-xr-x  16 codewalkertes  admin   512B Jul 13 17:58 hexo-cli</span><br><span class="line">drwxr-xr-x   7 codewalkertes  admin   224B Jul 14 15:59 n</span><br><span class="line">drwxr-xr-x  25 root           admin   800B Jul 14 16:07 npm</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>看吧自己种下的恶果还是要自己吃下去才行。都是因为之前sudo安装造成的。不怕生命还是在于折腾把虽然这都三十好几了.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R codewalkertes npm</span><br></pre></td></tr></table></figure></p>
+<h2 id="Voila"><a href="#Voila" class="headerlink" title="Voilà"></a>Voilà</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm -v</span><br><span class="line">6.1.0</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>遇到问题了还是要想办法<code>debug</code>, 这次主要原因还是因为手动安装和Brew安装起了冲突所致。<br>总结嘛吃一堑长一智，不过有时候真是也因为记性的原因或者现代软件包管理的原因太过于复杂了。</p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">donate</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/206000504">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/codewalkerxie">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/simon-xie-11426829">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/gitment.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: 'whats wrong with npm',
+        owner: 'codewalkertse',
+        repo: 'codewalkertse.github.io',
+        oauth: {
+            client_id: '3cabff4367aa2366b062',
+            client_secret: 'cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b',
+        },
+    })
+    gitment.render('comment-container')
+</script>
+
+</html>

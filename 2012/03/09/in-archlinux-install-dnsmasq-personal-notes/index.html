@@ -1,8 +1,366 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="SimonXie的博客"><meta name="keyword" content="SimonXie"><link rel="shortcut icon" href="/img/favicon.ico"><title> 在archlinux中安装Dnsmasq 个人笔记 - SimonXie的博客 | SimonXie&#39;s Blog</title><link rel="stylesheet" href="/css/aircloud.css"><link rel="stylesheet" href="/css/gitment.css"><link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css"><script></script></head><body><div class="site-nav-toggle" id="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div><div class="index-about"> <i>All magic comess with a price.</i></div><div class="index-container"><div class="index-left"><div class="nav" id="nav"><div class="avatar-name"><div class="avatar"> <img src="/img/avatar.jpg"></div><div class="name"> <i>Simon Xie</i></div></div><div class="contents" id="nav-content"><ul><li><a href="/"><i class="iconfont icon-shouye1"></i> <span>HOME</span></a></li><li><a href="/tags"><i class="iconfont icon-biaoqian1"></i> <span>TAGS</span></a></li><li><a href="/archives"><i class="iconfont icon-guidang2"></i> <span>ARCHIVES</span></a></li><li><a href="/about/"><i class="iconfont icon-guanyu2"></i> <span>ABOUT</span></a></li><li><a id="search"><i class="iconfont icon-sousuo1"></i> <span>SEARCH</span></a></li></ul></div><div id="toc" class="toc-article"></div></div><div class="search-field" id="search-field"><div class="search-container"><div class="search-input"><span id="esc-search"><i class="icon-fanhui iconfont"></i></span> <input id="search-input"> <span id="begin-search">search</span></div><div class="search-result-container" id="search-result-container"></div></div></div><div class="index-about-mobile"> <i>All magic comess with a price.</i></div></div><div class="index-middle"><div class="post-container"><div class="post-title"> 在archlinux中安装Dnsmasq 个人笔记</div><div class="post-meta"> <span class="attr">Post：<span>2012-03-09 20:08:06</span></span> <span class="attr">Tags：/ <a class="tag" href="/tags/#杂谈" title="杂谈">杂谈</a> <span>/</span></span> <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span></span></div><div class="post-content"><p>安装一个本地dns服务器加速对域名的解析，其实也加速不了多少。只是为了学习一下。</p><p>详细步骤我是跟着archlinux wiki 来做的。</p><p>步骤简化如下：</p><p><strong>1</strong></p><p><strong>yaourt -S dnsmasq</strong></p><p><strong>2</strong></p><p> <strong>2.1 sudo cp -v dnsmasq.conf{,.orig}</strong></p><p> <strong>2.2 sudo vim dnsmasq.conf</strong></p><p> <strong>2.3 找到下面语句并修改如下</strong></p><p>resolv-file=/etc/dnsmasq.resolv.conf</p><pre><code>addn-hosts=/etc/dnsmasq.hosts
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SimonXie的博客">
+    <meta name="keyword"  content="SimonXie">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        在archlinux中安装Dnsmasq 个人笔记 - SimonXie的博客 | SimonXie&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> All magic comess with a price. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Simon Xie</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> All magic comess with a price. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        在archlinux中安装Dnsmasq 个人笔记
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2012-03-09 20:08:06</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#杂谈" title="杂谈">杂谈</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>安装一个本地dns服务器加速对域名的解析，其实也加速不了多少。只是为了学习一下。</p>
+<p>详细步骤我是跟着archlinux wiki 来做的。</p>
+<p>步骤简化如下：</p>
+<p><strong>1</strong></p>
+<p><strong>yaourt -S dnsmasq</strong></p>
+<p><strong>2</strong></p>
+<p><strong> 2.1 sudo cp -v dnsmasq.conf{,.orig}</strong></p>
+<p><strong> 2.2 sudo vim dnsmasq.conf</strong></p>
+<p><strong> 2.3 找到下面语句并修改如下</strong></p>
+<p>resolv-file=/etc/dnsmasq.resolv.conf</p>
+<pre><code>addn-hosts=/etc/dnsmasq.hosts
 
 local=/localnet/
 
 no-dhcp-interface=eth0
 
 conf-dir=/etc/dnsmasq.d
-</code></pre><p> <strong>3</strong></p><p>sudo cp -v resolv.conf dnsmasq.resolv.conf</p><p><strong>`resolv.conf’ -&gt; `dnsmasq.resolv.conf’</strong></p><p>sudo mkdir /etc/dnsmasq.d</p><p>sudo touch /etc/dnsmasq.hosts</p><p>4</p><p>sudo /etc/rc.d/dnsmasq start</p><p>启动之后效果还是挺明显的</p><p>启动前</p><p>=&gt;$sudo rc.d/dnsmasq stop</p><p>:: Stopping DNS/DHCP daemon</p><p>=&gt;$dig archlinux.org | grep “Query time”</p><p>;; Query time: 516 msec</p><p>=&gt;$sudo rc.d/dnsmasq restart</p><p>:: Stopping DNS/DHCP daemon [FAIL]</p><p>:: Starting DNS/DHCP daemon</p><p>=&gt;$dig archlinux.org | grep “Query time”</p><p>;; Query time: 7 msec</p><p>{codewalker}&lt;=Fri Mar 09-09:04 PM=&gt;</p><p>==&gt;/etc&lt;==</p><p>=&gt;$dig baidu.com</p><p>; &lt;&lt;&gt;> DiG 9.9.0 &lt;&lt;&gt;&gt; baidu.com</p><p>;; global options: +cmd</p><p>;; Got answer:</p><p>;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 6355</p><p>;; flags: qr rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 13, ADDITIONAL: 9</p><p>;; OPT PSEUDOSECTION:</p><p>; EDNS: version: 0, flags:; udp: 4096</p><p>;; QUESTION SECTION:</p><p>;baidu.com. IN A</p><p>;; ANSWER SECTION:</p><p>baidu.com. 214 IN A 123.125.114.144</p><p>baidu.com. 214 IN A 220.181.111.85</p><p>baidu.com. 214 IN A 220.181.111.86</p><p>;; AUTHORITY SECTION:</p><p>com. 152241 IN NS i.gtld-servers.net.</p><p>com. 152241 IN NS j.gtld-servers.net.</p><p>com. 152241 IN NS f.gtld-servers.net.</p><p>com. 152241 IN NS a.gtld-servers.net.</p><p>com. 152241 IN NS m.gtld-servers.net.</p><p>com. 152241 IN NS l.gtld-servers.net.</p><p>com. 152241 IN NS d.gtld-servers.net.</p><p>com. 152241 IN NS k.gtld-servers.net.</p><p>com. 152241 IN NS e.gtld-servers.net.</p><p>com. 152241 IN NS h.gtld-servers.net.</p><p>com. 152241 IN NS c.gtld-servers.net.</p><p>com. 152241 IN NS g.gtld-servers.net.</p><p>com. 152241 IN NS b.gtld-servers.net.</p><p>;; ADDITIONAL SECTION:</p><p>a.gtld-servers.net. 48583 IN A 192.5.6.30</p><p>b.gtld-servers.net. 100848 IN A 192.33.14.30</p><p>e.gtld-servers.net. 80315 IN A 192.12.94.30</p><p>f.gtld-servers.net. 91976 IN A 192.35.51.30</p><p>g.gtld-servers.net. 90364 IN A 192.42.93.30</p><p>i.gtld-servers.net. 109962 IN A 192.43.172.30</p><p>j.gtld-servers.net. 110247 IN A 192.48.79.30</p><p>l.gtld-servers.net. 108146 IN A 192.41.162.30</p><p>;; Query time: 10 msec</p><p>;; SERVER: 127.0.0.1#53(127.0.0.1)</p><p>;; WHEN: Fri Mar 9 21:04:19 2012</p><p>;; MSG SIZE rcvd: 438</p><p>{codewalker}&lt;=Fri Mar 09-09:04 PM=&gt;</p><p>==&gt;/etc&lt;==</p><p>=&gt;$dig baidu.com</p><p>; &lt;&lt;&gt;> DiG 9.9.0 &lt;&lt;&gt;&gt; baidu.com</p><p>;; global options: +cmd</p><p>;; Got answer:</p><p>;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 1157</p><p>;; flags: qr rd ra ad; QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 0</p><p>;; QUESTION SECTION:</p><p>;baidu.com. IN A</p><p>;; ANSWER SECTION:</p><p>baidu.com. 209 IN A 123.125.114.144</p><p>baidu.com. 209 IN A 220.181.111.86</p><p>baidu.com. 209 IN A 220.181.111.85</p><p>;; Query time: 3 msec</p><p>;; SERVER: 127.0.0.1#53(127.0.0.1)</p><p>;; WHEN: Fri Mar 9 21:04:24 2012</p><p>;; MSG SIZE rcvd: 75</p><div class="donate-container"><div class="donate-button"> <button id="donate-button">donate</button></div><div class="donate-img-container hide" id="donate-img-container"> <img id="donate-img" src="" data-src="/img/donate.jpg"><p> 感谢鼓励</p></div></div><div id="comment-container"></div></div></div></div></div><footer class="footer"><ul class="list-inline text-center"><li><a target="_blank" href="https://twitter.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-twitter"></i></span></a></li><li><a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8"><span class="fa-stack fa-lg"><i class="iconfont icon-zhihu"></i></span></a></li><li><a target="_blank" href="http://weibo.com/206000504"><span class="fa-stack fa-lg"><i class="iconfont icon-weibo"></i></span></a></li><li><a target="_blank" href="https://www.facebook.com/codewalkerxie"><span class="fa-stack fa-lg"><i class="iconfont icon-facebook"></i></span></a></li><li><a target="_blank" href="https://github.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-github"></i></span></a></li><li><a target="_blank" href="https://www.linkedin.com/in/simon-xie-11426829"><span class="fa-stack fa-lg"><i class="iconfont icon-linkedin"></i></span></a></li></ul><p> <span>/</span> <span><a href="https://codewalker.me">Old blog</a></span> <span>/</span></p><p><span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> PV</span><span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> UV</span> Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p></footer></body><script>window.hexo_search_path="search.json",window.hexo_root="/",window.isPost=!0</script><script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script src="/js/index.js"></script><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="/js/gitment.js"></script><script>var gitment=new Gitment({id:"在archlinux中安装Dnsmasq 个人笔记",owner:"codewalkertse",repo:"codewalkertse.github.io",oauth:{client_id:"3cabff4367aa2366b062",client_secret:"cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b"}});gitment.render("comment-container")</script></html>
+</code></pre><p><strong> 3</strong></p>
+<p>sudo cp -v resolv.conf dnsmasq.resolv.conf</p>
+<p><strong>`resolv.conf’ -&gt; `dnsmasq.resolv.conf’</strong></p>
+<p>sudo mkdir /etc/dnsmasq.d</p>
+<p>sudo touch /etc/dnsmasq.hosts</p>
+<p>4</p>
+<p>sudo /etc/rc.d/dnsmasq start</p>
+<p>启动之后效果还是挺明显的</p>
+<p>启动前</p>
+<p>=&gt;$sudo rc.d/dnsmasq stop</p>
+<p>:: Stopping DNS/DHCP daemon  </p>
+<p>=&gt;$dig archlinux.org | grep “Query time”</p>
+<p>;; Query time: 516 msec</p>
+<p>=&gt;$sudo rc.d/dnsmasq restart</p>
+<p>:: Stopping DNS/DHCP daemon                                                                                        [FAIL] </p>
+<p>:: Starting DNS/DHCP daemon </p>
+<p>=&gt;$dig archlinux.org | grep “Query time”</p>
+<p>;; Query time: 7 msec</p>
+<p>{codewalker}&lt;=Fri Mar 09-09:04 PM=&gt;</p>
+<p>==&gt;/etc&lt;==</p>
+<p>=&gt;$dig baidu.com</p>
+<p>; &lt;&lt;&gt;> DiG 9.9.0 &lt;&lt;&gt;&gt; baidu.com</p>
+<p>;; global options: +cmd</p>
+<p>;; Got answer:</p>
+<p>;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 6355</p>
+<p>;; flags: qr rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 13, ADDITIONAL: 9</p>
+<p>;; OPT PSEUDOSECTION:</p>
+<p>; EDNS: version: 0, flags:; udp: 4096</p>
+<p>;; QUESTION SECTION:</p>
+<p>;baidu.com. IN A</p>
+<p>;; ANSWER SECTION:</p>
+<p>baidu.com. 214 IN A 123.125.114.144</p>
+<p>baidu.com. 214 IN A 220.181.111.85</p>
+<p>baidu.com. 214 IN A 220.181.111.86</p>
+<p>;; AUTHORITY SECTION:</p>
+<p>com. 152241 IN NS i.gtld-servers.net.</p>
+<p>com. 152241 IN NS j.gtld-servers.net.</p>
+<p>com. 152241 IN NS f.gtld-servers.net.</p>
+<p>com. 152241 IN NS a.gtld-servers.net.</p>
+<p>com. 152241 IN NS m.gtld-servers.net.</p>
+<p>com. 152241 IN NS l.gtld-servers.net.</p>
+<p>com. 152241 IN NS d.gtld-servers.net.</p>
+<p>com. 152241 IN NS k.gtld-servers.net.</p>
+<p>com. 152241 IN NS e.gtld-servers.net.</p>
+<p>com. 152241 IN NS h.gtld-servers.net.</p>
+<p>com. 152241 IN NS c.gtld-servers.net.</p>
+<p>com. 152241 IN NS g.gtld-servers.net.</p>
+<p>com. 152241 IN NS b.gtld-servers.net.</p>
+<p>;; ADDITIONAL SECTION:</p>
+<p>a.gtld-servers.net. 48583 IN A 192.5.6.30</p>
+<p>b.gtld-servers.net. 100848 IN A 192.33.14.30</p>
+<p>e.gtld-servers.net. 80315 IN A 192.12.94.30</p>
+<p>f.gtld-servers.net. 91976 IN A 192.35.51.30</p>
+<p>g.gtld-servers.net. 90364 IN A 192.42.93.30</p>
+<p>i.gtld-servers.net. 109962 IN A 192.43.172.30</p>
+<p>j.gtld-servers.net. 110247 IN A 192.48.79.30</p>
+<p>l.gtld-servers.net. 108146 IN A 192.41.162.30</p>
+<p>;; Query time: 10 msec</p>
+<p>;; SERVER: 127.0.0.1#53(127.0.0.1)</p>
+<p>;; WHEN: Fri Mar  9 21:04:19 2012</p>
+<p>;; MSG SIZE  rcvd: 438</p>
+<p>{codewalker}&lt;=Fri Mar 09-09:04 PM=&gt;</p>
+<p>==&gt;/etc&lt;==</p>
+<p>=&gt;$dig baidu.com</p>
+<p>; &lt;&lt;&gt;> DiG 9.9.0 &lt;&lt;&gt;&gt; baidu.com</p>
+<p>;; global options: +cmd</p>
+<p>;; Got answer:</p>
+<p>;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 1157</p>
+<p>;; flags: qr rd ra ad; QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 0</p>
+<p>;; QUESTION SECTION:</p>
+<p>;baidu.com. IN A</p>
+<p>;; ANSWER SECTION:</p>
+<p>baidu.com. 209 IN A 123.125.114.144</p>
+<p>baidu.com. 209 IN A 220.181.111.86</p>
+<p>baidu.com. 209 IN A 220.181.111.85</p>
+<p>;; Query time: 3 msec</p>
+<p>;; SERVER: 127.0.0.1#53(127.0.0.1)</p>
+<p>;; WHEN: Fri Mar  9 21:04:24 2012</p>
+<p>;; MSG SIZE  rcvd: 75</p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">donate</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/206000504">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/codewalkerxie">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/simon-xie-11426829">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/gitment.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: '在archlinux中安装Dnsmasq 个人笔记',
+        owner: 'codewalkertse',
+        repo: 'codewalkertse.github.io',
+        oauth: {
+            client_id: '3cabff4367aa2366b062',
+            client_secret: 'cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b',
+        },
+    })
+    gitment.render('comment-container')
+</script>
+
+</html>

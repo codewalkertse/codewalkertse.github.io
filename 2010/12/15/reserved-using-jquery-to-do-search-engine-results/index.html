@@ -1,4 +1,151 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="SimonXie的博客"><meta name="keyword" content="SimonXie"><link rel="shortcut icon" href="/img/favicon.ico"><title> [转载]使用jquery做搜索引擎效果 - SimonXie的博客 | SimonXie&#39;s Blog</title><link rel="stylesheet" href="/css/aircloud.css"><link rel="stylesheet" href="/css/gitment.css"><link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css"><script></script></head><body><div class="site-nav-toggle" id="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div><div class="index-about"> <i>All magic comess with a price.</i></div><div class="index-container"><div class="index-left"><div class="nav" id="nav"><div class="avatar-name"><div class="avatar"> <img src="/img/avatar.jpg"></div><div class="name"> <i>Simon Xie</i></div></div><div class="contents" id="nav-content"><ul><li><a href="/"><i class="iconfont icon-shouye1"></i> <span>HOME</span></a></li><li><a href="/tags"><i class="iconfont icon-biaoqian1"></i> <span>TAGS</span></a></li><li><a href="/archives"><i class="iconfont icon-guidang2"></i> <span>ARCHIVES</span></a></li><li><a href="/about/"><i class="iconfont icon-guanyu2"></i> <span>ABOUT</span></a></li><li><a id="search"><i class="iconfont icon-sousuo1"></i> <span>SEARCH</span></a></li></ul></div><div id="toc" class="toc-article"></div></div><div class="search-field" id="search-field"><div class="search-container"><div class="search-input"><span id="esc-search"><i class="icon-fanhui iconfont"></i></span> <input id="search-input"> <span id="begin-search">search</span></div><div class="search-result-container" id="search-result-container"></div></div></div><div class="index-about-mobile"> <i>All magic comess with a price.</i></div></div><div class="index-middle"><div class="post-container"><div class="post-title"> [转载]使用jquery做搜索引擎效果</div><div class="post-meta"> <span class="attr">Post：<span>2010-12-15 15:04:00</span></span> <span class="attr">Tags：/ <a class="tag" href="/tags/#web" title="web">web</a> <span>/</span> <a class="tag" href="/tags/#javascript" title="javascript">javascript</a> <span>/</span></span> <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span></span></div><div class="post-content"><p><strong>原文地址：</strong><a href="http://blog.sina.com.cn/s/blog_49f485700100exx9.html" title="使用jquery做搜索引擎效果" target="_blank" rel="noopener">使用jquery做搜索引擎效果</a><strong>作者：</strong><a href="http://blog.sina.com.cn/u/1240761712" title="Hope" target="_blank" rel="noopener">Hope</a></p><p>当用户输入电话号码的时候，会自动出现提示。类似于google搜索引擎效果，</p><p>之前用javascript写过一个，但是目前使用jquery更为简单。</p><p>[<img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="[转载]使用jquery做搜索引擎效果" title="[转载]使用jquery做搜索引擎效果">](<a href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100o5gx&amp;url=http://s8.sinaimg.cn/orignal/49f4857046aa2e8bed467&amp;690" target="_blank" rel="noopener">http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100o5gx&amp;url=http://s8.sinaimg.cn/orignal/49f4857046aa2e8bed467&amp;690</a>)</p><p>代码如下：</p><pre><code> var line = 0;  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SimonXie的博客">
+    <meta name="keyword"  content="SimonXie">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        [转载]使用jquery做搜索引擎效果 - SimonXie的博客 | SimonXie&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> All magic comess with a price. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Simon Xie</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> All magic comess with a price. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        [转载]使用jquery做搜索引擎效果
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2010-12-15 15:04:00</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#web" title="web">web</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#javascript" title="javascript">javascript</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p><strong>原文地址：</strong><a href="http://blog.sina.com.cn/s/blog_49f485700100exx9.html" title="使用jquery做搜索引擎效果" target="_blank" rel="noopener">使用jquery做搜索引擎效果</a><strong>作者：</strong><a href="http://blog.sina.com.cn/u/1240761712" title="Hope" target="_blank" rel="noopener">Hope</a></p>
+<p>当用户输入电话号码的时候，会自动出现提示。类似于google搜索引擎效果，</p>
+<p>之前用javascript写过一个，但是目前使用jquery更为简单。</p>
+<p>[<img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="[转载]使用jquery做搜索引擎效果" title="[转载]使用jquery做搜索引擎效果">](<a href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100o5gx&amp;url=http://s8.sinaimg.cn/orignal/49f4857046aa2e8bed467&amp;690" target="_blank" rel="noopener">http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100o5gx&amp;url=http://s8.sinaimg.cn/orignal/49f4857046aa2e8bed467&amp;690</a>)</p>
+<p>代码如下：</p>
+<pre><code> var line = 0;  
  var sendType;  
  function del(){  
      if($(&quot;#newDiv&quot;)){  
@@ -36,7 +183,8 @@ $(document).ready(function(){
              }  
          }    
      });
-</code></pre><p>//只要id为phoneno的文本框变化，就调用function()</p><pre><code> $(&quot;#phoneno&quot;).bind(&quot;propertychange&quot;, function(){              
+</code></pre><p>//只要id为phoneno的文本框变化，就调用function()</p>
+<pre><code> $(&quot;#phoneno&quot;).bind(&quot;propertychange&quot;, function(){              
      del();             
 var top = $(&quot;#phoneno&quot;).offset().top;  
      var left = $(&quot;#phoneno&quot;).offset().left;  
@@ -52,7 +200,9 @@ var top = $(&quot;#phoneno&quot;).offset().top;
          .attr(&quot;cellpadding&quot;, &quot;0&quot;)  
          .attr(&quot;cellspacing&quot;, &quot;0&quot;);                     
  //$.get(&quot;xmlPhoneno&quot;, {phoneno: $(&quot;#phoneno&quot;).val()},function(xml){   
-</code></pre><p> $.get(“phoneNoInfo.xml”, {PhoneNumber: $(“#phoneno”).val()},function(xml){</p><p>//这里调用了后台的xmlController来执行发挥xml。以下为解析xml<br> $(xml).find(“phones phone”).each(function(){<br> var phoneno = $(this).attr(“phoneno”);<br> var sname = $(this).attr(“sname”);<br> var tr = $(“</p><tr>“).css(“cursor”, “pointer”).mouseout(function(){<br> $(this).css(“backgroundColor”, “white”).css(“color”, “black”);<br> }).mouseover(function(){<br> $(this).css(“backgroundColor”, “blue”).css(“color”, “white”);<br> }).click(function(){<br> $(“#phoneno”).val($(this).find(“td”).eq(0).html());<br> del();<br> });<br> var td1 = $(“<td>“).html(phoneno).css(“fontSize”, “12px”)<br> .css(“margin”, “5 5 5 5”);<br> var td2 = $(“</td><td>“).html(sname)<br> .attr(“align”, “right”).css(“fontSize”, “12px”)<br> .css(“color”, “green”).css(“margin”, “5 5 5 5”);</td></tr><p></p><pre><code>                tr.append(td1).append(td2);  
+</code></pre><p>   $.get(“phoneNoInfo.xml”, {PhoneNumber: $(“#phoneno”).val()},function(xml){ </p>
+<p>//这里调用了后台的xmlController来执行发挥xml。以下为解析xml<br>                    $(xml).find(“phones phone”).each(function(){<br>                     var phoneno = $(this).attr(“phoneno”);<br>                        var sname = $(this).attr(“sname”);<br>                         var tr = $(“<tr>“).css(“cursor”, “pointer”).mouseout(function(){<br>                            $(this).css(“backgroundColor”, “white”).css(“color”, “black”);<br>                        }).mouseover(function(){<br>                            $(this).css(“backgroundColor”, “blue”).css(“color”, “white”);<br>                        }).click(function(){<br>                            $(“#phoneno”).val($(this).find(“td”).eq(0).html());<br>                            del();<br>                        });<br>                        var td1 = $(“<td>“).html(phoneno).css(“fontSize”, “12px”)<br>                            .css(“margin”, “5 5 5 5”);<br>                        var td2 = $(“</td><td>“).html(sname)<br>                        .attr(“align”, “right”).css(“fontSize”, “12px”)<br>                        .css(“color”, “green”).css(“margin”, “5 5 5 5”);  </td></tr></p>
+<pre><code>                tr.append(td1).append(td2);  
                 table.append(tr);  
                 newDiv.append(table);                          
             });  
@@ -63,4 +213,134 @@ var top = $(&quot;#phoneno&quot;).offset().top;
         }                
     });  
 }
-</code></pre><div class="donate-container"><div class="donate-button"> <button id="donate-button">donate</button></div><div class="donate-img-container hide" id="donate-img-container"> <img id="donate-img" src="" data-src="/img/donate.jpg"><p> 感谢鼓励</p></div></div><div id="comment-container"></div></div></div></div></div><footer class="footer"><ul class="list-inline text-center"><li><a target="_blank" href="https://twitter.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-twitter"></i></span></a></li><li><a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8"><span class="fa-stack fa-lg"><i class="iconfont icon-zhihu"></i></span></a></li><li><a target="_blank" href="http://weibo.com/206000504"><span class="fa-stack fa-lg"><i class="iconfont icon-weibo"></i></span></a></li><li><a target="_blank" href="https://www.facebook.com/codewalkerxie"><span class="fa-stack fa-lg"><i class="iconfont icon-facebook"></i></span></a></li><li><a target="_blank" href="https://github.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-github"></i></span></a></li><li><a target="_blank" href="https://www.linkedin.com/in/simon-xie-11426829"><span class="fa-stack fa-lg"><i class="iconfont icon-linkedin"></i></span></a></li></ul><p> <span>/</span> <span><a href="https://codewalker.me">Old blog</a></span> <span>/</span></p><p><span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> PV</span><span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> UV</span> Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p></footer></body><script>window.hexo_search_path="search.json",window.hexo_root="/",window.isPost=!0</script><script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script src="/js/index.js"></script><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="/js/gitment.js"></script><script>var gitment=new Gitment({id:"[转载]使用jquery做搜索引擎效果",owner:"codewalkertse",repo:"codewalkertse.github.io",oauth:{client_id:"3cabff4367aa2366b062",client_secret:"cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b"}});gitment.render("comment-container")</script></html>
+</code></pre>
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">donate</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/206000504">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/codewalkerxie">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/simon-xie-11426829">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/gitment.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: '[转载]使用jquery做搜索引擎效果',
+        owner: 'codewalkertse',
+        repo: 'codewalkertse.github.io',
+        oauth: {
+            client_id: '3cabff4367aa2366b062',
+            client_secret: 'cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b',
+        },
+    })
+    gitment.render('comment-container')
+</script>
+
+</html>

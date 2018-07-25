@@ -1,5 +1,166 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="SimonXie的博客"><meta name="keyword" content="SimonXie"><link rel="shortcut icon" href="/img/favicon.ico"><title> perl todolist - SimonXie的博客 | SimonXie&#39;s Blog</title><link rel="stylesheet" href="/css/aircloud.css"><link rel="stylesheet" href="/css/gitment.css"><link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css"><script></script></head><body><div class="site-nav-toggle" id="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div><div class="index-about"> <i>All magic comess with a price.</i></div><div class="index-container"><div class="index-left"><div class="nav" id="nav"><div class="avatar-name"><div class="avatar"> <img src="/img/avatar.jpg"></div><div class="name"> <i>Simon Xie</i></div></div><div class="contents" id="nav-content"><ul><li><a href="/"><i class="iconfont icon-shouye1"></i> <span>HOME</span></a></li><li><a href="/tags"><i class="iconfont icon-biaoqian1"></i> <span>TAGS</span></a></li><li><a href="/archives"><i class="iconfont icon-guidang2"></i> <span>ARCHIVES</span></a></li><li><a href="/about/"><i class="iconfont icon-guanyu2"></i> <span>ABOUT</span></a></li><li><a id="search"><i class="iconfont icon-sousuo1"></i> <span>SEARCH</span></a></li></ul></div><div id="toc" class="toc-article"></div></div><div class="search-field" id="search-field"><div class="search-container"><div class="search-input"><span id="esc-search"><i class="icon-fanhui iconfont"></i></span> <input id="search-input"> <span id="begin-search">search</span></div><div class="search-result-container" id="search-result-container"></div></div></div><div class="index-about-mobile"> <i>All magic comess with a price.</i></div></div><div class="index-middle"><div class="post-container"><div class="post-title"> perl todolist</div><div class="post-meta"> <span class="attr">Post：<span>2012-12-13 21:28:18</span></span> <span class="attr">Tags：/ <a class="tag" href="/tags/#perl" title="perl">perl</a> <span>/</span></span> <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span></span></div><div class="post-content"><p>最近在学习perl试着试着写了一个todolist的程序写入一个文本文件，可用于我的conky在桌面显示比较方便写的比较糟和冗余后期会随着学习继续优化脚本。其中遇见了不少问题，也发现很多语法记得不牢靠，幸好以前写过不少其他语言的程序发现问题也只是语法，思维方向大致还是很正确的。</p><p>实现功能如下：</p><p>1、插入，可同时插入多条。</p><p>2、删除单条（</p><p>在下一个版本中会加入删除多条可以实现调用方法如下：</p><p>输入 1 2 3 是删除指定条数</p><p>输入1-3删除范围条数</p><p>）</p><p>3、修改，我这里想的是如果是修改那么todo就是需求更改，那么会直接放入todolist的第一条置顶。</p><p>用到的知识点</p><p>1、列表list</p><p>2、hash数组</p><p>3、文件的写入与追加</p><p>4、sub参数，sub参数的指针调用我用红色标出。</p><p>5、脚本调用时的参数判断，个数判断</p><p>6、正则</p><p>#!/usr/bin/perl</p><p>use strict;</p><p>my $filename =”$ENV{PWD}/todolist.file”;</p><p>sub badarg{</p><pre><code>print &quot;badargs&quot;;
-</code></pre><p>}</p><p>sub dump_arr{</p><pre><code>my $line_num = 0;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SimonXie的博客">
+    <meta name="keyword"  content="SimonXie">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        perl todolist - SimonXie的博客 | SimonXie&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> All magic comess with a price. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Simon Xie</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> All magic comess with a price. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        perl todolist
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2012-12-13 21:28:18</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#perl" title="perl">perl</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>最近在学习perl试着试着写了一个todolist的程序写入一个文本文件，可用于我的conky在桌面显示比较方便写的比较糟和冗余后期会随着学习继续优化脚本。其中遇见了不少问题，也发现很多语法记得不牢靠，幸好以前写过不少其他语言的程序发现问题也只是语法，思维方向大致还是很正确的。</p>
+<p>实现功能如下：</p>
+<p>1、插入，可同时插入多条。</p>
+<p>2、删除单条（</p>
+<p>在下一个版本中会加入删除多条可以实现调用方法如下：</p>
+<p>输入 1 2 3 是删除指定条数</p>
+<p>输入1-3删除范围条数</p>
+<p>）</p>
+<p>3、修改，我这里想的是如果是修改那么todo就是需求更改，那么会直接放入todolist的第一条置顶。</p>
+<p>用到的知识点</p>
+<p>1、列表list</p>
+<p>2、hash数组</p>
+<p>3、文件的写入与追加</p>
+<p>4、sub参数，sub参数的指针调用我用红色标出。</p>
+<p>5、脚本调用时的参数判断，个数判断</p>
+<p>6、正则</p>
+<p>#!/usr/bin/perl</p>
+<p>use strict;</p>
+<p>my $filename =”$ENV{PWD}/todolist.file”;</p>
+<p>sub badarg{</p>
+<pre><code>print &quot;badargs&quot;;
+</code></pre><p>}</p>
+<p>sub dump_arr{</p>
+<pre><code>my $line_num = 0;
 
 if(@_ == 0){
 
@@ -16,12 +177,20 @@ foreach my $line (@_){
     $line_num++;
 
 }
-</code></pre><p>}</p><p>########read only file begin######</p><p>sub readfile{</p><pre><code>open(IN, &quot;&lt; $filename&quot;) or die &quot;Couldn&apos;t open $filename for reading: $!&quot;;
+</code></pre><p>}</p>
+<p>########read only file begin######</p>
+<p>sub readfile{</p>
+<pre><code>open(IN, &quot;&lt; $filename&quot;) or die &quot;Couldn&apos;t open $filename for reading: $!&quot;;
 
 #close(IN);
 
 return ;
-</code></pre><p>}</p><p>########read only file end######</p><p>#</p><p>########Append line open file begin######</p><p>sub appendline{</p><pre><code>my @new\_todo = @\_;
+</code></pre><p>}</p>
+<p>########read only file end######</p>
+<p>#</p>
+<p>########Append line open file begin######</p>
+<p>sub appendline{</p>
+<pre><code>my @new\_todo = @\_;
 
 print &quot;Below lines are your inputn&quot;;
 
@@ -58,7 +227,12 @@ if($is_append eq &quot;yes&quot;){
     print &quot;You are quitn&quot;;
 
 }
-</code></pre><p>}</p><p>########Append line open file end######</p><p>#</p><p>########inster file begin######</p><p>sub inster{</p><pre><code>my $_;
+</code></pre><p>}</p>
+<p>########Append line open file end######</p>
+<p>#</p>
+<p>########inster file begin######</p>
+<p>sub inster{</p>
+<pre><code>my $_;
 
 my @new_todo;
 
@@ -89,7 +263,12 @@ chomp;
 push @new\_todo,$\_;
 
 &amp;appendline(@new_todo);
-</code></pre><p>}</p><p>########inster file end######</p><p>#</p><p>########modify file begin######</p><p>sub modify{</p><pre><code>my $_;
+</code></pre><p>}</p>
+<p>########inster file end######</p>
+<p>#</p>
+<p>########modify file begin######</p>
+<p>sub modify{</p>
+<pre><code>my $_;
 
 my @file_lines = &amp;readfile;
 
@@ -128,7 +307,11 @@ push my @new\_file\_lines,$changeto;
 print &quot;now newline will be append!==&gt; @new\_file\_linesn&quot;;
 
 &amp;appendline(@new\_file\_lines);
-</code></pre><p>}</p><p>########modify file end######</p><p>#########read only file begin######</p><p>sub list{</p><pre><code>my @file_lines = reverse(&amp;readfile);
+</code></pre><p>}</p>
+<p>########modify file end######</p>
+<p>#########read only file begin######</p>
+<p>sub list{</p>
+<pre><code>my @file_lines = reverse(&amp;readfile);
 
 my $line;
 
@@ -143,7 +326,12 @@ my $num=0;
 #    $num++;
 
 #}
-</code></pre><p>}</p><p>########read only file end######</p><p>#</p><p>########delete file begin######</p><p>sub delete{</p><pre><code>my ($file\_lines,$n) = @\_;
+</code></pre><p>}</p>
+<p>########read only file end######</p>
+<p>#</p>
+<p>########delete file begin######</p>
+<p>sub delete{</p>
+<pre><code>my ($file\_lines,$n) = @\_;
 
 delete @$file_lines\[$$n\];
 
@@ -162,14 +350,25 @@ foreach my $s (@$file_lines){
 }
 
 close (FO);
-</code></pre><p>}</p><p>########delete file end######</p><p>my $count_arg = $#ARGV + 1;</p><p>if ( $count_arg &gt;1 ){</p><pre><code>print &quot;your args are: @ARGVn&quot;;
+</code></pre><p>}</p>
+<p>########delete file end######</p>
+<p>my $count_arg = $#ARGV + 1;</p>
+<p>if ( $count_arg &gt;1 ){</p>
+<pre><code>print &quot;your args are: @ARGVn&quot;;
 
 exit 1;
-</code></pre><p>}</p><p>if ($ARGV[0] =~ s/-|–//){</p><pre><code>$_ = $ARGV\[0\];
-</code></pre><p>}</p><p>if (/i|inster/i){</p><pre><code>&amp;inster;
-</code></pre><p>}elsif(/m|modify/i){</p><pre><code>&amp;modify;
-</code></pre><p>}elsif(/l|list/i){</p><pre><code>&amp;list;
-</code></pre><p>}elsif(/d|(delete)/i){</p><pre><code>my @file_lines = &amp;readfile;
+</code></pre><p>}</p>
+<p>if ($ARGV[0] =~ s/-|–//){</p>
+<pre><code>$_ = $ARGV\[0\];
+</code></pre><p>}</p>
+<p>if (/i|inster/i){</p>
+<pre><code>&amp;inster;
+</code></pre><p>}elsif(/m|modify/i){</p>
+<pre><code>&amp;modify;
+</code></pre><p>}elsif(/l|list/i){</p>
+<pre><code>&amp;list;
+</code></pre><p>}elsif(/d|(delete)/i){</p>
+<pre><code>my @file_lines = &amp;readfile;
 
 my $count\_lines = @file\_lines;
 
@@ -184,5 +383,137 @@ my $n = ;
 chomp($n);
 
 &amp;delete(@file_lines,$n);
-</code></pre><p>}else{</p><pre><code>print &quot;USAGE:todolist \[-i|--inster\] \[-m|--modify\] \[-l|--list\]n&quot;;
-</code></pre><p>}</p><div class="donate-container"><div class="donate-button"> <button id="donate-button">donate</button></div><div class="donate-img-container hide" id="donate-img-container"> <img id="donate-img" src="" data-src="/img/donate.jpg"><p> 感谢鼓励</p></div></div><div id="comment-container"></div></div></div></div></div><footer class="footer"><ul class="list-inline text-center"><li><a target="_blank" href="https://twitter.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-twitter"></i></span></a></li><li><a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8"><span class="fa-stack fa-lg"><i class="iconfont icon-zhihu"></i></span></a></li><li><a target="_blank" href="http://weibo.com/206000504"><span class="fa-stack fa-lg"><i class="iconfont icon-weibo"></i></span></a></li><li><a target="_blank" href="https://www.facebook.com/codewalkerxie"><span class="fa-stack fa-lg"><i class="iconfont icon-facebook"></i></span></a></li><li><a target="_blank" href="https://github.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-github"></i></span></a></li><li><a target="_blank" href="https://www.linkedin.com/in/simon-xie-11426829"><span class="fa-stack fa-lg"><i class="iconfont icon-linkedin"></i></span></a></li></ul><p> <span>/</span> <span><a href="https://codewalker.me">Old blog</a></span> <span>/</span></p><p><span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> PV</span><span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> UV</span> Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p></footer></body><script>window.hexo_search_path="search.json",window.hexo_root="/",window.isPost=!0</script><script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script src="/js/index.js"></script><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="/js/gitment.js"></script><script>var gitment=new Gitment({id:"perl todolist",owner:"codewalkertse",repo:"codewalkertse.github.io",oauth:{client_id:"3cabff4367aa2366b062",client_secret:"cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b"}});gitment.render("comment-container")</script></html>
+</code></pre><p>}else{</p>
+<pre><code>print &quot;USAGE:todolist \[-i|--inster\] \[-m|--modify\] \[-l|--list\]n&quot;;
+</code></pre><p>}</p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">donate</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/206000504">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/codewalkerxie">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/simon-xie-11426829">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/gitment.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: 'perl todolist',
+        owner: 'codewalkertse',
+        repo: 'codewalkertse.github.io',
+        oauth: {
+            client_id: '3cabff4367aa2366b062',
+            client_secret: 'cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b',
+        },
+    })
+    gitment.render('comment-container')
+</script>
+
+</html>

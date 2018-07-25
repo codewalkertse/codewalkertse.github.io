@@ -1,9 +1,314 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="SimonXie的博客"><meta name="keyword" content="SimonXie"><link rel="shortcut icon" href="/img/favicon.ico"><title> [转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录 - SimonXie的博客 | SimonXie&#39;s Blog</title><link rel="stylesheet" href="/css/aircloud.css"><link rel="stylesheet" href="/css/gitment.css"><link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css"><script></script></head><body><div class="site-nav-toggle" id="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div><div class="index-about"> <i>All magic comess with a price.</i></div><div class="index-container"><div class="index-left"><div class="nav" id="nav"><div class="avatar-name"><div class="avatar"> <img src="/img/avatar.jpg"></div><div class="name"> <i>Simon Xie</i></div></div><div class="contents" id="nav-content"><ul><li><a href="/"><i class="iconfont icon-shouye1"></i> <span>HOME</span></a></li><li><a href="/tags"><i class="iconfont icon-biaoqian1"></i> <span>TAGS</span></a></li><li><a href="/archives"><i class="iconfont icon-guidang2"></i> <span>ARCHIVES</span></a></li><li><a href="/about/"><i class="iconfont icon-guanyu2"></i> <span>ABOUT</span></a></li><li><a id="search"><i class="iconfont icon-sousuo1"></i> <span>SEARCH</span></a></li></ul></div><div id="toc" class="toc-article"></div></div><div class="search-field" id="search-field"><div class="search-container"><div class="search-input"><span id="esc-search"><i class="icon-fanhui iconfont"></i></span> <input id="search-input"> <span id="begin-search">search</span></div><div class="search-result-container" id="search-result-container"></div></div></div><div class="index-about-mobile"> <i>All magic comess with a price.</i></div></div><div class="index-middle"><div class="post-container"><div class="post-title"> [转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录</div><div class="post-meta"> <span class="attr">Post：<span>2012-12-11 23:05:35</span></span> <span class="attr">Tags：/ <a class="tag" href="/tags/#linux" title="linux">linux</a> <span>/</span> <a class="tag" href="/tags/#RHEL6" title="RHEL6">RHEL6</a> <span>/</span></span> <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span></span></div><div class="post-content"><p><strong>原文地址：</strong><a href="http://blog.sina.com.cn/s/blog_64aac6750100vdae.html" title="RHCE_RHEL6_复习总结 &lt;wbr&gt;9.管理LDAP网络用户及其home目录" target="_blank" rel="noopener">9.管理LDAP网络用户及其home目录”&gt;RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录</a><strong>作者：</strong><a href="http://blog.sina.com.cn/u/1688913525" title="RHCE_带你入门" target="_blank" rel="noopener">RHCE_带你入门</a></p><p><strong>企业需求：</strong></p><pre><code> 一、配置你的主机账号和密码验证方式为LDAP方式，通过ldapuser5可以登录成功，ldapuser5密码为：password。证书可以从下载：[http://ip/dir/ldap.crt](http://ip/dir/ldap.crt)，用户登录后是没有宿主目录的，除非你配置了后续题目中的autofs
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SimonXie的博客">
+    <meta name="keyword"  content="SimonXie">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        [转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录 - SimonXie的博客 | SimonXie&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> All magic comess with a price. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Simon Xie</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> All magic comess with a price. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        [转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2012-12-11 23:05:35</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#linux" title="linux">linux</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#RHEL6" title="RHEL6">RHEL6</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p><strong>原文地址：</strong><a href="http://blog.sina.com.cn/s/blog_64aac6750100vdae.html" title="RHCE_RHEL6_复习总结 &lt;wbr&gt;9.管理LDAP网络用户及其home目录" target="_blank" rel="noopener">9.管理LDAP网络用户及其home目录”&gt;RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录</a><strong>作者：</strong><a href="http://blog.sina.com.cn/u/1688913525" title="RHCE_带你入门" target="_blank" rel="noopener">RHCE_带你入门</a></p>
+<p><strong>企业需求：</strong></p>
+<pre><code> 一、配置你的主机账号和密码验证方式为LDAP方式，通过ldapuser5可以登录成功，ldapuser5密码为：password。证书可以从下载：[http://ip/dir/ldap.crt](http://ip/dir/ldap.crt)，用户登录后是没有宿主目录的，除非你配置了后续题目中的autofs
 
 二、配置autofs，实现ldapuser5登录成功后，有家目录/rhome/ldapuser5。家目录在172.28.10.1上被nfs共享为：/rhome/ldapuser5。并且要求，其它的ldap用户登录成功后也能正常使用宿主目录。
-</code></pre><p> ldap服务器：ip.dn.ws.com</p><p><strong>复习目标：</strong>复习巩固管理LDAP网络用户帐户及使用autofs自动挂载宿主目录。参见RHCE_134教材P41、P138。</p><p><strong>步骤:</strong></p><p>1.检查一下ldap客户端的包是否安装。没有安装，即安装。</p><p> [root@dtop5 ~]# rpm -qa |grep openldap-client</p><p>2.配置ldap客户端。</p><p> [root@dtop5 ~]# system-config-authentication</p><p> [<img src="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb60701015dus&amp;url=http://s8.sinaimg.cn/orignal/64aac675xb0a9268cc7c7" alt="[转载]RHCE_RHEL6_复习总结 &lt;wbr&gt;9.管理LDAP网络用户及其home目录](http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif)">9.管理LDAP网络用户及其home目录” TITLE=”[转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录” /&gt;</p><p> <strong>ladp://ip.dn.ws.com</strong> 这里请用域名格式。<br> [<img src="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb60701015dus&amp;url=http://s4.sinaimg.cn/orignal/64aac675x7810ea5e13d3" alt="[转载]RHCE_RHEL6_复习总结 &lt;wbr&gt;9.管理LDAP网络用户及其home目录](http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif)">9.管理LDAP网络用户及其home目录” TITLE=”[转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录” /&gt;</p><pre><code>**采用TLS加密，按照给定的路径下载证书。**
+</code></pre><p> ldap服务器：ip.dn.ws.com</p>
+<p><strong>复习目标：</strong>复习巩固管理LDAP网络用户帐户及使用autofs自动挂载宿主目录。参见RHCE_134教材P41、P138。</p>
+<p><strong>步骤:</strong></p>
+<p>1.检查一下ldap客户端的包是否安装。没有安装，即安装。</p>
+<p>   [root@dtop5 ~]# rpm -qa |grep openldap-client</p>
+<p>2.配置ldap客户端。</p>
+<p>  [root@dtop5 ~]# system-config-authentication</p>
+<p>  [<img src="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb60701015dus&amp;url=http://s8.sinaimg.cn/orignal/64aac675xb0a9268cc7c7" alt="[转载]RHCE_RHEL6_复习总结 &lt;wbr&gt;9.管理LDAP网络用户及其home目录](http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif)">9.管理LDAP网络用户及其home目录” TITLE=”[转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录” /&gt;</p>
+<p>  <strong>ladp://ip.dn.ws.com </strong> 这里请用域名格式。<br>    [<img src="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb60701015dus&amp;url=http://s4.sinaimg.cn/orignal/64aac675x7810ea5e13d3" alt="[转载]RHCE_RHEL6_复习总结 &lt;wbr&gt;9.管理LDAP网络用户及其home目录](http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif)">9.管理LDAP网络用户及其home目录” TITLE=”[转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录” /&gt;</p>
+<pre><code>**采用TLS加密，按照给定的路径下载证书。**
 
 [![[转载]RHCE_RHEL6_复习总结 &lt;wbr&gt;9.管理LDAP网络用户及其home目录](http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif)](http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb60701015dus&amp;url=http://s16.sinaimg.cn/orignal/64aac675xb0a929c8759f)9.管理LDAP网络用户及其home目录&quot; TITLE=&quot;\[转载\]RHCE\_RHEL6\_复习总结 9.管理LDAP网络用户及其home目录&quot; /&gt;
 
 **验证模式选择“LDAP password”,点击“Aplly”。客户端配置完成！**  
-</code></pre><p>3.检查证书。默认目录：/etc/openldap/cacerts</p><p> [root@dtop5 ~]# cd /etc/openldap/cacerts<br> [root@dtop5 ~]# pwd</p><p> [<img src="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb60701015dus&amp;url=http://s1.sinaimg.cn/orignal/64aac675xb0a934de45c0" alt="[转载]RHCE_RHEL6_复习总结 &lt;wbr&gt;9.管理LDAP网络用户及其home目录](http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif)">9.管理LDAP网络用户及其home目录” TITLE=”[转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录” /&gt;<br> [root@dtop5 ~]# exit</p><p>4.检查ldap用户。可以有以下三种方法显示，任选一种即可。</p><p> [root@dtop5 ~]# id ldapuser5</p><p> [<img src="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb60701015dus&amp;url=http://s13.sinaimg.cn/orignal/64aac675xb0a9565095fc" alt="[转载]RHCE_RHEL6_复习总结 &lt;wbr&gt;9.管理LDAP网络用户及其home目录](http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif)">9.管理LDAP网络用户及其home目录” TITLE=”[转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录” /&gt;<br> [root@dtop5 ~]# getent passwd ldapuser5</p><p>[<img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="[转载]RHCE_RHEL6_复习总结 &lt;wbr&gt;9.管理LDAP网络用户及其home目录">9.管理LDAP网络用户及其home目录” TITLE=”[转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录” /&gt;](<a href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb60701015dus&amp;url=http://s11.sinaimg.cn/orignal/64aac675xb0a94b56ca7a" target="_blank" rel="noopener">http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb60701015dus&amp;url=http://s11.sinaimg.cn/orignal/64aac675xb0a94b56ca7a</a>)<br> [root@dtop5 ~]# getent passwd |tail</p><p>[<img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="[转载]RHCE_RHEL6_复习总结 &lt;wbr&gt;9.管理LDAP网络用户及其home目录">9.管理LDAP网络用户及其home目录” TITLE=”[转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录” /&gt;](<a href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb60701015dus&amp;url=http://s14.sinaimg.cn/orignal/64aac675xb0ab5ddcfe0d" target="_blank" rel="noopener">http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb60701015dus&amp;url=http://s14.sinaimg.cn/orignal/64aac675xb0ab5ddcfe0d</a>)</p><p>5.测试ldap用户登录。最好使用普通用户切换，这样可以验证登录的密码。</p><p> [root@dtop5 ~]# su - ldapuser5<br>[<img src="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb60701015dus&amp;url=http://s9.sinaimg.cn/orignal/64aac675xb0a9381174f8" alt="[转载]RHCE_RHEL6_复习总结 &lt;wbr&gt;9.管理LDAP网络用户及其home目录](http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif)">9.管理LDAP网络用户及其home目录” TITLE=”[转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录” /&gt;<br><strong>没有家目录。</strong></p><p>6.配置autofs，自动挂载ldap用户的家目录。</p><p> [root@dtop5 ~]# vim /etc/auto.master</p><p> <img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="[转载]RHCE_RHEL6_复习总结 &lt;wbr&gt;9.管理LDAP网络用户及其home目录">9.管理LDAP网络用户及其home目录” TITLE=”[转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录” /&gt; <strong>加上一条“/rhome</strong> /etc/auto.ldap”</p><p> [root@dtop5 ~]# cp /etc/auto.misc /etc/auto.ldap</p><p> [root@dtop5 ~]# vim /etc/auto.ldap</p><p> [<img src="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb60701015dus&amp;url=http://s5.sinaimg.cn/orignal/64aac675xb0ab75ff9bb4" alt="[转载]RHCE_RHEL6_复习总结 &lt;wbr&gt;9.管理LDAP网络用户及其home目录](http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif)">9.管理LDAP网络用户及其home目录” TITLE=”[转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录” /&gt;</p><p>7.重新加载autofs，测试登录。</p><p> [root@dtop5 ~]# service autofs reload</p><p> [root@dtop5 ~]# su - ldapuser5</p><p> [ldapuser5@dtop5 ~]$ pwd</p><p> /rhome/ldapuser5</p><p> [ldapuser5@dtop5 ~]$ exit<br> [<img src="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb60701015dus&amp;url=http://s11.sinaimg.cn/orignal/64aac675xb0ab9d29733a" alt="[转载]RHCE_RHEL6_复习总结 &lt;wbr&gt;9.管理LDAP网络用户及其home目录](http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif)">9.管理LDAP网络用户及其home目录” TITLE=”[转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录” /&gt; <img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="RHCE6_复习总结2.网络配置" title="RHCE6_复习总结2.网络配置"></p><div class="donate-container"><div class="donate-button"> <button id="donate-button">donate</button></div><div class="donate-img-container hide" id="donate-img-container"> <img id="donate-img" src="" data-src="/img/donate.jpg"><p> 感谢鼓励</p></div></div><div id="comment-container"></div></div></div></div></div><footer class="footer"><ul class="list-inline text-center"><li><a target="_blank" href="https://twitter.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-twitter"></i></span></a></li><li><a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8"><span class="fa-stack fa-lg"><i class="iconfont icon-zhihu"></i></span></a></li><li><a target="_blank" href="http://weibo.com/206000504"><span class="fa-stack fa-lg"><i class="iconfont icon-weibo"></i></span></a></li><li><a target="_blank" href="https://www.facebook.com/codewalkerxie"><span class="fa-stack fa-lg"><i class="iconfont icon-facebook"></i></span></a></li><li><a target="_blank" href="https://github.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-github"></i></span></a></li><li><a target="_blank" href="https://www.linkedin.com/in/simon-xie-11426829"><span class="fa-stack fa-lg"><i class="iconfont icon-linkedin"></i></span></a></li></ul><p> <span>/</span> <span><a href="https://codewalker.me">Old blog</a></span> <span>/</span></p><p><span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> PV</span><span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> UV</span> Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p></footer></body><script>window.hexo_search_path="search.json",window.hexo_root="/",window.isPost=!0</script><script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script src="/js/index.js"></script><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="/js/gitment.js"></script><script>var gitment=new Gitment({id:"[转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录",owner:"codewalkertse",repo:"codewalkertse.github.io",oauth:{client_id:"3cabff4367aa2366b062",client_secret:"cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b"}});gitment.render("comment-container")</script></html>
+</code></pre><p>3.检查证书。默认目录：/etc/openldap/cacerts</p>
+<p>  [root@dtop5 ~]# cd /etc/openldap/cacerts<br>  [root@dtop5 ~]# pwd</p>
+<p>   [<img src="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb60701015dus&amp;url=http://s1.sinaimg.cn/orignal/64aac675xb0a934de45c0" alt="[转载]RHCE_RHEL6_复习总结 &lt;wbr&gt;9.管理LDAP网络用户及其home目录](http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif)">9.管理LDAP网络用户及其home目录” TITLE=”[转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录” /&gt;<br>  [root@dtop5 ~]# exit</p>
+<p>4.检查ldap用户。可以有以下三种方法显示，任选一种即可。</p>
+<p>  [root@dtop5 ~]# id ldapuser5</p>
+<p> [<img src="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb60701015dus&amp;url=http://s13.sinaimg.cn/orignal/64aac675xb0a9565095fc" alt="[转载]RHCE_RHEL6_复习总结 &lt;wbr&gt;9.管理LDAP网络用户及其home目录](http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif)">9.管理LDAP网络用户及其home目录” TITLE=”[转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录” /&gt;<br>  [root@dtop5 ~]# getent passwd ldapuser5</p>
+<p>[<img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="[转载]RHCE_RHEL6_复习总结 &lt;wbr&gt;9.管理LDAP网络用户及其home目录">9.管理LDAP网络用户及其home目录” TITLE=”[转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录” /&gt;](<a href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb60701015dus&amp;url=http://s11.sinaimg.cn/orignal/64aac675xb0a94b56ca7a" target="_blank" rel="noopener">http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb60701015dus&amp;url=http://s11.sinaimg.cn/orignal/64aac675xb0a94b56ca7a</a>)<br>  [root@dtop5 ~]# getent passwd |tail</p>
+<p>[<img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="[转载]RHCE_RHEL6_复习总结 &lt;wbr&gt;9.管理LDAP网络用户及其home目录">9.管理LDAP网络用户及其home目录” TITLE=”[转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录” /&gt;](<a href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb60701015dus&amp;url=http://s14.sinaimg.cn/orignal/64aac675xb0ab5ddcfe0d" target="_blank" rel="noopener">http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb60701015dus&amp;url=http://s14.sinaimg.cn/orignal/64aac675xb0ab5ddcfe0d</a>)</p>
+<p>5.测试ldap用户登录。最好使用普通用户切换，这样可以验证登录的密码。</p>
+<p>  [root@dtop5 ~]# su - ldapuser5<br>[<img src="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb60701015dus&amp;url=http://s9.sinaimg.cn/orignal/64aac675xb0a9381174f8" alt="[转载]RHCE_RHEL6_复习总结 &lt;wbr&gt;9.管理LDAP网络用户及其home目录](http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif)">9.管理LDAP网络用户及其home目录” TITLE=”[转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录” /&gt;<br><strong>没有家目录。</strong></p>
+<p>6.配置autofs，自动挂载ldap用户的家目录。</p>
+<p>  [root@dtop5 ~]# vim /etc/auto.master</p>
+<p>  <img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="[转载]RHCE_RHEL6_复习总结 &lt;wbr&gt;9.管理LDAP网络用户及其home目录">9.管理LDAP网络用户及其home目录” TITLE=”[转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录” /&gt; <strong>加上一条“/rhome </strong>   /etc/auto.ldap”</p>
+<p>  [root@dtop5 ~]# cp /etc/auto.misc /etc/auto.ldap</p>
+<p>  [root@dtop5 ~]# vim /etc/auto.ldap</p>
+<p>  [<img src="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb60701015dus&amp;url=http://s5.sinaimg.cn/orignal/64aac675xb0ab75ff9bb4" alt="[转载]RHCE_RHEL6_复习总结 &lt;wbr&gt;9.管理LDAP网络用户及其home目录](http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif)">9.管理LDAP网络用户及其home目录” TITLE=”[转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录” /&gt;</p>
+<p>7.重新加载autofs，测试登录。</p>
+<p>  [root@dtop5 ~]# service autofs reload</p>
+<p>  [root@dtop5 ~]# su - ldapuser5</p>
+<p>  [ldapuser5@dtop5 ~]$ pwd</p>
+<p>   /rhome/ldapuser5</p>
+<p>  [ldapuser5@dtop5 ~]$ exit<br>   [<img src="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb60701015dus&amp;url=http://s11.sinaimg.cn/orignal/64aac675xb0ab9d29733a" alt="[转载]RHCE_RHEL6_复习总结 &lt;wbr&gt;9.管理LDAP网络用户及其home目录](http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif)">9.管理LDAP网络用户及其home目录” TITLE=”[转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录” /&gt; <img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="RHCE6_复习总结2.网络配置" title="RHCE6_复习总结2.网络配置"></p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">donate</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/206000504">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/codewalkerxie">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/simon-xie-11426829">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/gitment.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: '[转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录',
+        owner: 'codewalkertse',
+        repo: 'codewalkertse.github.io',
+        oauth: {
+            client_id: '3cabff4367aa2366b062',
+            client_secret: 'cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b',
+        },
+    })
+    gitment.render('comment-container')
+</script>
+
+</html>
