@@ -1,3 +1,3 @@
+https://blog.codewalker.me/2018/07/28/Knowing-Argparse-in-Python/
 https://blog.codewalker.me/2018/07/28/String-tip-capitalize/
 https://blog.codewalker.me/2018/07/27/Knowing-Templates-in-Python/
-https://blog.codewalker.me/2018/07/25/download-pdf-with-asyncio-and-aiphttp/
