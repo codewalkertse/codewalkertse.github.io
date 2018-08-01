@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.codewalker.me/"/>
-  <updated>2018-07-31T07:26:21.000Z</updated>
+  <updated>2018-08-01T03:01:42.000Z</updated>
   <id>https://blog.codewalker.me/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>the template for hire</title>
+    <link href="https://blog.codewalker.me/2018/08/01/the-template-for-hire/"/>
+    <id>https://blog.codewalker.me/2018/08/01/the-template-for-hire/</id>
+    <published>2018-08-01T02:58:40.000Z</published>
+    <updated>2018-08-01T03:01:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Developpeur-web"><a href="#Developpeur-web" class="headerlink" title="Développeur web"></a>Développeur web</h1><h2 id="L’entreprise-Fake-name-Koss-Group"><a href="#L’entreprise-Fake-name-Koss-Group" class="headerlink" title="L’entreprise : Fake name - Koss Group"></a>L’entreprise : Fake name - Koss Group</h2><p>Fake discription balabala parse.<br>Excepturi amet amet ipsum et. Sed assumenda aliquid tempore laborum sunt voluptatem error. Amet nisi voluptas sequi sapiente id excepturi.</p><p>Eum quia vel rerum accusantium expedita rerum. Libero dolorem est quis ratione. Cumque voluptatibus vero.</p><p>Ipsam fuga fuga est. Hic necessitatibus suscipit. Reprehenderit quisquam adipisci et. Necessitatibus ea unde et nihil debitis.</p><p>Au sein d’une équipe de consultants dynamiques ayant à cœur de vous intégrer et de vous accompagner, vous aurez l’opportunité d’intervenir sur des projets digitaux innovants, riches et variés.</p><h2 id="Description-du-poste"><a href="#Description-du-poste" class="headerlink" title="Description du poste"></a>Description du poste</h2><p>Vous mangez, buvez, dormez et rêvez digital</p><p>Techniquement, vous maîtrisez les environnements PHP or Python-Flask (expérience à l’appui) Vous êtes capable de monter en compétence et êtes autonome sur des techniques que vous ne connaissez pas mais proches de celles déjà acquises. En charge de tous les projets de développement en technologies web et mobile de l’hôtel, nous recherchons un(e) Concepteur(trice) Développeur(se) web.</p><p>En étroite collaboration avec la Direction et les chargés d’affaires, vous contribuerez à la conceptualisation et au développement d’une plateforme web sur le framework.</p><p>Vous maîtrisez et êtes rigoureux avec les différents outils de suivi de projet, git ou subversion. Si vous avez un ID de github. c’est mieux.</p><p>Vous faites preuve de professionnalisme ainsi que d’un esprit d’équipe communiquant et synthétique</p><p>En <code>Montreal Quebec</code> vous rejoignez une équipe humaine et dynamique dans laquelle votre savoir-être et votre bonne humeur fera la différence pour inventer le futur de nos clients.</p><p>Ne cherchez plus et rejoignez-nous !</p><p>Qui ne rêve pas d’être épanoui et heureux au travail ? Si c’est votre souhait, ça tombe bien : depuis 2018, <code>Enterprise name</code> est labellisé Happy Trainees et Happy at Work for Starters.<br>Avec cela vous êtes forcément conquis pour venir travailler avec nous!</p><p>Pour vivre de nouvelles et belles aventures, merci d’envoyer votre CV à : <a href="mailto:`address@someemail.com" target="_blank" rel="noopener">`address@someemail.com</a>`</p><h2 id="Criteres-de-l’offre"><a href="#Criteres-de-l’offre" class="headerlink" title="Critères de l’offre"></a>Critères de l’offre</h2><h3 id="Competences-techniques"><a href="#Competences-techniques" class="headerlink" title="Compétences techniques"></a>Compétences techniques</h3><ul><li>Formation informatique</li><li>Statistique</li><li>Programmation web</li><li>Back-end PHP</li><li>AJAX/JavaScript</li><li>JQuery</li><li>HMTL</li><li>CSS</li><li>Bootstrap</li><li>Interface</li><li>Git</li><li>Web</li><li>Framework</li><li>MySql</li><li>Redis</li><li>Nginx, Apache2</li><li>CentOS</li></ul><h3 id="Description-du-profil"><a href="#Description-du-profil" class="headerlink" title="Description du profil"></a>Description du profil</h3><ul><li>Des bases solides de développement orienté objet en technologies PHP/Python</li><li>la rédaction des users stories de la solution</li><li>la modélisation et la conception technique</li><li>la mise en conformité de la solution avec les exigences de SEO</li><li>la mise en conformité de la solution avec les exigences de sécurité</li><li>le développement des sites</li></ul><h3 id="Experience-requise-5-ans"><a href="#Experience-requise-5-ans" class="headerlink" title="Expérience requise: 5+ ans"></a>Expérience requise: 5+ ans</h3><h3 id="Lieu-Montreal-Quebec"><a href="#Lieu-Montreal-Quebec" class="headerlink" title="Lieu: Montreal Quebec"></a>Lieu: Montreal Quebec</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Developpeur-web&quot;&gt;&lt;a href=&quot;#Developpeur-web&quot; class=&quot;headerlink&quot; title=&quot;Développeur web&quot;&gt;&lt;/a&gt;Développeur web&lt;/h1&gt;&lt;h2 id=&quot;L’entreprise-
+      
+    
+    </summary>
+    
+    
+      <category term="hire_template" scheme="https://blog.codewalker.me/tags/hire-template/"/>
+    
+  </entry>
   
   <entry>
     <title>Knowing Argparse in Python</title>
@@ -502,29 +525,6 @@
     
     
       <category term="Hexo" scheme="https://blog.codewalker.me/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python reverse iterator and generator ways</title>
-    <link href="https://blog.codewalker.me/2018/07/12/python-reverse-iterator-way/"/>
-    <id>https://blog.codewalker.me/2018/07/12/python-reverse-iterator-way/</id>
-    <published>2018-07-12T15:30:50.000Z</published>
-    <updated>2018-07-14T03:22:22.000Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line">\<span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line">\<span class="comment"># @Date    : 2018-07-12 23:20:45</span></span><br><span class="line">\<span class="comment"># @Author  : Simon (simon.xie@codewalker.meg)</span></span><br><span class="line">\<span class="comment"># @Link    : http://www.codewalker.me</span></span><br><span class="line">\<span class="comment"># @Version : 1.0.0</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ReverseIterator</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> \<span class="title">_</span>\<span class="title">_init</span>\<span class="title">_</span>\<span class="title">_</span><span class="params">(self, str_data)</span>:</span></span><br><span class="line">        self.str\_data = str\_data</span><br><span class="line">        self.index = len(str_data)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> \<span class="title">_</span>\<span class="title">_iter</span>\<span class="title">_</span>\<span class="title">_</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line">    <span class="function"><span class="keyword">def</span> \<span class="title">_</span>\<span class="title">_next</span>\<span class="title">_</span>\<span class="title">_</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.index == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">raise</span> StopIteration</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.index = self.index - <span class="number">1</span></span><br><span class="line">            <span class="keyword">return</span> self.str_data\[self.index\]</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reservse_genertor</span><span class="params">(data)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> index <span class="keyword">in</span> range(len(data)<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>):</span><br><span class="line">        <span class="keyword">yield</span> data\[index\]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    example_string = <span class="string">'simon.xie'</span> </span><br><span class="line">    ri = ReverseIterator(example_string)</span><br><span class="line">    new\_str\_list = \[\]</span><br><span class="line">    <span class="keyword">for</span> char <span class="keyword">in</span> ri:</span><br><span class="line">        new\_str\_list.append(char)</span><br><span class="line">    print(<span class="string">''</span>.join(new\_str\_list))</span><br><span class="line"></span><br><span class="line">    other\_str\_list = \[\]</span><br><span class="line">    rg = reservse\_genertor(example\_string)</span><br><span class="line">    <span class="keyword">for</span> char <span class="keyword">in</span> rg:</span><br><span class="line">        other\_str\_list.append(char)</span><br><span class="line">    print(<span class="string">''</span>.join(other\_str\_list))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> \_\_name\_\_ == <span class="string">"\_\_main\_\_"</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span clas
-      
-    
-    </summary>
-    
-      <category term="python" scheme="https://blog.codewalker.me/categories/python/"/>
-    
     
   </entry>
   
