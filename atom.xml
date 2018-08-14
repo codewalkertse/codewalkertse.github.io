@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.codewalker.me/"/>
-  <updated>2018-08-09T02:53:51.000Z</updated>
+  <updated>2018-08-14T05:19:02.000Z</updated>
   <id>https://blog.codewalker.me/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>bricks alogorithm</title>
+    <link href="https://blog.codewalker.me/2018/08/14/bricks-alogorithm/"/>
+    <id>https://blog.codewalker.me/2018/08/14/bricks-alogorithm/</id>
+    <published>2018-08-14T05:17:49.000Z</published>
+    <updated>2018-08-14T05:19:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Date    : 2018-08-14 13:07:01</span></span><br><span class="line"><span class="comment"># @Author  : Simon (simon.xie@codewalker.meg)</span></span><br><span class="line"><span class="comment"># @Link    : http://www.codewalker.me</span></span><br><span class="line"><span class="comment"># @Version : 1.0.0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_bricks</span><span class="params">(small, big, goal)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="number">5</span>*big &lt;= goal:</span><br><span class="line">        s = goal<span class="number">-5</span>*big</span><br><span class="line">        <span class="keyword">if</span> s&lt;=small:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        s = goal%<span class="number">5</span></span><br><span class="line">        <span class="keyword">return</span> s&lt;=small</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">        small = randint(<span class="number">0</span>,<span class="number">9</span>)</span><br><span class="line">        big = randint(<span class="number">0</span>,<span class="number">9</span>)</span><br><span class="line">        goal = randint(<span class="number">0</span>,<span class="number">9</span>)</span><br><span class="line">        <span class="keyword">print</span> <span class="string">'small:&#123;0&#125;, big:&#123;1&#125;,goal: &#123;2&#125;=&gt; &#123;3&#125; '</span>.format(small,big,goal,make_bricks(small,big,goal))</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span clas
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://blog.codewalker.me/tags/python/"/>
+    
+      <category term="alogorithm" scheme="https://blog.codewalker.me/tags/alogorithm/"/>
+    
+  </entry>
   
   <entry>
     <title>How to implement Stack in python</title>
@@ -503,30 +528,6 @@
     
     
       <category term="MacOS" scheme="https://blog.codewalker.me/tags/MacOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>what plugs I installed</title>
-    <link href="https://blog.codewalker.me/2018/07/14/what-plugs-I-installed/"/>
-    <id>https://blog.codewalker.me/2018/07/14/what-plugs-I-installed/</id>
-    <published>2018-07-14T07:00:06.000Z</published>
-    <updated>2018-07-14T11:14:40.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>迁移到Hexo之后首要的是先学习MD语法其次再慢慢的安装一些适合的插件，这里就慢慢的列出来吧</p><h3 id="订阅"><a href="#订阅" class="headerlink" title="订阅"></a>订阅</h3><p>首先是订阅订阅插件, 虽然没什么人看为了方便还是提供一下这个功能吧 嘻嘻~</p><ol><li><p>在你的项目文件的根目录执行，先安装<code>hexo-generator-feed</code>插件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-generator-feed</span><br></pre></td></tr></table></figure></li><li><p>编辑Hexo的配置文件<code>_config.yml</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim _config.yml</span><br></pre></td></tr></table></figure><p>找到<code>#Extensions</code> 之后添加变成这样</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line">plugins: hexo-generate-feed</span><br><span class="line"><span class="comment">#Feed Atom</span></span><br><span class="line">feed:</span><br><span class="line">    <span class="built_in">type</span>: atom</span><br><span class="line">    path: atom.xml</span><br><span class="line">    <span class="built_in">limit</span>: 20</span><br></pre></td></tr></table></figure></li><li><p>生成<code>rss文件</code>就可以看到效果了</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure><p>之后就可以看到<code>/public/atom.xml</code>已经按照上面配置的参数生成了</p></li></ol><h3 id="字数统计"><a href="#字数统计" class="headerlink" title="字数统计"></a>字数统计</h3><ol><li><p>安装<code>hexo-wordcount</code>字数统计</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-wordcount --save</span><br></pre></td></tr></table></figure></li><li><p>随便在<code>footer</code>或者什么通用文件的最下面加入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;span class=<span class="string">"post-count"</span>&gt;Words count: wordcount(site) 字&lt;/span&gt;</span><br></pre></td></tr></table></figure></li></ol><ul><li>notice *<br>这里可能会遇见<code>Error: Unable to call</code>wordcount<code>, which is undefined or falsey</code>的问题那是因为node版本太低所致<br>可以安装低版本的<code>words count</code>或者升级<code>node</code></li></ul><h4 id="查看升级Node"><a href="#查看升级Node" class="headerlink" title="查看升级Node"></a>查看升级Node</h4><p>然后嫩，悲剧的事情发生了导致npm直接<code>command not found: npm</code>这就是后话了可以<a href="#">查看杯具</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;迁移到Hexo之后首要的是先学习MD语法其次再慢慢的安装一些适合的插件，这里就慢慢的列出来吧&lt;/p&gt;
-&lt;h3 id=&quot;订阅&quot;&gt;&lt;a href=&quot;#订阅&quot; class=&quot;headerlink&quot; title=&quot;订阅&quot;&gt;&lt;/a&gt;订阅&lt;/h3&gt;&lt;p&gt;首先是订阅订阅插件, 虽然没什么
-      
-    
-    </summary>
-    
-    
-      <category term="杂谈" scheme="https://blog.codewalker.me/tags/%E6%9D%82%E8%B0%88/"/>
     
   </entry>
   
