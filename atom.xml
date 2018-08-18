@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.codewalker.me/"/>
-  <updated>2018-08-14T05:19:02.000Z</updated>
+  <updated>2018-08-18T16:12:00.000Z</updated>
   <id>https://blog.codewalker.me/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hotel website design</title>
+    <link href="https://blog.codewalker.me/2018/08/19/Hotel-website-design/"/>
+    <id>https://blog.codewalker.me/2018/08/19/Hotel-website-design/</id>
+    <published>2018-08-18T16:06:05.000Z</published>
+    <updated>2018-08-18T16:12:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Meet-my-new-hotel-website-design"><a href="#Meet-my-new-hotel-website-design" class="headerlink" title="Meet my new hotel website design"></a>Meet my new hotel website design</h1><p>press <a href="http://motel.codewalker.me" title="hotel websitedesing" target="_blank" rel="noopener">HERE</a> to view it.</p><p>I love this world.<br>Good night. &lt;3</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Meet-my-new-hotel-website-design&quot;&gt;&lt;a href=&quot;#Meet-my-new-hotel-website-design&quot; class=&quot;headerlink&quot; title=&quot;Meet my new hotel website de
+      
+    
+    </summary>
+    
+    
+      <category term="webdesign" scheme="https://blog.codewalker.me/tags/webdesign/"/>
+    
+      <category term="bootstrap" scheme="https://blog.codewalker.me/tags/bootstrap/"/>
+    
+  </entry>
   
   <entry>
     <title>bricks alogorithm</title>
@@ -505,29 +530,6 @@
       <category term="python" scheme="https://blog.codewalker.me/tags/python/"/>
     
       <category term="socket" scheme="https://blog.codewalker.me/tags/socket/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>whats wrong with npm</title>
-    <link href="https://blog.codewalker.me/2018/07/14/whats-wrong-with-npm/"/>
-    <id>https://blog.codewalker.me/2018/07/14/whats-wrong-with-npm/</id>
-    <published>2018-07-14T10:42:25.000Z</published>
-    <updated>2018-07-14T11:14:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="WTF-不知道为啥升级Node导致了npm用不了了"><a href="#WTF-不知道为啥升级Node导致了npm用不了了" class="headerlink" title="WTF 不知道为啥升级Node导致了npm用不了了"></a>WTF 不知道为啥升级Node导致了npm用不了了</h2><h3 id="悲剧的起源还是来自于最近折腾的Hexo"><a href="#悲剧的起源还是来自于最近折腾的Hexo" class="headerlink" title="悲剧的起源还是来自于最近折腾的Hexo"></a>悲剧的起源还是来自于最近折腾的Hexo</h3><h4 id="hexo-wordcount"><a href="#hexo-wordcount" class="headerlink" title="hexo-wordcount"></a>hexo-wordcount</h4><p>悲剧的开始是之前在安装<code>hexo-wordcount</code>的时候一直给我说<code>Error: Unable to call &#39;wordcount&#39;, which is undefined or falsey</code>就以为是这个插件安装的时候的问题，在反复<code>安装 卸载 安装 卸载</code>*n</p><h4 id="难道是nunjucks转义出问题了"><a href="#难道是nunjucks转义出问题了" class="headerlink" title="难道是nunjucks转义出问题了?"></a>难道是nunjucks转义出问题了?</h4><p>非法字符又去修改<code>nunjucks</code>中的转义文件<code>src/lib.js</code>完全是在乱弄。</p><h4 id="难道是npm出问题了"><a href="#难道是npm出问题了" class="headerlink" title="难道是npm出问题了?"></a>难道是npm出问题了?</h4><p>结果还是不行索性重装了<code>npm</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -0 -L http://npmjs.org/install.sh | sudo sh</span><br></pre></td></tr></table></figure><p>欲哭无泪的感觉一样还是不行，现在到好了<code>npm -v</code>都不行了。可是尼玛明明node全家桶已经安装好了啊。<br>于是<code>which npm</code>查看尼玛 npm木有了。<br>现在才想起来Node全家桶是拿<code>Brew</code>装的哦<br>如果我再手动安装肯定会有冲突我这不是在脑残是什么.</p><h4 id="难道是Node版本不匹配"><a href="#难道是Node版本不匹配" class="headerlink" title="难道是Node版本不匹配?"></a>难道是Node版本不匹配?</h4><p>那么就<code>reinstall node 到最新版</code>吧很简单</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; node -v</span><br><span class="line">v10.6.0</span><br><span class="line">brew reisntall node</span><br></pre></td></tr></table></figure><p>肯定没问题撒，老司机出马安个软件还会有问题吗?结果悲剧又发生了…<br>安装完之后告诉我说需要<code>brew postinstall node</code><br>WHT</p><blockquote><p>  Permission denied @ rb_sysopen - /usr/local/lib/node_modules/npm/.npmignore<br>    /usr/local/lib/node_modules<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">drwxr-xr-x   9 codewalkertes  admin   288B Nov 23  2017 cnpm</span><br><span class="line">drwxr-xr-x   9 codewalkertes  admin   288B Nov 23  2017 express</span><br><span class="line">drwxr-xr-x   9 codewalkertes  admin   288B Nov 23  2017 grunt-cli</span><br><span class="line">drwxr-xr-x  16 codewalkertes  admin   512B Jul 13 17:58 hexo-cli</span><br><span class="line">drwxr-xr-x   7 codewalkertes  admin   224B Jul 14 15:59 n</span><br><span class="line">drwxr-xr-x  25 root           admin   800B Jul 14 16:07 npm</span><br></pre></td></tr></table></figure></p></blockquote><p>看吧自己种下的恶果还是要自己吃下去才行。都是因为之前sudo安装造成的。不怕生命还是在于折腾把虽然这都三十好几了.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R codewalkertes npm</span><br></pre></td></tr></table></figure></p><h2 id="Voila"><a href="#Voila" class="headerlink" title="Voilà"></a>Voilà</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm -v</span><br><span class="line">6.1.0</span><br></pre></td></tr></table></figure><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>遇到问题了还是要想办法<code>debug</code>, 这次主要原因还是因为手动安装和Brew安装起了冲突所致。<br>总结嘛吃一堑长一智，不过有时候真是也因为记性的原因或者现代软件包管理的原因太过于复杂了。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;WTF-不知道为啥升级Node导致了npm用不了了&quot;&gt;&lt;a href=&quot;#WTF-不知道为啥升级Node导致了npm用不了了&quot; class=&quot;headerlink&quot; title=&quot;WTF 不知道为啥升级Node导致了npm用不了了&quot;&gt;&lt;/a&gt;WTF 不知道为啥升级
-      
-    
-    </summary>
-    
-    
-      <category term="MacOS" scheme="https://blog.codewalker.me/tags/MacOS/"/>
     
   </entry>
   
