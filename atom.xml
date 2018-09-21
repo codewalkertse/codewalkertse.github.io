@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Simon Xie</title>
   <icon>https://www.gravatar.com/avatar/32db771918c67cb8f4969f34b77012cf</icon>
-  <subtitle>All magic comess with a price.</subtitle>
+  <subtitle>All magic comes with a price.</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.codewalker.me/"/>
