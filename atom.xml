@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.codewalker.me/"/>
-  <updated>2019-05-31T03:28:36.000Z</updated>
+  <updated>2019-05-31T03:42:01.000Z</updated>
   <id>https://blog.codewalker.me/</id>
   
   <author>
@@ -21,15 +21,15 @@
     <link href="https://blog.codewalker.me/2019/05/31/how-to-use-left-join-with-multi-condition/"/>
     <id>https://blog.codewalker.me/2019/05/31/how-to-use-left-join-with-multi-condition/</id>
     <published>2019-05-31T03:20:03.000Z</published>
-    <updated>2019-05-31T03:28:36.000Z</updated>
+    <updated>2019-05-31T03:42:01.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Talk-is-cheap"><a href="#Talk-is-cheap" class="headerlink" title="Talk is cheap"></a>Talk is cheap</h1><p>To see code below<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT id,amount FROM product</span><br><span class="line">LEFT JOIN product_details</span><br><span class="line">    ON  (product.id = product_details.id)</span><br><span class="line">        AND product_details.id=2;</span><br></pre></td></tr></table></figure></p><p>EOF</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="Talk-is-cheap"><a href="#Talk-is-cheap" class="headerlink" title="Talk is cheap"></a>Talk is cheap</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT id,amount FROM product</span><br><span class="line">LEFT JOIN product_details</span><br><span class="line">    ON  (product.id = product_details.id)</span><br><span class="line">        AND product_details.id=2;</span><br></pre></td></tr></table></figure><p>EOF</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;Talk-is-cheap&quot;&gt;&lt;a href=&quot;#Talk-is-cheap&quot; class=&quot;headerlink&quot; title=&quot;Talk is cheap&quot;&gt;&lt;/a&gt;Talk is cheap&lt;/h1&gt;&lt;p&gt;To see code below&lt;br&gt;&lt;figu
+        &lt;h1 id=&quot;Talk-is-cheap&quot;&gt;&lt;a href=&quot;#Talk-is-cheap&quot; class=&quot;headerlink&quot; title=&quot;Talk is cheap&quot;&gt;&lt;/a&gt;Talk is cheap&lt;/h1&gt;&lt;figure class=&quot;highlight plai
       
     
     </summary>
