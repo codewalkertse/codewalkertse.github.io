@@ -1,4 +1,311 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="SimonXie的博客"><meta name="keyword" content="SimonXie"><link rel="shortcut icon" href="/img/favicon.ico"><title> 关于netctl - SimonXie的博客 | SimonXie&#39;s Blog</title><link rel="stylesheet" href="/css/aircloud.css"><link rel="stylesheet" href="/css/gitment.css"><link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css"><script></script></head><body><div class="site-nav-toggle" id="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div><div class="index-about"> <i>All magic comes with a price.</i></div><div class="index-container"><div class="index-left"><div class="nav" id="nav"><div class="avatar-name"><div class="avatar"> <img src="/img/avatar.jpg"></div><div class="name"> <i>Simon Xie</i></div></div><div class="contents" id="nav-content"><ul><li><a href="/"><i class="iconfont icon-shouye1"></i> <span>HOME</span></a></li><li><a href="/tags"><i class="iconfont icon-biaoqian1"></i> <span>TAGS</span></a></li><li><a href="/archives"><i class="iconfont icon-guidang2"></i> <span>ARCHIVES</span></a></li><li><a href="/about/"><i class="iconfont icon-guanyu2"></i> <span>ABOUT</span></a></li><li><a id="search"><i class="iconfont icon-sousuo1"></i> <span>SEARCH</span></a></li></ul></div><div id="toc" class="toc-article"></div></div><div class="search-field" id="search-field"><div class="search-container"><div class="search-input"><span id="esc-search"><i class="icon-fanhui iconfont"></i></span> <input id="search-input"> <span id="begin-search">search</span></div><div class="search-result-container" id="search-result-container"></div></div></div><div class="index-about-mobile"> <i>All magic comes with a price.</i></div></div><div class="index-middle"><div class="post-container"><div class="post-title"> 关于netctl</div><div class="post-meta"> <span class="attr">Post：<span>2013-04-12 17:18:44</span></span> <span class="attr">Tags：/ <a class="tag" href="/tags/#netctl" title="netctl">netctl</a> <span>/</span></span> <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span></span></div><div class="post-content"><p>最近一次更新arch之后发现强制从netcfg更新为netctl</p><p>据说是因为前者无人维护，后者的话加入了对systemd的支持。</p><p>今天捣鼓了一下没什么难点很简单。直接上配置文件类似这样</p><p>Description=’随便填写描述信息’</p><p>ESSID=’你的wifi名字’</p><p>Interface=网卡名字</p><p>Connection=wireless</p><p>Security=wpa</p><p>#IP=dhcp</p><p>IP=static</p><p>Address=’192.168.1.100/24’</p><p>DNS=(‘8.8.8.8’)</p><p>Gateway=’192.168.1.1’</p><p>Key=”fba9286e2781cd570be0672e3a3283d4ebjskajsuxj9</p><p>发现个问题。查看man之后说的dns配置为array但是不管我用什么格式去写还是不能配置多个dns。</p><p>比如这样DNS=(‘8.8.8.8’ ‘8.8.4.4’)</p><p>man中的说明为</p><p> DNS=()</p><pre><code>An array of DNS nameservers. Simply specify the IP addresses of each of the DNS
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SimonXie的博客">
+    <meta name="keyword"  content="SimonXie">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        关于netctl - SimonXie的博客 | SimonXie&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> All magic comes with a price. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Simon Xie</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> All magic comes with a price. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        关于netctl
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2013-04-12 17:18:44</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#netctl" title="netctl">netctl</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>最近一次更新arch之后发现强制从netcfg更新为netctl</p>
+<p>据说是因为前者无人维护，后者的话加入了对systemd的支持。</p>
+<p>今天捣鼓了一下没什么难点很简单。直接上配置文件类似这样</p>
+<p>Description=’随便填写描述信息’</p>
+<p>ESSID=’你的wifi名字’</p>
+<p>Interface=网卡名字</p>
+<p>Connection=wireless</p>
+<p>Security=wpa</p>
+<p>#IP=dhcp</p>
+<p>IP=static</p>
+<p>Address=’192.168.1.100/24’</p>
+<p>DNS=(‘8.8.8.8’)</p>
+<p>Gateway=’192.168.1.1’</p>
+<p>Key=”fba9286e2781cd570be0672e3a3283d4ebjskajsuxj9</p>
+<p>发现个问题。查看man之后说的dns配置为array但是不管我用什么格式去写还是不能配置多个dns。</p>
+<p>比如这样DNS=(‘8.8.8.8’ ‘8.8.4.4’)</p>
+<p>man中的说明为</p>
+<p> DNS=()</p>
+<pre><code>An array of DNS nameservers. Simply specify the IP addresses of each of the DNS
 
 nameservers.
-</code></pre><p>在官方论坛上看到有人也有同样的问题。可能会在下个版本中修复吧。</p><p>上面的各项参数都一目了然，提一下key就是你的password。这里我用了256位的加密，所使用的软件为wpa_actiond带的wpa_passphrase生成256位加密 PSK，</p><p>需要注意的是：这里用加密的密码必须以<strong>“</strong>开头,用明文的话就直接跟密码就好了。</p><p>Usage: wpa_passphrase [ssid] [passphrase]</p><p>最后netctl使用方法：</p><p>你可以用原生 netctl start xxx来启动一个配置文件</p><p>也可以加入开机启动 netctl enable xxx</p><p>可以用netctl stop xxx 或者netctl stop-all 来关闭链接</p><p>或者用<strong>systemctl</strong>来管理也更好就不赘述了</p><p>自动链接wifi</p><p>首先把需要的配置文件在netctl 中enable</p><p>再在systemctl 中打开netctl的自动连接</p><p>systemctl enable <a href="mailto:netctl-auto@wlan0.service" target="_blank" rel="noopener">netctl-auto@wlan0.service</a></p><p>以及把网卡设置为自动开启</p><p>systemctl enable <a href="mailto:netctl-ifplugd@eth0.service" target="_blank" rel="noopener">netctl-ifplugd@eth0.service</a></p><div class="donate-container"><div class="donate-button"> <button id="donate-button">donate</button></div><div class="donate-img-container hide" id="donate-img-container"> <img id="donate-img" src="" data-src="/img/donate.jpg"><p> 感谢鼓励</p></div></div><div id="comment-container"></div></div></div></div></div><footer class="footer"><ul class="list-inline text-center"><li><a target="_blank" href="https://twitter.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-twitter"></i></span></a></li><li><a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8"><span class="fa-stack fa-lg"><i class="iconfont icon-zhihu"></i></span></a></li><li><a target="_blank" href="http://weibo.com/206000504"><span class="fa-stack fa-lg"><i class="iconfont icon-weibo"></i></span></a></li><li><a target="_blank" href="https://www.facebook.com/codewalkerxie"><span class="fa-stack fa-lg"><i class="iconfont icon-facebook"></i></span></a></li><li><a target="_blank" href="https://github.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-github"></i></span></a></li><li><a target="_blank" href="https://www.linkedin.com/in/simon-xie-11426829"><span class="fa-stack fa-lg"><i class="iconfont icon-linkedin"></i></span></a></li></ul><p> <span>/</span> <span><a href="https://codewalker.me">Old blog</a></span> <span>/</span></p><p><span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> PV</span><span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> UV</span> Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p><h6> The value of a man resides in what he gives and not in what he is capable of receiving.<br> 一个人的价值，在于他贡献了什么，而不在于他能得到什么。</h6></footer></body><script>window.hexo_search_path="search.json",window.hexo_root="/",window.isPost=!0</script><script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script src="/js/index.js"></script><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="/js/gitment.js"></script><script>var gitment=new Gitment({id:"关于netctl",owner:"codewalkertse",repo:"codewalkertse.github.io",oauth:{client_id:"3cabff4367aa2366b062",client_secret:"cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b"}});gitment.render("comment-container")</script></html>
+</code></pre><p>在官方论坛上看到有人也有同样的问题。可能会在下个版本中修复吧。</p>
+<p>上面的各项参数都一目了然，提一下key就是你的password。这里我用了256位的加密，所使用的软件为wpa_actiond带的wpa_passphrase生成256位加密 PSK，</p>
+<p>需要注意的是：这里用加密的密码必须以<strong>“</strong>开头,用明文的话就直接跟密码就好了。</p>
+<p>Usage: wpa_passphrase [ssid] [passphrase]</p>
+<p>最后netctl使用方法：</p>
+<p>你可以用原生 netctl start xxx来启动一个配置文件</p>
+<p>也可以加入开机启动 netctl enable xxx</p>
+<p>可以用netctl stop xxx 或者netctl stop-all 来关闭链接</p>
+<p>或者用<strong>systemctl</strong>来管理也更好就不赘述了</p>
+<p>自动链接wifi</p>
+<p>首先把需要的配置文件在netctl 中enable</p>
+<p>再在systemctl 中打开netctl的自动连接</p>
+<p>systemctl enable <a href="mailto:netctl-auto@wlan0.service" target="_blank" rel="noopener">netctl-auto@wlan0.service</a></p>
+<p>以及把网卡设置为自动开启</p>
+<p>systemctl enable <a href="mailto:netctl-ifplugd@eth0.service" target="_blank" rel="noopener">netctl-ifplugd@eth0.service</a></p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">donate</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/206000504">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/codewalkerxie">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/simon-xie-11426829">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+    <h6>
+        The value of a man resides in what he gives and not in what he is capable of receiving.
+        <br />  
+        一个人的价值，在于他贡献了什么，而不在于他能得到什么。
+    </h6>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/gitment.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: '关于netctl',
+        owner: 'codewalkertse',
+        repo: 'codewalkertse.github.io',
+        oauth: {
+            client_id: '3cabff4367aa2366b062',
+            client_secret: 'cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b',
+        },
+    })
+    gitment.render('comment-container')
+</script>
+
+</html>

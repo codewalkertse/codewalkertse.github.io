@@ -1,1 +1,320 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="SimonXie的博客"><meta name="keyword" content="SimonXie"><link rel="shortcut icon" href="/img/favicon.ico"><title> linx 中使用vim打开某些win下txt文件乱码解决问题 - SimonXie的博客 | SimonXie&#39;s Blog</title><link rel="stylesheet" href="/css/aircloud.css"><link rel="stylesheet" href="/css/gitment.css"><link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css"><script></script></head><body><div class="site-nav-toggle" id="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div><div class="index-about"> <i>All magic comes with a price.</i></div><div class="index-container"><div class="index-left"><div class="nav" id="nav"><div class="avatar-name"><div class="avatar"> <img src="/img/avatar.jpg"></div><div class="name"> <i>Simon Xie</i></div></div><div class="contents" id="nav-content"><ul><li><a href="/"><i class="iconfont icon-shouye1"></i> <span>HOME</span></a></li><li><a href="/tags"><i class="iconfont icon-biaoqian1"></i> <span>TAGS</span></a></li><li><a href="/archives"><i class="iconfont icon-guidang2"></i> <span>ARCHIVES</span></a></li><li><a href="/about/"><i class="iconfont icon-guanyu2"></i> <span>ABOUT</span></a></li><li><a id="search"><i class="iconfont icon-sousuo1"></i> <span>SEARCH</span></a></li></ul></div><div id="toc" class="toc-article"></div></div><div class="search-field" id="search-field"><div class="search-container"><div class="search-input"><span id="esc-search"><i class="icon-fanhui iconfont"></i></span> <input id="search-input"> <span id="begin-search">search</span></div><div class="search-result-container" id="search-result-container"></div></div></div><div class="index-about-mobile"> <i>All magic comes with a price.</i></div></div><div class="index-middle"><div class="post-container"><div class="post-title"> linx 中使用vim打开某些win下txt文件乱码解决问题</div><div class="post-meta"> <span class="attr">Post：<span>2011-04-19 10:31:48</span></span> <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span></span></div><div class="post-content"><p>首先使用vim打开文本文件set fileencoding查看文件编码。</p><p>再在~/.vimrc 中查找 fileencodings=xxxx 看是否包含此编码。若无此码填上之。</p><p>完成。</p><p>以下内容转自：<a href="http://blog.163.com/qj_l12@126/blog/static/3593082620089710462888/" target="_blank" rel="noopener"><strong>lan_vivian的博客</strong></a></p><p>Linux下查看文件编码,文件编码格式转换和文件名编码转换.</p><p>linux相关 2008-10-07 10:46:28 阅读2942 评论0 字号：大中小 订阅</p><p> 如果你需要在Linux中操作windows下的文件，那么你可能会经常遇到文件编码转换的问题。Windows中默认的文件格式是GBK(gb2312)，而Linux一般都是UTF-8。下面介绍一下，在Linux中如何查看文件的编码及如何进行对文件进行编码转换。</p><p>查看文件编码</p><p>在Linux中查看文件编码可以通过以下几种方式：</p><p>1.在Vim中可以直接查看文件编码</p><p>:set fileencoding</p><p>即可显示文件编码格式。</p><p>如果你只是想查看其它编码格式的文件或者想解决用Vim查看文件乱码的问题，那么你可以在</p><p>~/.vimrc 文件中添加以下内容：</p><p>set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936</p><p>这样，就可以让vim自动识别文件编码（可以自动识别UTF-8或者GBK编码的文件），其实就是依照fileencodings提供的编码列表尝试，如果没有找到合适的编码，就用latin-1(ASCII)编码打开。</p><p>文件编码转换</p><p>1.在Vim中直接进行转换文件编码,比如将一个文件转换成utf-8格式</p><p>:set fileencoding=utf-8</p><p>2. iconv 转换，iconv的命令格式如下：</p><p>iconv -f encoding -t encoding inputfile</p><p>比如将一个UTF-8 编码的文件转换成GBK编码</p><p>iconv -f GBK -t UTF-8 file1 -o file2</p><p>文件名编码转换:</p><p>从Linux往 windows拷贝文件或者从windows往Linux拷贝文件，有时会出现中文文件名乱码的情况，出现这种问题的原因是因为，windows的文件名 中文编码默认为GBK,而Linux中默认文件名编码为UTF8,由于编码不一致，所以导致了文件名乱码的问题，解决这个问题需要对文件名进行转码。</p><p>在Linux中专门提供了一种工具convmv进行文件名编码的转换，可以将文件名从GBK转换成UTF-8编码,或者从UTF-8转换到GBK。</p><p>首先看一下你的系统上是否安装了convmv,如果没安装的话用:</p><p>yum -y install convmv</p><p>安装。</p><p>下面看一下convmv的具体用法：</p><p>convmv -f 源编码 -t 新编码 [选项] 文件名</p><p>常用参数：</p><p>-r 递归处理子文件夹</p><p>–notest 真正进行操作，请注意在默认情况下是不对文件进行真实操作的，而只是试验。</p><p>–list 显示所有支持的编码</p><p>–unescap 可以做一下转义，比如把 变成空格</p><p>比如我们有一个utf8编码的文件名，转换成GBK编码，命令如下：</p><p>convmv -f UTF-8 -t GBK –notest utf8编码的文件名</p><p>这样转换以后”utf8编码的文件名”会被转换成GBK编码（只是文件名编码的转换，文件内容不会发生变化）</p><p>vim 编码方式的设置</p><p>和所有的流行文本编辑器一样，Vim 可以很好的编辑各种字符编码的文件，这当然包括UCS-2、UTF-8 等流行的 Unicode 编码方式。然而不幸的是，和很多来自 Linux 世界的软件一样，这需要你自己动手设置。</p><p>Vim 有四个跟字符编码方式有关的选项，encoding、fileencoding、fileencodings、termencoding (这些选项可能的取值请参考 Vim 在线帮助 :help encoding-names)，它们的意义如下:</p><p>* encoding: Vim 内部使用的字符编码方式，包括 Vim 的 buffer (缓冲区)、菜单文本、消息文本等。默认是根据你的locale选择.用户手册上建议只在 .vimrc 中改变它的值，事实上似乎也只有在.vimrc 中改变它的值才有意义。你可以用另外一种编码来编辑和保存文件，如你的vim的encoding为utf-8,所编辑的文件采用cp936编码,vim会自动将读入的文件转成utf-8(vim的能读懂的方式），而当你写入文件时,又会自动转回成cp936（文件的保存编码).</p><p>* fileencoding: Vim 中当前编辑的文件的字符编码方式，Vim 保存文件时也会将文件保存为这种字符编码方式 (不管是否新文件都如此)。</p><p>* fileencodings: Vim自 动探测fileencoding的顺序列表， 启动时会按照它所列出的字符编码方式逐一探测即将打开的文件的字符编码方式，并且将 fileencoding 设置为最终探测到的字符编码方式。因此最好将Unicode 编码方式放到这个列表的最前面，将拉丁语系编码方式 latin1 放到最后面。</p><p>* termencoding: Vim 所工作的终端 (或者 Windows 的 Console 窗口) 的字符编码方式。如果vim所在的term与vim编码相同，则无需设置。如其不然，你可以用vim的termencoding选项将自动转换成term的编码.这个选项在 Windows 下对我们常用的 GUI 模式的 gVim 无效，而对 Console 模式的Vim 而言就是 Windows 控制台的代码页，并且通常我们不需要改变它。</p><p>好了，解释完了这一堆容易让新手犯糊涂的参数，我们来看看 Vim 的多字符编码方式支持是如何工作的。</p><p>1. Vim 启动，根据 .vimrc 中设置的 encoding 的值来设置 buffer、菜单文本、消息文的字符编码方式。</p><p>2. 读取需要编辑的文件，根据 fileencodings 中列出的字符编码方式逐一探测该文件编码方式。并设置 fileencoding 为探测到的，看起来是正确的 (注1) 字符编码方式。</p><p>3. 对比 fileencoding 和 encoding 的值，若不同则调用 iconv 将文件内容转换为encoding 所描述的字符编码方式，并且把转换后的内容放到为此文件开辟的 buffer 里，此时我们就可以开始编辑这个文件了。注意，完成这一步动作需要调用外部的 iconv.dll(注2)，你需要保证这个文件存在于 $VIMRUNTIME 或者其他列在 PATH 环境变量中的目录里。</p><p>4. 编辑完成后保存文件时，再次对比 fileencoding 和 encoding 的值。若不同，再次调用 iconv 将即将保存的 buffer 中的文本转换为 fileencoding 所描述的字符编码方式，并保存到指定的文件中。同样，这需要调用 iconv.dll由于 Unicode 能够包含几乎所有的语言的字符，而且 Unicode 的 UTF-8 编码方式又是非常具有性价比的编码方式 (空间消耗比 UCS-2 小)，因此建议 encoding 的值设置为utf-8。这么做的另一个理由是 encoding 设置为 utf-8 时，Vim 自动探测文件的编码方式会更准确 (或许这个理由才是主要的 ;)。我们在中文 Windows 里编辑的文件，为了兼顾与其他软件的兼容性，文件编码还是设置为 GB2312/GBK 比较合适，因此 fileencoding 建议设置为 chinese (chinese 是个别名，在 Unix 里表示 gb2312，在 Windows 里表示cp936，也就是 GBK 的代码页)。</p><div class="donate-container"><div class="donate-button"> <button id="donate-button">donate</button></div><div class="donate-img-container hide" id="donate-img-container"> <img id="donate-img" src="" data-src="/img/donate.jpg"><p> 感谢鼓励</p></div></div><div id="comment-container"></div></div></div></div></div><footer class="footer"><ul class="list-inline text-center"><li><a target="_blank" href="https://twitter.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-twitter"></i></span></a></li><li><a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8"><span class="fa-stack fa-lg"><i class="iconfont icon-zhihu"></i></span></a></li><li><a target="_blank" href="http://weibo.com/206000504"><span class="fa-stack fa-lg"><i class="iconfont icon-weibo"></i></span></a></li><li><a target="_blank" href="https://www.facebook.com/codewalkerxie"><span class="fa-stack fa-lg"><i class="iconfont icon-facebook"></i></span></a></li><li><a target="_blank" href="https://github.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-github"></i></span></a></li><li><a target="_blank" href="https://www.linkedin.com/in/simon-xie-11426829"><span class="fa-stack fa-lg"><i class="iconfont icon-linkedin"></i></span></a></li></ul><p> <span>/</span> <span><a href="https://codewalker.me">Old blog</a></span> <span>/</span></p><p><span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> PV</span><span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> UV</span> Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p><h6> The value of a man resides in what he gives and not in what he is capable of receiving.<br> 一个人的价值，在于他贡献了什么，而不在于他能得到什么。</h6></footer></body><script>window.hexo_search_path="search.json",window.hexo_root="/",window.isPost=!0</script><script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script src="/js/index.js"></script><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="/js/gitment.js"></script><script>var gitment=new Gitment({id:"linx 中使用vim打开某些win下txt文件乱码解决问题",owner:"codewalkertse",repo:"codewalkertse.github.io",oauth:{client_id:"3cabff4367aa2366b062",client_secret:"cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b"}});gitment.render("comment-container")</script></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SimonXie的博客">
+    <meta name="keyword"  content="SimonXie">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        linx 中使用vim打开某些win下txt文件乱码解决问题 - SimonXie的博客 | SimonXie&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> All magic comes with a price. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Simon Xie</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> All magic comes with a price. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        linx 中使用vim打开某些win下txt文件乱码解决问题
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2011-04-19 10:31:48</span></span>
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>首先使用vim打开文本文件set fileencoding查看文件编码。</p>
+<p>再在~/.vimrc 中查找 fileencodings=xxxx  看是否包含此编码。若无此码填上之。</p>
+<p>完成。</p>
+<p>以下内容转自：<a href="http://blog.163.com/qj_l12@126/blog/static/3593082620089710462888/" target="_blank" rel="noopener"><strong>lan_vivian的博客</strong></a></p>
+<p>Linux下查看文件编码,文件编码格式转换和文件名编码转换.</p>
+<p>linux相关 2008-10-07 10:46:28 阅读2942 评论0   字号：大中小 订阅</p>
+<p> 如果你需要在Linux中操作windows下的文件，那么你可能会经常遇到文件编码转换的问题。Windows中默认的文件格式是GBK(gb2312)，而Linux一般都是UTF-8。下面介绍一下，在Linux中如何查看文件的编码及如何进行对文件进行编码转换。</p>
+<p>查看文件编码</p>
+<p>在Linux中查看文件编码可以通过以下几种方式：</p>
+<p>1.在Vim中可以直接查看文件编码</p>
+<p>:set fileencoding</p>
+<p>即可显示文件编码格式。</p>
+<p>如果你只是想查看其它编码格式的文件或者想解决用Vim查看文件乱码的问题，那么你可以在</p>
+<p>~/.vimrc 文件中添加以下内容：</p>
+<p>set encoding=utf-8 fileencodings=ucs-bom,utf-8,cp936</p>
+<p>这样，就可以让vim自动识别文件编码（可以自动识别UTF-8或者GBK编码的文件），其实就是依照fileencodings提供的编码列表尝试，如果没有找到合适的编码，就用latin-1(ASCII)编码打开。</p>
+<p>文件编码转换</p>
+<p>1.在Vim中直接进行转换文件编码,比如将一个文件转换成utf-8格式</p>
+<p>:set fileencoding=utf-8</p>
+<p>2. iconv 转换，iconv的命令格式如下：</p>
+<p>iconv -f encoding -t encoding inputfile</p>
+<p>比如将一个UTF-8 编码的文件转换成GBK编码</p>
+<p>iconv -f GBK -t UTF-8 file1 -o file2</p>
+<p>文件名编码转换:</p>
+<p>从Linux往 windows拷贝文件或者从windows往Linux拷贝文件，有时会出现中文文件名乱码的情况，出现这种问题的原因是因为，windows的文件名 中文编码默认为GBK,而Linux中默认文件名编码为UTF8,由于编码不一致，所以导致了文件名乱码的问题，解决这个问题需要对文件名进行转码。</p>
+<p>在Linux中专门提供了一种工具convmv进行文件名编码的转换，可以将文件名从GBK转换成UTF-8编码,或者从UTF-8转换到GBK。</p>
+<p>首先看一下你的系统上是否安装了convmv,如果没安装的话用:</p>
+<p>yum -y install convmv</p>
+<p>安装。</p>
+<p>下面看一下convmv的具体用法：</p>
+<p>convmv -f 源编码 -t 新编码 [选项] 文件名</p>
+<p>常用参数：</p>
+<p>-r 递归处理子文件夹</p>
+<p>–notest 真正进行操作，请注意在默认情况下是不对文件进行真实操作的，而只是试验。</p>
+<p>–list 显示所有支持的编码</p>
+<p>–unescap 可以做一下转义，比如把 变成空格</p>
+<p>比如我们有一个utf8编码的文件名，转换成GBK编码，命令如下：</p>
+<p>convmv -f UTF-8 -t GBK –notest utf8编码的文件名</p>
+<p>这样转换以后”utf8编码的文件名”会被转换成GBK编码（只是文件名编码的转换，文件内容不会发生变化）</p>
+<p>vim 编码方式的设置</p>
+<p>和所有的流行文本编辑器一样，Vim 可以很好的编辑各种字符编码的文件，这当然包括UCS-2、UTF-8 等流行的 Unicode 编码方式。然而不幸的是，和很多来自 Linux 世界的软件一样，这需要你自己动手设置。</p>
+<p>Vim 有四个跟字符编码方式有关的选项，encoding、fileencoding、fileencodings、termencoding (这些选项可能的取值请参考 Vim 在线帮助 :help encoding-names)，它们的意义如下:</p>
+<p>* encoding: Vim 内部使用的字符编码方式，包括 Vim 的 buffer (缓冲区)、菜单文本、消息文本等。默认是根据你的locale选择.用户手册上建议只在 .vimrc 中改变它的值，事实上似乎也只有在.vimrc 中改变它的值才有意义。你可以用另外一种编码来编辑和保存文件，如你的vim的encoding为utf-8,所编辑的文件采用cp936编码,vim会自动将读入的文件转成utf-8(vim的能读懂的方式），而当你写入文件时,又会自动转回成cp936（文件的保存编码).</p>
+<p>* fileencoding: Vim 中当前编辑的文件的字符编码方式，Vim 保存文件时也会将文件保存为这种字符编码方式 (不管是否新文件都如此)。</p>
+<p>* fileencodings: Vim自 动探测fileencoding的顺序列表， 启动时会按照它所列出的字符编码方式逐一探测即将打开的文件的字符编码方式，并且将 fileencoding 设置为最终探测到的字符编码方式。因此最好将Unicode 编码方式放到这个列表的最前面，将拉丁语系编码方式 latin1 放到最后面。</p>
+<p>* termencoding: Vim 所工作的终端 (或者 Windows 的 Console 窗口) 的字符编码方式。如果vim所在的term与vim编码相同，则无需设置。如其不然，你可以用vim的termencoding选项将自动转换成term的编码.这个选项在 Windows 下对我们常用的 GUI 模式的 gVim 无效，而对 Console 模式的Vim 而言就是 Windows 控制台的代码页，并且通常我们不需要改变它。</p>
+<p>好了，解释完了这一堆容易让新手犯糊涂的参数，我们来看看 Vim 的多字符编码方式支持是如何工作的。</p>
+<p>1. Vim 启动，根据 .vimrc 中设置的 encoding 的值来设置 buffer、菜单文本、消息文的字符编码方式。</p>
+<p>2. 读取需要编辑的文件，根据 fileencodings 中列出的字符编码方式逐一探测该文件编码方式。并设置 fileencoding 为探测到的，看起来是正确的 (注1) 字符编码方式。</p>
+<p>3. 对比 fileencoding 和 encoding 的值，若不同则调用 iconv 将文件内容转换为encoding 所描述的字符编码方式，并且把转换后的内容放到为此文件开辟的 buffer 里，此时我们就可以开始编辑这个文件了。注意，完成这一步动作需要调用外部的 iconv.dll(注2)，你需要保证这个文件存在于 $VIMRUNTIME 或者其他列在 PATH 环境变量中的目录里。</p>
+<p>4. 编辑完成后保存文件时，再次对比 fileencoding 和 encoding 的值。若不同，再次调用 iconv 将即将保存的 buffer 中的文本转换为 fileencoding 所描述的字符编码方式，并保存到指定的文件中。同样，这需要调用 iconv.dll由于 Unicode 能够包含几乎所有的语言的字符，而且 Unicode 的 UTF-8 编码方式又是非常具有性价比的编码方式 (空间消耗比 UCS-2 小)，因此建议 encoding 的值设置为utf-8。这么做的另一个理由是 encoding 设置为 utf-8 时，Vim 自动探测文件的编码方式会更准确 (或许这个理由才是主要的 ;)。我们在中文 Windows 里编辑的文件，为了兼顾与其他软件的兼容性，文件编码还是设置为 GB2312/GBK 比较合适，因此 fileencoding 建议设置为 chinese (chinese 是个别名，在 Unix 里表示 gb2312，在 Windows 里表示cp936，也就是 GBK 的代码页)。</p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">donate</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/206000504">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/codewalkerxie">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/simon-xie-11426829">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+    <h6>
+        The value of a man resides in what he gives and not in what he is capable of receiving.
+        <br />  
+        一个人的价值，在于他贡献了什么，而不在于他能得到什么。
+    </h6>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/gitment.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: 'linx 中使用vim打开某些win下txt文件乱码解决问题',
+        owner: 'codewalkertse',
+        repo: 'codewalkertse.github.io',
+        oauth: {
+            client_id: '3cabff4367aa2366b062',
+            client_secret: 'cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b',
+        },
+    })
+    gitment.render('comment-container')
+</script>
+
+</html>

@@ -1,5 +1,317 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="SimonXie的博客"><meta name="keyword" content="SimonXie"><link rel="shortcut icon" href="/img/favicon.ico"><title> cat /tmp/vimrc 超强vim配置文件 - SimonXie的博客 | SimonXie&#39;s Blog</title><link rel="stylesheet" href="/css/aircloud.css"><link rel="stylesheet" href="/css/gitment.css"><link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css"><script></script></head><body><div class="site-nav-toggle" id="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div><div class="index-about"> <i>All magic comes with a price.</i></div><div class="index-container"><div class="index-left"><div class="nav" id="nav"><div class="avatar-name"><div class="avatar"> <img src="/img/avatar.jpg"></div><div class="name"> <i>Simon Xie</i></div></div><div class="contents" id="nav-content"><ul><li><a href="/"><i class="iconfont icon-shouye1"></i> <span>HOME</span></a></li><li><a href="/tags"><i class="iconfont icon-biaoqian1"></i> <span>TAGS</span></a></li><li><a href="/archives"><i class="iconfont icon-guidang2"></i> <span>ARCHIVES</span></a></li><li><a href="/about/"><i class="iconfont icon-guanyu2"></i> <span>ABOUT</span></a></li><li><a id="search"><i class="iconfont icon-sousuo1"></i> <span>SEARCH</span></a></li></ul></div><div id="toc" class="toc-article"></div></div><div class="search-field" id="search-field"><div class="search-container"><div class="search-input"><span id="esc-search"><i class="icon-fanhui iconfont"></i></span> <input id="search-input"> <span id="begin-search">search</span></div><div class="search-result-container" id="search-result-container"></div></div></div><div class="index-about-mobile"> <i>All magic comes with a price.</i></div></div><div class="index-middle"><div class="post-container"><div class="post-title"> cat /tmp/vimrc 超强vim配置文件</div><div class="post-meta"> <span class="attr">Post：<span>2012-03-10 23:31:03</span></span> <span class="attr">Tags：/ <a class="tag" href="/tags/#vim配置" title="vim配置">vim配置</a> <span>/</span></span> <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span></span></div><div class="post-content"><p>{codewalker}&lt;=Sat Mar 10-11:31 PM=&gt;</p><p>==&gt;~&lt;==</p><p>=&gt;$cat /tmp/vimrc</p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>“ Maintainer: amix the lucky stiff</p><p>“ <a href="http://amix.dk" target="_blank" rel="noopener">http://amix.dk</a> - <a href="mailto:amix@amix.dk" target="_blank" rel="noopener">amix@amix.dk</a></p><p>“</p><p>“ Version: 3.3 - 21/01/10 01:05:46</p><p>“</p><p>“ Blog_post:</p><p>“ <a href="http://amix.dk/blog/post/19486#The-ultimate-vim-configuration-vimrc" target="_blank" rel="noopener">http://amix.dk/blog/post/19486#The-ultimate-vim-configuration-vimrc</a></p><p>“ Syntax_highlighted:</p><p>“ <a href="http://amix.dk/vim/vimrc.html" target="_blank" rel="noopener">http://amix.dk/vim/vimrc.html</a></p><p>“ Raw_version:</p><p>“ <a href="http://amix.dk/vim/vimrc.txt" target="_blank" rel="noopener">http://amix.dk/vim/vimrc.txt</a></p><p>“</p><p>“ How_to_Install:</p><p>“ $ mkdir ~/.vim_runtime</p><p>“ $ svn co svn://orangoo.com/vim ~/.vim_runtime</p><p>“ $ cat ~/.vim_runtime/install.sh</p><p>“ $ sh ~/.vim_runtime/install.sh<system></system></p><p>“<sytem> can be `mac`, `linux` or `windows`</sytem></p><p>“</p><p>“ How_to_Upgrade:</p><p>“ $ svn update ~/.vim_runtime</p><p>“</p><p>“ Sections:</p><p>“ -> General</p><p>“ -> VIM user interface</p><p>“ -> Colors and Fonts</p><p>“ -> Files and backups</p><p>“ -> Text, tab and indent related</p><p>“ -> Visual mode related</p><p>“ -> Command mode related</p><p>“ -> Moving around, tabs and buffers</p><p>“ -> Statusline</p><p>“ -> Parenthesis/bracket expanding</p><p>“ -> General Abbrevs</p><p>“ -> Editing mappings</p><p>“</p><p>“ -> Cope</p><p>“ -> Minibuffer plugin</p><p>“ -> Omni complete functions</p><p>“ -> Python section</p><p>“ -> JavaScript section</p><p>“</p><p>“ Plugins_Included:</p><p>“ > minibufexpl.vim - <a href="http://www.vim.org/scripts/script.php?script_id=159" target="_blank" rel="noopener">http://www.vim.org/scripts/script.php?script_id=159</a></p><p>“ Makes it easy to get an overview of buffers:</p><p>“ info -&gt; :e ~/.vim_runtime/plugin/minibufexpl.vim</p><p>“</p><p>“ > bufexplorer - <a href="http://www.vim.org/scripts/script.php?script_id=42" target="_blank" rel="noopener">http://www.vim.org/scripts/script.php?script_id=42</a></p><p>“ Makes it easy to switch between buffers:</p><p>“ info -&gt; :help bufExplorer</p><p>“</p><p>“ > yankring.vim - <a href="http://www.vim.org/scripts/script.php?script_id=1234" target="_blank" rel="noopener">http://www.vim.org/scripts/script.php?script_id=1234</a></p><p>“ Emacs’s killring, useful when using the clipboard:</p><p>“ info -&gt; :help yankring</p><p>“</p><p>“ > surround.vim - <a href="http://www.vim.org/scripts/script.php?script_id=1697" target="_blank" rel="noopener">http://www.vim.org/scripts/script.php?script_id=1697</a></p><p>“ Makes it easy to work with surrounding text:</p><p>“ info -&gt; :help surround</p><p>“</p><p>“ > snipMate.vim - <a href="http://www.vim.org/scripts/script.php?script_id=2540" target="_blank" rel="noopener">http://www.vim.org/scripts/script.php?script_id=2540</a></p><p>“ Snippets for many languages (similar to TextMate’s):</p><p>“ info -&gt; :help snipMate</p><p>“</p><p>“ > fuzzyfinder - <a href="http://www.vim.org/scripts/script.php?script_id=1984" target="_blank" rel="noopener">http://www.vim.org/scripts/script.php?script_id=1984</a></p><p>“ Find files fast (similar to TextMate’s feature):</p><p>“ info -&gt; :help fuzzyfinder@en</p><p>“</p><p>“ Revisions:</p><p>“ > 3.3: Added syntax highlighting for Mako mako.vim</p><p>“ > 3.2: Turned on python_highlight_all for better syntax</p><p>“ highlighting for Python</p><p>“ > 3.1: Added revisions ;) and bufexplorer.vim</p><p>“</p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>“ => General</p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>“ Sets how many lines of history VIM has to remember</p><p>set history=300</p><p>“ Enable filetype plugin</p><p>filetype plugin on</p><p>filetype indent on</p><p>“ Set to auto read when a file is changed from the outside</p><p>set autoread</p><p>“ With a map leader it’s possible to do extra key combinations</p><p>“ like<leader>w saves the current file</leader></p><p>let mapleader = “,”</p><p>let g:mapleader = “,”</p><p>“ Fast saving</p><p>nmap<leader>w :w!<cr></cr></leader></p><p>“ Fast editing of the .vimrc</p><p>map<leader>e :e! ~/.vim_runtime/vimrc<cr></cr></leader></p><p>“ When vimrc is edited, reload it</p><p>autocmd! bufwritepost vimrc source ~/.vim_runtime/vimrc</p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>“ => VIM user interface</p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>“ Set 7 lines to the curors - when moving vertical..</p><p>set so=7</p><p>set wildmenu “Turn on WiLd menu</p><p>set ruler “Always show current position</p><p>set cmdheight=2 “The commandbar height</p><p>set hid “Change buffer - without saving</p><p>“ Set backspace config</p><p>set backspace=eol,start,indent</p><p>set whichwrap+=&lt;,&gt;,h,l</p><p>set ignorecase “Ignore case when searching</p><p>set hlsearch “Highlight search things</p><p>set incsearch “Make search act like search in modern browsers</p><p>set magic “Set magic on, for regular expressions</p><p>set showmatch “Show matching bracets when text indicator is over them</p><p>set mat=2 “How many tenths of a second to blink</p><p>“ No sound on errors</p><p>set noerrorbells</p><p>set novisualbell</p><p>set t_vb=</p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>“ => Colors and Fonts</p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>syntax enable “Enable syntax hl</p><p>if has(“gui_running”)</p><p> set guioptions-=T</p><p> set background=dark</p><p> set t_Co=256</p><p> set background=dark</p><p> colorscheme peaksea</p><p> set nu</p><p>else</p><p> colorscheme zellner</p><p> set background=dark</p><p> set nonu</p><p>endif</p><p>set encoding=utf8 fileencodings=ucs-bom,utf-8,cp936,latin1</p><p>try</p><pre><code>lang en_US
-</code></pre><p>catch</p><p>endtry</p><p>set ffs=unix,dos,mac “Default file types</p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>“ => Files and backups</p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>“ Turn backup off, since most stuff is in SVN, git anyway…</p><p>set nobackup</p><p>set nowb</p><p>set noswapfile</p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>“ => Text, tab and indent related</p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>set expandtab</p><p>set shiftwidth=4</p><p>set tabstop=4</p><p>set smarttab</p><p>set lbr</p><p>set tw=500</p><p>set ai “Auto indent</p><p>set si “Smart indet</p><p>set wrap “Wrap lines</p><p>map<leader>t2 :setlocal shiftwidth=2<cr></cr></leader></p><p>map<leader>t4 :setlocal shiftwidth=4<cr></cr></leader></p><p>map<leader>t8 :setlocal shiftwidth=4<cr></cr></leader></p><p>“”””””””””””””””””””””””””””””</p><p>“ => Visual mode related</p><p>“”””””””””””””””””””””””””””””</p><p>“ Really useful!</p><p>“ In visual mode when you press * or # to search for the current selection</p><p>vnoremap<silent> * :call VisualSearch(‘f’)<cr></cr></silent></p><p>vnoremap<silent> # :call VisualSearch(‘b’)<cr></cr></silent></p><p>“ When you press gv you vimgrep after the selected text</p><p>vnoremap<silent> gv :call VisualSearch(‘gv’)<cr></cr></silent></p><p>map<leader>g :vimgrep // ***.’)</leader></p><pre><code>elseif a:direction == &apos;f&apos;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SimonXie的博客">
+    <meta name="keyword"  content="SimonXie">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        cat /tmp/vimrc 超强vim配置文件 - SimonXie的博客 | SimonXie&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> All magic comes with a price. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Simon Xie</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> All magic comes with a price. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        cat /tmp/vimrc 超强vim配置文件
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2012-03-10 23:31:03</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#vim配置" title="vim配置">vim配置</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>{codewalker}&lt;=Sat Mar 10-11:31 PM=&gt;</p>
+<p>==&gt;~&lt;==</p>
+<p>=&gt;$cat /tmp/vimrc </p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>“ Maintainer: amix the lucky stiff</p>
+<p>“             <a href="http://amix.dk" target="_blank" rel="noopener">http://amix.dk</a> - <a href="mailto:amix@amix.dk" target="_blank" rel="noopener">amix@amix.dk</a></p>
+<p>“</p>
+<p>“ Version: 3.3 - 21/01/10 01:05:46</p>
+<p>“</p>
+<p>“ Blog_post: </p>
+<p>“       <a href="http://amix.dk/blog/post/19486#The-ultimate-vim-configuration-vimrc" target="_blank" rel="noopener">http://amix.dk/blog/post/19486#The-ultimate-vim-configuration-vimrc</a></p>
+<p>“ Syntax_highlighted:</p>
+<p>“       <a href="http://amix.dk/vim/vimrc.html" target="_blank" rel="noopener">http://amix.dk/vim/vimrc.html</a></p>
+<p>“ Raw_version: </p>
+<p>“       <a href="http://amix.dk/vim/vimrc.txt" target="_blank" rel="noopener">http://amix.dk/vim/vimrc.txt</a></p>
+<p>“</p>
+<p>“ How_to_Install:</p>
+<p>“    $ mkdir ~/.vim_runtime</p>
+<p>“    $ svn co svn://orangoo.com/vim ~/.vim_runtime</p>
+<p>“    $ cat ~/.vim_runtime/install.sh</p>
+<p>“    $ sh ~/.vim_runtime/install.sh <system></system></p>
+<p>“      <sytem> can be `mac`, `linux` or `windows`</sytem></p>
+<p>“</p>
+<p>“ How_to_Upgrade:</p>
+<p>“    $ svn update ~/.vim_runtime</p>
+<p>“</p>
+<p>“ Sections:</p>
+<p>“    -> General</p>
+<p>“    -> VIM user interface</p>
+<p>“    -> Colors and Fonts</p>
+<p>“    -> Files and backups</p>
+<p>“    -> Text, tab and indent related</p>
+<p>“    -> Visual mode related</p>
+<p>“    -> Command mode related</p>
+<p>“    -> Moving around, tabs and buffers</p>
+<p>“    -> Statusline</p>
+<p>“    -> Parenthesis/bracket expanding</p>
+<p>“    -> General Abbrevs</p>
+<p>“    -> Editing mappings</p>
+<p>“</p>
+<p>“    -> Cope</p>
+<p>“    -> Minibuffer plugin</p>
+<p>“    -> Omni complete functions</p>
+<p>“    -> Python section</p>
+<p>“    -> JavaScript section</p>
+<p>“</p>
+<p>“ Plugins_Included:</p>
+<p>“     > minibufexpl.vim - <a href="http://www.vim.org/scripts/script.php?script_id=159" target="_blank" rel="noopener">http://www.vim.org/scripts/script.php?script_id=159</a></p>
+<p>“       Makes it easy to get an overview of buffers:</p>
+<p>“           info -&gt; :e ~/.vim_runtime/plugin/minibufexpl.vim</p>
+<p>“</p>
+<p>“     > bufexplorer - <a href="http://www.vim.org/scripts/script.php?script_id=42" target="_blank" rel="noopener">http://www.vim.org/scripts/script.php?script_id=42</a></p>
+<p>“       Makes it easy to switch between buffers:</p>
+<p>“           info -&gt; :help bufExplorer</p>
+<p>“</p>
+<p>“     > yankring.vim - <a href="http://www.vim.org/scripts/script.php?script_id=1234" target="_blank" rel="noopener">http://www.vim.org/scripts/script.php?script_id=1234</a></p>
+<p>“       Emacs’s killring, useful when using the clipboard:</p>
+<p>“           info -&gt; :help yankring</p>
+<p>“</p>
+<p>“     > surround.vim - <a href="http://www.vim.org/scripts/script.php?script_id=1697" target="_blank" rel="noopener">http://www.vim.org/scripts/script.php?script_id=1697</a></p>
+<p>“       Makes it easy to work with surrounding text:</p>
+<p>“           info -&gt; :help surround</p>
+<p>“</p>
+<p>“     > snipMate.vim - <a href="http://www.vim.org/scripts/script.php?script_id=2540" target="_blank" rel="noopener">http://www.vim.org/scripts/script.php?script_id=2540</a></p>
+<p>“       Snippets for many languages (similar to TextMate’s):</p>
+<p>“           info -&gt; :help snipMate</p>
+<p>“</p>
+<p>“     > fuzzyfinder - <a href="http://www.vim.org/scripts/script.php?script_id=1984" target="_blank" rel="noopener">http://www.vim.org/scripts/script.php?script_id=1984</a></p>
+<p>“       Find files fast (similar to TextMate’s feature):</p>
+<p>“           info -&gt; :help fuzzyfinder@en</p>
+<p>“</p>
+<p>“  Revisions:</p>
+<p>“     > 3.3: Added syntax highlighting for Mako mako.vim </p>
+<p>“     > 3.2: Turned on python_highlight_all for better syntax</p>
+<p>“            highlighting for Python</p>
+<p>“     > 3.1: Added revisions ;) and bufexplorer.vim</p>
+<p>“</p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>“ => General</p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>“ Sets how many lines of history VIM has to remember</p>
+<p>set history=300</p>
+<p>“ Enable filetype plugin</p>
+<p>filetype plugin on</p>
+<p>filetype indent on</p>
+<p>“ Set to auto read when a file is changed from the outside</p>
+<p>set autoread</p>
+<p>“ With a map leader it’s possible to do extra key combinations</p>
+<p>“ like <leader>w saves the current file</leader></p>
+<p>let mapleader = “,”</p>
+<p>let g:mapleader = “,”</p>
+<p>“ Fast saving</p>
+<p>nmap <leader>w :w!<cr></cr></leader></p>
+<p>“ Fast editing of the .vimrc</p>
+<p>map <leader>e :e! ~/.vim_runtime/vimrc<cr></cr></leader></p>
+<p>“ When vimrc is edited, reload it</p>
+<p>autocmd! bufwritepost vimrc source ~/.vim_runtime/vimrc</p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>“ => VIM user interface</p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>“ Set 7 lines to the curors - when moving vertical..</p>
+<p>set so=7</p>
+<p>set wildmenu “Turn on WiLd menu</p>
+<p>set ruler “Always show current position</p>
+<p>set cmdheight=2 “The commandbar height</p>
+<p>set hid “Change buffer - without saving</p>
+<p>“ Set backspace config</p>
+<p>set backspace=eol,start,indent</p>
+<p>set whichwrap+=&lt;,&gt;,h,l</p>
+<p>set ignorecase “Ignore case when searching</p>
+<p>set hlsearch “Highlight search things</p>
+<p>set incsearch “Make search act like search in modern browsers</p>
+<p>set magic “Set magic on, for regular expressions</p>
+<p>set showmatch “Show matching bracets when text indicator is over them</p>
+<p>set mat=2 “How many tenths of a second to blink</p>
+<p>“ No sound on errors</p>
+<p>set noerrorbells</p>
+<p>set novisualbell</p>
+<p>set t_vb=</p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>“ => Colors and Fonts</p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>syntax enable “Enable syntax hl</p>
+<p>if has(“gui_running”)</p>
+<p>  set guioptions-=T</p>
+<p>  set background=dark</p>
+<p>  set t_Co=256</p>
+<p>  set background=dark</p>
+<p>  colorscheme peaksea</p>
+<p>  set nu</p>
+<p>else</p>
+<p>  colorscheme zellner</p>
+<p>  set background=dark</p>
+<p>  set nonu</p>
+<p>endif</p>
+<p>set encoding=utf8 fileencodings=ucs-bom,utf-8,cp936,latin1</p>
+<p>try</p>
+<pre><code>lang en_US
+</code></pre><p>catch</p>
+<p>endtry</p>
+<p>set ffs=unix,dos,mac “Default file types</p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>“ => Files and backups</p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>“ Turn backup off, since most stuff is in SVN, git anyway…</p>
+<p>set nobackup</p>
+<p>set nowb</p>
+<p>set noswapfile</p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>“ => Text, tab and indent related</p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>set expandtab</p>
+<p>set shiftwidth=4</p>
+<p>set tabstop=4</p>
+<p>set smarttab</p>
+<p>set lbr</p>
+<p>set tw=500</p>
+<p>set ai “Auto indent</p>
+<p>set si “Smart indet</p>
+<p>set wrap “Wrap lines</p>
+<p>map <leader>t2 :setlocal shiftwidth=2<cr></cr></leader></p>
+<p>map <leader>t4 :setlocal shiftwidth=4<cr></cr></leader></p>
+<p>map <leader>t8 :setlocal shiftwidth=4<cr></cr></leader></p>
+<p>“”””””””””””””””””””””””””””””</p>
+<p>“ => Visual mode related</p>
+<p>“”””””””””””””””””””””””””””””</p>
+<p>“ Really useful!</p>
+<p>“  In visual mode when you press * or # to search for the current selection</p>
+<p>vnoremap <silent> * :call VisualSearch(‘f’)<cr></cr></silent></p>
+<p>vnoremap <silent> # :call VisualSearch(‘b’)<cr></cr></silent></p>
+<p>“ When you press gv you vimgrep after the selected text</p>
+<p>vnoremap <silent> gv :call VisualSearch(‘gv’)<cr></cr></silent></p>
+<p>map <leader>g :vimgrep // ***.’)</leader></p>
+<pre><code>elseif a:direction == &apos;f&apos;
 
     execute &quot;normal /&quot; . l:pattern . &quot;^M&quot;
 
@@ -10,9 +322,41 @@ endif
 let @/ = l:pattern
 
 let @&quot; = l:saved_reg
-</code></pre><p>endfunction</p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>“ => Command mode related</p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>“ Smart mappings on the command line</p><p>cno $h e ~/</p><p>cno $d e ~/Desktop/</p><p>cno $j e ./</p><p>cno $c e<c->eCurrentFileDir(“e”)<cr></cr></c-></p><p>“ $q is super useful when browsing on the command line</p><p>cno $q<c->eDeleteTillSlash()<cr></cr></c-></p><p>“ Bash like keys for the command line</p><p>cnoremap<c-a><home></home></c-a></p><p>cnoremap<c-e><end></end></c-e></p><p>cnoremap<c-k><c-u></c-u></c-k></p><p>cnoremap<c-p><up></up></c-p></p><p>cnoremap<c-n><down></down></c-n></p><p>“ Useful on some European keyboards</p><p>map Â½ $</p><p>imap Â½ $</p><p>vmap Â½ $</p><p>cmap Â½ $</p><p>func! Cwd()</p><p> let cwd = getcwd()</p><p> return “e “ . cwd</p><p>endfunc</p><p>func! DeleteTillSlash()</p><p> let g:cmd = getcmdline()</p><p> if MySys() == “linux” || MySys() == “mac”</p><pre><code>let g:cmd_edited = substitute(g:cmd, &quot;(.*\[/\]).*&quot;, &quot;1&quot;, &quot;&quot;)
-</code></pre><p> else</p><pre><code>let g:cmd_edited = substitute(g:cmd, &quot;(.*\[\\\]).*&quot;, &quot;1&quot;, &quot;&quot;)
-</code></pre><p> endif</p><p> if g:cmd == g:cmd_edited</p><pre><code>if MySys() == &quot;linux&quot; || MySys() == &quot;mac&quot;
+</code></pre><p>endfunction</p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>“ => Command mode related</p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>“ Smart mappings on the command line</p>
+<p>cno $h e ~/</p>
+<p>cno $d e ~/Desktop/</p>
+<p>cno $j e ./</p>
+<p>cno $c e <c->eCurrentFileDir(“e”)<cr></cr></c-></p>
+<p>“ $q is super useful when browsing on the command line</p>
+<p>cno $q <c->eDeleteTillSlash()<cr></cr></c-></p>
+<p>“ Bash like keys for the command line</p>
+<p>cnoremap <c-a> <home></home></c-a></p>
+<p>cnoremap <c-e> <end></end></c-e></p>
+<p>cnoremap <c-k> <c-u></c-u></c-k></p>
+<p>cnoremap <c-p> <up></up></c-p></p>
+<p>cnoremap <c-n> <down></down></c-n></p>
+<p>“ Useful on some European keyboards</p>
+<p>map Â½ $</p>
+<p>imap Â½ $</p>
+<p>vmap Â½ $</p>
+<p>cmap Â½ $</p>
+<p>func! Cwd()</p>
+<p>  let cwd = getcwd()</p>
+<p>  return “e “ . cwd </p>
+<p>endfunc</p>
+<p>func! DeleteTillSlash()</p>
+<p>  let g:cmd = getcmdline()</p>
+<p>  if MySys() == “linux” || MySys() == “mac”</p>
+<pre><code>let g:cmd_edited = substitute(g:cmd, &quot;(.*\[/\]).*&quot;, &quot;1&quot;, &quot;&quot;)
+</code></pre><p>  else</p>
+<pre><code>let g:cmd_edited = substitute(g:cmd, &quot;(.*\[\\\]).*&quot;, &quot;1&quot;, &quot;&quot;)
+</code></pre><p>  endif</p>
+<p>  if g:cmd == g:cmd_edited</p>
+<pre><code>if MySys() == &quot;linux&quot; || MySys() == &quot;mac&quot;
 
   let g:cmd_edited = substitute(g:cmd, &quot;(.*\[/\]).*/&quot;, &quot;1&quot;, &quot;&quot;)
 
@@ -21,14 +365,176 @@ else
   let g:cmd_edited = substitute(g:cmd, &quot;(.*\[\\\]).*\[\\\]&quot;, &quot;1&quot;, &quot;&quot;)
 
 endif
-</code></pre><p> endif</p><p> return g:cmd_edited</p><p>endfunc</p><p>func! CurrentFileDir(cmd)</p><p> return a:cmd . “ “ . expand(“%:p:h”) . “/“</p><p>endfunc</p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>“ => Moving around, tabs and buffers</p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>“ Map space to / (search) and c-space to ? (backgwards search)</p><p>map<space> /</space></p><p>map<c-space> ?</c-space></p><p>map<silent><leader><cr> :noh<cr></cr></cr></leader></silent></p><p>“ Smart way to move btw. windows</p><p>map<c-j><c-w>j</c-w></c-j></p><p>map<c-k><c-w>k</c-w></c-k></p><p>map<c-h><c-w>h</c-w></c-h></p><p>map<c-l><c-w>l</c-w></c-l></p><p>“ Close the current buffer</p><p>map<leader>bd :Bclose<cr></cr></leader></p><p>“ Close all the buffers</p><p>map<leader>ba :1,300 bd!<cr></cr></leader></p><p>“ Use the arrows to something usefull</p><p>map<right> :bn<cr></cr></right></p><p>map<left> :bp<cr></cr></left></p><p>“ Tab configuration</p><p>map<leader>tn :tabnew %<cr></cr></leader></p><p>map<leader>te :tabedit</leader></p><p>map<leader>tc :tabclose<cr></cr></leader></p><p>map<leader>tm :tabmove</leader></p><p>“ When pressing<leader>cd switch to the directory of the open buffer</leader></p><p>map<leader>cd :cd %:p:h<cr></cr></leader></p><p>command! Bclose call<sid>BufcloseCloseIt()</sid></p><p>function!<sid>BufcloseCloseIt()</sid></p><p> let l:currentBufNum = bufnr(“%”)</p><p> let l:alternateBufNum = bufnr(“#”)</p><p> if buflisted(l:alternateBufNum)</p><pre><code>buffer #
-</code></pre><p> else</p><pre><code>bnext
-</code></pre><p> endif</p><p> if bufnr(“%”) == l:currentBufNum</p><pre><code>new
-</code></pre><p> endif</p><p> if buflisted(l:currentBufNum)</p><pre><code>execute(&quot;bdelete! &quot;.l:currentBufNum)
-</code></pre><p> endif</p><p>endfunction</p><p>“ Specify the behavior when switching between buffers</p><p>try</p><p> set switchbuf=usetab</p><p> set stal=2</p><p>catch</p><p>endtry</p><p>“”””””””””””””””””””””””””””””</p><p>“ => Statusline</p><p>“”””””””””””””””””””””””””””””</p><p>“ Always hide the statusline</p><p>set laststatus=2</p><p>“ Format the statusline</p><p>set statusline= %F%m%r%h %w CWD: %r%{CurDir()}%h Line: %l/%L:%c</p><p>function! CurDir()</p><pre><code>let curdir = substitute(getcwd(), &apos;/Users/amir/&apos;, &quot;~/&quot;, &quot;g&quot;)
+</code></pre><p>  endif   </p>
+<p>  return g:cmd_edited</p>
+<p>endfunc</p>
+<p>func! CurrentFileDir(cmd)</p>
+<p>  return a:cmd . “ “ . expand(“%:p:h”) . “/“</p>
+<p>endfunc</p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>“ => Moving around, tabs and buffers</p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>“ Map space to / (search) and c-space to ? (backgwards search)</p>
+<p>map <space> /</space></p>
+<p>map <c-space> ?</c-space></p>
+<p>map <silent> <leader><cr> :noh<cr></cr></cr></leader></silent></p>
+<p>“ Smart way to move btw. windows</p>
+<p>map <c-j> <c-w>j</c-w></c-j></p>
+<p>map <c-k> <c-w>k</c-w></c-k></p>
+<p>map <c-h> <c-w>h</c-w></c-h></p>
+<p>map <c-l> <c-w>l</c-w></c-l></p>
+<p>“ Close the current buffer</p>
+<p>map <leader>bd :Bclose<cr></cr></leader></p>
+<p>“ Close all the buffers</p>
+<p>map <leader>ba :1,300 bd!<cr></cr></leader></p>
+<p>“ Use the arrows to something usefull</p>
+<p>map <right> :bn<cr></cr></right></p>
+<p>map <left> :bp<cr></cr></left></p>
+<p>“ Tab configuration</p>
+<p>map <leader>tn :tabnew %<cr></cr></leader></p>
+<p>map <leader>te :tabedit </leader></p>
+<p>map <leader>tc :tabclose<cr></cr></leader></p>
+<p>map <leader>tm :tabmove </leader></p>
+<p>“ When pressing <leader>cd switch to the directory of the open buffer</leader></p>
+<p>map <leader>cd :cd %:p:h<cr></cr></leader></p>
+<p>command! Bclose call <sid>BufcloseCloseIt()</sid></p>
+<p>function! <sid>BufcloseCloseIt()</sid></p>
+<p>   let l:currentBufNum = bufnr(“%”)</p>
+<p>   let l:alternateBufNum = bufnr(“#”)</p>
+<p>   if buflisted(l:alternateBufNum)</p>
+<pre><code>buffer #
+</code></pre><p>   else</p>
+<pre><code>bnext
+</code></pre><p>   endif</p>
+<p>   if bufnr(“%”) == l:currentBufNum</p>
+<pre><code>new
+</code></pre><p>   endif</p>
+<p>   if buflisted(l:currentBufNum)</p>
+<pre><code>execute(&quot;bdelete! &quot;.l:currentBufNum)
+</code></pre><p>   endif</p>
+<p>endfunction</p>
+<p>“ Specify the behavior when switching between buffers </p>
+<p>try</p>
+<p>  set switchbuf=usetab</p>
+<p>  set stal=2</p>
+<p>catch</p>
+<p>endtry</p>
+<p>“”””””””””””””””””””””””””””””</p>
+<p>“ => Statusline</p>
+<p>“”””””””””””””””””””””””””””””</p>
+<p>“ Always hide the statusline</p>
+<p>set laststatus=2</p>
+<p>“ Format the statusline</p>
+<p>set statusline= %F%m%r%h %w CWD: %r%{CurDir()}%h Line: %l/%L:%c</p>
+<p>function! CurDir()</p>
+<pre><code>let curdir = substitute(getcwd(), &apos;/Users/amir/&apos;, &quot;~/&quot;, &quot;g&quot;)
 
 return curdir
-</code></pre><p>endfunction</p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>“ => Parenthesis/bracket expanding</p><p>“”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>vnoremap $1<esc><code>&gt;a)&lt;esc&gt;</code>&lt;i(<esc></esc></esc></p><p>vnoremap $2<esc><code>&gt;a\]&lt;esc&gt;</code>&lt;i[<esc></esc></esc></p><p>vnoremap $3<esc><code>&gt;a}&lt;esc&gt;</code>&lt;i{<esc></esc></esc></p><p>vnoremap $$<esc><code>&gt;a&quot;&lt;esc&gt;</code>&lt;i”<esc></esc></esc></p><p>vnoremap $q<esc><code>&gt;a&#39;&lt;esc&gt;</code>&lt;i’<esc></esc></esc></p><p>vnoremap $e<esc><code>&gt;a&quot;&lt;esc&gt;</code>&lt;i”<esc></esc></esc></p><p>“ Map auto complete of (, “, ‘, [</p><p>inoremap $1 ()<esc>i</esc></p><p>inoremap $2 []<esc>i</esc></p><p>inoremap $3 {}<esc>i</esc></p><p>inoremap $4 {<esc>o}<esc>O</esc></esc></p><p>inoremap $q ‘’<esc>i</esc></p><p>inoremap $e “”<esc>i</esc></p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>“ => General Abbrevs</p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>iab xdate<c-r>=strftime(“%d/%m/%y %H:%M:%S”)<cr></cr></c-r></p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>“ => Editing mappings</p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>“Remap VIM 0</p><p>map 0 ^</p><p>“Move a line of text using ALT+[jk] or Comamnd+[jk] on mac</p><p>nmap<m-j> mz:m+<cr>`z</cr></m-j></p><p>nmap<m-k> mz:m-2<cr>`z</cr></m-k></p><p>vmap<m-j> :m’&gt;+<cr><code>&lt;my</code>&gt;mzgv`yo`z</cr></m-j></p><p>vmap<m-k> :m’&lt;-2<cr><code>&gt;my</code>&lt;mzgv`yo`z</cr></m-k></p><p>“Delete trailing white space, useful for Python ;)</p><p>func! DeleteTrailingWS()</p><p> exe “normal mz”</p><p> %s/s+$//ge</p><p> exe “normal `z”</p><p>endfunc</p><p>autocmd BufWrite *.py :call DeleteTrailingWS()</p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>“ => Cope</p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>“ Do :help cope if you are unsure what cope is. It’s super useful!</p><p>map<leader>cc :botright cope<cr></cr></leader></p><p>map<leader>n :cn<cr></cr></leader></p><p>map<leader>p :cp<cr></cr></leader></p><p>“”””””””””””””””””””””””””””””</p><p>“ => bufExplorer plugin</p><p>“”””””””””””””””””””””””””””””</p><p>let g:bufExplorerDefaultHelp=0</p><p>let g:bufExplorerShowRelativePath=1</p><p>“”””””””””””””””””””””””””””””</p><p>“ => Minibuffer plugin</p><p>“”””””””””””””””””””””””””””””</p><p>let g:miniBufExplModSelTarget = 1</p><p>let g:miniBufExplorerMoreThanOne = 2</p><p>let g:miniBufExplModSelTarget = 0</p><p>let g:miniBufExplUseSingleClick = 1</p><p>let g:miniBufExplMapWindowNavVim = 1</p><p>let g:miniBufExplVSplit = 25</p><p>let g:miniBufExplSplitBelow=1</p><p>let g:bufExplorerSortBy = “name”</p><p>autocmd BufRead,BufNew :call UMiniBufExplorer</p><p>map<leader>u :TMiniBufExplorer<cr>:TMiniBufExplorer<cr></cr></cr></leader></p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>“ => Omni complete functions</p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>autocmd FileType css set omnifunc=csscomplete#CompleteCSS</p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>“ => Spell checking</p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>“Pressing ,ss will toggle and untoggle spell checking</p><p>map<leader>ss :setlocal spell!<cr></cr></leader></p><p>“Shortcuts using<leader></leader></p><p>map<leader>sn ]s</leader></p><p>map<leader>sp [s</leader></p><p>map<leader>sa zg</leader></p><p>map<leader>s? z=</leader></p><p>“”””””””””””””””””””””””””””””</p><p>“ => Python section</p><p>“”””””””””””””””””””””””””””””</p><p>au FileType python set nocindent</p><p>let python_highlight_all = 1</p><p>au FileType python syn keyword pythonDecorator True None False self</p><p>au BufNewFile,BufRead *.jinja set syntax=htmljinja</p><p>au BufNewFile,BufRead *.mako set ft=mako</p><p>au FileType python inoremap<buffer> $r return</buffer></p><p>au FileType python inoremap<buffer> $i import</buffer></p><p>au FileType python inoremap<buffer> $p print</buffer></p><p>au FileType python inoremap<buffer> $f #— PH ———————————————-<esc>FP2xi</esc></buffer></p><p>au FileType python map<buffer><leader>1 /class</leader></buffer></p><p>au FileType python map<buffer><leader>2 /def</leader></buffer></p><p>au FileType python map<buffer><leader>C ?class</leader></buffer></p><p>au FileType python map<buffer><leader>D ?def</leader></buffer></p><p>“”””””””””””””””””””””””””””””</p><p>“ => JavaScript section</p><p>“””””””””””””””””””””””””””””””</p><p>au FileType javascript call JavaScriptFold()</p><p>au FileType javascript setl fen</p><p>au FileType javascript setl nocindent</p><p>au FileType javascript imap<c-t> AJS.log();<esc>hi</esc></c-t></p><p>au FileType javascript imap<c-a> alert();<esc>hi</esc></c-a></p><p>au FileType javascript inoremap<buffer> $r return</buffer></p><p>au FileType javascript inoremap<buffer> $f //— PH ———————————————-<esc>FP2xi</esc></buffer></p><p>function! JavaScriptFold()</p><pre><code>setl foldmethod=syntax
+</code></pre><p>endfunction</p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>“ => Parenthesis/bracket expanding</p>
+<p>“”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>vnoremap $1 <esc><code>&gt;a)&lt;esc&gt;</code>&lt;i(<esc></esc></esc></p>
+<p>vnoremap $2 <esc><code>&gt;a\]&lt;esc&gt;</code>&lt;i[<esc></esc></esc></p>
+<p>vnoremap $3 <esc><code>&gt;a}&lt;esc&gt;</code>&lt;i{<esc></esc></esc></p>
+<p>vnoremap $$ <esc><code>&gt;a&quot;&lt;esc&gt;</code>&lt;i”<esc></esc></esc></p>
+<p>vnoremap $q <esc><code>&gt;a&#39;&lt;esc&gt;</code>&lt;i’<esc></esc></esc></p>
+<p>vnoremap $e <esc><code>&gt;a&quot;&lt;esc&gt;</code>&lt;i”<esc></esc></esc></p>
+<p>“ Map auto complete of (, “, ‘, [</p>
+<p>inoremap $1 ()<esc>i</esc></p>
+<p>inoremap $2 []<esc>i</esc></p>
+<p>inoremap $3 {}<esc>i</esc></p>
+<p>inoremap $4 {<esc>o}<esc>O</esc></esc></p>
+<p>inoremap $q ‘’<esc>i</esc></p>
+<p>inoremap $e “”<esc>i</esc></p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>“ => General Abbrevs</p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>iab xdate <c-r>=strftime(“%d/%m/%y %H:%M:%S”)<cr></cr></c-r></p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>“ => Editing mappings</p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>“Remap VIM 0</p>
+<p>map 0 ^</p>
+<p>“Move a line of text using ALT+[jk] or Comamnd+[jk] on mac</p>
+<p>nmap <m-j> mz:m+<cr>`z</cr></m-j></p>
+<p>nmap <m-k> mz:m-2<cr>`z</cr></m-k></p>
+<p>vmap <m-j> :m’&gt;+<cr><code>&lt;my</code>&gt;mzgv`yo`z</cr></m-j></p>
+<p>vmap <m-k> :m’&lt;-2<cr><code>&gt;my</code>&lt;mzgv`yo`z</cr></m-k></p>
+<p>“Delete trailing white space, useful for Python ;)</p>
+<p>func! DeleteTrailingWS()</p>
+<p>  exe “normal mz”</p>
+<p>  %s/s+$//ge</p>
+<p>  exe “normal `z”</p>
+<p>endfunc</p>
+<p>autocmd BufWrite *.py :call DeleteTrailingWS()</p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>“ => Cope</p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>“ Do :help cope if you are unsure what cope is. It’s super useful!</p>
+<p>map <leader>cc :botright cope<cr></cr></leader></p>
+<p>map <leader>n :cn<cr></cr></leader></p>
+<p>map <leader>p :cp<cr></cr></leader></p>
+<p>“”””””””””””””””””””””””””””””</p>
+<p>“ => bufExplorer plugin</p>
+<p>“”””””””””””””””””””””””””””””</p>
+<p>let g:bufExplorerDefaultHelp=0</p>
+<p>let g:bufExplorerShowRelativePath=1</p>
+<p>“”””””””””””””””””””””””””””””</p>
+<p>“ => Minibuffer plugin</p>
+<p>“”””””””””””””””””””””””””””””</p>
+<p>let g:miniBufExplModSelTarget = 1</p>
+<p>let g:miniBufExplorerMoreThanOne = 2</p>
+<p>let g:miniBufExplModSelTarget = 0</p>
+<p>let g:miniBufExplUseSingleClick = 1</p>
+<p>let g:miniBufExplMapWindowNavVim = 1</p>
+<p>let g:miniBufExplVSplit = 25</p>
+<p>let g:miniBufExplSplitBelow=1</p>
+<p>let g:bufExplorerSortBy = “name”</p>
+<p>autocmd BufRead,BufNew :call UMiniBufExplorer</p>
+<p>map <leader>u :TMiniBufExplorer<cr>:TMiniBufExplorer<cr></cr></cr></leader></p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>“ => Omni complete functions</p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>autocmd FileType css set omnifunc=csscomplete#CompleteCSS</p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>“ => Spell checking</p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>“Pressing ,ss will toggle and untoggle spell checking</p>
+<p>map <leader>ss :setlocal spell!<cr></cr></leader></p>
+<p>“Shortcuts using <leader></leader></p>
+<p>map <leader>sn ]s</leader></p>
+<p>map <leader>sp [s</leader></p>
+<p>map <leader>sa zg</leader></p>
+<p>map <leader>s? z=</leader></p>
+<p>“”””””””””””””””””””””””””””””</p>
+<p>“ => Python section</p>
+<p>“”””””””””””””””””””””””””””””</p>
+<p>au FileType python set nocindent</p>
+<p>let python_highlight_all = 1</p>
+<p>au FileType python syn keyword pythonDecorator True None False self</p>
+<p>au BufNewFile,BufRead *.jinja set syntax=htmljinja</p>
+<p>au BufNewFile,BufRead *.mako set ft=mako</p>
+<p>au FileType python inoremap <buffer> $r return </buffer></p>
+<p>au FileType python inoremap <buffer> $i import </buffer></p>
+<p>au FileType python inoremap <buffer> $p print </buffer></p>
+<p>au FileType python inoremap <buffer> $f #— PH ———————————————-<esc>FP2xi</esc></buffer></p>
+<p>au FileType python map <buffer> <leader>1 /class </leader></buffer></p>
+<p>au FileType python map <buffer> <leader>2 /def </leader></buffer></p>
+<p>au FileType python map <buffer> <leader>C ?class </leader></buffer></p>
+<p>au FileType python map <buffer> <leader>D ?def </leader></buffer></p>
+<p>“”””””””””””””””””””””””””””””</p>
+<p>“ => JavaScript section</p>
+<p>“””””””””””””””””””””””””””””””</p>
+<p>au FileType javascript call JavaScriptFold()</p>
+<p>au FileType javascript setl fen</p>
+<p>au FileType javascript setl nocindent</p>
+<p>au FileType javascript imap <c-t> AJS.log();<esc>hi</esc></c-t></p>
+<p>au FileType javascript imap <c-a> alert();<esc>hi</esc></c-a></p>
+<p>au FileType javascript inoremap <buffer> $r return </buffer></p>
+<p>au FileType javascript inoremap <buffer> $f //— PH ———————————————-<esc>FP2xi</esc></buffer></p>
+<p>function! JavaScriptFold() </p>
+<pre><code>setl foldmethod=syntax
 
 setl foldlevelstart=1
 
@@ -43,7 +549,161 @@ return substitute(getline(v:foldstart), &apos;{.*&apos;, &apos;{...}&apos;, &apo
 endfunction
 
 setl foldtext=FoldText()
-</code></pre><p>endfunction</p><p>“”””””””””””””””””””””””””””””</p><p>“ => Fuzzy finder</p><p>“”””””””””””””””””””””””””””””</p><p>try</p><pre><code>call fuf#defineLaunchCommand(&apos;FufCWD&apos;, &apos;file&apos;, &apos;fnamemodify(getcwd(), &apos;&apos;%:p:h&apos;&apos;)&apos;)
+</code></pre><p>endfunction</p>
+<p>“”””””””””””””””””””””””””””””</p>
+<p>“ => Fuzzy finder</p>
+<p>“”””””””””””””””””””””””””””””</p>
+<p>try</p>
+<pre><code>call fuf#defineLaunchCommand(&apos;FufCWD&apos;, &apos;file&apos;, &apos;fnamemodify(getcwd(), &apos;&apos;%:p:h&apos;&apos;)&apos;)
 
 map &lt;leader&gt;t :FufCWD **/&lt;CR&gt;
-</code></pre><p>catch</p><p>endtry</p><p>“”””””””””””””””””””””””””””””</p><p>“ => Vim grep</p><p>“”””””””””””””””””””””””””””””</p><p>let Grep_Skip_Dirs = ‘RCS CVS SCCS .svn generated’</p><p>set grepprg=/bin/grep -nH</p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>“ => MISC</p><p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p><p>“ Remove the Windows ^M - when the encodings gets messed up</p><p>noremap<leader>m mmHmt:%s/<c-v><cr>//ge<cr>‘tzt’m</cr></cr></c-v></leader></p><p>“Quickly open a buffer for scripbble</p><p>map<leader>q :e ~/buffer<cr></cr></leader></p><div class="donate-container"><div class="donate-button"> <button id="donate-button">donate</button></div><div class="donate-img-container hide" id="donate-img-container"> <img id="donate-img" src="" data-src="/img/donate.jpg"><p> 感谢鼓励</p></div></div><div id="comment-container"></div></div></div></div></div><footer class="footer"><ul class="list-inline text-center"><li><a target="_blank" href="https://twitter.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-twitter"></i></span></a></li><li><a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8"><span class="fa-stack fa-lg"><i class="iconfont icon-zhihu"></i></span></a></li><li><a target="_blank" href="http://weibo.com/206000504"><span class="fa-stack fa-lg"><i class="iconfont icon-weibo"></i></span></a></li><li><a target="_blank" href="https://www.facebook.com/codewalkerxie"><span class="fa-stack fa-lg"><i class="iconfont icon-facebook"></i></span></a></li><li><a target="_blank" href="https://github.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-github"></i></span></a></li><li><a target="_blank" href="https://www.linkedin.com/in/simon-xie-11426829"><span class="fa-stack fa-lg"><i class="iconfont icon-linkedin"></i></span></a></li></ul><p> <span>/</span> <span><a href="https://codewalker.me">Old blog</a></span> <span>/</span></p><p><span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> PV</span><span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> UV</span> Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p><h6> The value of a man resides in what he gives and not in what he is capable of receiving.<br> 一个人的价值，在于他贡献了什么，而不在于他能得到什么。</h6></footer></body><script>window.hexo_search_path="search.json",window.hexo_root="/",window.isPost=!0</script><script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script src="/js/index.js"></script><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="/js/gitment.js"></script><script>var gitment=new Gitment({id:"cat /tmp/vimrc 超强vim配置文件",owner:"codewalkertse",repo:"codewalkertse.github.io",oauth:{client_id:"3cabff4367aa2366b062",client_secret:"cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b"}});gitment.render("comment-container")</script></html>
+</code></pre><p>catch</p>
+<p>endtry</p>
+<p>“”””””””””””””””””””””””””””””</p>
+<p>“ => Vim grep</p>
+<p>“”””””””””””””””””””””””””””””</p>
+<p>let Grep_Skip_Dirs = ‘RCS CVS SCCS .svn generated’</p>
+<p>set grepprg=/bin/grep -nH</p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>“ => MISC</p>
+<p>“””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””</p>
+<p>“ Remove the Windows ^M - when the encodings gets messed up</p>
+<p>noremap <leader>m mmHmt:%s/<c-v><cr>//ge<cr>‘tzt’m</cr></cr></c-v></leader></p>
+<p>“Quickly open a buffer for scripbble</p>
+<p>map <leader>q :e ~/buffer<cr></cr></leader></p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">donate</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/206000504">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/codewalkerxie">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/simon-xie-11426829">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+    <h6>
+        The value of a man resides in what he gives and not in what he is capable of receiving.
+        <br />  
+        一个人的价值，在于他贡献了什么，而不在于他能得到什么。
+    </h6>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/gitment.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: 'cat /tmp/vimrc 超强vim配置文件',
+        owner: 'codewalkertse',
+        repo: 'codewalkertse.github.io',
+        oauth: {
+            client_id: '3cabff4367aa2366b062',
+            client_secret: 'cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b',
+        },
+    })
+    gitment.render('comment-container')
+</script>
+
+</html>

@@ -1,4 +1,148 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="SimonXie的博客"><meta name="keyword" content="SimonXie"><link rel="shortcut icon" href="/img/favicon.ico"><title> [转载]archlinux安装后的配置以及一些废话～ - SimonXie的博客 | SimonXie&#39;s Blog</title><link rel="stylesheet" href="/css/aircloud.css"><link rel="stylesheet" href="/css/gitment.css"><link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css"><script></script></head><body><div class="site-nav-toggle" id="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div><div class="index-about"> <i>All magic comes with a price.</i></div><div class="index-container"><div class="index-left"><div class="nav" id="nav"><div class="avatar-name"><div class="avatar"> <img src="/img/avatar.jpg"></div><div class="name"> <i>Simon Xie</i></div></div><div class="contents" id="nav-content"><ul><li><a href="/"><i class="iconfont icon-shouye1"></i> <span>HOME</span></a></li><li><a href="/tags"><i class="iconfont icon-biaoqian1"></i> <span>TAGS</span></a></li><li><a href="/archives"><i class="iconfont icon-guidang2"></i> <span>ARCHIVES</span></a></li><li><a href="/about/"><i class="iconfont icon-guanyu2"></i> <span>ABOUT</span></a></li><li><a id="search"><i class="iconfont icon-sousuo1"></i> <span>SEARCH</span></a></li></ul></div><div id="toc" class="toc-article"></div></div><div class="search-field" id="search-field"><div class="search-container"><div class="search-input"><span id="esc-search"><i class="icon-fanhui iconfont"></i></span> <input id="search-input"> <span id="begin-search">search</span></div><div class="search-result-container" id="search-result-container"></div></div></div><div class="index-about-mobile"> <i>All magic comes with a price.</i></div></div><div class="index-middle"><div class="post-container"><div class="post-title"> [转载]archlinux安装后的配置以及一些废话～</div><div class="post-meta"> <span class="attr">Post：<span>2010-11-08 14:24:59</span></span> <span class="attr">Tags：/ <a class="tag" href="/tags/#linux" title="linux">linux</a> <span>/</span> <a class="tag" href="/tags/#archlinux" title="archlinux">archlinux</a> <span>/</span></span> <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span></span></div><div class="post-content"><p>用了很久洗发水了，一直没有总结过，借贵博文一用，呵呵</p><p><strong>原文地址：</strong><a href="http://blog.sina.com.cn/s/blog_4d2bb0b10100jy01.html" title="archlinux安装后的配置以及一些废话～" target="_blank" rel="noopener">archlinux安装后的配置以及一些废话～</a><strong>作者：</strong><a href="http://blog.sina.com.cn/u/1294708913" title="prongs" target="_blank" rel="noopener">prongs</a></p><pre><code>似乎很久都没有发过文章了，最近一直在忙着准备考试，没有时间，唉，好歹终于大部分考完了，有时间休息一下，就乘这个时间把电脑收拾一下。  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SimonXie的博客">
+    <meta name="keyword"  content="SimonXie">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        [转载]archlinux安装后的配置以及一些废话～ - SimonXie的博客 | SimonXie&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> All magic comes with a price. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Simon Xie</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> All magic comes with a price. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        [转载]archlinux安装后的配置以及一些废话～
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2010-11-08 14:24:59</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#linux" title="linux">linux</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#archlinux" title="archlinux">archlinux</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>用了很久洗发水了，一直没有总结过，借贵博文一用，呵呵</p>
+<p><strong>原文地址：</strong><a href="http://blog.sina.com.cn/s/blog_4d2bb0b10100jy01.html" title="archlinux安装后的配置以及一些废话～" target="_blank" rel="noopener">archlinux安装后的配置以及一些废话～</a><strong>作者：</strong><a href="http://blog.sina.com.cn/u/1294708913" title="prongs" target="_blank" rel="noopener">prongs</a></p>
+<pre><code>似乎很久都没有发过文章了，最近一直在忙着准备考试，没有时间，唉，好歹终于大部分考完了，有时间休息一下，就乘这个时间把电脑收拾一下。  
 我机子上装的是WIN7和ubuntu10.04的双系统，不过最近是对于ubuntu越来越不满意了，当时换了ubuntu10.04之后，第一感觉确实不错，不过用了一段时间之后就发现不舒服，首先就是显卡的问题，不过这个也之发生在我们可怜的ATI用户身上，装了受限驱动之后，就发现开机的分辨率不对，接着就是compiz fusion的最大化和最小化的延迟很严重，当然这个纯粹是驱动的问题，在ubuntu9.10上也有发生，不过9.10是通过安装补丁来解决这个问题的，并且效果不错的说，但是10.04目前还没有发现有相应的补丁，或许是我土鳖了～～～每次最大化和最小化的顿卡就让我郁闷，其次就是ubuntu和 gnome的整合问题，总是感觉gnome和ubuntu的配合不是很好，每次打开一个文件夹就要卡一下，实在是有点受不了。  
 反正就是这样了，基于这几个原因，我决定换一下版本，当然，并不是说ubuntu这个发行版不好，可能是我自己的配置问题，也可能是我就是传说中的伪高手，在瞎折腾～反正情况就是这么个情况，这也不是这篇文章的关键所在。  
 既然决定更换发行版，首要问题就是发行版的选择，对于想我们这样的菜鸟或者伪高手来说，良好的社区支持是少不了的，不然出现问题能愁死你，包括良好的中文社区，这个个人感觉也很重要，当然如果你英语过关，请直接无视吧，像我们这种英语也就是4级的人是很看中这个的，想当初去国外翻论坛的时候，那个苦阿，呃，扯远了，接着说刚才的问题。要获得所谓的良好的社区支持或者说良好的文档支持，以小生的观点来看，就是找一个用的人多的发行版～这个自己去搜就可以了，反正也就那么几个，列入我考虑的发行版也就是那么几个了，ubuntu就不说了，刚删的，接着是fedora，据说不错，不过想想它3个国G的大小，还是算了把，何况当时用的时候，fedora的显卡驱动问题让我郁闷了很久，有心理阴影了～～～再就是suse，很漂亮的一个发行版，来自德国，品质可靠，话说这个opensuse呀，我家里现在还有几张没有开封过的10.3的DVD光盘，是原装德国进口的，嘿嘿，珍藏了。呃，好像又扯远了，接着说suse，子的最后用的发行版就是11.2了，很华丽没错，但总是感觉失去了灵魂，虽然YAST还是那么的优秀，但是我个人认为opensuse10.3是suse最后的一个经典版本，后来的就不提了，这个更是夸张的4G多，也不要了，虽然suse是当时我最喜欢的发行版，但不可否认，suse在走下坡路，还有centos，似乎拿它作服务器比较多，桌面的话还是排除吧。  
@@ -13,11 +157,167 @@
 前面已经说过了，这篇文章的主要目的就是为了记录一下arch的配置，所以我就不说arch的安装了，其实很简单，也很快速，我开始的阶段是gnome桌面已经安装好了的情况下，什么，你是用KDE的，那，凑活着看吧，一些东西都是一样的～  
 
 首先的问题就是输入法，输入法的安装不多说了，直接pacman，关键就是选词框的光标跟随，顺便说一下，小生用的是IBUS，在arch下是有这个问题的，不知道其他的输入法有没有这样的问题，所以这个方法原则上是使用于IBUS，其他的就不知道了，解决方法就是gedit /etc/gtk-2.0/gtk.immodules，然后删除里面所有内容，用下面这句话代替  
-</code></pre><p>“/usr/lib/gtk-2.0/2.10.0/immodules/im-ibus.so”<br>“ibus” “X Input Method” “gtk20” “/usr/share/locale” “en:zh”<br>重启搞定，很简单。</p><pre><code>接下来的问题就是chrome的字体模糊或者其他的字体问题，小生还是很喜欢这个浏览器的，本人的解决方法也很简单，首先，如果你装的是 Vista或最近出的Windows 7，不是？那～～还是安装文泉驿的微米黑字体吧，那么就用Nautilus进入到你机子上的安装windows的C盘下，然后进入WINDOWS文件夹下的Fonts文件夹，然后在里面找到“msyh.ttf”和“msyhbd.ttf”这两个文件，将他们复制到linux下的任意文件夹内，因为gnome有个字体查看工具，似乎是可以直接打开这个文件，然后在右下角有个安装的选项，点击就可以了，不过我没有试过，反正我是将这两个文件复制到主目录的.fonts文件夹内，如果没有这个文件夹的话就自己建一个，这样就可以了，然后重新启动chrome在字体更改选项中选择微软雅黑就可以看到完美的效果了～～是不是很简单呀～～～话说这个方法是小生实验了很多次才想出来的，是本人博客里面访问量最高的文章，效果应该不错，至少在ubuntu和arch下都没有问题，各位看官如果有更好的方法可以指教一下，还有就是不要嘲笑小生愚钝呀～可能众位早知道这个方法了。嘿嘿～抓的图片有点模糊，实际效果还是不错的。还有就是其实本人也不推荐使用微软的雅黑字体，毕竟人家是有版权的，推荐使用文泉驿的字体，比如微米黑就不错。  
-</code></pre><p>[<img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="[转载]archlinux安装后的配置以及一些废话～" title="[转载]archlinux安装后的配置以及一些废话～">](<a href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100n6zs&amp;url=http://s13.sinaimg.cn/orignal/4d2bb0b1h89c73dbe6a5c" target="_blank" rel="noopener">http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100n6zs&amp;url=http://s13.sinaimg.cn/orignal/4d2bb0b1h89c73dbe6a5c</a>)</p><pre><code>接着是vim的问题，直接使用pacman -S vim会有问题，具体是怎么样的忘记了，好像是什么view或者rview的exist什么的，似乎也不是一定会出现的，解决的方法就是在安装vim之前先执行 rm /usr/bin/{view,rview}，再pacman -Syu。vim就可以正常安装了。  
+</code></pre><p>“/usr/lib/gtk-2.0/2.10.0/immodules/im-ibus.so”<br>“ibus” “X Input Method” “gtk20” “/usr/share/locale” “en:zh”<br>重启搞定，很简单。  </p>
+<pre><code>接下来的问题就是chrome的字体模糊或者其他的字体问题，小生还是很喜欢这个浏览器的，本人的解决方法也很简单，首先，如果你装的是 Vista或最近出的Windows 7，不是？那～～还是安装文泉驿的微米黑字体吧，那么就用Nautilus进入到你机子上的安装windows的C盘下，然后进入WINDOWS文件夹下的Fonts文件夹，然后在里面找到“msyh.ttf”和“msyhbd.ttf”这两个文件，将他们复制到linux下的任意文件夹内，因为gnome有个字体查看工具，似乎是可以直接打开这个文件，然后在右下角有个安装的选项，点击就可以了，不过我没有试过，反正我是将这两个文件复制到主目录的.fonts文件夹内，如果没有这个文件夹的话就自己建一个，这样就可以了，然后重新启动chrome在字体更改选项中选择微软雅黑就可以看到完美的效果了～～是不是很简单呀～～～话说这个方法是小生实验了很多次才想出来的，是本人博客里面访问量最高的文章，效果应该不错，至少在ubuntu和arch下都没有问题，各位看官如果有更好的方法可以指教一下，还有就是不要嘲笑小生愚钝呀～可能众位早知道这个方法了。嘿嘿～抓的图片有点模糊，实际效果还是不错的。还有就是其实本人也不推荐使用微软的雅黑字体，毕竟人家是有版权的，推荐使用文泉驿的字体，比如微米黑就不错。  
+</code></pre><p>[<img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="[转载]archlinux安装后的配置以及一些废话～" title="[转载]archlinux安装后的配置以及一些废话～">](<a href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100n6zs&amp;url=http://s13.sinaimg.cn/orignal/4d2bb0b1h89c73dbe6a5c" target="_blank" rel="noopener">http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100n6zs&amp;url=http://s13.sinaimg.cn/orignal/4d2bb0b1h89c73dbe6a5c</a>)  </p>
+<pre><code>接着是vim的问题，直接使用pacman -S vim会有问题，具体是怎么样的忘记了，好像是什么view或者rview的exist什么的，似乎也不是一定会出现的，解决的方法就是在安装vim之前先执行 rm /usr/bin/{view,rview}，再pacman -Syu。vim就可以正常安装了。  
 
 由于小生所在的地方同时需要，有线路由，ADSL，以及无线路由（晕，怎么这么复杂），有线路由以及ADSL都很简单，关键是无线路由问题，其实主要是驱动的问题，WIKI上提供的一般方法就是找硬件类型然后安装驱动什么的，看的我这种菜鸟头大，索性安装了WICD，关于它的介绍是Wicd是一个既能管理有线网络又能管理无线网络 (如Wifi Radar)的网络接入管理器，和NetworkManager功能相似并且相互冲突。Wicd是用Python和GTK+写成的。wicd位于extra软件仓库中。由于WIKI很详细，下面就直接是根据WIKI来:  
-</code></pre><p>你可能还需要DHCP, 无线安全管理程序, 以及图形界面图标，可通过下面命令安装:</p><p>pacman -S dhclient wpa_supplicant hicolor-icon-theme</p><p>使用多种网络管理工具容易产生各种问题，因此，请只用一种网络管理工具来管理网络连接。所以，在使用wicd前，必须先关闭其他网络管理工具。</p><p>1、使用以下命令手动关闭network、dhcdbd和networkmanager这些守护程序。</p><p># /etc/rc.d/network stop<br># /etc/rc.d/dhcdbd stop<br># /etc/rc.d/networkmanager stop</p><p>2、以root身份编辑/etc/rc.conf，注释掉（或者直接删除）相关的网络设置。（!network，之前加一个!就可以不加载了。）</p><p>A、在INTERFACES的参数前加一个(!) ，禁止使用，如下：</p><p>INTERFACES=(!eth0 !wlan0) #这里的lo不再需要了，因为其是由 /etc/rc.sysinit启动的。</p><p>B、禁止使用的各种网络管理守护进程，包括network, dhcdbd, 和 networkmanager：</p><p>DAEMONS=(syslog-ng @alsa !network dbus !dhcdbd !networkmanager wicd netfs …)</p><p>C、添加守护进程dbus 和wicd 到DAEMONS中，使得守护进程参数列表看起来像这样：</p><p>DAEMONS=(syslog-ng dbus !network !dhcdbd !networkmanager wicd …)</p><p>Note: 如果你使用了 hal,把 dbus 替换成hal，守护进程hal会自动启动 dbus 。</p><p>D、使用如下命令把你帐号加入到network组中，把$USERNAME替换成你自己帐号名称。</p><p>gpasswd -a $USERNAME network</p><p>E、最后，启动守护进程 dbus 和wicd :</p><p># /etc/rc.d/dbus start<br># /etc/rc.d/wicd start</p><p>Note: 如果守护进程dbus已经启动，需要重新启动它:</p><p># /etc/rc.d/dbus restart</p><pre><code>由于最近在学习xelatex，所以需要安装一套texlive，其他的不介绍了，就是关于环境变量，安装了texlive之后由于texlive的安装程序默认的是/usr/local/bin,但是我机子上没有这个环境变量，所以需要加入这个环境变量，修改一下/etc/profile文件就可以了，很简单。  
+</code></pre><p>你可能还需要DHCP, 无线安全管理程序, 以及图形界面图标，可通过下面命令安装:  </p>
+<p>pacman -S dhclient wpa_supplicant hicolor-icon-theme  </p>
+<p>使用多种网络管理工具容易产生各种问题，因此，请只用一种网络管理工具来管理网络连接。所以，在使用wicd前，必须先关闭其他网络管理工具。  </p>
+<p>1、使用以下命令手动关闭network、dhcdbd和networkmanager这些守护程序。  </p>
+<p># /etc/rc.d/network stop<br># /etc/rc.d/dhcdbd stop<br># /etc/rc.d/networkmanager stop  </p>
+<p>2、以root身份编辑/etc/rc.conf，注释掉（或者直接删除）相关的网络设置。（!network，之前加一个!就可以不加载了。）  </p>
+<p>A、在INTERFACES的参数前加一个(!) ，禁止使用，如下：  </p>
+<p>INTERFACES=(!eth0 !wlan0) #这里的lo不再需要了，因为其是由 /etc/rc.sysinit启动的。  </p>
+<p>B、禁止使用的各种网络管理守护进程，包括network, dhcdbd, 和 networkmanager：  </p>
+<p>DAEMONS=(syslog-ng @alsa !network dbus !dhcdbd !networkmanager wicd netfs …)  </p>
+<p>C、添加守护进程dbus 和wicd 到DAEMONS中，使得守护进程参数列表看起来像这样：  </p>
+<p>DAEMONS=(syslog-ng dbus !network !dhcdbd !networkmanager wicd …)  </p>
+<p>Note: 如果你使用了 hal,把 dbus 替换成hal，守护进程hal会自动启动 dbus 。  </p>
+<p>D、使用如下命令把你帐号加入到network组中，把$USERNAME替换成你自己帐号名称。  </p>
+<p>gpasswd -a $USERNAME network  </p>
+<p>E、最后，启动守护进程 dbus 和wicd :  </p>
+<p># /etc/rc.d/dbus start<br># /etc/rc.d/wicd start  </p>
+<p>Note: 如果守护进程dbus已经启动，需要重新启动它:  </p>
+<p># /etc/rc.d/dbus restart  </p>
+<pre><code>由于最近在学习xelatex，所以需要安装一套texlive，其他的不介绍了，就是关于环境变量，安装了texlive之后由于texlive的安装程序默认的是/usr/local/bin,但是我机子上没有这个环境变量，所以需要加入这个环境变量，修改一下/etc/profile文件就可以了，很简单。  
 
 好了，打了这么多字手都酸了，目前就到这里吧，以后想到了再加～
-</code></pre><div class="donate-container"><div class="donate-button"> <button id="donate-button">donate</button></div><div class="donate-img-container hide" id="donate-img-container"> <img id="donate-img" src="" data-src="/img/donate.jpg"><p> 感谢鼓励</p></div></div><div id="comment-container"></div></div></div></div></div><footer class="footer"><ul class="list-inline text-center"><li><a target="_blank" href="https://twitter.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-twitter"></i></span></a></li><li><a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8"><span class="fa-stack fa-lg"><i class="iconfont icon-zhihu"></i></span></a></li><li><a target="_blank" href="http://weibo.com/206000504"><span class="fa-stack fa-lg"><i class="iconfont icon-weibo"></i></span></a></li><li><a target="_blank" href="https://www.facebook.com/codewalkerxie"><span class="fa-stack fa-lg"><i class="iconfont icon-facebook"></i></span></a></li><li><a target="_blank" href="https://github.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-github"></i></span></a></li><li><a target="_blank" href="https://www.linkedin.com/in/simon-xie-11426829"><span class="fa-stack fa-lg"><i class="iconfont icon-linkedin"></i></span></a></li></ul><p> <span>/</span> <span><a href="https://codewalker.me">Old blog</a></span> <span>/</span></p><p><span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> PV</span><span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> UV</span> Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p><h6> The value of a man resides in what he gives and not in what he is capable of receiving.<br> 一个人的价值，在于他贡献了什么，而不在于他能得到什么。</h6></footer></body><script>window.hexo_search_path="search.json",window.hexo_root="/",window.isPost=!0</script><script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script src="/js/index.js"></script><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="/js/gitment.js"></script><script>var gitment=new Gitment({id:"[转载]archlinux安装后的配置以及一些废话～",owner:"codewalkertse",repo:"codewalkertse.github.io",oauth:{client_id:"3cabff4367aa2366b062",client_secret:"cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b"}});gitment.render("comment-container")</script></html>
+</code></pre>
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">donate</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/206000504">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/codewalkerxie">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/simon-xie-11426829">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+    <h6>
+        The value of a man resides in what he gives and not in what he is capable of receiving.
+        <br />  
+        一个人的价值，在于他贡献了什么，而不在于他能得到什么。
+    </h6>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/gitment.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: '[转载]archlinux安装后的配置以及一些废话～',
+        owner: 'codewalkertse',
+        repo: 'codewalkertse.github.io',
+        oauth: {
+            client_id: '3cabff4367aa2366b062',
+            client_secret: 'cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b',
+        },
+    })
+    gitment.render('comment-container')
+</script>
+
+</html>

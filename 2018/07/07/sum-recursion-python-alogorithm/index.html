@@ -1,1 +1,279 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="SimonXie的博客"><meta name="keyword" content="SimonXie"><link rel="shortcut icon" href="/img/favicon.ico"><title> sum_recursion python_alogorithm - SimonXie的博客 | SimonXie&#39;s Blog</title><link rel="stylesheet" href="/css/aircloud.css"><link rel="stylesheet" href="/css/gitment.css"><link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css"><script></script></head><body><div class="site-nav-toggle" id="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div><div class="index-about"> <i>All magic comes with a price.</i></div><div class="index-container"><div class="index-left"><div class="nav" id="nav"><div class="avatar-name"><div class="avatar"> <img src="/img/avatar.jpg"></div><div class="name"> <i>Simon Xie</i></div></div><div class="contents" id="nav-content"><ul><li><a href="/"><i class="iconfont icon-shouye1"></i> <span>HOME</span></a></li><li><a href="/tags"><i class="iconfont icon-biaoqian1"></i> <span>TAGS</span></a></li><li><a href="/archives"><i class="iconfont icon-guidang2"></i> <span>ARCHIVES</span></a></li><li><a href="/about/"><i class="iconfont icon-guanyu2"></i> <span>ABOUT</span></a></li><li><a id="search"><i class="iconfont icon-sousuo1"></i> <span>SEARCH</span></a></li></ul></div><div id="toc" class="toc-article"></div></div><div class="search-field" id="search-field"><div class="search-container"><div class="search-input"><span id="esc-search"><i class="icon-fanhui iconfont"></i></span> <input id="search-input"> <span id="begin-search">search</span></div><div class="search-result-container" id="search-result-container"></div></div></div><div class="index-about-mobile"> <i>All magic comes with a price.</i></div></div><div class="index-middle"><div class="post-container"><div class="post-title"> sum_recursion python_alogorithm</div><div class="post-meta"> <span class="attr">Post：<span>2018-07-07 22:42:09</span></span> <span class="attr">Tags：/ <a class="tag" href="/tags/#python" title="python">python</a> <span>/</span> <a class="tag" href="/tags/#alogorithm" title="alogorithm">alogorithm</a> <span>/</span></span> <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span></span></div><div class="post-content"><p><code>Talk is cheap</code></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Date    : 2018-07-07 21:54:33</span></span><br><span class="line"><span class="comment"># @Author  : Simon (simon.xie@codewalker.meg)</span></span><br><span class="line"><span class="comment"># @Link    : http://www.codewalker.me</span></span><br><span class="line"><span class="comment"># @Version : 1.0.0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_list</span><span class="params">(length=<span class="number">10</span>)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> [ randint(<span class="number">0</span>,<span class="number">10</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(length) ]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*arg, **kwargs)</span>:</span></span><br><span class="line">        <span class="comment"># --- 附加功能 ---</span></span><br><span class="line">        print(<span class="string">'calling&#123;&#125;..'</span>.format(func.__name__))</span><br><span class="line">        <span class="keyword">return</span> func(*arg, **kwargs)</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@wrapper</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_normal</span><span class="params">(l)</span>:</span></span><br><span class="line">    sum_for_list = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> l:</span><br><span class="line">        sum_for_list += i</span><br><span class="line">    <span class="keyword">return</span> sum_for_list</span><br><span class="line">    </span><br><span class="line"><span class="meta">@wrapper</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_recursion</span><span class="params">(l)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> l == []:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> l[<span class="number">0</span>] + sum_recursion(l[<span class="number">1</span>:])</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    l = create_list(<span class="number">3</span>)    </span><br><span class="line">    print(<span class="string">'list:&#123;l&#125;\nsum:&#123;sum&#125;'</span>.format(l=l,sum=sum_normal(l)))</span><br><span class="line">    print(<span class="string">'-'</span>*<span class="number">80</span>)</span><br><span class="line">    print(<span class="string">'list:&#123;l&#125;\nsum:&#123;sum&#125;'</span>.format(l=l,sum=sum_recursion(l)))</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure><div class="donate-container"><div class="donate-button"> <button id="donate-button">donate</button></div><div class="donate-img-container hide" id="donate-img-container"> <img id="donate-img" src="" data-src="/img/donate.jpg"><p> 感谢鼓励</p></div></div><div id="comment-container"></div></div></div></div></div><footer class="footer"><ul class="list-inline text-center"><li><a target="_blank" href="https://twitter.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-twitter"></i></span></a></li><li><a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8"><span class="fa-stack fa-lg"><i class="iconfont icon-zhihu"></i></span></a></li><li><a target="_blank" href="http://weibo.com/206000504"><span class="fa-stack fa-lg"><i class="iconfont icon-weibo"></i></span></a></li><li><a target="_blank" href="https://www.facebook.com/codewalkerxie"><span class="fa-stack fa-lg"><i class="iconfont icon-facebook"></i></span></a></li><li><a target="_blank" href="https://github.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-github"></i></span></a></li><li><a target="_blank" href="https://www.linkedin.com/in/simon-xie-11426829"><span class="fa-stack fa-lg"><i class="iconfont icon-linkedin"></i></span></a></li></ul><p> <span>/</span> <span><a href="https://codewalker.me">Old blog</a></span> <span>/</span></p><p><span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> PV</span><span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> UV</span> Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p><h6> The value of a man resides in what he gives and not in what he is capable of receiving.<br> 一个人的价值，在于他贡献了什么，而不在于他能得到什么。</h6></footer></body><script>window.hexo_search_path="search.json",window.hexo_root="/",window.isPost=!0</script><script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script src="/js/index.js"></script><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="/js/gitment.js"></script><script>var gitment=new Gitment({id:"sum_recursion python_alogorithm",owner:"codewalkertse",repo:"codewalkertse.github.io",oauth:{client_id:"3cabff4367aa2366b062",client_secret:"cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b"}});gitment.render("comment-container")</script></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SimonXie的博客">
+    <meta name="keyword"  content="SimonXie">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        sum_recursion python_alogorithm - SimonXie的博客 | SimonXie&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> All magic comes with a price. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Simon Xie</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> All magic comes with a price. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        sum_recursion python_alogorithm
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2018-07-07 22:42:09</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#python" title="python">python</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#alogorithm" title="alogorithm">alogorithm</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p><code>Talk is cheap</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Date    : 2018-07-07 21:54:33</span></span><br><span class="line"><span class="comment"># @Author  : Simon (simon.xie@codewalker.meg)</span></span><br><span class="line"><span class="comment"># @Link    : http://www.codewalker.me</span></span><br><span class="line"><span class="comment"># @Version : 1.0.0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_list</span><span class="params">(length=<span class="number">10</span>)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> [ randint(<span class="number">0</span>,<span class="number">10</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(length) ]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(func)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*arg, **kwargs)</span>:</span></span><br><span class="line">        <span class="comment"># --- 附加功能 ---</span></span><br><span class="line">        print(<span class="string">'calling&#123;&#125;..'</span>.format(func.__name__))</span><br><span class="line">        <span class="keyword">return</span> func(*arg, **kwargs)</span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@wrapper</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_normal</span><span class="params">(l)</span>:</span></span><br><span class="line">    sum_for_list = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> l:</span><br><span class="line">        sum_for_list += i</span><br><span class="line">    <span class="keyword">return</span> sum_for_list</span><br><span class="line">    </span><br><span class="line"><span class="meta">@wrapper</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sum_recursion</span><span class="params">(l)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> l == []:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> l[<span class="number">0</span>] + sum_recursion(l[<span class="number">1</span>:])</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    l = create_list(<span class="number">3</span>)    </span><br><span class="line">    print(<span class="string">'list:&#123;l&#125;\nsum:&#123;sum&#125;'</span>.format(l=l,sum=sum_normal(l)))</span><br><span class="line">    print(<span class="string">'-'</span>*<span class="number">80</span>)</span><br><span class="line">    print(<span class="string">'list:&#123;l&#125;\nsum:&#123;sum&#125;'</span>.format(l=l,sum=sum_recursion(l)))</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">donate</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/206000504">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/codewalkerxie">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/simon-xie-11426829">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+    <h6>
+        The value of a man resides in what he gives and not in what he is capable of receiving.
+        <br />  
+        一个人的价值，在于他贡献了什么，而不在于他能得到什么。
+    </h6>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/gitment.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: 'sum_recursion python_alogorithm',
+        owner: 'codewalkertse',
+        repo: 'codewalkertse.github.io',
+        oauth: {
+            client_id: '3cabff4367aa2366b062',
+            client_secret: 'cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b',
+        },
+    })
+    gitment.render('comment-container')
+</script>
+
+</html>

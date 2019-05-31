@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.codewalker.me/"/>
-  <updated>2018-10-10T02:04:58.000Z</updated>
+  <updated>2019-05-31T03:28:36.000Z</updated>
   <id>https://blog.codewalker.me/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>how to use &#39;left join&#39; with multi-condition</title>
+    <link href="https://blog.codewalker.me/2019/05/31/how-to-use-left-join-with-multi-condition/"/>
+    <id>https://blog.codewalker.me/2019/05/31/how-to-use-left-join-with-multi-condition/</id>
+    <published>2019-05-31T03:20:03.000Z</published>
+    <updated>2019-05-31T03:28:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Talk-is-cheap"><a href="#Talk-is-cheap" class="headerlink" title="Talk is cheap"></a>Talk is cheap</h1><p>To see code below<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT id,amount FROM product</span><br><span class="line">LEFT JOIN product_details</span><br><span class="line">    ON  (product.id = product_details.id)</span><br><span class="line">        AND product_details.id=2;</span><br></pre></td></tr></table></figure></p><p>EOF</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Talk-is-cheap&quot;&gt;&lt;a href=&quot;#Talk-is-cheap&quot; class=&quot;headerlink&quot; title=&quot;Talk is cheap&quot;&gt;&lt;/a&gt;Talk is cheap&lt;/h1&gt;&lt;p&gt;To see code below&lt;br&gt;&lt;figu
+      
+    
+    </summary>
+    
+    
+      <category term="mysql" scheme="https://blog.codewalker.me/tags/mysql/"/>
+    
+      <category term="database" scheme="https://blog.codewalker.me/tags/database/"/>
+    
+  </entry>
   
   <entry>
     <title>How to turn on &#39;install App from anywhere&#39; on macOS Sierra 10.12 and above</title>
@@ -503,33 +528,6 @@
       <category term="php" scheme="https://blog.codewalker.me/tags/php/"/>
     
       <category term="sina" scheme="https://blog.codewalker.me/tags/sina/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo bind your onw domain</title>
-    <link href="https://blog.codewalker.me/2018/07/15/hexo-bind-your-onw-domain/"/>
-    <id>https://blog.codewalker.me/2018/07/15/hexo-bind-your-onw-domain/</id>
-    <published>2018-07-15T12:39:51.000Z</published>
-    <updated>2018-07-17T09:09:40.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>There’s only <strong>3</strong> stpes to set up.</p><ol><li><p>Create CNAME file<br> Create a file named <strong>CNAME</strong> that path should be <code>/source/CNAME</code> and field in your domain. In my case, it should be <code>blog.codewalker.me</code>. <code>notice</code> There would be no <code>http://</code> or <code>https://</code> etc.</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat CNAME</span><br><span class="line">blog.codewalker.me</span><br></pre></td></tr></table></figure></li><li><p>Setup domain<br> Setup you DNS to add a subdomain as CNAME to you GitHub pages domain.<br> Refers mine, it should be <code>blog.codewalker.me</code> to <code>codewalkertse.github.io</code></p></li><li><p>Step 3 or not<br> In my case, I should make <a href="http://codewalker.me" target="_blank" rel="noopener">codewalker.me</a> redirect to <a href="http://blog.codewalker.me">blog.codewalker.me</a>.<br> In my Nginx Server the <code>.conf</code> should be like this:</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name codewalker.me www.codewalker.me;</span><br><span class="line">    rewrite ^/(.*) http://blog.codewalker.me/<span class="variable">$1</span> permanent;</span><br><span class="line">    access_log off;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p> To make all request redirect to blog.codewalker.me by 301 signal.</p></li></ol><p>Have fun with hexo</p><p>I love this world</p><p>EOF</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;There’s only &lt;strong&gt;3&lt;/strong&gt; stpes to set up.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Create CNAME file&lt;br&gt; Create a file named &lt;strong&gt;CNAME&lt;/strong&gt; that pa
-      
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="https://blog.codewalker.me/tags/Hexo/"/>
-    
-      <category term="Howto" scheme="https://blog.codewalker.me/tags/Howto/"/>
     
   </entry>
   

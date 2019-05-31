@@ -1,4 +1,282 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="SimonXie的博客"><meta name="keyword" content="SimonXie"><link rel="shortcut icon" href="/img/favicon.ico"><title> [FIX] how to fix &#39;No space left on device&#39;. - SimonXie的博客 | SimonXie&#39;s Blog</title><link rel="stylesheet" href="/css/aircloud.css"><link rel="stylesheet" href="/css/gitment.css"><link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css"><script></script></head><body><div class="site-nav-toggle" id="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div><div class="index-about"> <i>All magic comes with a price.</i></div><div class="index-container"><div class="index-left"><div class="nav" id="nav"><div class="avatar-name"><div class="avatar"> <img src="/img/avatar.jpg"></div><div class="name"> <i>Simon Xie</i></div></div><div class="contents" id="nav-content"><ul><li><a href="/"><i class="iconfont icon-shouye1"></i> <span>HOME</span></a></li><li><a href="/tags"><i class="iconfont icon-biaoqian1"></i> <span>TAGS</span></a></li><li><a href="/archives"><i class="iconfont icon-guidang2"></i> <span>ARCHIVES</span></a></li><li><a href="/about/"><i class="iconfont icon-guanyu2"></i> <span>ABOUT</span></a></li><li><a id="search"><i class="iconfont icon-sousuo1"></i> <span>SEARCH</span></a></li></ul></div><div id="toc" class="toc-article"></div></div><div class="search-field" id="search-field"><div class="search-container"><div class="search-input"><span id="esc-search"><i class="icon-fanhui iconfont"></i></span> <input id="search-input"> <span id="begin-search">search</span></div><div class="search-result-container" id="search-result-container"></div></div></div><div class="index-about-mobile"> <i>All magic comes with a price.</i></div></div><div class="index-middle"><div class="post-container"><div class="post-title"> [FIX] how to fix 'No space left on device'.</div><div class="post-meta"> <span class="attr">Post：<span>2014-11-12 14:55:29</span></span> <span class="attr">Tags：/ <a class="tag" href="/tags/#linux" title="linux">linux</a> <span>/</span> <a class="tag" href="/tags/#inode" title="inode">inode</a> <span>/</span> <a class="tag" href="/tags/#logrotate" title="logrotate">logrotate</a> <span>/</span></span> <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span></span></div><div class="post-content"><p>update: 20141118 今天登录又尼玛满了，上次那样做看来还是没有解决问题。 使用df -i 只能查看整个分区的inode的占用情况 Google之后找到<a href="http://unix.stackexchange.com/questions/117093/find-where-inodes-are-being-used" title="find-where-inodes-are-being-used" target="_blank" rel="noopener">find-where-inodes-are-being-used</a> 用这个脚本</p><p>find / -xdev -printf ‘%h\n’ | sort | uniq -c | sort -k 1 -n</p><p>#注意-xdev 这个参数，它是将说Don’t descend directories on other filesystems.</p><p>最好是&gt;&gt;到一个文本文件. _1051 /usr/src/kernels/2.6.32-431.20.3.el6.x86_64/include/linux 1051 /usr/src/kernels/2.6.32-431.23.3.el6.x86_64/include/linux 1051 /usr/src/kernels/2.6.32-431.29.2.el6.x86_64/include/linux 1063 /root/lnmp1.1-full/php-5.3.28/Zend/tests 1450 /usr/local/mariadb/data/locoyplatform 1450 /usr/local/mariadb/var/locoyplatform 3603 /usr/share/man/man3 3141137 /var/log/mysql_ 这里很容易就会发现是mysql日志的问题。 这时问题又来了300w+文件的删除，肯定是不能使用rm 会报错 <em>-bash: /bin/rm: Argument list too</em> 只能使用xarg或者rsync 来做删除，前者是统统传递参数，通过把文件名当参数传给xarg来删除。后者则可以通过同步一个空文件夹到目标文件夹来实现删除。</p><p>mkdir /tmp/emypy_dir_for_remove_all_files<br>rsync –delete-before -d -a -H -v –progress –stats /tmp/emypy_dir_for_remove_all_files /var/log/mysql/</p><p>这样就删除百万级别的文件了。 删除的过程中可以看到删除了哪些文件，因为使用了-v –progress –stats参数。 其中观察到很多类似的文件例如: deleting mysql.err-20140709-20140716.gz-20140718.gz-20140720.gz-20140722.gz-20140724.gz-20140726.gz 很明显就是logrotate中关于mysql部分的问题了。 vim 之</p><p>vim /etc/logrotate.d/mysql</p><p>#擦！ 第一行写成了<br>/var/log/mysql/mysql*</p><p>#这样文件不就成指数级增长了… 当时估计是抽风了我.<br>/var/log/mysql/mysql*.log</p><p>#wq退出<br>logrotate -f /etc/logrotate.d/mysql #测试一下</p><p>OK 打完收工 — — — 今天登陆服务器上发现个奇怪的事情，明明用df查看磁盘上还有很多空间，但就是无法pull远程的文件过来一直给我说No space left on device 卡了一会儿经查看原来inode位100%了。 这里非常的奇怪，这台server为backup。所以应该和生产环境中差不多的文件数。看inode居然3.2M了。我勒个大去，哪来的尼玛这么多文件。 master上也就380k.还有2.8M+剩余，太奇怪了。最后在删了backup log之后终于挤出3 inodes.然后yum clean all了一下，哇啦 我擦 瞬间空出来2.8m个inodes. 这里我估计是yum的更新文件出问题了。开来不怎么用的server有时候还是得时不时的看看. EOF.</p><div class="donate-container"><div class="donate-button"> <button id="donate-button">donate</button></div><div class="donate-img-container hide" id="donate-img-container"> <img id="donate-img" src="" data-src="/img/donate.jpg"><p> 感谢鼓励</p></div></div><div id="comment-container"></div></div></div></div></div><footer class="footer"><ul class="list-inline text-center"><li><a target="_blank" href="https://twitter.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-twitter"></i></span></a></li><li><a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8"><span class="fa-stack fa-lg"><i class="iconfont icon-zhihu"></i></span></a></li><li><a target="_blank" href="http://weibo.com/206000504"><span class="fa-stack fa-lg"><i class="iconfont icon-weibo"></i></span></a></li><li><a target="_blank" href="https://www.facebook.com/codewalkerxie"><span class="fa-stack fa-lg"><i class="iconfont icon-facebook"></i></span></a></li><li><a target="_blank" href="https://github.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-github"></i></span></a></li><li><a target="_blank" href="https://www.linkedin.com/in/simon-xie-11426829"><span class="fa-stack fa-lg"><i class="iconfont icon-linkedin"></i></span></a></li></ul><p> <span>/</span> <span><a href="https://codewalker.me">Old blog</a></span> <span>/</span></p><p><span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> PV</span><span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> UV</span> Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p><h6> The value of a man resides in what he gives and not in what he is capable of receiving.<br> 一个人的价值，在于他贡献了什么，而不在于他能得到什么。</h6></footer></body><script>window.hexo_search_path="search.json",window.hexo_root="/",window.isPost=!0</script><script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script src="/js/index.js"></script><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="/js/gitment.js"></script><script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SimonXie的博客">
+    <meta name="keyword"  content="SimonXie">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        [FIX] how to fix &#39;No space left on device&#39;. - SimonXie的博客 | SimonXie&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> All magic comes with a price. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Simon Xie</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> All magic comes with a price. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        [FIX] how to fix 'No space left on device'.
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2014-11-12 14:55:29</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#linux" title="linux">linux</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#inode" title="inode">inode</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#logrotate" title="logrotate">logrotate</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>update: 20141118 今天登录又尼玛满了，上次那样做看来还是没有解决问题。 使用df -i 只能查看整个分区的inode的占用情况 Google之后找到<a href="http://unix.stackexchange.com/questions/117093/find-where-inodes-are-being-used" title="find-where-inodes-are-being-used" target="_blank" rel="noopener">find-where-inodes-are-being-used</a> 用这个脚本</p>
+<p>find / -xdev -printf ‘%h\n’ | sort | uniq -c | sort -k 1 -n</p>
+<p>#注意-xdev 这个参数，它是将说Don’t descend directories on other filesystems.</p>
+<p>最好是&gt;&gt;到一个文本文件. _1051 /usr/src/kernels/2.6.32-431.20.3.el6.x86_64/include/linux 1051 /usr/src/kernels/2.6.32-431.23.3.el6.x86_64/include/linux 1051 /usr/src/kernels/2.6.32-431.29.2.el6.x86_64/include/linux 1063 /root/lnmp1.1-full/php-5.3.28/Zend/tests 1450 /usr/local/mariadb/data/locoyplatform 1450 /usr/local/mariadb/var/locoyplatform 3603 /usr/share/man/man3 3141137 /var/log/mysql_ 这里很容易就会发现是mysql日志的问题。 这时问题又来了300w+文件的删除，肯定是不能使用rm 会报错 <em>-bash: /bin/rm: Argument list too</em> 只能使用xarg或者rsync 来做删除，前者是统统传递参数，通过把文件名当参数传给xarg来删除。后者则可以通过同步一个空文件夹到目标文件夹来实现删除。</p>
+<p>mkdir /tmp/emypy_dir_for_remove_all_files<br>rsync –delete-before -d -a -H -v –progress –stats  /tmp/emypy_dir_for_remove_all_files /var/log/mysql/</p>
+<p>这样就删除百万级别的文件了。 删除的过程中可以看到删除了哪些文件，因为使用了-v –progress –stats参数。 其中观察到很多类似的文件例如: deleting mysql.err-20140709-20140716.gz-20140718.gz-20140720.gz-20140722.gz-20140724.gz-20140726.gz 很明显就是logrotate中关于mysql部分的问题了。 vim 之</p>
+<p>vim /etc/logrotate.d/mysql</p>
+<p>#擦！ 第一行写成了<br>/var/log/mysql/mysql* </p>
+<p>#这样文件不就成指数级增长了… 当时估计是抽风了我.<br>/var/log/mysql/mysql*.log </p>
+<p>#wq退出<br>logrotate -f /etc/logrotate.d/mysql #测试一下</p>
+<p>OK 打完收工 — — — 今天登陆服务器上发现个奇怪的事情，明明用df查看磁盘上还有很多空间，但就是无法pull远程的文件过来一直给我说No space left on device 卡了一会儿经查看原来inode位100%了。 这里非常的奇怪，这台server为backup。所以应该和生产环境中差不多的文件数。看inode居然3.2M了。我勒个大去，哪来的尼玛这么多文件。 master上也就380k.还有2.8M+剩余，太奇怪了。最后在删了backup log之后终于挤出3 inodes.然后yum clean all了一下，哇啦 我擦 瞬间空出来2.8m个inodes. 这里我估计是yum的更新文件出问题了。开来不怎么用的server有时候还是得时不时的看看. EOF.</p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">donate</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/206000504">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/codewalkerxie">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/simon-xie-11426829">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+    <h6>
+        The value of a man resides in what he gives and not in what he is capable of receiving.
+        <br />  
+        一个人的价值，在于他贡献了什么，而不在于他能得到什么。
+    </h6>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/gitment.js"></script>
+<script>
     var gitment = new Gitment({
         id: '[FIX] how to fix 'No space left on device'.',
         owner: 'codewalkertse',
@@ -9,4 +287,6 @@
         },
     })
     gitment.render('comment-container')
-</script></html>
+</script>
+
+</html>

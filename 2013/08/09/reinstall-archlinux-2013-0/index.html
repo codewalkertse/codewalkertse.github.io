@@ -1,1 +1,287 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="SimonXie的博客"><meta name="keyword" content="SimonXie"><link rel="shortcut icon" href="/img/favicon.ico"><title> 终于重做了系统2013-8的archlinux - SimonXie的博客 | SimonXie&#39;s Blog</title><link rel="stylesheet" href="/css/aircloud.css"><link rel="stylesheet" href="/css/gitment.css"><link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css"><script></script></head><body><div class="site-nav-toggle" id="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div><div class="index-about"> <i>All magic comes with a price.</i></div><div class="index-container"><div class="index-left"><div class="nav" id="nav"><div class="avatar-name"><div class="avatar"> <img src="/img/avatar.jpg"></div><div class="name"> <i>Simon Xie</i></div></div><div class="contents" id="nav-content"><ul><li><a href="/"><i class="iconfont icon-shouye1"></i> <span>HOME</span></a></li><li><a href="/tags"><i class="iconfont icon-biaoqian1"></i> <span>TAGS</span></a></li><li><a href="/archives"><i class="iconfont icon-guidang2"></i> <span>ARCHIVES</span></a></li><li><a href="/about/"><i class="iconfont icon-guanyu2"></i> <span>ABOUT</span></a></li><li><a id="search"><i class="iconfont icon-sousuo1"></i> <span>SEARCH</span></a></li></ul></div><div id="toc" class="toc-article"></div></div><div class="search-field" id="search-field"><div class="search-container"><div class="search-input"><span id="esc-search"><i class="icon-fanhui iconfont"></i></span> <input id="search-input"> <span id="begin-search">search</span></div><div class="search-result-container" id="search-result-container"></div></div></div><div class="index-about-mobile"> <i>All magic comes with a price.</i></div></div><div class="index-middle"><div class="post-container"><div class="post-title"> 终于重做了系统2013-8的archlinux</div><div class="post-meta"> <span class="attr">Post：<span>2013-08-09 00:08:06</span></span> <span class="attr">Tags：/ <a class="tag" href="/tags/#linux" title="linux">linux</a> <span>/</span> <a class="tag" href="/tags/#archlinux" title="archlinux">archlinux</a> <span>/</span> <a class="tag" href="/tags/#install" title="install">install</a> <span>/</span> <a class="tag" href="/tags/#reinstall" title="reinstall">reinstall</a> <span>/</span></span> <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span></span></div><div class="post-content"><p>update 2013-09-19 今天启动系统后莫名其妙么有wifi ifconfig查看后发现网卡名字变成奇怪的一串字符，搜了方法是移除一个配置文件然后重启生成一下此文件就修复了。</p><p>cd /usr/lib/udev/rules.d/ #mv 80-net-name-slot.rules 80-net-name-slot.rules.bak</p><p>update 2013-08-18 安装完后总有一些细节需要完善并且这些只有在使用过程中才会发现。下面是发现什么就补充什么吧。 os-prober:这样才能在生成grub.cfg 的时候发现win系统。 bash-completion: 命令行下的超强自动不全插件。 updte:2013-08-10 整理了一下现在所有的包。看了下居然有781个。用了几个小时gnome3之后不知道为什么会卡。所以还是换回了awesome，爽歪歪。这次在用了rsync把home做了备份，下一步的计划搞个树莓派在家搭建一个NAS备份.也顺便把媒体中心做了，腾出点儿硬盘。 <code>$ grep install /var/log/pacman.log |wc -l 785</code> 在写了几句把所有安装的包给列出来，放在月计划任务里面就搞定了，到时候等NAS搭建好了换地址就好了。 <code>cat /etc/cron.monthly/rsync_data.sh</code> <code>#!/bin/bash /usr/bin/rsync -zrvIq --delete --log-file=/var/log/rsync.log --log-file-format=&#39;%i %o %f %M %t&#39; --exclude /home/codewalker/script/sinaapp/codewalkertse/.svn/ /home/codewalker /mnt/data/archlinux_back_home/codewalker</code> tac /var/log/pacman.log |grep instal|awk {‘printf( “%s “, $5 )’} [@_@]# cat /tmp/pacman_install.log samba iniparser gamin virt-manager urlgrabber python2-pycurl libvirt-glib spice-gtk3 usbredir spice celt0.5.1 spice-protocol python2-ipaddr openbsd-netcat newt-syrup libnewt slang python2-ipy libuser python2-gconf pygtk python2-gobject2 pygobject2-devel rarian vte python2-dbus qtemu pcsclite hdparm bash-completion fcitx-gtk2 fcitx-gtk3 fcitx-cloudpinyin fcitx-configtool fcitx-qt4 fcitx-gtk2 cmake git perl-error fcitx goagent python-pyopenssl dnsmasq p7zip ntp ttf-arphic-ukai ttf-arphic-uming fcitx-qt5 qt5-base qtchooser fcitx-qt4 fcitx-gtk2 fcitx-gtk3 libvirt numactl audit parted fcitx-googlepinyin qemu-launcher perl-locale-gettext glade-perl libglade gtk2-perl pango-perl cairo-perl glib-perl qemu libcacard libiscsi libseccomp libaio seabios vde2 and bluez-libs bridge-utils nautilus-actions libunique3 nautilus-open-terminal w3m vsftpd openssh bluefish xcompmgr conky wireless_tools vim-fugitive vicious audacious audacious-plugins libguess libmowgli smplayer awesome xorg-xmessage xcb-util-wm xcb-util-keysyms xcb-util-image lua-lgi libxdg-basedir flashplugin mozilla-common abs rsync zathura-pdf-mupdf mupdf jbig2dec zathura-djvu hddtemp dmidecode colordiff iftop ranger scrot zathura girara-gtk2 girara-common feh giblib smplayer mplayer libxvmc libxxf86dga xf86dgaproto lirc-utils libirman libftdi a52dec qt4 libmng rdesktop wget lftp fcitx-configtool gnome-tweak-tool pydf htop zip wqy-zenhei post wqy-bitmapfont wqy-microhei fcitx-googlepinyin libgooglepinyin fcitx should ntfs-3g chromium snappy libxss scrnsaverproto libevent openssh ldns libedit xorg-xinit xorg-xauth xorg-server xorg-server-utils xorg-xsetroot xorg-xrefresh xorg-xinput xorg-xrandr xorg-xgamma xorg-xbacklight xorg-xcmsdb xorg-sessreg xorg-iceauth yaourt package-query yajl vinagre gtk-vnc tali swell-foop seahorse rygel xdg-utils xorg-xset gupnp-dlna gupnp-av gupnp gssdp quadrapassel orca xorg-xmodmap brltty cython tcl liblouis speech-dispatcher dotconf python-dbus python-dbus-common python-atspi lightsoff iagno gnome-weather gnome-tetravex gnome-sudoku gnome-robots gnome-photos gegl babl gnome-nibbles gnome-nettool whois libidn gnome-mines gnome-mahjongg gnome-klotski gnome-getting-started-docs gnome-documents libzapojit gnome-devel-docs gnome-color-manager gnome-clocks gnome-chess gedit four-in-a-row five-or-more file-roller evolution libytnef libpst gtkhtml4 cheese nautilus-sendto brasero dvd+rw-tools cdrdao libao libmad cdrkit anjuta vala subversion serf libgda graphviz gts gd postgresql-libs libmariadbclient glade devhelp autogen libanjuta gdl aisleriot guile gc libunistring accerciser xdg-user-dirs-gtk xdg-user-dirs vino tracker libgsf totem python-xdg python-gobject python-cairo python totem-plparser libquvi libquvi-scripts lua gmime sushi gtksourceview3 libmusicbrainz5 nautilus libnautilus-extension gvfs libcdio-paranoia libcdio libcddb fuse mousetweaks gucharmap grilo-plugins grilo gnome-user-share mod_dnssd apache apr-util unixodbc apr gnome-user-docs yelp yelp-xsl gnome-terminal gnome-system-monitor gtkmm3 atkmm pangomm cairomm glibmm libsigc++ gnome-system-log gnome-shell-extensions gnome-screenshot gnome-keyring gnome-icon-theme-extras gnome-font-viewer gnome-disk-utility udisks2 libatasmart gnome-dictionary gnome-control-center smbclient ldb tevent cifs-utils libwbclient libbsd talloc libcap-ng gnome-color-manager colord-gtk shared-color-targets mash exiv2 vte3 vte-common libpwquality libgtop cups-pk-helper gnome-contacts cheese nautilus-sendto gnome-video-effects gst-plugins-good libiec61883 libavc1394 libraw1394 libcaca imlib2 libid3tag libshout taglib aalib wavpack gst-plugins-base libvisual cdparanoia gnome-calculator gnome-backgrounds gdm xorg-xhost xorg-xrdb mcpp gnome-shell unzip network-manager-applet mobile-broadband-provider-info mutter zenity libgdm gnome-themes-standard ttf-dejavu cantarell-fonts gnome-settings-daemon ibus gtk2 pulseaudio-alsa pulseaudio Make sbc webrtc-audio-processing rtkit libwacom libcanberra-pulse gnome-session gconf gnome-menus gnome-bluetooth bluez4 bluez-utils libusb-compat gjs caribou libxklavier python2-atspi python2-gobject pygobject-devel python2-cairo accountsservice evince t1lib djvulibre poppler-glib poppler gsfonts libspectre ghostscript lcms libgxps epiphany libwnck3 libxres startup-notification xcb-util eog libpeas gobject-introspection python2-mako python2-beaker python2-markupsafe exempi libexif gnome-desktop empathy use telepathy-mission-control networkmanager modemmanager libmbim libqmi ppp libpcap upower libimobiledevice usbmuxd libplist python2 pm-utils pm-quirks libgnome-keyring telepathy-logger telepathy-farstream farstream libnice libcanberra sound-theme-freedesktop tdb iso-codes folks libtracker-sparql libzeitgeist evolution-data-server libgdata gcr liboauth libical libgweather gnome-icon-theme gnome-icon-theme-symbolic librsvg libcroco icon-naming-utils perl-xml-simple perl-xml-parser nss gnome-online-accounts rest libnotify webkitgtk harfbuzz-icu icu libwebp giflib libsecret geoclue enchant hspell hunspell aspell libsoup glib-networking libproxy libxslt libgee telepathy-glib dbus-glib clutter-gtk clutter-gst gst-plugins-bad fluidsynth jack libofa fftw neon libgme libdvdnav libdvdread spandsp soundtouch libdca celt faac libmp4v2 mpg123 libltdl faad2 libmms chromaprint ffmpeg xvidcore x264 v4l-utils speex schroedinger rtmpdump opus openjpeg opencore-amr libvpx libva libtheora libpulse json-c libasyncns libmodplug libbluray libass fribidi enca recode lame gsm mjpegtools libdv sdl gst-plugins-base-libs libxv videoproto orc gstreamer clutter json-glib cogl baobab desktop-file-utils hicolor-icon-theme gsettings-desktop-schemas gtk3 libxkbcommon at-spi2-atk at-spi2-core libxtst recordproto colord sqlite shared-color-profiles polkit js nspr libgusb lcms2 shared-mime-info libxml2 pango harfbuzz graphite libthai libdatrie libxcomposite compositeproto libxinerama xineramaproto libxcursor libcups avahi To libdaemon gnutls p11-kit nettle libtasn1 gtk-update-icon-cache gdk-pixbuf2 jasper glu freeglut libxrandr randrproto libxi inputproto libtiff libjpeg-turbo cairo mesa llvm-amdgpu-lib-snapshot libxdamage damageproto libxfixes fixesproto libxxf86vm xf86vidmodeproto wayland libvdpau libpng atk dconf xterm xorg-xclock xorg-twm sudo xterm libutempter xbitmaps xorg-luit xorg-xclock libxft libxrender renderproto libxaw libxpm xorg-twm libxmu libxt libsm libice libxext xextproto nvidia nvidia-libgl nvidia-utils xorg-server xf86-input-evdev mtdev xorg-server-common xorg-fonts-misc fontconfig xorg-font-utils xorg-font-util xorg-mkfontdir xorg-mkfontscale xorg-bdftopcf xorg-fonts-alias xorg-fonts-encodings xorg-setxkbmap xorg-xkbcomp libxkbfile libx11 kbproto libxcb xcb-proto xkeyboard-config libxau pixman libdrm libpciaccess libxfont fontsproto libfontenc freetype2 libxdmcp xproto alsa-plugins alsa-oss alsa-utils libsamplerate libsndfile libvorbis flac libogg alsa-lib wpa_supplicant libnl dialog dnsutils dnssec-anchors idnkit net-tools grub netctl os-prober vim gpm vim-runtime xfsprogs which vi usbutils libusbx texinfo tar systemd-sysvcompat sysvinit-tools reiserfsprogs psmisc procps-ng pcmciautils pciutils pacman archlinux-keyring pacman-mirrorlist gpgme gnupg dirmngr pinentry libassuan libksba pth curl libssh2 ca-certificates sed netctl openresolv nano mdadm man-pages man-db libpipeline groff lvm2 logrotate linux mkinitcpio libarchive lzo2 mkinitcpio-busybox linux-firmware licenses jfsutils iputils sysfsutils iproute2 iptables inetutils heirloom-mailx krb5 keyutils libldap libsasl openssl perl gdbm gzip less grep gettext gawk mpfr findutils file e2fsprogs diffutils dhcpcd cryptsetup popt device-mapper systemd to xz util-linux shadow libgcrypt libgpg-error hwids kmod kbd glib2 libffi pcre dbus expat cronie run-parts coreutils libcap gmp acl attr pam pambase libtirpc libgssglue cracklib zlib db gcc-libs bzip2 bash readline ncurses glibc filesystem iana-etc tzdata linux-api-headers 这两天重做了系统，终于清爽了。对于有轻微洁癖的人来说用了一天gnome3还是觉得太臃肿了，装下来系统居然4G+，内存居然占了1G+ ，现在又回到了awesome占用只有300M不到。虽然是8G很充裕但是觉得这样比较好。明儿空了把多余的软件全部remove掉之后再把安装包整理一下发上来记录一下。</p><div class="donate-container"><div class="donate-button"> <button id="donate-button">donate</button></div><div class="donate-img-container hide" id="donate-img-container"> <img id="donate-img" src="" data-src="/img/donate.jpg"><p> 感谢鼓励</p></div></div><div id="comment-container"></div></div></div></div></div><footer class="footer"><ul class="list-inline text-center"><li><a target="_blank" href="https://twitter.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-twitter"></i></span></a></li><li><a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8"><span class="fa-stack fa-lg"><i class="iconfont icon-zhihu"></i></span></a></li><li><a target="_blank" href="http://weibo.com/206000504"><span class="fa-stack fa-lg"><i class="iconfont icon-weibo"></i></span></a></li><li><a target="_blank" href="https://www.facebook.com/codewalkerxie"><span class="fa-stack fa-lg"><i class="iconfont icon-facebook"></i></span></a></li><li><a target="_blank" href="https://github.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-github"></i></span></a></li><li><a target="_blank" href="https://www.linkedin.com/in/simon-xie-11426829"><span class="fa-stack fa-lg"><i class="iconfont icon-linkedin"></i></span></a></li></ul><p> <span>/</span> <span><a href="https://codewalker.me">Old blog</a></span> <span>/</span></p><p><span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> PV</span><span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> UV</span> Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p><h6> The value of a man resides in what he gives and not in what he is capable of receiving.<br> 一个人的价值，在于他贡献了什么，而不在于他能得到什么。</h6></footer></body><script>window.hexo_search_path="search.json",window.hexo_root="/",window.isPost=!0</script><script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script src="/js/index.js"></script><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="/js/gitment.js"></script><script>var gitment=new Gitment({id:"终于重做了系统2013-8的archlinux",owner:"codewalkertse",repo:"codewalkertse.github.io",oauth:{client_id:"3cabff4367aa2366b062",client_secret:"cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b"}});gitment.render("comment-container")</script></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SimonXie的博客">
+    <meta name="keyword"  content="SimonXie">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        终于重做了系统2013-8的archlinux - SimonXie的博客 | SimonXie&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> All magic comes with a price. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Simon Xie</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> All magic comes with a price. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        终于重做了系统2013-8的archlinux
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2013-08-09 00:08:06</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#linux" title="linux">linux</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#archlinux" title="archlinux">archlinux</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#install" title="install">install</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#reinstall" title="reinstall">reinstall</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>update 2013-09-19 今天启动系统后莫名其妙么有wifi ifconfig查看后发现网卡名字变成奇怪的一串字符，搜了方法是移除一个配置文件然后重启生成一下此文件就修复了。</p>
+<p>cd /usr/lib/udev/rules.d/ #mv 80-net-name-slot.rules 80-net-name-slot.rules.bak</p>
+<p>update 2013-08-18 安装完后总有一些细节需要完善并且这些只有在使用过程中才会发现。下面是发现什么就补充什么吧。 os-prober:这样才能在生成grub.cfg 的时候发现win系统。 bash-completion: 命令行下的超强自动不全插件。 updte:2013-08-10 整理了一下现在所有的包。看了下居然有781个。用了几个小时gnome3之后不知道为什么会卡。所以还是换回了awesome，爽歪歪。这次在用了rsync把home做了备份，下一步的计划搞个树莓派在家搭建一个NAS备份.也顺便把媒体中心做了，腾出点儿硬盘。   <code>$ grep install /var/log/pacman.log |wc -l 785</code> 在写了几句把所有安装的包给列出来，放在月计划任务里面就搞定了，到时候等NAS搭建好了换地址就好了。 <code>cat /etc/cron.monthly/rsync_data.sh</code> <code>#!/bin/bash /usr/bin/rsync -zrvIq --delete --log-file=/var/log/rsync.log --log-file-format=&#39;%i %o %f %M %t&#39; --exclude /home/codewalker/script/sinaapp/codewalkertse/.svn/ /home/codewalker /mnt/data/archlinux_back_home/codewalker</code>   tac /var/log/pacman.log |grep instal|awk {‘printf( “%s “, $5 )’}   [@_@]# cat /tmp/pacman_install.log samba iniparser gamin virt-manager urlgrabber python2-pycurl libvirt-glib spice-gtk3 usbredir spice celt0.5.1 spice-protocol python2-ipaddr openbsd-netcat newt-syrup libnewt slang python2-ipy libuser python2-gconf pygtk python2-gobject2 pygobject2-devel rarian vte python2-dbus qtemu pcsclite hdparm bash-completion fcitx-gtk2 fcitx-gtk3 fcitx-cloudpinyin fcitx-configtool fcitx-qt4 fcitx-gtk2 cmake git perl-error fcitx goagent python-pyopenssl dnsmasq p7zip ntp ttf-arphic-ukai ttf-arphic-uming fcitx-qt5 qt5-base qtchooser fcitx-qt4 fcitx-gtk2 fcitx-gtk3 libvirt numactl audit parted fcitx-googlepinyin qemu-launcher perl-locale-gettext glade-perl libglade gtk2-perl pango-perl cairo-perl glib-perl qemu libcacard libiscsi libseccomp libaio seabios vde2 and bluez-libs bridge-utils nautilus-actions libunique3 nautilus-open-terminal w3m vsftpd openssh bluefish xcompmgr conky wireless_tools vim-fugitive vicious audacious audacious-plugins libguess libmowgli smplayer awesome xorg-xmessage xcb-util-wm xcb-util-keysyms xcb-util-image lua-lgi libxdg-basedir flashplugin mozilla-common abs rsync zathura-pdf-mupdf mupdf jbig2dec zathura-djvu hddtemp dmidecode colordiff iftop ranger scrot zathura girara-gtk2 girara-common feh giblib smplayer mplayer libxvmc libxxf86dga xf86dgaproto lirc-utils libirman libftdi a52dec qt4 libmng rdesktop wget lftp fcitx-configtool gnome-tweak-tool pydf htop zip wqy-zenhei post wqy-bitmapfont wqy-microhei fcitx-googlepinyin libgooglepinyin fcitx should ntfs-3g chromium snappy libxss scrnsaverproto libevent openssh ldns libedit xorg-xinit xorg-xauth xorg-server xorg-server-utils xorg-xsetroot xorg-xrefresh xorg-xinput xorg-xrandr xorg-xgamma xorg-xbacklight xorg-xcmsdb xorg-sessreg xorg-iceauth yaourt package-query yajl vinagre gtk-vnc tali swell-foop seahorse rygel xdg-utils xorg-xset gupnp-dlna gupnp-av gupnp gssdp quadrapassel orca xorg-xmodmap brltty cython tcl liblouis speech-dispatcher dotconf python-dbus python-dbus-common python-atspi lightsoff iagno gnome-weather gnome-tetravex gnome-sudoku gnome-robots gnome-photos gegl babl gnome-nibbles gnome-nettool whois libidn gnome-mines gnome-mahjongg gnome-klotski gnome-getting-started-docs gnome-documents libzapojit gnome-devel-docs gnome-color-manager gnome-clocks gnome-chess gedit four-in-a-row five-or-more file-roller evolution libytnef libpst gtkhtml4 cheese nautilus-sendto brasero dvd+rw-tools cdrdao libao libmad cdrkit anjuta vala subversion serf libgda graphviz gts gd postgresql-libs libmariadbclient glade devhelp autogen libanjuta gdl aisleriot guile gc libunistring accerciser xdg-user-dirs-gtk xdg-user-dirs vino tracker libgsf totem python-xdg python-gobject python-cairo python totem-plparser libquvi libquvi-scripts lua gmime sushi gtksourceview3 libmusicbrainz5 nautilus libnautilus-extension gvfs libcdio-paranoia libcdio libcddb fuse mousetweaks gucharmap grilo-plugins grilo gnome-user-share mod_dnssd apache apr-util unixodbc apr gnome-user-docs yelp yelp-xsl gnome-terminal gnome-system-monitor gtkmm3 atkmm pangomm cairomm glibmm libsigc++ gnome-system-log gnome-shell-extensions gnome-screenshot gnome-keyring gnome-icon-theme-extras gnome-font-viewer gnome-disk-utility udisks2 libatasmart gnome-dictionary gnome-control-center smbclient ldb tevent cifs-utils libwbclient libbsd talloc libcap-ng gnome-color-manager colord-gtk shared-color-targets mash exiv2 vte3 vte-common libpwquality libgtop cups-pk-helper gnome-contacts cheese nautilus-sendto gnome-video-effects gst-plugins-good libiec61883 libavc1394 libraw1394 libcaca imlib2 libid3tag libshout taglib aalib wavpack gst-plugins-base libvisual cdparanoia gnome-calculator gnome-backgrounds gdm xorg-xhost xorg-xrdb mcpp gnome-shell unzip network-manager-applet mobile-broadband-provider-info mutter zenity libgdm gnome-themes-standard ttf-dejavu cantarell-fonts gnome-settings-daemon ibus gtk2 pulseaudio-alsa pulseaudio Make sbc webrtc-audio-processing rtkit libwacom libcanberra-pulse gnome-session gconf gnome-menus gnome-bluetooth bluez4 bluez-utils libusb-compat gjs caribou libxklavier python2-atspi python2-gobject pygobject-devel python2-cairo accountsservice evince t1lib djvulibre poppler-glib poppler gsfonts libspectre ghostscript lcms libgxps epiphany libwnck3 libxres startup-notification xcb-util eog libpeas gobject-introspection python2-mako python2-beaker python2-markupsafe exempi libexif gnome-desktop empathy use telepathy-mission-control networkmanager modemmanager libmbim libqmi ppp libpcap upower libimobiledevice usbmuxd libplist python2 pm-utils pm-quirks libgnome-keyring telepathy-logger telepathy-farstream farstream libnice libcanberra sound-theme-freedesktop tdb iso-codes folks libtracker-sparql libzeitgeist evolution-data-server libgdata gcr liboauth libical libgweather gnome-icon-theme gnome-icon-theme-symbolic librsvg libcroco icon-naming-utils perl-xml-simple perl-xml-parser nss gnome-online-accounts rest libnotify webkitgtk harfbuzz-icu icu libwebp giflib libsecret geoclue enchant hspell hunspell aspell libsoup glib-networking libproxy libxslt libgee telepathy-glib dbus-glib clutter-gtk clutter-gst gst-plugins-bad fluidsynth jack libofa fftw neon libgme libdvdnav libdvdread spandsp soundtouch libdca celt faac libmp4v2 mpg123 libltdl faad2 libmms chromaprint ffmpeg xvidcore x264 v4l-utils speex schroedinger rtmpdump opus openjpeg opencore-amr libvpx libva libtheora libpulse json-c libasyncns libmodplug libbluray libass fribidi enca recode lame gsm mjpegtools libdv sdl gst-plugins-base-libs libxv videoproto orc gstreamer clutter json-glib cogl baobab desktop-file-utils hicolor-icon-theme gsettings-desktop-schemas gtk3 libxkbcommon at-spi2-atk at-spi2-core libxtst recordproto colord sqlite shared-color-profiles polkit js nspr libgusb lcms2 shared-mime-info libxml2 pango harfbuzz graphite libthai libdatrie libxcomposite compositeproto libxinerama xineramaproto libxcursor libcups avahi To libdaemon gnutls p11-kit nettle libtasn1 gtk-update-icon-cache gdk-pixbuf2 jasper glu freeglut libxrandr randrproto libxi inputproto libtiff libjpeg-turbo cairo mesa llvm-amdgpu-lib-snapshot libxdamage damageproto libxfixes fixesproto libxxf86vm xf86vidmodeproto wayland libvdpau libpng atk dconf xterm xorg-xclock xorg-twm sudo xterm libutempter xbitmaps xorg-luit xorg-xclock libxft libxrender renderproto libxaw libxpm xorg-twm libxmu libxt libsm libice libxext xextproto nvidia nvidia-libgl nvidia-utils xorg-server xf86-input-evdev mtdev xorg-server-common xorg-fonts-misc fontconfig xorg-font-utils xorg-font-util xorg-mkfontdir xorg-mkfontscale xorg-bdftopcf xorg-fonts-alias xorg-fonts-encodings xorg-setxkbmap xorg-xkbcomp libxkbfile libx11 kbproto libxcb xcb-proto xkeyboard-config libxau pixman libdrm libpciaccess libxfont fontsproto libfontenc freetype2 libxdmcp xproto alsa-plugins alsa-oss alsa-utils libsamplerate libsndfile libvorbis flac libogg alsa-lib wpa_supplicant libnl dialog dnsutils dnssec-anchors idnkit net-tools grub netctl os-prober vim gpm vim-runtime xfsprogs which vi usbutils libusbx texinfo tar systemd-sysvcompat sysvinit-tools reiserfsprogs psmisc procps-ng pcmciautils pciutils pacman archlinux-keyring pacman-mirrorlist gpgme gnupg dirmngr pinentry libassuan libksba pth curl libssh2 ca-certificates sed netctl openresolv nano mdadm man-pages man-db libpipeline groff lvm2 logrotate linux mkinitcpio libarchive lzo2 mkinitcpio-busybox linux-firmware licenses jfsutils iputils sysfsutils iproute2 iptables inetutils heirloom-mailx krb5 keyutils libldap libsasl openssl perl gdbm gzip less grep gettext gawk mpfr findutils file e2fsprogs diffutils dhcpcd cryptsetup popt device-mapper systemd to xz util-linux shadow libgcrypt libgpg-error hwids kmod kbd glib2 libffi pcre dbus expat cronie run-parts coreutils libcap gmp acl attr pam pambase libtirpc libgssglue cracklib zlib db gcc-libs bzip2 bash readline ncurses glibc filesystem iana-etc tzdata linux-api-headers 这两天重做了系统，终于清爽了。对于有轻微洁癖的人来说用了一天gnome3还是觉得太臃肿了，装下来系统居然4G+，内存居然占了1G+ ，现在又回到了awesome占用只有300M不到。虽然是8G很充裕但是觉得这样比较好。明儿空了把多余的软件全部remove掉之后再把安装包整理一下发上来记录一下。</p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">donate</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/206000504">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/codewalkerxie">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/simon-xie-11426829">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+    <h6>
+        The value of a man resides in what he gives and not in what he is capable of receiving.
+        <br />  
+        一个人的价值，在于他贡献了什么，而不在于他能得到什么。
+    </h6>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/gitment.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: '终于重做了系统2013-8的archlinux',
+        owner: 'codewalkertse',
+        repo: 'codewalkertse.github.io',
+        oauth: {
+            client_id: '3cabff4367aa2366b062',
+            client_secret: 'cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b',
+        },
+    })
+    gitment.render('comment-container')
+</script>
+
+</html>

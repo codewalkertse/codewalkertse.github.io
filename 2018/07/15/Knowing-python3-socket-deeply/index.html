@@ -1,1 +1,315 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="SimonXie的博客"><meta name="keyword" content="SimonXie"><link rel="shortcut icon" href="/img/favicon.ico"><title> Knowing python3 socket deeply - SimonXie的博客 | SimonXie&#39;s Blog</title><link rel="stylesheet" href="/css/aircloud.css"><link rel="stylesheet" href="/css/gitment.css"><link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css"><script></script></head><body><div class="site-nav-toggle" id="site-nav-toggle"> <button><span class="btn-bar"></span><span class="btn-bar"></span><span class="btn-bar"></span></button></div><div class="index-about"> <i>All magic comes with a price.</i></div><div class="index-container"><div class="index-left"><div class="nav" id="nav"><div class="avatar-name"><div class="avatar"> <img src="/img/avatar.jpg"></div><div class="name"> <i>Simon Xie</i></div></div><div class="contents" id="nav-content"><ul><li><a href="/"><i class="iconfont icon-shouye1"></i> <span>HOME</span></a></li><li><a href="/tags"><i class="iconfont icon-biaoqian1"></i> <span>TAGS</span></a></li><li><a href="/archives"><i class="iconfont icon-guidang2"></i> <span>ARCHIVES</span></a></li><li><a href="/about/"><i class="iconfont icon-guanyu2"></i> <span>ABOUT</span></a></li><li><a id="search"><i class="iconfont icon-sousuo1"></i> <span>SEARCH</span></a></li></ul></div><div id="toc" class="toc-article"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#写在前面"><span class="toc-text">写在前面</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Socket"><span class="toc-text">Socket</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#协议-protocol"><span class="toc-text">协议(protocol)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#又称为通信协议"><span class="toc-text">又称为通信协议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Server"><span class="toc-text">Server</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Client"><span class="toc-text">Client</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#What-we-are-building-我们将要做什么"><span class="toc-text">What we are building 我们将要做什么</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建两个文件"><span class="toc-text">创建两个文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#server-py"><span class="toc-text">server.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#client-py"><span class="toc-text">client.py</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Let’s-runing-it"><span class="toc-text">Let’s runing it</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Server-1"><span class="toc-text">Server</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Client-1"><span class="toc-text">Client</span></a></li></ol></li></ol></div></div><div class="search-field" id="search-field"><div class="search-container"><div class="search-input"><span id="esc-search"><i class="icon-fanhui iconfont"></i></span> <input id="search-input"> <span id="begin-search">search</span></div><div class="search-result-container" id="search-result-container"></div></div></div><div class="index-about-mobile"> <i>All magic comes with a price.</i></div></div><div class="index-middle"><div class="post-container"><div class="post-title"> Knowing python3 socket deeply</div><div class="post-meta"> <span class="attr">Post：<span>2018-07-15 13:08:16</span></span> <span class="attr">Tags：/ <a class="tag" href="/tags/#Python" title="Python">Python</a> <span>/</span></span> <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span></span></div><div class="post-content"><h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>昨天的<a href="/2018/07/15/Why-there-are-only-request-response-model-but-how-to-explain-push">初识PythonSocket</a>大概讲了下<code>Python Socket</code>的知识，觉得不是很深入(其实这篇也只是个皮毛对知识的一个总结), 觉得理解Socket的原理对自己还是挺有帮助的. 对于 Web 的原理对于为什么 <code>RESTful</code> 为什么会成为Api接口的公认形式的理解还是非常有帮助.在深入之前我们还是首先要理解一些<code>术语</code>.</p><h2 id="Socket"><a href="#Socket" class="headerlink" title="Socket"></a>Socket</h2><blockquote><p>网络上的两个程序通过一个双向的通信连接实现数据的交换，这个连接的一端称为一个socket<br>A socket is an endpoint for communication between two machines.</p></blockquote><p>是的，从名字上我们可以知道 <code>Socket</code> 一个管道中两端的末端。试想网络通信好比一个水管，而 <code>Socket</code> 就是入水口(发送方)或是出水口(接收方). 那么既然只是两个端点她就不会在乎中间经过的媒介是什么，是水管(直连)，是游泳池(局域网)，是城市管网(城域网)，是世界地下水系统(Internet)的方式都无所谓了.</p><h2 id="协议-protocol"><a href="#协议-protocol" class="headerlink" title="协议(protocol)"></a>协议(protocol)</h2><h3 id="又称为通信协议"><a href="#又称为通信协议" class="headerlink" title="又称为通信协议"></a>又称为通信协议</h3><blockquote><p>是对数据格式和计算机之间交换数据时必须遵守的规则的正式描述<br>a communication protocol is a system of rules that allow two or more entities of a communications system to transmit information via any kind of variation of a physical quantity.</p></blockquote><p>Socket支持 <code>TCP</code> 以及 <code>UDP</code>. 这里就不扩展开来了.</p><h2 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h2><p>服务端，一个用于等待客户端<code>请求</code>以及<code>服务和处理</code>客户端请求的并<code>响应</code>的一端</p><h2 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h2><p>客户端， 是这个<code>服务</code>的另外一端. 用于发送<code>请求</code>.</p><h1 id="What-we-are-building-我们将要做什么"><a href="#What-we-are-building-我们将要做什么" class="headerlink" title="What we are building 我们将要做什么"></a>What we are building 我们将要做什么</h1><p>我们将要简单的实现一个服务端和一个客户端。 服务端开启了一个<code>Socket</code>端口等待客户端的链接。一旦客户端连接上了，她可以发送一些信息。同时，服务端可以处理(在这里就只是简单的转换为大写)客户端发送过来的信息再返还回客户端.这是很简单感觉但也很直白说明的一种实现方式，基本上都是 <code>等待响应 -&gt; 发送信息 -&gt; 处理信息 -&gt; 返回信息</code> 这样即完成了一次通信.下面我们先来看看代码的实现其实就是昨天的<code>service代码</code>以及今天新增的<code>client代码</code>, 然后在讲讲她们的实现过程.</p><h2 id="创建两个文件"><a href="#创建两个文件" class="headerlink" title="创建两个文件"></a>创建两个文件</h2><ul><li>server.py</li><li>client.py</li></ul><h3 id="server-py"><a href="#server-py" class="headerlink" title="server.py"></a>server.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Main</span><span class="params">()</span>:</span></span><br><span class="line">    host = <span class="string">"127.0.0.1"</span></span><br><span class="line">    port = <span class="number">5000</span></span><br><span class="line">     </span><br><span class="line">    mySocket = socket.socket()</span><br><span class="line">    mySocket.bind((host,port))</span><br><span class="line">     </span><br><span class="line">    mySocket.listen(<span class="number">1</span>)</span><br><span class="line">    conn, addr = mySocket.accept()</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"Connection from: "</span> + str(addr))</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">            data = conn.recv(<span class="number">1024</span>).decode()</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> data:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">print</span> (<span class="string">"from connected  user: "</span> + str(data))</span><br><span class="line">             </span><br><span class="line">            data = str(data).upper()</span><br><span class="line">            <span class="keyword">print</span> (<span class="string">"sending: "</span> + str(data))</span><br><span class="line">            conn.send(data.encode())</span><br><span class="line">             </span><br><span class="line">    conn.close()</span><br><span class="line">     </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    Main()</span><br></pre></td></tr></table></figure><p>下面我们来看看上面的服务端代码做了什么</p><ol><li>首先我们导入了Python的Socket库</li><li>接着我们定义了 <code>main</code> 函数</li><li>我们定义了两个变量 <code>host</code> 以及 <code>port</code> 用于保存服务端接受数据的IP地址和端口，这里是本地网所以往往就是 <code>127.0.0.1</code>, <code>5000</code> 端口只是我随意选择的一个如果你自己也可以随意选择一个另外的，只是这里需要注意一下必须是超过1024的端口号，因为&lt;=1024是系统预留的，不然会引起不必要的麻烦比如23 24 53 80 8080这些等等.</li><li>之后我们定义了一个变量 <code>mySocket</code>, 这是Python socket的一个实例</li><li>在服务端我们必须要绑定IP地址和端口号，调用的方法是 <code>.bind()</code> . 这里需要注意的是 <code>.bind()</code> 接受的是一个Tuple. 因此我用了<code>双括号</code>. 其实你也可以写成 <code>address = (&quot;127.0.0.1&quot;, 5000)</code> 然后直接传入 <code>.bind</code> 也可以。上面的写法更便于理解而已.</li><li>接下来我们调用了 <code>.listen()</code> 并且给了个<code>1</code>给她，意思就是开始持续地监听上面我们绑定的IP地址下面的<code>5000</code>端口直到我们关闭连接.</li><li>一切都设置好了，那么我们怎么知道 <code>Who</code> 发送过来的 <code>What</code> 呢，我们就定义了两个变量 <code>conn连接</code> 和 <code>addr地址</code> 用来保存这两个东西.</li><li>While 循环中就是server代码的核心了. 我们知道连接已经建立起来的那么久设置了一个<code>while True</code>的循环用于等待接收接下来 <code>client.py</code>发送过来的信息，但这个过程当中连接状态是没有关闭的. 我们申明了一个变量 <code>data</code> 用于接收客户端发送过来的数据并且解码了它, 这里非常注意在Python3中使用的是<code>decode</code>而不是<code>str()</code>来转换buffer的数据了. <code>.rect(1024)</code>中的1024是缓存接受到数据的一个大小.</li><li>接下来把接收到的data进行处理, 判断是否为空 转换大小写 打印接收到的数据等等 内部的一些操作. 之后把加工完的数据在<code>.encode()</code>之后通过<code>.send()</code>返回给客户端.</li><li>直到我们的客户端不再发送信息过来的时候我们就调用 <code>.close()</code>来关闭这个连接了。或者自己关闭服务端的运行.</li></ol><h3 id="client-py"><a href="#client-py" class="headerlink" title="client.py"></a>client.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Main</span><span class="params">()</span>:</span></span><br><span class="line">        host = <span class="string">'127.0.0.1'</span></span><br><span class="line">        port = <span class="number">5000</span></span><br><span class="line">         </span><br><span class="line">        mySocket = socket.socket()</span><br><span class="line">        mySocket.connect((host,port))</span><br><span class="line">         </span><br><span class="line">        message = input(<span class="string">" -&gt; "</span>)</span><br><span class="line">         </span><br><span class="line">        <span class="keyword">while</span> message != <span class="string">'q'</span>:</span><br><span class="line">                mySocket.send(message.encode())</span><br><span class="line">                data = mySocket.recv(<span class="number">1024</span>).decode()</span><br><span class="line">                 </span><br><span class="line">                <span class="keyword">print</span> (<span class="string">'Received from server: '</span> + data)</span><br><span class="line">                 </span><br><span class="line">                message = input(<span class="string">" -&gt; "</span>)</span><br><span class="line">                 </span><br><span class="line">        mySocket.close()</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    Main()</span><br></pre></td></tr></table></figure><p>我们来看看客户端做了些什么, 和服务端很差不多其相似的地方就简单带过。</p><ol><li>导入socket库，申明变量用于存放IP地址、端口、Socket实例等</li><li>不同于server端需要的是 <code>.bind()</code> 绑定，客户端需要的是 <code>.connect()</code> 连接, 这里注意地址和端口都是服务端的。很容易理解，你要写信给别人就需要填写对方的收信地址和收件人。</li><li>接下来就是等待我们出入需要发送的信息，直到输入的内容是<code>q</code>就关闭这个连接， 同时由于服务端收到了关闭连接的状态，也会关闭这个connection</li></ol><h1 id="Let’s-runing-it"><a href="#Let’s-runing-it" class="headerlink" title="Let’s runing it"></a>Let’s runing it</h1><h2 id="Server-1"><a href="#Server-1" class="headerlink" title="Server"></a>Server</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; python3 server.py</span><br><span class="line">Connection from: (<span class="string">'127.0.0.1'</span>, 53703)</span><br><span class="line">from connected  user: I am Simon</span><br><span class="line">sending: I AM SIMON</span><br><span class="line">from connected  user: This is a <span class="built_in">test</span></span><br><span class="line">sending: THIS IS A TEST</span><br></pre></td></tr></table></figure><h2 id="Client-1"><a href="#Client-1" class="headerlink" title="Client"></a>Client</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; python3 client.py</span><br><span class="line"> -&gt; I am Simon</span><br><span class="line">Received from server: I AM SIMON</span><br><span class="line"> -&gt; This is a <span class="built_in">test</span></span><br><span class="line">Received from server: THIS IS A TEST</span><br><span class="line"> -&gt; q</span><br></pre></td></tr></table></figure><p> EOF.</p><div class="donate-container"><div class="donate-button"> <button id="donate-button">donate</button></div><div class="donate-img-container hide" id="donate-img-container"> <img id="donate-img" src="" data-src="/img/donate.jpg"><p> 感谢鼓励</p></div></div><div id="comment-container"></div></div></div></div></div><footer class="footer"><ul class="list-inline text-center"><li><a target="_blank" href="https://twitter.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-twitter"></i></span></a></li><li><a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8"><span class="fa-stack fa-lg"><i class="iconfont icon-zhihu"></i></span></a></li><li><a target="_blank" href="http://weibo.com/206000504"><span class="fa-stack fa-lg"><i class="iconfont icon-weibo"></i></span></a></li><li><a target="_blank" href="https://www.facebook.com/codewalkerxie"><span class="fa-stack fa-lg"><i class="iconfont icon-facebook"></i></span></a></li><li><a target="_blank" href="https://github.com/codewalkertse"><span class="fa-stack fa-lg"><i class="iconfont icon-github"></i></span></a></li><li><a target="_blank" href="https://www.linkedin.com/in/simon-xie-11426829"><span class="fa-stack fa-lg"><i class="iconfont icon-linkedin"></i></span></a></li></ul><p> <span>/</span> <span><a href="https://codewalker.me">Old blog</a></span> <span>/</span></p><p><span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span> PV</span><span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv"></span> UV</span> Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p><h6> The value of a man resides in what he gives and not in what he is capable of receiving.<br> 一个人的价值，在于他贡献了什么，而不在于他能得到什么。</h6></footer></body><script>window.hexo_search_path="search.json",window.hexo_root="/",window.isPost=!0</script><script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script src="/js/index.js"></script><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="/js/gitment.js"></script><script>var gitment=new Gitment({id:"Knowing python3 socket deeply",owner:"codewalkertse",repo:"codewalkertse.github.io",oauth:{client_id:"3cabff4367aa2366b062",client_secret:"cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b"}});gitment.render("comment-container")</script></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="SimonXie的博客">
+    <meta name="keyword"  content="SimonXie">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Knowing python3 socket deeply - SimonXie的博客 | SimonXie&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> All magic comes with a price. </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Simon Xie</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#写在前面"><span class="toc-text">写在前面</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Socket"><span class="toc-text">Socket</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#协议-protocol"><span class="toc-text">协议(protocol)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#又称为通信协议"><span class="toc-text">又称为通信协议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Server"><span class="toc-text">Server</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Client"><span class="toc-text">Client</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#What-we-are-building-我们将要做什么"><span class="toc-text">What we are building 我们将要做什么</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#创建两个文件"><span class="toc-text">创建两个文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#server-py"><span class="toc-text">server.py</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#client-py"><span class="toc-text">client.py</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Let’s-runing-it"><span class="toc-text">Let’s runing it</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Server-1"><span class="toc-text">Server</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Client-1"><span class="toc-text">Client</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> All magic comes with a price. </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Knowing python3 socket deeply
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2018-07-15 13:08:16</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Python" title="Python">Python</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>昨天的<a href="/2018/07/15/Why-there-are-only-request-response-model-but-how-to-explain-push">初识PythonSocket</a>大概讲了下<code>Python Socket</code>的知识，觉得不是很深入(其实这篇也只是个皮毛对知识的一个总结), 觉得理解Socket的原理对自己还是挺有帮助的. 对于 Web 的原理对于为什么 <code>RESTful</code> 为什么会成为Api接口的公认形式的理解还是非常有帮助.在深入之前我们还是首先要理解一些<code>术语</code>.</p>
+<h2 id="Socket"><a href="#Socket" class="headerlink" title="Socket"></a>Socket</h2><blockquote>
+<p>网络上的两个程序通过一个双向的通信连接实现数据的交换，这个连接的一端称为一个socket<br>A socket is an endpoint for communication between two machines.</p>
+</blockquote>
+<p>是的，从名字上我们可以知道 <code>Socket</code> 一个管道中两端的末端。试想网络通信好比一个水管，而 <code>Socket</code> 就是入水口(发送方)或是出水口(接收方). 那么既然只是两个端点她就不会在乎中间经过的媒介是什么，是水管(直连)，是游泳池(局域网)，是城市管网(城域网)，是世界地下水系统(Internet)的方式都无所谓了.</p>
+<h2 id="协议-protocol"><a href="#协议-protocol" class="headerlink" title="协议(protocol)"></a>协议(protocol)</h2><h3 id="又称为通信协议"><a href="#又称为通信协议" class="headerlink" title="又称为通信协议"></a>又称为通信协议</h3><blockquote>
+<p>是对数据格式和计算机之间交换数据时必须遵守的规则的正式描述<br>a communication protocol is a system of rules that allow two or more entities of a communications system to transmit information via any kind of variation of a physical quantity.</p>
+</blockquote>
+<p>Socket支持 <code>TCP</code> 以及 <code>UDP</code>. 这里就不扩展开来了.</p>
+<h2 id="Server"><a href="#Server" class="headerlink" title="Server"></a>Server</h2><p>服务端，一个用于等待客户端<code>请求</code>以及<code>服务和处理</code>客户端请求的并<code>响应</code>的一端</p>
+<h2 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h2><p>客户端， 是这个<code>服务</code>的另外一端. 用于发送<code>请求</code>.</p>
+<h1 id="What-we-are-building-我们将要做什么"><a href="#What-we-are-building-我们将要做什么" class="headerlink" title="What we are building 我们将要做什么"></a>What we are building 我们将要做什么</h1><p>我们将要简单的实现一个服务端和一个客户端。 服务端开启了一个<code>Socket</code>端口等待客户端的链接。一旦客户端连接上了，她可以发送一些信息。同时，服务端可以处理(在这里就只是简单的转换为大写)客户端发送过来的信息再返还回客户端.这是很简单感觉但也很直白说明的一种实现方式，基本上都是 <code>等待响应 -&gt; 发送信息 -&gt; 处理信息 -&gt; 返回信息</code> 这样即完成了一次通信.下面我们先来看看代码的实现其实就是昨天的<code>service代码</code>以及今天新增的<code>client代码</code>, 然后在讲讲她们的实现过程.</p>
+<h2 id="创建两个文件"><a href="#创建两个文件" class="headerlink" title="创建两个文件"></a>创建两个文件</h2><ul>
+<li>server.py</li>
+<li>client.py</li>
+</ul>
+<h3 id="server-py"><a href="#server-py" class="headerlink" title="server.py"></a>server.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Main</span><span class="params">()</span>:</span></span><br><span class="line">    host = <span class="string">"127.0.0.1"</span></span><br><span class="line">    port = <span class="number">5000</span></span><br><span class="line">     </span><br><span class="line">    mySocket = socket.socket()</span><br><span class="line">    mySocket.bind((host,port))</span><br><span class="line">     </span><br><span class="line">    mySocket.listen(<span class="number">1</span>)</span><br><span class="line">    conn, addr = mySocket.accept()</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"Connection from: "</span> + str(addr))</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">            data = conn.recv(<span class="number">1024</span>).decode()</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> data:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">print</span> (<span class="string">"from connected  user: "</span> + str(data))</span><br><span class="line">             </span><br><span class="line">            data = str(data).upper()</span><br><span class="line">            <span class="keyword">print</span> (<span class="string">"sending: "</span> + str(data))</span><br><span class="line">            conn.send(data.encode())</span><br><span class="line">             </span><br><span class="line">    conn.close()</span><br><span class="line">     </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    Main()</span><br></pre></td></tr></table></figure>
+<p>下面我们来看看上面的服务端代码做了什么</p>
+<ol>
+<li>首先我们导入了Python的Socket库</li>
+<li>接着我们定义了 <code>main</code> 函数</li>
+<li>我们定义了两个变量 <code>host</code> 以及 <code>port</code> 用于保存服务端接受数据的IP地址和端口，这里是本地网所以往往就是 <code>127.0.0.1</code>, <code>5000</code> 端口只是我随意选择的一个如果你自己也可以随意选择一个另外的，只是这里需要注意一下必须是超过1024的端口号，因为&lt;=1024是系统预留的，不然会引起不必要的麻烦比如23 24 53 80 8080这些等等.</li>
+<li>之后我们定义了一个变量 <code>mySocket</code>, 这是Python socket的一个实例</li>
+<li>在服务端我们必须要绑定IP地址和端口号，调用的方法是 <code>.bind()</code> . 这里需要注意的是 <code>.bind()</code> 接受的是一个Tuple. 因此我用了<code>双括号</code>. 其实你也可以写成 <code>address = (&quot;127.0.0.1&quot;, 5000)</code> 然后直接传入 <code>.bind</code> 也可以。上面的写法更便于理解而已.</li>
+<li>接下来我们调用了 <code>.listen()</code> 并且给了个<code>1</code>给她，意思就是开始持续地监听上面我们绑定的IP地址下面的<code>5000</code>端口直到我们关闭连接.</li>
+<li>一切都设置好了，那么我们怎么知道 <code>Who</code> 发送过来的 <code>What</code> 呢，我们就定义了两个变量 <code>conn连接</code> 和 <code>addr地址</code> 用来保存这两个东西.</li>
+<li>While 循环中就是server代码的核心了. 我们知道连接已经建立起来的那么久设置了一个<code>while True</code>的循环用于等待接收接下来 <code>client.py</code>发送过来的信息，但这个过程当中连接状态是没有关闭的. 我们申明了一个变量 <code>data</code> 用于接收客户端发送过来的数据并且解码了它, 这里非常注意在Python3中使用的是<code>decode</code>而不是<code>str()</code>来转换buffer的数据了. <code>.rect(1024)</code>中的1024是缓存接受到数据的一个大小.</li>
+<li>接下来把接收到的data进行处理, 判断是否为空 转换大小写 打印接收到的数据等等 内部的一些操作. 之后把加工完的数据在<code>.encode()</code>之后通过<code>.send()</code>返回给客户端.</li>
+<li>直到我们的客户端不再发送信息过来的时候我们就调用 <code>.close()</code>来关闭这个连接了。或者自己关闭服务端的运行.</li>
+</ol>
+<h3 id="client-py"><a href="#client-py" class="headerlink" title="client.py"></a>client.py</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Main</span><span class="params">()</span>:</span></span><br><span class="line">        host = <span class="string">'127.0.0.1'</span></span><br><span class="line">        port = <span class="number">5000</span></span><br><span class="line">         </span><br><span class="line">        mySocket = socket.socket()</span><br><span class="line">        mySocket.connect((host,port))</span><br><span class="line">         </span><br><span class="line">        message = input(<span class="string">" -&gt; "</span>)</span><br><span class="line">         </span><br><span class="line">        <span class="keyword">while</span> message != <span class="string">'q'</span>:</span><br><span class="line">                mySocket.send(message.encode())</span><br><span class="line">                data = mySocket.recv(<span class="number">1024</span>).decode()</span><br><span class="line">                 </span><br><span class="line">                <span class="keyword">print</span> (<span class="string">'Received from server: '</span> + data)</span><br><span class="line">                 </span><br><span class="line">                message = input(<span class="string">" -&gt; "</span>)</span><br><span class="line">                 </span><br><span class="line">        mySocket.close()</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    Main()</span><br></pre></td></tr></table></figure>
+<p>我们来看看客户端做了些什么, 和服务端很差不多其相似的地方就简单带过。</p>
+<ol>
+<li>导入socket库，申明变量用于存放IP地址、端口、Socket实例等</li>
+<li>不同于server端需要的是 <code>.bind()</code> 绑定，客户端需要的是 <code>.connect()</code> 连接, 这里注意地址和端口都是服务端的。很容易理解，你要写信给别人就需要填写对方的收信地址和收件人。</li>
+<li>接下来就是等待我们出入需要发送的信息，直到输入的内容是<code>q</code>就关闭这个连接， 同时由于服务端收到了关闭连接的状态，也会关闭这个connection</li>
+</ol>
+<h1 id="Let’s-runing-it"><a href="#Let’s-runing-it" class="headerlink" title="Let’s runing it"></a>Let’s runing it</h1><h2 id="Server-1"><a href="#Server-1" class="headerlink" title="Server"></a>Server</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; python3 server.py</span><br><span class="line">Connection from: (<span class="string">'127.0.0.1'</span>, 53703)</span><br><span class="line">from connected  user: I am Simon</span><br><span class="line">sending: I AM SIMON</span><br><span class="line">from connected  user: This is a <span class="built_in">test</span></span><br><span class="line">sending: THIS IS A TEST</span><br></pre></td></tr></table></figure>
+<h2 id="Client-1"><a href="#Client-1" class="headerlink" title="Client"></a>Client</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; python3 client.py</span><br><span class="line"> -&gt; I am Simon</span><br><span class="line">Received from server: I AM SIMON</span><br><span class="line"> -&gt; This is a <span class="built_in">test</span></span><br><span class="line">Received from server: THIS IS A TEST</span><br><span class="line"> -&gt; q</span><br></pre></td></tr></table></figure>
+<p> EOF.</p>
+
+        
+            <div class="donate-container">
+    <div class="donate-button">
+        <button id="donate-button">donate</button>
+    </div>
+    <div class="donate-img-container hide" id="donate-img-container">
+        <img id="donate-img" src="" data-src="/img/donate.jpg">
+        <p> 感谢鼓励 </p>
+    </div>
+</div>
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+        <li>
+            <a target="_blank" href="https://www.zhihu.com/people/vWi6q3a8">
+                            <span class="fa-stack fa-lg">
+                                 <i class="iconfont icon-zhihu"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="http://weibo.com/206000504">
+                            <span class="fa-stack fa-lg">
+                                  <i class="iconfont icon-weibo"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank" href="https://www.facebook.com/codewalkerxie">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-facebook"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/codewalkertse">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://www.linkedin.com/in/simon-xie-11426829">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-linkedin"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+    <h6>
+        The value of a man resides in what he gives and not in what he is capable of receiving.
+        <br />  
+        一个人的价值，在于他贡献了什么，而不在于他能得到什么。
+    </h6>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/js/gitment.js"></script>
+<script>
+    var gitment = new Gitment({
+        id: 'Knowing python3 socket deeply',
+        owner: 'codewalkertse',
+        repo: 'codewalkertse.github.io',
+        oauth: {
+            client_id: '3cabff4367aa2366b062',
+            client_secret: 'cbcd1c72612bd2e6c5a43b4b75d13a46b0d55d4b',
+        },
+    })
+    gitment.render('comment-container')
+</script>
+
+</html>

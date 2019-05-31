@@ -4,6 +4,25 @@
 
     
   <url>
+    <loc>https://blog.codewalker.me/2019/05/31/how-to-use-left-join-with-multi-condition/</loc>
+    <lastmod>2019-05-31T03:28:36.000Z</lastmod>
+    <data>
+        <display>
+        <title>how to use 'left join' with multi-condition</title>
+        <pubTime>2019-05-31T03:20:03.000Z</pubTime>
+        
+        <tag>mysql</tag>
+         
+        <tag>database</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.codewalker.me/2018/10/10/How-to-turn-on-install-App-from-anywhere/</loc>
     <lastmod>2018-10-10T02:04:58.000Z</lastmod>
     <data>
@@ -723,6 +742,596 @@
 
     
   <url>
+    <loc>https://blog.codewalker.me/2016/04/17/20160417/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>20160417</title>
+        <pubTime>2016-04-17T14:44:27.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2013/10/01/378/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>bash脚本之备份文件之拉回本地</title>
+        <pubTime>2013-10-01T07:18:14.000Z</pubTime>
+        
+        <tag>bash</tag>
+         
+        <tag>linux</tag>
+         
+        <tag>shell</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2012/05/12/500ampnbspvsftpd/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>500 vsftpd</title>
+        <pubTime>2012-05-12T15:57:19.000Z</pubTime>
+        
+        <tag>杂谈</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2012/11/10/about-centos63-in-kvm/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>关于centos6.3中的kvm</title>
+        <pubTime>2012-11-10T03:32:49.000Z</pubTime>
+        
+        <tag>kvm</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2013/04/16/about-en-y/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>关于en y</title>
+        <pubTime>2013-04-16T15:31:08.000Z</pubTime>
+        
+        <tag>en</tag>
+         
+         
+           
+             
+              <breadCrumb title="法语" url="https://blog.codewalker.me/categories/%E6%B3%95%E8%AF%AD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2012/12/10/about-github-two/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>关于github(二)</title>
+        <pubTime>2012-12-10T07:53:53.000Z</pubTime>
+        
+        <tag>it</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2013/04/17/about-demander/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>关于demander</title>
+        <pubTime>2013-04-17T08:14:16.000Z</pubTime>
+        
+        <tag>demander</tag>
+         
+         
+           
+             
+              <breadCrumb title="法语" url="https://blog.codewalker.me/categories/%E6%B3%95%E8%AF%AD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2012/11/30/about-github/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>关于github</title>
+        <pubTime>2012-11-30T15:52:20.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2013/05/29/about-python-class/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>关于python的class</title>
+        <pubTime>2013-05-29T06:19:11.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>linux</tag>
+         
+        <tag>class</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2013/04/12/about-netctl/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>关于netctl</title>
+        <pubTime>2013-04-12T09:18:44.000Z</pubTime>
+        
+        <tag>netctl</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2012/07/05/about-quelqu39un-personne-quelque-shose-rien/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>关于quelqu'un, personne, quelque shose, rien</title>
+        <pubTime>2012-07-05T12:53:42.000Z</pubTime>
+        
+        <tag>杂谈</tag>
+         
+         
+           
+             
+              <breadCrumb title="法语" url="https://blog.codewalker.me/categories/%E6%B3%95%E8%AF%AD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2013/01/18/about-rhce-and-rhcsa/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>关于rhce和rhcsa</title>
+        <pubTime>2013-01-18T05:25:50.000Z</pubTime>
+        
+        <tag>杂谈</tag>
+         
+         
+           
+             
+              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2012/11/18/about-syslog-ng/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>关于syslog-ng</title>
+        <pubTime>2012-11-18T06:13:10.000Z</pubTime>
+        
+        <tag>it</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2012/11/27/archlinux-aur-modify-local-installation-source-download-source-pkgbuild/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>archlinux aur修改本地源下载源码安装PKGBUILD</title>
+        <pubTime>2012-11-27T15:13:50.000Z</pubTime>
+        
+        <tag>aur</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2012/11/23/about-systemd-in-kvm-guest-virtual-machine-network-problems/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>关于systemd 中kvm guest 虚拟机网络问题</title>
+        <pubTime>2012-11-23T04:41:55.000Z</pubTime>
+        
+        <tag>网络问题</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2012/11/20/archlinux-lnmp-a-key-installation-fool-scripts-001/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>archlinux lnmp 一键安装傻瓜脚本0.0.1</title>
+        <pubTime>2012-11-20T07:21:30.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>archlinux</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2012/11/18/archlinuxampnbspkvm/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>archlinux kvm</title>
+        <pubTime>2012-11-18T04:27:19.000Z</pubTime>
+        
+        <tag>it</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2018/06/10/are-you-scare/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>Are you scare.</title>
+        <pubTime>2018-06-10T12:37:45.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2014/02/28/anything-about-destoon/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>Anything about Destoon</title>
+        <pubTime>2014-02-28T01:00:48.000Z</pubTime>
+        
+        <tag>destoon</tag>
+         
+        <tag>html</tag>
+         
+        <tag>web</tag>
+         
+         
+           
+             
+              <breadCrumb title="web" url="https://blog.codewalker.me/categories/web/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2013/08/26/bash-e8-84-9a-e6-9c-ac-e4-b9-8b-e6-89-b9-e9-87-8f-e5-af-bc-e5-85-a5sql-e6-96-87-e4-bb-b6-e5-88-b0mysql-e4-b8-ad/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>bash脚本之批量导入sql文件到mysql中</title>
+        <pubTime>2013-08-26T03:34:25.000Z</pubTime>
+        
+        <tag>bash</tag>
+         
+        <tag>linux</tag>
+         
+        <tag>mysql</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2013/12/10/about-the-order-of-class-in-python/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>about the order of Class in python</title>
+        <pubTime>2013-12-10T03:27:53.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>linux</tag>
+         
+        <tag>class</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2013/08/19/bash-e8-84-9a-e6-9c-ac-e4-b9-8b-e7-ae-a1-e7-90-86web-server/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>bash脚本之管理web server</title>
+        <pubTime>2013-08-19T14:28:57.000Z</pubTime>
+        
+        <tag>bash</tag>
+         
+        <tag>linux</tag>
+         
+        <tag>mysql</tag>
+         
+        <tag>nginx</tag>
+         
+        <tag>php</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2012/11/20/bashampnbspscriptampnbspforampnbspautoampnbspinstallampnbsppptpdampnbspserver/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>bash script for auto install pptpd server</title>
+        <pubTime>2012-11-20T02:50:07.000Z</pubTime>
+        
+        <tag>简单</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2013/10/01/bash-e8-84-9a-e6-9c-ac-e4-b9-8b-e5-a4-87-e4-bb-bd/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>bash脚本之备份</title>
+        <pubTime>2013-10-01T07:01:18.000Z</pubTime>
+        
+        <tag>bash</tag>
+         
+        <tag>linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2013/08/25/bsah-e8-84-9a-e6-9c-ac-e4-b9-8b-e6-a3-80-e6-9f-a5-e7-bd-91-e7-ab-99-e5-8f-af-e7-94-a8-e6-80-a7/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>bsah脚本之检查网站可用性</title>
+        <pubTime>2013-08-25T13:30:26.000Z</pubTime>
+        
+        <tag>bash</tag>
+         
+        <tag>linux</tag>
+         
+        <tag>web</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2015/10/05/cannot-install-cocoa-pods-it-shows-me-e3-80-8cerror-while-executing-gem-errnoeperm-operation-not-permitted-usrbinpod-e3-80-8d/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>Cannot install cocoa pods, it shows me 「ERROR: While executing gem ... (Errno::EPERM) Operation not permitted - /usr/bin/pod」</title>
+        <pubTime>2015-10-05T08:22:53.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS" url="https://blog.codewalker.me/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2015/11/18/cannt-sync-iphone-photos/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>FIX Can’t Sync iPhone Photos: ‘The iPhone “Name’s Phone” cannot be synced. You do not have enough access privileges for this operation.’</title>
+        <pubTime>2015-11-18T07:08:42.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="未分类" url="https://blog.codewalker.me/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2012/03/10/cat-tmp-vimrc-super-vim-configuration-file/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>cat /tmp/vimrc 超强vim配置文件</title>
+        <pubTime>2012-03-10T15:31:03.000Z</pubTime>
+        
+        <tag>vim配置</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.codewalker.me/2012/03/10/catampnbspetcnginxconfnginxconf/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
@@ -773,26 +1382,6 @@
         <tag>python</tag>
          
         <tag>linux</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2012/11/10/about-centos63-in-kvm/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>关于centos6.3中的kvm</title>
-        <pubTime>2012-11-10T03:32:49.000Z</pubTime>
-        
-        <tag>kvm</tag>
          
          
            
@@ -903,17 +1492,19 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2014/07/22/dont-be-evil/</loc>
+    <loc>https://blog.codewalker.me/2012/03/09/dig-detailed-use/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
         <display>
-        <title>Don't be evil</title>
-        <pubTime>2014-07-22T08:34:25.000Z</pubTime>
+        <title>dig 使用详解</title>
+        <pubTime>2012-03-09T11:46:22.000Z</pubTime>
         
+        <tag>dig</tag>
+         
          
            
              
-              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
           
         </display>
     </data>
@@ -947,39 +1538,17 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2013/04/17/about-demander/</loc>
+    <loc>https://blog.codewalker.me/2014/07/22/dont-be-evil/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
         <display>
-        <title>关于demander</title>
-        <pubTime>2013-04-17T08:14:16.000Z</pubTime>
+        <title>Don't be evil</title>
+        <pubTime>2014-07-22T08:34:25.000Z</pubTime>
         
-        <tag>demander</tag>
-         
          
            
              
-              <breadCrumb title="法语" url="https://blog.codewalker.me/categories/%E6%B3%95%E8%AF%AD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2013/04/16/about-en-y/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>关于en y</title>
-        <pubTime>2013-04-16T15:31:08.000Z</pubTime>
-        
-        <tag>en</tag>
-         
-         
-           
-             
-              <breadCrumb title="法语" url="https://blog.codewalker.me/categories/%E6%B3%95%E8%AF%AD/"/>
+              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
           
         </display>
     </data>
@@ -1168,17 +1737,26 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2016/01/01/e6-88-90-e9-95-bf-e6-98-af-e4-b8-80-e5-9c-ba-e5-86-92-e9-99-a9/</loc>
+    <loc>https://blog.codewalker.me/2014/09/25/e5-be-ae-e4-bf-a1-e5-bc-80-e6-94-be-e5-b9-b3-e5-8f-b0api-e8-87-aa-e5-ae-9a-e4-b9-89-e8-8f-9c-e5-8d-95-e5-85-b3-e9-94-ae-e5-ad-97-e8-87-aa-e5-8a-a8-e5-9b-9e-e5-a4-8d-e5-bc-80-e5-8f-91-e6-a1-88/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
         <display>
-        <title>成长是一场冒险</title>
-        <pubTime>2015-12-31T18:37:30.000Z</pubTime>
+        <title>微信开放平台api自定义菜单关键字自动回复开发案例</title>
+        <pubTime>2014-09-25T09:06:57.000Z</pubTime>
         
+        <tag>linux</tag>
+         
+        <tag>php</tag>
+         
+        <tag>weixin</tag>
+         
          
            
              
-              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+             
+              <breadCrumb title="web" url="https://blog.codewalker.me/categories/Linux/web/"/>
           
         </display>
     </data>
@@ -1186,12 +1764,12 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2014/09/11/e7-bd-97-e6-b0-b8-e6-b5-a9-ef-bc-9a-e6-af-8f-e4-b8-80-e4-b8-aa-e7-94-9f-e5-91-bd-e6-9d-a5-e5-88-b0-e4-b8-96-e9-97-b4-e9-83-bd-e6-b3-a8-e5-ae-9a-e6-94-b9-e5-8f-98-e4-b8-96-e7-95-8c-ef-bc-88-e4-b8-8d/</loc>
+    <loc>https://blog.codewalker.me/2016/01/01/e6-88-90-e9-95-bf-e6-98-af-e4-b8-80-e5-9c-ba-e5-86-92-e9-99-a9/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
         <display>
-        <title>罗永浩：每一个生命来到世间都注定改变世界（不是变得美好了一点就是变得恶心了一点）！</title>
-        <pubTime>2014-09-11T03:33:12.000Z</pubTime>
+        <title>成长是一场冒险</title>
+        <pubTime>2015-12-31T18:37:30.000Z</pubTime>
         
          
            
@@ -1217,6 +1795,24 @@
            
              
               <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2014/09/11/e7-bd-97-e6-b0-b8-e6-b5-a9-ef-bc-9a-e6-af-8f-e4-b8-80-e4-b8-aa-e7-94-9f-e5-91-bd-e6-9d-a5-e5-88-b0-e4-b8-96-e9-97-b4-e9-83-bd-e6-b3-a8-e5-ae-9a-e6-94-b9-e5-8f-98-e4-b8-96-e7-95-8c-ef-bc-88-e4-b8-8d/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>罗永浩：每一个生命来到世间都注定改变世界（不是变得美好了一点就是变得恶心了一点）！</title>
+        <pubTime>2014-09-11T03:33:12.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
           
         </display>
     </data>
@@ -1300,24 +1896,6 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2013/12/08/e8-b0-88-e8-b0-88-e3-80-8c-e8-81-8a-e5-a4-a9-e3-80-8d-e9-82-a3-e4-ba-9b-e4-ba-8b-e5-84-bf/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>谈谈「聊天」那些事儿</title>
-        <pubTime>2013-12-08T04:52:42.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.codewalker.me/2014/07/23/e8-af-b7-e5-bc-80-e5-90-af-e7-a7-91-e5-ad-a6-e4-b8-8a-e7-bd-91-e6-a8-a1-e5-bc-8f/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
@@ -1336,6 +1914,24 @@
           
              
               <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/web/%E6%9D%82%E8%B0%88/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2013/12/08/e8-b0-88-e8-b0-88-e3-80-8c-e8-81-8a-e5-a4-a9-e3-80-8d-e9-82-a3-e4-ba-9b-e4-ba-8b-e5-84-bf/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>谈谈「聊天」那些事儿</title>
+        <pubTime>2013-12-08T04:52:42.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
           
         </display>
     </data>
@@ -1499,26 +2095,6 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2012/12/11/fix-unzip-the-garbage-problem/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>修复unzip乱码问题。</title>
-        <pubTime>2012-12-11T14:38:13.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.codewalker.me/2014/11/12/fix-how-to-fix-no-space-left-on-device/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
@@ -1531,6 +2107,26 @@
         <tag>inode</tag>
          
         <tag>logrotate</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2012/12/11/fix-unzip-the-garbage-problem/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>修复unzip乱码问题。</title>
+        <pubTime>2012-12-11T14:38:13.000Z</pubTime>
+        
+        <tag>linux</tag>
          
          
            
@@ -1626,26 +2222,6 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2011/07/30/french-assistant-2010-crack-modify-the-frequency-of-use-register/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>法语助手2010 破解 修改 使用次数 注册</title>
-        <pubTime>2011-07-30T01:15:46.000Z</pubTime>
-        
-        <tag>法语助手2010</tag>
-         
-         
-           
-             
-              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.codewalker.me/2011/08/11/french-definite-article-the-indefinite-article/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
@@ -1659,6 +2235,26 @@
            
              
               <breadCrumb title="法语" url="https://blog.codewalker.me/categories/%E6%B3%95%E8%AF%AD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2011/07/30/french-assistant-2010-crack-modify-the-frequency-of-use-register/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>法语助手2010 破解 修改 使用次数 注册</title>
+        <pubTime>2011-07-30T01:15:46.000Z</pubTime>
+        
+        <tag>法语助手2010</tag>
+         
+         
+           
+             
+              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
           
         </display>
     </data>
@@ -1692,26 +2288,6 @@
         <display>
         <title>法语语法总结1 -- 时态篇</title>
         <pubTime>2012-07-08T09:01:01.000Z</pubTime>
-        
-        <tag>杂谈</tag>
-         
-         
-           
-             
-              <breadCrumb title="法语" url="https://blog.codewalker.me/categories/%E6%B3%95%E8%AF%AD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2012/07/08/french-grammar-summary-3-pronouns-articles/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>法语语法总结3 -- 代词篇</title>
-        <pubTime>2012-07-08T08:57:45.000Z</pubTime>
         
         <tag>杂谈</tag>
          
@@ -1806,6 +2382,26 @@
 
     
   <url>
+    <loc>https://blog.codewalker.me/2012/07/08/french-grammar-summary-3-pronouns-articles/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>法语语法总结3 -- 代词篇</title>
+        <pubTime>2012-07-08T08:57:45.000Z</pubTime>
+        
+        <tag>杂谈</tag>
+         
+         
+           
+             
+              <breadCrumb title="法语" url="https://blog.codewalker.me/categories/%E6%B3%95%E8%AF%AD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.codewalker.me/2013/10/19/fun-for-class/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
@@ -1852,44 +2448,6 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2012/12/10/about-github-two/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>关于github(二)</title>
-        <pubTime>2012-12-10T07:53:53.000Z</pubTime>
-        
-        <tag>it</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2015/08/20/hello-double-seven-festival/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>hello, double seven festival</title>
-        <pubTime>2015-08-20T06:13:19.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.codewalker.me/2011/10/22/hardcore-french-curse-premium/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
@@ -1910,39 +2468,17 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2012/11/30/about-github/</loc>
+    <loc>https://blog.codewalker.me/2015/08/20/hello-double-seven-festival/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
         <display>
-        <title>关于github</title>
-        <pubTime>2012-11-30T15:52:20.000Z</pubTime>
+        <title>hello, double seven festival</title>
+        <pubTime>2015-08-20T06:13:19.000Z</pubTime>
         
-        <tag>linux</tag>
-         
          
            
              
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2013/04/12/about-netctl/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>关于netctl</title>
-        <pubTime>2013-04-12T09:18:44.000Z</pubTime>
-        
-        <tag>netctl</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
           
         </display>
     </data>
@@ -1972,6 +2508,30 @@
 
     
   <url>
+    <loc>https://blog.codewalker.me/2013/10/19/how-can-i-make-a-chain-of-function-decorators-in-python/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>How can I make a chain of function decorators in Python?</title>
+        <pubTime>2013-10-19T07:00:53.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>linux</tag>
+         
+        <tag>decorators</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.codewalker.me/2014/10/14/how-do-i-strike-the-balance-between-confidence-and-arrogance/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
@@ -1984,35 +2544,6 @@
              
               <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2015/07/14/how-to-change-your-source-of-gem-from-official-to-taobao/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>How to change your source of gem from official to Taobao</title>
-        <pubTime>2015-07-14T06:15:34.000Z</pubTime>
-        
-        <tag>Obj-C</tag>
-         
-        <tag>Swift</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
-          
-             
-              <breadCrumb title="Obj-C" url="https://blog.codewalker.me/categories/Linux/Obj-C/"/>
-          
-             
-              <breadCrumb title="OSX" url="https://blog.codewalker.me/categories/Linux/Obj-C/OSX/"/>
-          
-             
         </display>
     </data>
     </url>
@@ -2060,12 +2591,59 @@
 
     
   <url>
+    <loc>https://blog.codewalker.me/2015/07/14/how-to-change-your-source-of-gem-from-official-to-taobao/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>How to change your source of gem from official to Taobao</title>
+        <pubTime>2015-07-14T06:15:34.000Z</pubTime>
+        
+        <tag>Obj-C</tag>
+         
+        <tag>Swift</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+             
+              <breadCrumb title="Obj-C" url="https://blog.codewalker.me/categories/Linux/Obj-C/"/>
+          
+             
+              <breadCrumb title="OSX" url="https://blog.codewalker.me/categories/Linux/Obj-C/OSX/"/>
+          
+             
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.codewalker.me/2013/06/05/how-to-fix-filesystem/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
         <display>
         <title>filesystem升级失败的处理方式</title>
         <pubTime>2013-06-05T06:12:39.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2016/05/23/how-to-interconversion-between-timestamps-and-date-time/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>how to interconversion between timestamps and date time on MacOS X</title>
+        <pubTime>2016-05-23T02:17:20.000Z</pubTime>
         
          
            
@@ -2089,24 +2667,6 @@
          
         <tag>ssh</tag>
          
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2016/05/23/how-to-interconversion-between-timestamps-and-date-time/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>how to interconversion between timestamps and date time on MacOS X</title>
-        <pubTime>2016-05-23T02:17:20.000Z</pubTime>
-        
          
            
              
@@ -2191,24 +2751,6 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2013/11/09/how-to-set-static-ip-using-netctl/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>How to set static IP using netctl</title>
-        <pubTime>2013-11-09T09:37:54.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="未分类" url="https://blog.codewalker.me/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.codewalker.me/2015/08/05/how-to-setup-git-server-on-centos6-6/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
@@ -2224,6 +2766,24 @@
            
              
               <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2013/11/09/how-to-set-static-ip-using-netctl/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>How to set static IP using netctl</title>
+        <pubTime>2013-11-09T09:37:54.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="未分类" url="https://blog.codewalker.me/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/"/>
           
         </display>
     </data>
@@ -2308,6 +2868,27 @@
 
     
   <url>
+    <loc>https://blog.codewalker.me/2014/07/23/how-to-use-https-in-nginx/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>How to use https in nginx</title>
+        <pubTime>2014-07-23T05:08:37.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+             
+              <breadCrumb title="web" url="https://blog.codewalker.me/categories/Linux/web/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.codewalker.me/2015/06/18/how-to-update-a-column-form-multi-tables-and-multi-database/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
@@ -2354,27 +2935,6 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2014/07/23/how-to-use-https-in-nginx/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>How to use https in nginx</title>
-        <pubTime>2014-07-23T05:08:37.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
-          
-             
-              <breadCrumb title="web" url="https://blog.codewalker.me/categories/Linux/web/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.codewalker.me/2015/03/11/how-to-use-vpn-via-different-route-by-one-script-automatically/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
@@ -2385,31 +2945,6 @@
         <tag>bash</tag>
          
         <tag>vpn</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
-          
-             
-              <breadCrumb title="web" url="https://blog.codewalker.me/categories/Linux/web/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2015/06/16/how-to-using-qq-smtp-server-send-e-mail-on-centos6/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>How to using QQ SMTP server send E-mail on Centos6</title>
-        <pubTime>2015-06-16T02:42:19.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-        <tag>email</tag>
          
          
            
@@ -2442,6 +2977,31 @@
            
              
               <breadCrumb title="iOS" url="https://blog.codewalker.me/categories/iOS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2015/06/16/how-to-using-qq-smtp-server-send-e-mail-on-centos6/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>How to using QQ SMTP server send E-mail on Centos6</title>
+        <pubTime>2015-06-16T02:42:19.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>email</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+             
+              <breadCrumb title="web" url="https://blog.codewalker.me/categories/Linux/web/"/>
           
         </display>
     </data>
@@ -2511,24 +3071,6 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2016/04/27/howtofix-no-words-preview-with-simplified-chinese-input-method-on-maxos-x-10-11-4/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>[HowtoFix] no words preview with Simplified Chinese input method on MaxOS X 10.11.4</title>
-        <pubTime>2016-04-27T01:24:22.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="OSX" url="https://blog.codewalker.me/categories/OSX/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.codewalker.me/2012/12/07/howtoampnbspuseampnbsprenameampnbspinampnbsplinux/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
@@ -2542,6 +3084,24 @@
            
              
               <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2016/04/27/howtofix-no-words-preview-with-simplified-chinese-input-method-on-maxos-x-10-11-4/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>[HowtoFix] no words preview with Simplified Chinese input method on MaxOS X 10.11.4</title>
+        <pubTime>2016-04-27T01:24:22.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="OSX" url="https://blog.codewalker.me/categories/OSX/"/>
           
         </display>
     </data>
@@ -2569,14 +3129,14 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2012/04/30/i-used-linux-bash-script-to-update-to-13/</loc>
+    <loc>https://blog.codewalker.me/2012/03/09/in-archlinux-install-dnsmasq-personal-notes/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
         <display>
-        <title>我的常用linux bash 脚本更新至1.3</title>
-        <pubTime>2012-04-29T17:03:34.000Z</pubTime>
+        <title>在archlinux中安装Dnsmasq 个人笔记</title>
+        <pubTime>2012-03-09T12:08:06.000Z</pubTime>
         
-        <tag>wifi</tag>
+        <tag>杂谈</tag>
          
          
            
@@ -2589,14 +3149,14 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2012/03/09/in-archlinux-install-dnsmasq-personal-notes/</loc>
+    <loc>https://blog.codewalker.me/2012/04/30/i-used-linux-bash-script-to-update-to-13/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
         <display>
-        <title>在archlinux中安装Dnsmasq 个人笔记</title>
-        <pubTime>2012-03-09T12:08:06.000Z</pubTime>
+        <title>我的常用linux bash 脚本更新至1.3</title>
+        <pubTime>2012-04-29T17:03:34.000Z</pubTime>
         
-        <tag>杂谈</tag>
+        <tag>wifi</tag>
          
          
            
@@ -2734,18 +3294,14 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2013/05/29/about-python-class/</loc>
+    <loc>https://blog.codewalker.me/2012/04/05/lftp-problems-downloading-a-file-can-not-be-overwritten/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
         <display>
-        <title>关于python的class</title>
-        <pubTime>2013-05-29T06:19:11.000Z</pubTime>
+        <title>lftp 下载文件时无法覆盖问题</title>
+        <pubTime>2012-04-05T08:14:27.000Z</pubTime>
         
-        <tag>python</tag>
-         
-        <tag>linux</tag>
-         
-        <tag>class</tag>
+        <tag>覆盖</tag>
          
          
            
@@ -2758,15 +3314,13 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2012/04/05/lftp-problems-downloading-a-file-can-not-be-overwritten/</loc>
+    <loc>https://blog.codewalker.me/2011/03/05/linux-code-under-the-viewing-and-conversion-rpm/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
         <display>
-        <title>lftp 下载文件时无法覆盖问题</title>
-        <pubTime>2012-04-05T08:14:27.000Z</pubTime>
+        <title>Linux下编码的查看与转换（转）</title>
+        <pubTime>2011-03-05T06:36:38.000Z</pubTime>
         
-        <tag>覆盖</tag>
-         
          
            
              
@@ -2796,23 +3350,19 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2013/10/01/378/</loc>
+    <loc>https://blog.codewalker.me/2012/03/17/march-17-2012/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
         <display>
-        <title>bash脚本之备份文件之拉回本地</title>
-        <pubTime>2013-10-01T07:18:14.000Z</pubTime>
+        <title>二〇一二年三月十七日</title>
+        <pubTime>2012-03-17T14:59:39.000Z</pubTime>
         
-        <tag>bash</tag>
-         
-        <tag>linux</tag>
-         
-        <tag>shell</tag>
+        <tag>情感</tag>
          
          
            
              
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
           
         </display>
     </data>
@@ -2860,26 +3410,6 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2012/03/17/march-17-2012/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>二〇一二年三月十七日</title>
-        <pubTime>2012-03-17T14:59:39.000Z</pubTime>
-        
-        <tag>情感</tag>
-         
-         
-           
-             
-              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.codewalker.me/2012/12/04/meow-nonsense/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
@@ -2900,14 +3430,14 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2012/12/04/migrating-from-ibus-to-fcitx/</loc>
+    <loc>https://blog.codewalker.me/2011/05/05/mocp-operating-instructions/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
         <display>
-        <title>从ibus迁移到fcitx</title>
-        <pubTime>2012-12-04T12:47:47.000Z</pubTime>
+        <title>mocp 操作说明</title>
+        <pubTime>2011-05-05T08:19:47.000Z</pubTime>
         
-        <tag>linux</tag>
+        <tag>it</tag>
          
          
            
@@ -2920,14 +3450,14 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2011/05/05/mocp-operating-instructions/</loc>
+    <loc>https://blog.codewalker.me/2012/12/04/migrating-from-ibus-to-fcitx/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
         <display>
-        <title>mocp 操作说明</title>
-        <pubTime>2011-05-05T08:19:47.000Z</pubTime>
+        <title>从ibus迁移到fcitx</title>
+        <pubTime>2012-12-04T12:47:47.000Z</pubTime>
         
-        <tag>it</tag>
+        <tag>linux</tag>
          
          
            
@@ -2964,66 +3494,6 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2011/06/23/mouse-focus-gradient-fade-jquery-album/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>鼠标 焦点jquery 相册 渐变 渐隐</title>
-        <pubTime>2011-06-23T07:13:55.000Z</pubTime>
-        
-        <tag>鼠标</tag>
-         
-         
-           
-             
-              <breadCrumb title="web" url="https://blog.codewalker.me/categories/web/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2012/07/05/about-quelqu39un-personne-quelque-shose-rien/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>关于quelqu'un, personne, quelque shose, rien</title>
-        <pubTime>2012-07-05T12:53:42.000Z</pubTime>
-        
-        <tag>杂谈</tag>
-         
-         
-           
-             
-              <breadCrumb title="法语" url="https://blog.codewalker.me/categories/%E6%B3%95%E8%AF%AD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2011/10/31/mysql-under-windows-xp-or-7-service-missing/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>windows xp 或者 7 下mysql服务不见了</title>
-        <pubTime>2011-10-31T01:37:20.000Z</pubTime>
-        
-        <tag>mysql</tag>
-         
-         
-           
-             
-              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.codewalker.me/2014/02/26/mysqlstrict-trans-tables/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
@@ -3044,19 +3514,19 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2012/11/18/about-syslog-ng/</loc>
+    <loc>https://blog.codewalker.me/2011/10/31/mysql-under-windows-xp-or-7-service-missing/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
         <display>
-        <title>关于syslog-ng</title>
-        <pubTime>2012-11-18T06:13:10.000Z</pubTime>
+        <title>windows xp 或者 7 下mysql服务不见了</title>
+        <pubTime>2011-10-31T01:37:20.000Z</pubTime>
         
-        <tag>it</tag>
+        <tag>mysql</tag>
          
          
            
              
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
           
         </display>
     </data>
@@ -3134,32 +3604,6 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2013/08/19/nginx-e4-bd-bf-e7-94-a8-e8-bf-87-e7-a8-8b-e4-b8-ad-e7-9a-84-e9-97-ae-e9-a2-98-e6-b1-87-e6-80-bb/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>nginx 使用过程中的问题汇总</title>
-        <pubTime>2013-08-19T13:53:13.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-        <tag>nginx</tag>
-         
-        <tag>php</tag>
-         
-        <tag>archlinux</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.codewalker.me/2013/08/22/nginx-e8-84-9a-e6-9c-ac-e4-b9-8b-e5-a2-9e-e5-8a-a0virtual-host/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
@@ -3206,6 +3650,32 @@
 
     
   <url>
+    <loc>https://blog.codewalker.me/2013/08/19/nginx-e4-bd-bf-e7-94-a8-e8-bf-87-e7-a8-8b-e4-b8-ad-e7-9a-84-e9-97-ae-e9-a2-98-e6-b1-87-e6-80-bb/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>nginx 使用过程中的问题汇总</title>
+        <pubTime>2013-08-19T13:53:13.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>archlinux</tag>
+         
+        <tag>nginx</tag>
+         
+        <tag>php</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.codewalker.me/2013/07/05/nginx-python-fcgi-static-file-40/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
@@ -3228,26 +3698,6 @@
           
              
               <breadCrumb title="web" url="https://blog.codewalker.me/categories/Linux/web/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2013/01/18/about-rhce-and-rhcsa/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>关于rhce和rhcsa</title>
-        <pubTime>2013-01-18T05:25:50.000Z</pubTime>
-        
-        <tag>杂谈</tag>
-         
-         
-           
-             
-              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
           
         </display>
     </data>
@@ -3319,74 +3769,6 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2012/11/23/about-systemd-in-kvm-guest-virtual-machine-network-problems/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>关于systemd 中kvm guest 虚拟机网络问题</title>
-        <pubTime>2012-11-23T04:41:55.000Z</pubTime>
-        
-        <tag>网络问题</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2013/12/10/about-the-order-of-class-in-python/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>about the order of Class in python</title>
-        <pubTime>2013-12-10T03:27:53.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>linux</tag>
-         
-        <tag>class</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2014/02/28/anything-about-destoon/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>Anything about Destoon</title>
-        <pubTime>2014-02-28T01:00:48.000Z</pubTime>
-        
-        <tag>destoon</tag>
-         
-        <tag>html</tag>
-         
-        <tag>web</tag>
-         
-         
-           
-             
-              <breadCrumb title="web" url="https://blog.codewalker.me/categories/web/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.codewalker.me/2013/06/21/pacman-e5-8d-87-e7-ba-a7-e5-88-b04-1-2-e5-af-bc-e8-87-b4-e5-9b-a0-e7-ad-be-e5-90-8d-e6-97-a0-e6-95-88-e6-97-a0-e6-b3-95-e5-8d-87-e7-ba-a7-e7-9a-84-e8-a7-a3-e5-86-b3-e6-96-b9-e6-a1-88/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
@@ -3405,14 +3787,14 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2011/04/19/percentage-of-memory-used/</loc>
+    <loc>https://blog.codewalker.me/2012/12/13/perlampnbsptodolist/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
         <display>
-        <title>使用内存的百分比</title>
-        <pubTime>2011-04-19T08:07:53.000Z</pubTime>
+        <title>perl todolist</title>
+        <pubTime>2012-12-13T13:28:18.000Z</pubTime>
         
-        <tag>linux</tag>
+        <tag>perl</tag>
          
          
            
@@ -3425,14 +3807,14 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2012/12/13/perlampnbsptodolist/</loc>
+    <loc>https://blog.codewalker.me/2011/04/19/percentage-of-memory-used/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
         <display>
-        <title>perl todolist</title>
-        <pubTime>2012-12-13T13:28:18.000Z</pubTime>
+        <title>使用内存的百分比</title>
+        <pubTime>2011-04-19T08:07:53.000Z</pubTime>
         
-        <tag>perl</tag>
+        <tag>linux</tag>
          
          
            
@@ -3568,28 +3950,6 @@
         <tag>linux</tag>
          
         <tag>rename</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2013/09/20/python-e4-b8-ad-e5-ae-b9-e6-98-93-e5-bf-bd-e7-95-a5-e7-9a-84-e5-b0-8f-e7-bb-86-e8-8a-82/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>python 中容易忽略的小细节</title>
-        <pubTime>2013-09-20T04:49:59.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>linux</tag>
          
          
            
@@ -3820,26 +4180,6 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2012/11/27/archlinux-aur-modify-local-installation-source-download-source-pkgbuild/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>archlinux aur修改本地源下载源码安装PKGBUILD</title>
-        <pubTime>2012-11-27T15:13:50.000Z</pubTime>
-        
-        <tag>aur</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.codewalker.me/2013/06/29/python-try-except-else-finally/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
@@ -3930,19 +4270,28 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2012/11/18/archlinuxampnbspkvm/</loc>
+    <loc>https://blog.codewalker.me/2013/08/09/reinstall-archlinux-2013-0/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
         <display>
-        <title>archlinux kvm</title>
-        <pubTime>2012-11-18T04:27:19.000Z</pubTime>
+        <title>终于重做了系统2013-8的archlinux</title>
+        <pubTime>2013-08-08T16:08:06.000Z</pubTime>
         
-        <tag>it</tag>
+        <tag>linux</tag>
+         
+        <tag>archlinux</tag>
+         
+        <tag>install</tag>
+         
+        <tag>reinstall</tag>
          
          
            
              
               <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+             
+              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/Linux/%E6%9D%82%E8%B0%88/"/>
           
         </display>
     </data>
@@ -3950,12 +4299,12 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2011/11/05/reserved-adverbial-participle-distinction-and-modernity/</loc>
+    <loc>https://blog.codewalker.me/2011/09/15/reproduced-quebec-immigrant-literacy-software/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
         <display>
-        <title>[转载]副动词与现代分词的区别</title>
-        <pubTime>2011-11-05T03:39:33.000Z</pubTime>
+        <title>[转载]魁北克移民扫盲帖</title>
+        <pubTime>2011-09-15T07:56:36.000Z</pubTime>
         
         <tag>法语</tag>
          
@@ -3963,6 +4312,48 @@
            
              
               <breadCrumb title="法语" url="https://blog.codewalker.me/categories/%E6%B3%95%E8%AF%AD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2011/06/23/mouse-focus-gradient-fade-jquery-album/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>鼠标 焦点jquery 相册 渐变 渐隐</title>
+        <pubTime>2011-06-23T07:13:55.000Z</pubTime>
+        
+        <tag>鼠标</tag>
+         
+         
+           
+             
+              <breadCrumb title="web" url="https://blog.codewalker.me/categories/web/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2010/11/08/reserved-archlinux-installation-configuration-and-some-nonsense/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>[转载]archlinux安装后的配置以及一些废话～</title>
+        <pubTime>2010-11-08T06:24:59.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>archlinux</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
           
         </display>
     </data>
@@ -3990,6 +4381,28 @@
 
     
   <url>
+    <loc>https://blog.codewalker.me/2013/09/20/python-e4-b8-ad-e5-ae-b9-e6-98-93-e5-bf-bd-e7-95-a5-e7-9a-84-e5-b0-8f-e7-bb-86-e8-8a-82/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>python 中容易忽略的小细节</title>
+        <pubTime>2013-09-20T04:49:59.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.codewalker.me/2011/09/16/reserved-beijing-to-raise-a-child-is-the-cost-original/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
@@ -4001,28 +4414,6 @@
            
              
               <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2010/11/08/reserved-color-man-page-configuration/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>[转载]彩色man page的配置</title>
-        <pubTime>2010-11-08T05:54:45.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-        <tag>man</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
           
         </display>
     </data>
@@ -4110,17 +4501,19 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2011/09/20/reserved-japanese-erotic-masterpieces-girl-licking-doorknobs/</loc>
+    <loc>https://blog.codewalker.me/2012/02/17/reserved-frenchman39s-oral-language/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
         <display>
-        <title>[转载]日本情色大师作品：舔门把手的女孩</title>
-        <pubTime>2011-09-19T17:01:07.000Z</pubTime>
+        <title>[转载]法国人的口头语言</title>
+        <pubTime>2012-02-17T03:19:49.000Z</pubTime>
         
+        <tag>法语</tag>
+         
          
            
              
-              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
+              <breadCrumb title="法语" url="https://blog.codewalker.me/categories/%E6%B3%95%E8%AF%AD/"/>
           
         </display>
     </data>
@@ -4141,6 +4534,24 @@
            
              
               <breadCrumb title="法语" url="https://blog.codewalker.me/categories/%E6%B3%95%E8%AF%AD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2011/09/20/reserved-japanese-erotic-masterpieces-girl-licking-doorknobs/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>[转载]日本情色大师作品：舔门把手的女孩</title>
+        <pubTime>2011-09-19T17:01:07.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
           
         </display>
     </data>
@@ -4338,16 +4749,16 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2012/12/11/reserved-rhce-rhel6-review-summary-9-managing-ldap-network-users-and-their-home-directory/</loc>
+    <loc>https://blog.codewalker.me/2010/11/08/reserved-color-man-page-configuration/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
         <display>
-        <title>[转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录</title>
-        <pubTime>2012-12-11T15:05:35.000Z</pubTime>
+        <title>[转载]彩色man page的配置</title>
+        <pubTime>2010-11-08T05:54:45.000Z</pubTime>
         
         <tag>linux</tag>
          
-        <tag>RHEL6</tag>
+        <tag>man</tag>
          
          
            
@@ -4382,6 +4793,28 @@
 
     
   <url>
+    <loc>https://blog.codewalker.me/2012/12/11/reserved-rhce-rhel6-review-summary-9-managing-ldap-network-users-and-their-home-directory/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>[转载]RHCE_RHEL6_复习总结 9.管理LDAP网络用户及其home目录</title>
+        <pubTime>2012-12-11T15:05:35.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>RHEL6</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.codewalker.me/2012/12/03/reserved-rhel6-installation-configuration-and-automatically-mount-iscsi/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
@@ -4395,6 +4828,24 @@
            
              
               <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2011/09/18/reserved-secret-taiwan-version-chinese-maps-still-retains-the-reasons-for-mongolia/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>[转载]揭秘台湾版中国地图上仍保留着外蒙古的原因</title>
+        <pubTime>2011-09-18T09:29:27.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
           
         </display>
     </data>
@@ -4453,6 +4904,84 @@
            
              
               <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2011/11/09/reserved-some-of-the-grammar-points-and-sentence-writing-exercises-and-long-term-help-to-learn-french/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>[转载]一些语法点和例句，有助于写作练习和长期学习法语。</title>
+        <pubTime>2011-11-09T09:21:42.000Z</pubTime>
+        
+        <tag>法语</tag>
+         
+         
+           
+             
+              <breadCrumb title="法语" url="https://blog.codewalker.me/categories/%E6%B3%95%E8%AF%AD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2010/11/10/reserved-the-best-creative-advertising-content-that-you-can-understand-it/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>[转载]最佳内涵创意广告，你看得懂么？</title>
+        <pubTime>2010-11-10T06:43:11.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2011/08/08/reserved-traveled-to-france-reflets-taxi-alter-studio-and-other-textbooks/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>[转载]走遍法国Reflets，taxi，Alter,studio等课本，</title>
+        <pubTime>2011-08-08T02:13:46.000Z</pubTime>
+        
+        <tag>法语</tag>
+         
+         
+           
+             
+              <breadCrumb title="法语" url="https://blog.codewalker.me/categories/%E6%B3%95%E8%AF%AD/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.codewalker.me/2011/05/24/reserved-understand-about-cats/</loc>
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>[转载]养猫的都懂</title>
+        <pubTime>2011-05-24T07:13:31.000Z</pubTime>
+        
+        <tag>cat</tag>
+         
+         
+           
+             
+              <breadCrumb title="猫猫" url="https://blog.codewalker.me/categories/%E7%8C%AB%E7%8C%AB/"/>
           
         </display>
     </data>
@@ -4646,17 +5175,19 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2018/06/10/are-you-scare/</loc>
+    <loc>https://blog.codewalker.me/2012/03/03/shellampnbspprogramming/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
         <display>
-        <title>Are you scare.</title>
-        <pubTime>2018-06-10T12:37:45.000Z</pubTime>
+        <title>Shell Programming</title>
+        <pubTime>2012-03-03T06:07:57.000Z</pubTime>
         
+        <tag>shell</tag>
+         
          
            
              
-              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
+              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
           
         </display>
     </data>
@@ -4786,24 +5317,6 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2016/04/17/20160417/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>20160417</title>
-        <pubTime>2016-04-17T14:44:27.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.codewalker.me/2018/07/12/tax-calculator/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
@@ -4815,28 +5328,6 @@
            
              
               <breadCrumb title="python" url="https://blog.codewalker.me/categories/python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2013/10/01/bash-e8-84-9a-e6-9c-ac-e4-b9-8b-e5-a4-87-e4-bb-bd/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>bash脚本之备份</title>
-        <pubTime>2013-10-01T07:01:18.000Z</pubTime>
-        
-        <tag>bash</tag>
-         
-        <tag>linux</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
           
         </display>
     </data>
@@ -5032,30 +5523,6 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2013/08/26/bash-e8-84-9a-e6-9c-ac-e4-b9-8b-e6-89-b9-e9-87-8f-e5-af-bc-e5-85-a5sql-e6-96-87-e4-bb-b6-e5-88-b0mysql-e4-b8-ad/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>bash脚本之批量导入sql文件到mysql中</title>
-        <pubTime>2013-08-26T03:34:25.000Z</pubTime>
-        
-        <tag>bash</tag>
-         
-        <tag>linux</tag>
-         
-        <tag>mysql</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.codewalker.me/2014/04/01/using-dnsmasq-for-local-development-on-os-x/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
@@ -5201,34 +5668,6 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2013/08/19/bash-e8-84-9a-e6-9c-ac-e4-b9-8b-e7-ae-a1-e7-90-86web-server/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>bash脚本之管理web server</title>
-        <pubTime>2013-08-19T14:28:57.000Z</pubTime>
-        
-        <tag>bash</tag>
-         
-        <tag>linux</tag>
-         
-        <tag>mysql</tag>
-         
-        <tag>nginx</tag>
-         
-        <tag>php</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.codewalker.me/2011/05/05/wget-tips/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
@@ -5236,26 +5675,6 @@
         <title>wget 使用技巧</title>
         <pubTime>2011-05-05T05:31:47.000Z</pubTime>
         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2012/11/20/bashampnbspscriptampnbspforampnbspautoampnbspinstallampnbsppptpdampnbspserver/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>bash script for auto install pptpd server</title>
-        <pubTime>2012-11-20T02:50:07.000Z</pubTime>
-        
-        <tag>简单</tag>
-         
          
            
              
@@ -5287,26 +5706,6 @@
           
              
               <breadCrumb title="OSX" url="https://blog.codewalker.me/categories/Linux/OSX/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2012/05/12/500ampnbspvsftpd/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>500 vsftpd</title>
-        <pubTime>2012-05-12T15:57:19.000Z</pubTime>
-        
-        <tag>杂谈</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
           
         </display>
     </data>
@@ -5354,150 +5753,12 @@
 
     
   <url>
-    <loc>https://blog.codewalker.me/2012/03/10/cat-tmp-vimrc-super-vim-configuration-file/</loc>
+    <loc>https://blog.codewalker.me/2011/11/05/reserved-adverbial-participle-distinction-and-modernity/</loc>
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     <data>
         <display>
-        <title>cat /tmp/vimrc 超强vim配置文件</title>
-        <pubTime>2012-03-10T15:31:03.000Z</pubTime>
-        
-        <tag>vim配置</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2012/03/09/dig-detailed-use/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>dig 使用详解</title>
-        <pubTime>2012-03-09T11:46:22.000Z</pubTime>
-        
-        <tag>dig</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2014/09/25/e5-be-ae-e4-bf-a1-e5-bc-80-e6-94-be-e5-b9-b3-e5-8f-b0api-e8-87-aa-e5-ae-9a-e4-b9-89-e8-8f-9c-e5-8d-95-e5-85-b3-e9-94-ae-e5-ad-97-e8-87-aa-e5-8a-a8-e5-9b-9e-e5-a4-8d-e5-bc-80-e5-8f-91-e6-a1-88/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>微信开放平台api自定义菜单关键字自动回复开发案例</title>
-        <pubTime>2014-09-25T09:06:57.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-        <tag>php</tag>
-         
-        <tag>weixin</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
-          
-             
-              <breadCrumb title="web" url="https://blog.codewalker.me/categories/Linux/web/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2015/10/05/cannot-install-cocoa-pods-it-shows-me-e3-80-8cerror-while-executing-gem-errnoeperm-operation-not-permitted-usrbinpod-e3-80-8d/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>Cannot install cocoa pods, it shows me 「ERROR: While executing gem ... (Errno::EPERM) Operation not permitted - /usr/bin/pod」</title>
-        <pubTime>2015-10-05T08:22:53.000Z</pubTime>
-        
-        <tag>iOS</tag>
-         
-         
-           
-             
-              <breadCrumb title="iOS" url="https://blog.codewalker.me/categories/iOS/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2013/08/09/reinstall-archlinux-2013-0/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>终于重做了系统2013-8的archlinux</title>
-        <pubTime>2013-08-08T16:08:06.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-        <tag>archlinux</tag>
-         
-        <tag>install</tag>
-         
-        <tag>reinstall</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
-          
-             
-              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/Linux/%E6%9D%82%E8%B0%88/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2010/11/08/reserved-archlinux-installation-configuration-and-some-nonsense/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>[转载]archlinux安装后的配置以及一些废话～</title>
-        <pubTime>2010-11-08T06:24:59.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-        <tag>archlinux</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2011/11/09/reserved-some-of-the-grammar-points-and-sentence-writing-exercises-and-long-term-help-to-learn-french/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>[转载]一些语法点和例句，有助于写作练习和长期学习法语。</title>
-        <pubTime>2011-11-09T09:21:42.000Z</pubTime>
+        <title>[转载]副动词与现代分词的区别</title>
+        <pubTime>2011-11-05T03:39:33.000Z</pubTime>
         
         <tag>法语</tag>
          
@@ -5505,248 +5766,6 @@
            
              
               <breadCrumb title="法语" url="https://blog.codewalker.me/categories/%E6%B3%95%E8%AF%AD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2010/11/10/reserved-the-best-creative-advertising-content-that-you-can-understand-it/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>[转载]最佳内涵创意广告，你看得懂么？</title>
-        <pubTime>2010-11-10T06:43:11.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2011/05/24/reserved-understand-about-cats/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>[转载]养猫的都懂</title>
-        <pubTime>2011-05-24T07:13:31.000Z</pubTime>
-        
-        <tag>cat</tag>
-         
-         
-           
-             
-              <breadCrumb title="猫猫" url="https://blog.codewalker.me/categories/%E7%8C%AB%E7%8C%AB/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2012/11/20/archlinux-lnmp-a-key-installation-fool-scripts-001/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>archlinux lnmp 一键安装傻瓜脚本0.0.1</title>
-        <pubTime>2012-11-20T07:21:30.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-        <tag>archlinux</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2011/09/15/reproduced-quebec-immigrant-literacy-software/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>[转载]魁北克移民扫盲帖</title>
-        <pubTime>2011-09-15T07:56:36.000Z</pubTime>
-        
-        <tag>法语</tag>
-         
-         
-           
-             
-              <breadCrumb title="法语" url="https://blog.codewalker.me/categories/%E6%B3%95%E8%AF%AD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2012/02/17/reserved-frenchman39s-oral-language/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>[转载]法国人的口头语言</title>
-        <pubTime>2012-02-17T03:19:49.000Z</pubTime>
-        
-        <tag>法语</tag>
-         
-         
-           
-             
-              <breadCrumb title="法语" url="https://blog.codewalker.me/categories/%E6%B3%95%E8%AF%AD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2011/09/18/reserved-secret-taiwan-version-chinese-maps-still-retains-the-reasons-for-mongolia/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>[转载]揭秘台湾版中国地图上仍保留着外蒙古的原因</title>
-        <pubTime>2011-09-18T09:29:27.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="杂谈" url="https://blog.codewalker.me/categories/%E6%9D%82%E8%B0%88/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2013/10/19/how-can-i-make-a-chain-of-function-decorators-in-python/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>How can I make a chain of function decorators in Python?</title>
-        <pubTime>2013-10-19T07:00:53.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>linux</tag>
-         
-        <tag>decorators</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2012/03/03/shellampnbspprogramming/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>Shell Programming</title>
-        <pubTime>2012-03-03T06:07:57.000Z</pubTime>
-        
-        <tag>shell</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2011/08/08/reserved-traveled-to-france-reflets-taxi-alter-studio-and-other-textbooks/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>[转载]走遍法国Reflets，taxi，Alter,studio等课本，</title>
-        <pubTime>2011-08-08T02:13:46.000Z</pubTime>
-        
-        <tag>法语</tag>
-         
-         
-           
-             
-              <breadCrumb title="法语" url="https://blog.codewalker.me/categories/%E6%B3%95%E8%AF%AD/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2013/08/25/bsah-e8-84-9a-e6-9c-ac-e4-b9-8b-e6-a3-80-e6-9f-a5-e7-bd-91-e7-ab-99-e5-8f-af-e7-94-a8-e6-80-a7/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>bsah脚本之检查网站可用性</title>
-        <pubTime>2013-08-25T13:30:26.000Z</pubTime>
-        
-        <tag>bash</tag>
-         
-        <tag>linux</tag>
-         
-        <tag>web</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2015/11/18/cannt-sync-iphone-photos/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>FIX Can’t Sync iPhone Photos: ‘The iPhone “Name’s Phone” cannot be synced. You do not have enough access privileges for this operation.’</title>
-        <pubTime>2015-11-18T07:08:42.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="未分类" url="https://blog.codewalker.me/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.codewalker.me/2011/03/05/linux-code-under-the-viewing-and-conversion-rpm/</loc>
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    <data>
-        <display>
-        <title>Linux下编码的查看与转换（转）</title>
-        <pubTime>2011-03-05T06:36:38.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="Linux" url="https://blog.codewalker.me/categories/Linux/"/>
           
         </display>
     </data>
