@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.codewalker.me/"/>
-  <updated>2019-05-31T03:42:01.000Z</updated>
+  <updated>2019-10-30T01:38:20.000Z</updated>
   <id>https://blog.codewalker.me/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>docker-zsh-completion with oh-my-zsh</title>
+    <link href="https://blog.codewalker.me/2019/10/30/docker-zsh-completion-with-oh-my-zsh/"/>
+    <id>https://blog.codewalker.me/2019/10/30/docker-zsh-completion-with-oh-my-zsh/</id>
+    <published>2019-10-30T01:25:30.000Z</published>
+    <updated>2019-10-30T01:38:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Talk-is-cheap"><a href="#Talk-is-cheap" class="headerlink" title="Talk is cheap"></a>Talk is cheap</h1><p>You just need to enable the plugin in ‘oh-my-zsh’</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Step 1</span></span><br><span class="line"><span class="comment"># mkdir &amp;&amp; download the _docker file if there isn't existed in this path'~/.oh-my-zsh/plugins/docker/_docker'</span></span><br><span class="line">curl -fLo ~/.oh-my-zsh/plugins/docker/_docker https://raw.github.com/felixr/docker-zsh-completion/master/_docker</span><br><span class="line"><span class="comment"># Step 2</span></span><br><span class="line"><span class="comment"># Enable the plug</span></span><br><span class="line"><span class="comment"># open ~/.zshrc and find line which is similar with plugins=(git osx autojump), then you need to add docker into that setting like this below.</span></span><br><span class="line">plugins=(git osx autojump docker)</span><br><span class="line"><span class="comment"># Step 3</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure><p>EOF<br>Enjoy</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Talk-is-cheap&quot;&gt;&lt;a href=&quot;#Talk-is-cheap&quot; class=&quot;headerlink&quot; title=&quot;Talk is cheap&quot;&gt;&lt;/a&gt;Talk is cheap&lt;/h1&gt;&lt;p&gt;You just need to enable th
+      
+    
+    </summary>
+    
+    
+      <category term="bash" scheme="https://blog.codewalker.me/tags/bash/"/>
+    
+      <category term="docker" scheme="https://blog.codewalker.me/tags/docker/"/>
+    
+      <category term="oh-my-zsh" scheme="https://blog.codewalker.me/tags/oh-my-zsh/"/>
+    
+  </entry>
   
   <entry>
     <title>how to use &#39;left join&#39; with multi-condition</title>
@@ -499,35 +526,6 @@
       <category term="hexo" scheme="https://blog.codewalker.me/tags/hexo/"/>
     
       <category term="howto" scheme="https://blog.codewalker.me/tags/howto/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>sina api v1.5.4 trade_related_no</title>
-    <link href="https://blog.codewalker.me/2018/07/17/sina-api-v1-5-4-trade-related-no/"/>
-    <id>https://blog.codewalker.me/2018/07/17/sina-api-v1-5-4-trade-related-no/</id>
-    <published>2018-07-17T03:09:34.000Z</published>
-    <updated>2018-07-17T03:11:39.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="接口改造"><a href="#接口改造" class="headerlink" title="接口改造"></a>接口改造</h1><pre><code>- 代收    1. **create_hosting_collect_trade**    2. 投资    3. 还本金    4. 充值利息    5. 充值本金    6. 债权认购-投资人扣款- 代付    1. **create_single_hosting_pay_trade**    2. 发放利息    3. 放款        - 到存钱罐账户        - **create_single_hosting_pay_to_card_trade**到银行卡    4. 还款本金    5. 债权成功回调-债权人收钱    6. 投资退款    7. 债券退款- 交易关联号查询</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;接口改造&quot;&gt;&lt;a href=&quot;#接口改造&quot; class=&quot;headerlink&quot; title=&quot;接口改造&quot;&gt;&lt;/a&gt;接口改造&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;- 代收
-
-    1. **create_hosting_collect_trade**
-
-    2. 
-      
-    
-    </summary>
-    
-    
-      <category term="php" scheme="https://blog.codewalker.me/tags/php/"/>
-    
-      <category term="sina" scheme="https://blog.codewalker.me/tags/sina/"/>
     
   </entry>
   
