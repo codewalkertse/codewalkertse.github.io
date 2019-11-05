@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.codewalker.me/"/>
-  <updated>2019-10-30T01:38:20.000Z</updated>
+  <updated>2019-11-05T04:40:38.000Z</updated>
   <id>https://blog.codewalker.me/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>new CD/CI examply</title>
+    <link href="https://blog.codewalker.me/2019/11/05/new-CD-CI-examply/"/>
+    <id>https://blog.codewalker.me/2019/11/05/new-CD-CI-examply/</id>
+    <published>2019-11-05T04:20:54.000Z</published>
+    <updated>2019-11-05T04:40:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Talk-is-cheap"><a href="#Talk-is-cheap" class="headerlink" title="Talk is cheap"></a>Talk is cheap</h2><p>This example just for interviewer.<br>It’s triggered by post-receive.</p><p>Local push -&gt; Git host -&gt; post-receive -&gt; Jenkins -&gt; shell</p><h2 id="The-Point-of-Technique"><a href="#The-Point-of-Technique" class="headerlink" title="The Point of Technique"></a>The Point of Technique</h2><ul><li>git<ul><li>post-receive: Git will trigger jenkins to do somethins.</li></ul></li><li>jenkins<ul><li>Git will call me when it fired.</li></ul></li><li>shell<ul><li>this script will do somethins when jenkins has been called.</li></ul></li><li>nginx<ul><li>Do some sutff after jenkins deployment doen.</li></ul></li><li>vue<ul><li>Build on local then push <strong>dists</strong> to Git host, a simple html example.</li></ul></li></ul><p>EOF<br>Enjoy<br>I, simon love this world ❤️</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Talk-is-cheap&quot;&gt;&lt;a href=&quot;#Talk-is-cheap&quot; class=&quot;headerlink&quot; title=&quot;Talk is cheap&quot;&gt;&lt;/a&gt;Talk is cheap&lt;/h2&gt;&lt;p&gt;This example just for inte
+      
+    
+    </summary>
+    
+    
+      <category term="bash" scheme="https://blog.codewalker.me/tags/bash/"/>
+    
+      <category term="jenkins" scheme="https://blog.codewalker.me/tags/jenkins/"/>
+    
+  </entry>
   
   <entry>
     <title>docker-zsh-completion with oh-my-zsh</title>
@@ -499,33 +524,6 @@
       <category term="python" scheme="https://blog.codewalker.me/tags/python/"/>
     
       <category term="descriptor" scheme="https://blog.codewalker.me/tags/descriptor/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>using code_dir on a elegant way</title>
-    <link href="https://blog.codewalker.me/2018/07/17/using-code-dir-in-elegant-way/"/>
-    <id>https://blog.codewalker.me/2018/07/17/using-code-dir-in-elegant-way/</id>
-    <published>2018-07-17T08:39:19.000Z</published>
-    <updated>2018-07-17T09:10:53.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Howto"><a href="#Howto" class="headerlink" title="Howto"></a>Howto</h1><ol><li><p>Create folders if not exist.</p><p> In your hexo root.</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p <span class="built_in">source</span>/downloads/code</span><br></pre></td></tr></table></figure></li><li><p>Include your source code in your post</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% include_code base_socket_client lang:python base_socket_client.py %&#125;</span><br></pre></td></tr></table></figure></li></ol><h1 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h1><figure class="highlight python"><figcaption><span>base_socket_client.py</span><a href="/downloads/code/base_socket_client.py">view raw</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Date    : 2018-07-15 12:55:35</span></span><br><span class="line"><span class="comment"># @Author  : Simon (simon.xie@codewalker.meg)</span></span><br><span class="line"><span class="comment"># @Link    : http://www.codewalker.me</span></span><br><span class="line"><span class="comment"># @Version : 1.0.0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Main</span><span class="params">()</span>:</span></span><br><span class="line">        host = <span class="string">'127.0.0.1'</span></span><br><span class="line">        port = <span class="number">5000</span></span><br><span class="line">         </span><br><span class="line">        mySocket = socket.socket()</span><br><span class="line">        mySocket.connect((host,port))</span><br><span class="line">         </span><br><span class="line">        message = input(<span class="string">" -&gt; "</span>)</span><br><span class="line">         </span><br><span class="line">        <span class="keyword">while</span> message != <span class="string">'q'</span>:</span><br><span class="line">                mySocket.send(message.encode())</span><br><span class="line">                data = mySocket.recv(<span class="number">1024</span>).decode()</span><br><span class="line">                 </span><br><span class="line">                <span class="keyword">print</span> (<span class="string">'Received from server: '</span> + data)</span><br><span class="line">                 </span><br><span class="line">                message = input(<span class="string">" -&gt; "</span>)</span><br><span class="line">                 </span><br><span class="line">        mySocket.close()</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    Main()</span><br><span class="line"></span><br><span class="line">    print(<span class="string">'xxxx'</span>)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Howto&quot;&gt;&lt;a href=&quot;#Howto&quot; class=&quot;headerlink&quot; title=&quot;Howto&quot;&gt;&lt;/a&gt;Howto&lt;/h1&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Create folders if not exist.&lt;/p&gt;
-&lt;p&gt; In your hexo
-      
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="https://blog.codewalker.me/tags/hexo/"/>
-    
-      <category term="howto" scheme="https://blog.codewalker.me/tags/howto/"/>
     
   </entry>
   
