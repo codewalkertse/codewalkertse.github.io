@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.codewalker.me/"/>
-  <updated>2019-11-05T04:40:38.000Z</updated>
+  <updated>2019-11-05T04:49:15.000Z</updated>
   <id>https://blog.codewalker.me/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>new CD/CI examply</title>
-    <link href="https://blog.codewalker.me/2019/11/05/new-CD-CI-examply/"/>
-    <id>https://blog.codewalker.me/2019/11/05/new-CD-CI-examply/</id>
+    <title>new CD/CI example</title>
+    <link href="https://blog.codewalker.me/2019/11/05/new-CD-CI-example/"/>
+    <id>https://blog.codewalker.me/2019/11/05/new-CD-CI-example/</id>
     <published>2019-11-05T04:20:54.000Z</published>
-    <updated>2019-11-05T04:40:38.000Z</updated>
+    <updated>2019-11-05T04:49:15.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Talk-is-cheap"><a href="#Talk-is-cheap" class="headerlink" title="Talk is cheap"></a>Talk is cheap</h2><p>This example just for interviewer.<br>It’s triggered by post-receive.</p><p>Local push -&gt; Git host -&gt; post-receive -&gt; Jenkins -&gt; shell</p><h2 id="The-Point-of-Technique"><a href="#The-Point-of-Technique" class="headerlink" title="The Point of Technique"></a>The Point of Technique</h2><ul><li>git<ul><li>post-receive: Git will trigger jenkins to do somethins.</li></ul></li><li>jenkins<ul><li>Git will call me when it fired.</li></ul></li><li>shell<ul><li>this script will do somethins when jenkins has been called.</li></ul></li><li>nginx<ul><li>Do some sutff after jenkins deployment doen.</li></ul></li><li>vue<ul><li>Build on local then push <strong>dists</strong> to Git host, a simple html example.</li></ul></li></ul><p>EOF<br>Enjoy<br>I, simon love this world ❤️</p>]]></content>
     
