@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.codewalker.me/"/>
-  <updated>2019-11-26T02:24:17.000Z</updated>
+  <updated>2020-03-16T13:30:04.000Z</updated>
   <id>https://blog.codewalker.me/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>scalable web container with haproxy</title>
+    <link href="https://blog.codewalker.me/2020/03/16/scalable-web-container-with-haproxy/"/>
+    <id>https://blog.codewalker.me/2020/03/16/scalable-web-container-with-haproxy/</id>
+    <published>2020-03-16T13:19:54.000Z</published>
+    <updated>2020-03-16T13:30:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Talk-is-cheap"><a href="#Talk-is-cheap" class="headerlink" title="Talk is cheap"></a>Talk is cheap</h2><p>Files:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; tree</span><br><span class="line">.</span><br><span class="line">├── app.py</span><br><span class="line">├── docker-compose.yml</span><br><span class="line">└── web.Dockerfile</span><br></pre></td></tr></table></figure><ul><li>docker-compose.yml</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">version: <span class="string">"3"</span></span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line"></span><br><span class="line">  redis:</span><br><span class="line">    image: redis</span><br><span class="line">    restart: always</span><br><span class="line"></span><br><span class="line">  web:</span><br><span class="line">    build:</span><br><span class="line">      context: .</span><br><span class="line">      dockerfile: web.Dockerfile</span><br><span class="line">    depends_on: </span><br><span class="line">      - redis</span><br><span class="line">    environment:</span><br><span class="line">      REDIS_HOST: redis</span><br><span class="line">    restart: always</span><br><span class="line"></span><br><span class="line">  lb:</span><br><span class="line">    image: dockercloud/haproxy</span><br><span class="line">    links:</span><br><span class="line">      - web</span><br><span class="line">    ports:</span><br><span class="line">      - 80:80</span><br><span class="line">    depends_on: </span><br><span class="line">      - web</span><br><span class="line">    volumes:</span><br><span class="line">      - /var/run/docker.sock:/var/run/docker.sock</span><br><span class="line">    restart: always</span><br></pre></td></tr></table></figure><ul><li>app.py</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask</span><br><span class="line">from redis import Redis</span><br><span class="line">import os</span><br><span class="line">import socket</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">redis = Redis(host=os.environ.get(<span class="string">'REDIS_HOST'</span>, <span class="string">'127.0.0.1'</span>), port=6379)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@app.route(<span class="string">'/'</span>)</span><br><span class="line">def hello():</span><br><span class="line">    redis.incr(<span class="string">'hits'</span>)</span><br><span class="line">    <span class="built_in">return</span> <span class="string">'Hello Container World! I have been seen %s times and my hostname is %s.\n'</span> % (redis.get(<span class="string">'hits'</span>),socket.gethostname())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    app.run(host=<span class="string">"0.0.0.0"</span>, port=8000, debug=True)</span><br></pre></td></tr></table></figure><ul><li>web.Dockerfile</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">FROM python:2.7</span><br><span class="line">LABEL maintaner=<span class="string">"simon.xie@codewalker.me"</span></span><br><span class="line">COPY . /app</span><br><span class="line">WORKDIR /app</span><br><span class="line">RUN python -m pip install --upgrade pip &amp;&amp; pip install flask redis</span><br><span class="line">EXPOSE 8000</span><br><span class="line">CMD [ <span class="string">"python"</span>, <span class="string">"app.py"</span> ]</span><br></pre></td></tr></table></figure><h2 id="How-to-run"><a href="#How-to-run" class="headerlink" title="How to run"></a>How to run</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure><p>then you should see something like this:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt; docker-compose up</span><br><span class="line">Starting scale_redis_1 ... <span class="keyword">done</span></span><br><span class="line">Starting scale_web_1   ... <span class="keyword">done</span></span><br><span class="line">Starting scale_lb_1    ... <span class="keyword">done</span></span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">lb_1     |   maxconn 4096</span><br><span class="line">lb_1     |   default_backend default_service</span><br><span class="line">lb_1     | backend default_service</span><br><span class="line">lb_1     |   server scale_web_1 scale_web_1:80 check inter 2000 rise 2 fall 3</span><br><span class="line">lb_1     | INFO:haproxy:Launching HAProxy</span><br><span class="line">lb_1     | INFO:haproxy:HAProxy has been launched(PID: 9)</span><br><span class="line">lb_1     | INFO:haproxy:===========END===========</span><br></pre></td></tr></table></figure><h2 id="How-to-see"><a href="#How-to-see" class="headerlink" title="How to see"></a>How to see</h2><p>Open 127.0.0.1 in your browser whatever you like.</p><p>EOF<br>Enjoy<br>I, simon love this world ❤️</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Talk-is-cheap&quot;&gt;&lt;a href=&quot;#Talk-is-cheap&quot; class=&quot;headerlink&quot; title=&quot;Talk is cheap&quot;&gt;&lt;/a&gt;Talk is cheap&lt;/h2&gt;&lt;p&gt;Files:&lt;/p&gt;
+&lt;figure class=&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="https://blog.codewalker.me/tags/python/"/>
+    
+      <category term="docker" scheme="https://blog.codewalker.me/tags/docker/"/>
+    
+      <category term="redis" scheme="https://blog.codewalker.me/tags/redis/"/>
+    
+      <category term="flask" scheme="https://blog.codewalker.me/tags/flask/"/>
+    
+  </entry>
   
   <entry>
     <title>Install JDK8 on Macos</title>
@@ -503,32 +533,6 @@
     
     
       <category term="python" scheme="https://blog.codewalker.me/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Knowing descriptor in Python 2</title>
-    <link href="https://blog.codewalker.me/2018/07/18/Knowing-descriptor-in-Python-2/"/>
-    <id>https://blog.codewalker.me/2018/07/18/Knowing-descriptor-in-Python-2/</id>
-    <published>2018-07-18T13:53:15.000Z</published>
-    <updated>2018-07-19T09:27:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Do"><a href="#Do" class="headerlink" title="Do"></a>Do</h1><p>read it below</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Date    : 2018-07-18 10:21:16</span></span><br><span class="line"><span class="comment"># @Author  : Simon (simon.xie@codewalker.meg)</span></span><br><span class="line"><span class="comment"># @Link    : http://www.codewalker.me</span></span><br><span class="line"><span class="comment"># @Version : 1.0.0</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Desc</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        print(<span class="string">f'in init, data is: <span class="subst">&#123;data&#125;</span>'</span>)</span><br><span class="line">        self.data = data</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__get__</span><span class="params">(self, instance, owner)</span>:</span></span><br><span class="line">        print(<span class="string">'in get func'</span>)</span><br><span class="line">        <span class="keyword">return</span> self.data</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__set__</span><span class="params">(self, instance, value)</span>:</span></span><br><span class="line">        print(<span class="string">f'in set, value is <span class="subst">&#123;value&#125;</span>'</span>)</span><br><span class="line">        self.value = value</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">E</span><span class="params">(object)</span>:</span></span><br><span class="line">    x = Desc(<span class="number">10</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        self.x = data</span><br><span class="line">e = E(<span class="number">5</span>)</span><br><span class="line">print(e.x)</span><br></pre></td></tr></table></figure><p>Try to comment <code>func __set__</code>, then think about <code>what&amp;why</code> the result are different.</p><h1 id="Get"><a href="#Get" class="headerlink" title="Get"></a>Get</h1><p>It’s become a <code>non-data descriptor</code> when <code>func __set__</code> is commented.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Do&quot;&gt;&lt;a href=&quot;#Do&quot; class=&quot;headerlink&quot; title=&quot;Do&quot;&gt;&lt;/a&gt;Do&lt;/h1&gt;&lt;p&gt;read it below&lt;/p&gt;
-&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td clas
-      
-    
-    </summary>
-    
-    
-      <category term="python" scheme="https://blog.codewalker.me/tags/python/"/>
-    
-      <category term="descriptor" scheme="https://blog.codewalker.me/tags/descriptor/"/>
     
   </entry>
   
