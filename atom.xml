@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.codewalker.me/"/>
-  <updated>2020-03-17T01:02:37.000Z</updated>
+  <updated>2020-04-01T09:08:46.000Z</updated>
   <id>https://blog.codewalker.me/</id>
   
   <author>
@@ -17,13 +17,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Build python 3.6 based on alpine</title>
+    <link href="https://blog.codewalker.me/2020/04/01/Build-python-3-6-based-on-alpine/"/>
+    <id>https://blog.codewalker.me/2020/04/01/Build-python-3-6-based-on-alpine/</id>
+    <published>2020-04-01T07:19:38.000Z</published>
+    <updated>2020-04-01T09:08:46.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Talk-is-cheap"><a href="#Talk-is-cheap" class="headerlink" title="Talk is cheap"></a>Talk is cheap</h2><p>Files:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; tree</span><br><span class="line">.</span><br><span class="line">├── Dockerfile</span><br><span class="line">└── Python-3.6.10.tar.xz</span><br></pre></td></tr></table></figure><h2 id="1-Preparation"><a href="#1-Preparation" class="headerlink" title="1. Preparation"></a>1. Preparation</h2><ul><li>Make a new dir for your work</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir alpine_python3.6.10</span><br><span class="line"><span class="built_in">cd</span> alpine_python3.6.10</span><br></pre></td></tr></table></figure><ul><li>Download python souce code tar-ball.</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget <span class="string">'https://www.python.org/ftp/python/3.6.10/Python-3.6.10.tar.xz'</span></span><br></pre></td></tr></table></figure><ul><li>cp &amp; past <code>Dockerfile</code> below.</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">FROM alpine:latest AS alpine_py3.6</span><br><span class="line"></span><br><span class="line">COPY ./Python-3.6.10.tar.xz /root</span><br><span class="line">WORKDIR /root</span><br><span class="line"></span><br><span class="line">RUN \</span><br><span class="line">    sed -i <span class="string">'s/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g'</span> /etc/apk/repositories \</span><br><span class="line">    &amp;&amp; <span class="built_in">echo</span> <span class="string">"ipv6"</span> &gt;&gt; /etc/modules</span><br><span class="line">RUN \</span><br><span class="line">    apk update \ &amp;&amp; apk upgrade \</span><br><span class="line">    &amp;&amp; apk add --no-cache bash gcc libffi-dev python-dev openssl-dev make zlib-dev libc-dev bash-doc bash-completion \</span><br><span class="line">    &amp;&amp; rm -rf /var/cache/apk/* \</span><br><span class="line">    &amp;&amp; tar -xf Python-3.6.10.tar.xz \</span><br><span class="line">    &amp;&amp; rm -rf Python-3.6.10.tar.xz \</span><br><span class="line">    &amp;&amp; <span class="built_in">cd</span> Python-3.6.10 \</span><br><span class="line">    &amp;&amp; ./configure --<span class="built_in">enable</span>-optimizations \</span><br><span class="line">    &amp;&amp; make -j 8 \</span><br><span class="line">    &amp;&amp; make install \</span><br><span class="line">    &amp;&amp; pip3 install --upgrade pip \</span><br><span class="line">    &amp;&amp; rm -rf /root/Python-3.6.10</span><br><span class="line">CMD /bin/sh</span><br></pre></td></tr></table></figure><h2 id="2-Build-image"><a href="#2-Build-image" class="headerlink" title="2. Build image"></a>2. Build image</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t alpine:python3.6.10 .</span><br></pre></td></tr></table></figure><h2 id="3-Play-with-your-new-alpine-python3-6-10"><a href="#3-Play-with-your-new-alpine-python3-6-10" class="headerlink" title="3. Play with your new alpine:python3.6.10"></a>3. Play with your new alpine:python3.6.10</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -itd alpine:python3.6.10</span><br></pre></td></tr></table></figure><p>EOF<br>Enjoy<br>I, simon love this world ❤️</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Talk-is-cheap&quot;&gt;&lt;a href=&quot;#Talk-is-cheap&quot; class=&quot;headerlink&quot; title=&quot;Talk is cheap&quot;&gt;&lt;/a&gt;Talk is cheap&lt;/h2&gt;&lt;p&gt;Files:&lt;/p&gt;
+&lt;figure class=&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="docker" scheme="https://blog.codewalker.me/tags/docker/"/>
+    
+      <category term="linux" scheme="https://blog.codewalker.me/tags/linux/"/>
+    
+      <category term="python" scheme="https://blog.codewalker.me/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>play with supervisord</title>
     <link href="https://blog.codewalker.me/2020/03/17/play-with-supervisord/"/>
     <id>https://blog.codewalker.me/2020/03/17/play-with-supervisord/</id>
     <published>2020-03-17T00:44:13.000Z</published>
-    <updated>2020-03-17T01:02:37.000Z</updated>
+    <updated>2020-03-17T01:11:37.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Talk-is-cheap"><a href="#Talk-is-cheap" class="headerlink" title="Talk is cheap"></a>Talk is cheap</h2><p>Files:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; tree</span><br><span class="line">.</span><br><span class="line">├── requirements.txt</span><br><span class="line">└── supervisord</span><br></pre></td></tr></table></figure><p>++File requirements.txt++</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisor&gt;=4.1.0</span><br></pre></td></tr></table></figure><h2 id="1-Install"><a href="#1-Install" class="headerlink" title="1. Install"></a>1. Install</h2><p>Install supervisord by pip3, in your terminal run this</p><p><code>pip3 install -r requirements.txt</code></p><h2 id="2-The-conf"><a href="#2-The-conf" class="headerlink" title="2. The .conf"></a>2. The .conf</h2><p>Write <code>supervisord.conf</code> for yourself. In this case, it would be check the status of <code>gunicorn</code>. </p><p>++File supervisord.conf++</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[supervisord]</span><br><span class="line">logfile=/code/logs/supervisord/supervisord.log     ; (main <span class="built_in">log</span> file;default <span class="variable">$CWD</span>/supervisord.log)</span><br><span class="line">logfile_maxbytes=0              ; (max main logfile bytes b4 rotation;default 50MB)</span><br><span class="line">logfile_backups=10                  ; (num of main logfile rotation backups;default 10)</span><br><span class="line">loglevel=info                       ; (<span class="built_in">log</span> level;default info; others: debug,warn,trace)</span><br><span class="line">pidfile=/code/supervisord/supervisord.pid ; (supervisord pidfile;default supervisord.pid)</span><br><span class="line">nodaemon=<span class="literal">true</span>                      ; (start <span class="keyword">in</span> foreground <span class="keyword">if</span> <span class="literal">true</span>;default <span class="literal">false</span>)</span><br><span class="line">minfds=1024                         ; (min. avail startup file descriptors;default 1024)</span><br><span class="line">minprocs=200                        ; (min. avail process descriptors;default 200)</span><br><span class="line">nocleanup=<span class="literal">false</span>                     ; (don<span class="string">'t clean up tempfiles at start;default false)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">[program:gunicorn]</span></span><br><span class="line"><span class="string">startsecs = 2</span></span><br><span class="line"><span class="string">autorestart = true</span></span><br><span class="line"><span class="string">command=gunicorn -c gunicorn.conf.py wolfeye.wsgi:application</span></span><br></pre></td></tr></table></figure><h2 id="3-Fire-the-rocket"><a href="#3-Fire-the-rocket" class="headerlink" title="3. Fire the rocket"></a>3. Fire the rocket</h2><p><code>supervisord -c supervisord.conf</code></p><h2 id="4-Watch-the-logs"><a href="#4-Watch-the-logs" class="headerlink" title="4. Watch the logs"></a>4. Watch the logs</h2><p><code>tail -F /code/logs/supervisord/supervisord.log</code></p><p>EOF<br>Enjoy<br>I, simon love this world ❤️</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="Talk-is-cheap"><a href="#Talk-is-cheap" class="headerlink" title="Talk is cheap"></a>Talk is cheap</h2><p>Files:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; tree</span><br><span class="line">.</span><br><span class="line">├── requirements.txt</span><br><span class="line">└── supervisord</span><br></pre></td></tr></table></figure><p>++File requirements.txt++</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisor&gt;=4.1.0</span><br></pre></td></tr></table></figure><h2 id="1-Install"><a href="#1-Install" class="headerlink" title="1. Install"></a>1. Install</h2><p>Install supervisord by pip3, in your terminal run this</p><p><code>pip3 install -r requirements.txt</code></p><h2 id="2-The-conf"><a href="#2-The-conf" class="headerlink" title="2. The .conf"></a>2. The .conf</h2><p>Write <code>supervisord.conf</code> for yourself. In this case, it would be check the status of <code>gunicorn</code>.</p><p>++File supervisord.conf++</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[supervisord]</span><br><span class="line">logfile=/code/logs/supervisord/supervisord.log     ; (main <span class="built_in">log</span> file;default <span class="variable">$CWD</span>/supervisord.log)</span><br><span class="line">logfile_maxbytes=0              ; (max main logfile bytes b4 rotation;default 50MB)</span><br><span class="line">logfile_backups=10                  ; (num of main logfile rotation backups;default 10)</span><br><span class="line">loglevel=info                       ; (<span class="built_in">log</span> level;default info; others: debug,warn,trace)</span><br><span class="line">pidfile=/code/supervisord/supervisord.pid ; (supervisord pidfile;default supervisord.pid)</span><br><span class="line">nodaemon=<span class="literal">true</span>                      ; (start <span class="keyword">in</span> foreground <span class="keyword">if</span> <span class="literal">true</span>;default <span class="literal">false</span>)</span><br><span class="line">minfds=1024                         ; (min. avail startup file descriptors;default 1024)</span><br><span class="line">minprocs=200                        ; (min. avail process descriptors;default 200)</span><br><span class="line">nocleanup=<span class="literal">false</span>                     ; (don<span class="string">'t clean up tempfiles at start;default false)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">[program:gunicorn]</span></span><br><span class="line"><span class="string">startsecs = 2</span></span><br><span class="line"><span class="string">autorestart = true</span></span><br><span class="line"><span class="string">command=gunicorn -c gunicorn.conf.py wolfeye.wsgi:application</span></span><br></pre></td></tr></table></figure><h2 id="3-Fire-the-rocket"><a href="#3-Fire-the-rocket" class="headerlink" title="3. Fire the rocket"></a>3. Fire the rocket</h2><p><code>supervisord -c supervisord.conf</code></p><h2 id="4-Watch-the-logs"><a href="#4-Watch-the-logs" class="headerlink" title="4. Watch the logs"></a>4. Watch the logs</h2><p><code>tail -F /code/logs/supervisord/supervisord.log</code></p><p>EOF<br>Enjoy<br>I, simon love this world ❤️</p>]]></content>
     
     <summary type="html">
     
@@ -62,9 +90,9 @@
     </summary>
     
     
-      <category term="python" scheme="https://blog.codewalker.me/tags/python/"/>
-    
       <category term="docker" scheme="https://blog.codewalker.me/tags/docker/"/>
+    
+      <category term="python" scheme="https://blog.codewalker.me/tags/python/"/>
     
       <category term="redis" scheme="https://blog.codewalker.me/tags/redis/"/>
     
@@ -197,9 +225,9 @@
     </summary>
     
     
-      <category term="bash" scheme="https://blog.codewalker.me/tags/bash/"/>
-    
       <category term="docker" scheme="https://blog.codewalker.me/tags/docker/"/>
+    
+      <category term="bash" scheme="https://blog.codewalker.me/tags/bash/"/>
     
       <category term="oh-my-zsh" scheme="https://blog.codewalker.me/tags/oh-my-zsh/"/>
     
@@ -512,30 +540,6 @@
       <category term="hexo" scheme="https://blog.codewalker.me/tags/hexo/"/>
     
       <category term="frontend" scheme="https://blog.codewalker.me/tags/frontend/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Baidu optimization</title>
-    <link href="https://blog.codewalker.me/2018/07/23/Baidu-seo/"/>
-    <id>https://blog.codewalker.me/2018/07/23/Baidu-seo/</id>
-    <published>2018-07-23T05:40:39.000Z</published>
-    <updated>2018-07-23T07:39:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Into"><a href="#Into" class="headerlink" title="Into"></a>Into</h1><p>Nothing to say…</p><h2 id="Install-two-plugins"><a href="#Install-two-plugins" class="headerlink" title="Install two plugins"></a>Install two plugins</h2><ul><li>hexo-generator-baidu-sitemap</li><li>hexo-baidu-url-submit</li></ul><h3 id="hexo-generator-baidu-sitemap"><a href="#hexo-generator-baidu-sitemap" class="headerlink" title="hexo-generator-baidu-sitemap"></a>hexo-generator-baidu-sitemap</h3><ul><li>Installation</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure><ul><li>Setup</li></ul><p>In you <code>_config.yml</code> add:</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">baidusitemap:</span></span><br><span class="line"><span class="attr">    path:</span> <span class="string">baidusitemap.xml</span></span><br></pre></td></tr></table></figure><ul><li>Use</li></ul><p>It’s will create a file named <code>baidusitemap.xml</code> automaticlly when you deploy your to GitHub</p><h3 id="hexo-baidu-url-submit"><a href="#hexo-baidu-url-submit" class="headerlink" title="hexo-baidu-url-submit"></a>hexo-baidu-url-submit</h3><ul><li>Installation</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-baidu-url-submit --save</span><br></pre></td></tr></table></figure><ul><li>Setup</li></ul><p>In you <code>_config.yml</code> add:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">baidu_url_submit:</span><br><span class="line">  count: 3 <span class="comment">### last 3 urls will be submitted</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># your site domain</span></span><br><span class="line">  <span class="comment"># just like: url: http://www.yourdomain.com before you see</span></span><br><span class="line">  <span class="comment"># notice without 'http://' or 'https://'</span></span><br><span class="line">  host: www.yourdomain.com</span><br><span class="line"></span><br><span class="line">  <span class="comment"># your token here.</span></span><br><span class="line">  <span class="comment"># find out in 'https://ziyuan.baidu.com/linksubmit/index?site=http://www.yourdomain.com/'</span></span><br><span class="line">  token: your-token-here</span><br><span class="line">  path: baidu_urls.txt</span><br></pre></td></tr></table></figure><p>and add <code>- type: baidu_url_submitter</code> to your config.yml:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  - <span class="built_in">type</span>: git</span><br><span class="line">    repo: who@github.com:who/repo.address.git</span><br><span class="line">    branch: master</span><br><span class="line">  - <span class="built_in">type</span>: baidu_url_submitter</span><br></pre></td></tr></table></figure><ul><li><p>principle</p><ol><li>Create baidu_urls.txt and filled last 3 ursl in it when <code>hexo denerate</code>.</li><li>Submiting your 3 new urls to baidu when <code>hexo deploy</code>, also it will submit to Git whilc is your another source in <code>_config.yml</code></li></ol></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Into&quot;&gt;&lt;a href=&quot;#Into&quot; class=&quot;headerlink&quot; title=&quot;Into&quot;&gt;&lt;/a&gt;Into&lt;/h1&gt;&lt;p&gt;Nothing to say…&lt;/p&gt;
-&lt;h2 id=&quot;Install-two-plugins&quot;&gt;&lt;a href=&quot;#Ins
-      
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="https://blog.codewalker.me/tags/hexo/"/>
     
   </entry>
   
