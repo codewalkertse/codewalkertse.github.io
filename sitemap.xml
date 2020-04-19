@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.codewalker.me/2020/04/19/Public-key-for-jenkins-2-232-1-1-noarch-rpm-is-not-installed/</loc>
+    
+    <lastmod>2020-04-19T13:49:56.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.codewalker.me/2020/04/01/Build-python-3-6-based-on-alpine/</loc>
     
-    <lastmod>2020-04-01T09:08:46.000Z</lastmod>
+    <lastmod>2020-04-01T09:10:33.000Z</lastmod>
     
   </url>
   
@@ -345,13 +352,6 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2012/05/12/500ampnbspvsftpd/</loc>
-    
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.codewalker.me/2016/04/17/20160417/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
@@ -359,21 +359,7 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2013/10/01/378/</loc>
-    
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.codewalker.me/2013/04/16/about-en-y/</loc>
-    
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.codewalker.me/2012/11/30/about-github/</loc>
+    <loc>https://blog.codewalker.me/2012/05/12/500ampnbspvsftpd/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -388,6 +374,48 @@
   
   <url>
     <loc>https://blog.codewalker.me/2013/04/17/about-demander/</loc>
+    
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.codewalker.me/2013/04/16/about-en-y/</loc>
+    
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.codewalker.me/2012/12/10/about-github-two/</loc>
+    
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.codewalker.me/2012/11/30/about-github/</loc>
+    
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.codewalker.me/2013/04/12/about-netctl/</loc>
+    
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.codewalker.me/2013/10/01/378/</loc>
+    
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.codewalker.me/2013/05/29/about-python-class/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -422,27 +450,6 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2012/12/10/about-github-two/</loc>
-    
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.codewalker.me/2013/04/12/about-netctl/</loc>
-    
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.codewalker.me/2013/05/29/about-python-class/</loc>
-    
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.codewalker.me/2013/12/10/about-the-order-of-class-in-python/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
@@ -450,28 +457,7 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2012/11/20/archlinux-lnmp-a-key-installation-fool-scripts-001/</loc>
-    
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.codewalker.me/2018/06/10/are-you-scare/</loc>
-    
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.codewalker.me/2014/02/28/anything-about-destoon/</loc>
-    
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.codewalker.me/2013/08/26/bash-e8-84-9a-e6-9c-ac-e4-b9-8b-e6-89-b9-e9-87-8f-e5-af-bc-e5-85-a5sql-e6-96-87-e4-bb-b6-e5-88-b0mysql-e4-b8-ad/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -492,7 +478,42 @@
   </url>
   
   <url>
+    <loc>https://blog.codewalker.me/2012/11/20/archlinux-lnmp-a-key-installation-fool-scripts-001/</loc>
+    
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.codewalker.me/2018/06/10/are-you-scare/</loc>
+    
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.codewalker.me/2013/10/01/bash-e8-84-9a-e6-9c-ac-e4-b9-8b-e5-a4-87-e4-bb-bd/</loc>
+    
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.codewalker.me/2013/08/26/bash-e8-84-9a-e6-9c-ac-e4-b9-8b-e6-89-b9-e9-87-8f-e5-af-bc-e5-85-a5sql-e6-96-87-e4-bb-b6-e5-88-b0mysql-e4-b8-ad/</loc>
+    
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.codewalker.me/2013/08/19/bash-e8-84-9a-e6-9c-ac-e4-b9-8b-e7-ae-a1-e7-90-86web-server/</loc>
+    
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.codewalker.me/2012/11/20/bashampnbspscriptampnbspforampnbspautoampnbspinstallampnbsppptpdampnbspserver/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -520,20 +541,6 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2013/08/19/bash-e8-84-9a-e6-9c-ac-e4-b9-8b-e7-ae-a1-e7-90-86web-server/</loc>
-    
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.codewalker.me/2012/11/20/bashampnbspscriptampnbspforampnbspautoampnbspinstallampnbsppptpdampnbspserver/</loc>
-    
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.codewalker.me/2012/03/10/catampnbspetcnginxconfnginxconf/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
@@ -549,20 +556,6 @@
   
   <url>
     <loc>https://blog.codewalker.me/2011/05/11/cats-can-not-eat-the-food/</loc>
-    
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.codewalker.me/2012/04/13/dede-weaving-dreams-nginx-security-settings/</loc>
-    
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.codewalker.me/2012/11/26/detailed-installation-configuration-dnscrypt-and-dnsmasq/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -590,7 +583,14 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2012/03/09/dig-detailed-use/</loc>
+    <loc>https://blog.codewalker.me/2012/04/13/dede-weaving-dreams-nginx-security-settings/</loc>
+    
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.codewalker.me/2012/11/26/detailed-installation-configuration-dnscrypt-and-dnsmasq/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -598,6 +598,13 @@
   
   <url>
     <loc>https://blog.codewalker.me/2011/04/20/diet-plan-reference/</loc>
+    
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.codewalker.me/2012/03/09/dig-detailed-use/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -716,14 +723,14 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2017/01/01/e8-ae-b0-2016-e8-bf-99-e4-b8-8d-e6-98-af-e5-b9-b4-e6-80-bb-e7-bb-93/</loc>
+    <loc>https://blog.codewalker.me/2015/01/03/e8-ae-b0-2014/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2015/01/03/e8-ae-b0-2014/</loc>
+    <loc>https://blog.codewalker.me/2017/01/01/e8-ae-b0-2016-e8-bf-99-e4-b8-8d-e6-98-af-e5-b9-b4-e6-80-bb-e7-bb-93/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -758,14 +765,14 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2013/04/16/euxampnbspnousampnbspaiment/</loc>
+    <loc>https://blog.codewalker.me/2013/01/22/errorampnbspshell-init/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2015/04/08/experience-of-xenserver/</loc>
+    <loc>https://blog.codewalker.me/2013/04/16/euxampnbspnousampnbspaiment/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -786,6 +793,13 @@
   </url>
   
   <url>
+    <loc>https://blog.codewalker.me/2015/04/08/experience-of-xenserver/</loc>
+    
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.codewalker.me/2017/08/04/first-tattoo/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
@@ -793,14 +807,14 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2014/11/12/fix-how-to-fix-no-space-left-on-device/</loc>
+    <loc>https://blog.codewalker.me/2012/12/11/fix-unzip-the-garbage-problem/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2012/12/11/fix-unzip-the-garbage-problem/</loc>
+    <loc>https://blog.codewalker.me/2014/11/12/fix-how-to-fix-no-space-left-on-device/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -835,13 +849,6 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2011/07/30/french-assistant-2010-crack-modify-the-frequency-of-use-register/</loc>
-    
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.codewalker.me/2011/08/11/french-definite-article-the-indefinite-article/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
@@ -849,7 +856,7 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2012/07/05/french-grammar-french-relative-clauses/</loc>
+    <loc>https://blog.codewalker.me/2011/07/30/french-assistant-2010-crack-modify-the-frequency-of-use-register/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -863,7 +870,7 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2012/07/08/french-grammar-summary-3-pronouns-articles/</loc>
+    <loc>https://blog.codewalker.me/2012/07/05/french-grammar-french-relative-clauses/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -871,6 +878,13 @@
   
   <url>
     <loc>https://blog.codewalker.me/2012/07/08/french-grammar-summary-2-article-articles/</loc>
+    
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.codewalker.me/2012/07/08/french-grammar-summary-3-pronouns-articles/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -912,14 +926,14 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2011/10/22/hardcore-french-curse-premium/</loc>
+    <loc>https://blog.codewalker.me/2015/08/20/hello-double-seven-festival/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2015/08/20/hello-double-seven-festival/</loc>
+    <loc>https://blog.codewalker.me/2011/10/22/hardcore-french-curse-premium/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -933,6 +947,13 @@
   </url>
   
   <url>
+    <loc>https://blog.codewalker.me/2014/10/14/how-do-i-strike-the-balance-between-confidence-and-arrogance/</loc>
+    
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.codewalker.me/2013/10/19/how-can-i-make-a-chain-of-function-decorators-in-python/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
@@ -940,7 +961,7 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2014/10/14/how-do-i-strike-the-balance-between-confidence-and-arrogance/</loc>
+    <loc>https://blog.codewalker.me/2015/05/14/how-to-calculate-age-gender-from-id-using-sql/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -969,13 +990,6 @@
   
   <url>
     <loc>https://blog.codewalker.me/2014/08/29/how-to-force-ssh-login-via-public-key-authentication/</loc>
-    
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.codewalker.me/2015/05/14/how-to-calculate-age-gender-from-id-using-sql/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -1129,14 +1143,14 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2012/04/30/i-used-linux-bash-script-to-update-to-13/</loc>
+    <loc>https://blog.codewalker.me/2012/03/09/in-archlinux-install-dnsmasq-personal-notes/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2012/03/09/in-archlinux-install-dnsmasq-personal-notes/</loc>
+    <loc>https://blog.codewalker.me/2012/04/30/i-used-linux-bash-script-to-update-to-13/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -1157,13 +1171,6 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2013/05/29/keep-training/</loc>
-    
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.codewalker.me/2013/02/20/kvm-libvirt-can-not-start-after-upgrading-a-virtual-machine-has-insufficient-permissions-problem/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
@@ -1171,7 +1178,7 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2011/08/23/l39imparfait-and-le-pass-ampeacute-compos-ampeacute/</loc>
+    <loc>https://blog.codewalker.me/2013/05/29/keep-training/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -1185,7 +1192,7 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2012/04/05/lftp-problems-downloading-a-file-can-not-be-overwritten/</loc>
+    <loc>https://blog.codewalker.me/2011/08/23/l39imparfait-and-le-pass-ampeacute-compos-ampeacute/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -1199,6 +1206,13 @@
   </url>
   
   <url>
+    <loc>https://blog.codewalker.me/2012/04/05/lftp-problems-downloading-a-file-can-not-be-overwritten/</loc>
+    
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.codewalker.me/2011/03/05/linux-code-under-the-viewing-and-conversion-rpm/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
@@ -1206,14 +1220,14 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2011/04/19/linx-using-vim-open-some-txt-files-garbled-win-the-next-problem/</loc>
+    <loc>https://blog.codewalker.me/2013/06/26/login-to-sina-weibo-with-cookie/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2013/06/26/login-to-sina-weibo-with-cookie/</loc>
+    <loc>https://blog.codewalker.me/2011/04/19/linx-using-vim-open-some-txt-files-garbled-win-the-next-problem/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -1248,6 +1262,13 @@
   </url>
   
   <url>
+    <loc>https://blog.codewalker.me/2013/10/15/more-e4-b9-8bpython-e5-ae-9e-e7-8e-b0/</loc>
+    
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.codewalker.me/2011/06/23/mouse-focus-gradient-fade-jquery-album/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
@@ -1256,13 +1277,6 @@
   
   <url>
     <loc>https://blog.codewalker.me/2011/10/31/mysql-under-windows-xp-or-7-service-missing/</loc>
-    
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.codewalker.me/2013/10/15/more-e4-b9-8bpython-e5-ae-9e-e7-8e-b0/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -1297,13 +1311,6 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2013/01/22/errorampnbspshell-init/</loc>
-    
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.codewalker.me/2013/08/22/nginx-e8-84-9a-e6-9c-ac-e4-b9-8b-e5-a2-9e-e5-8a-a0virtual-host/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
@@ -1326,6 +1333,13 @@
   
   <url>
     <loc>https://blog.codewalker.me/2012/03/17/nginx-picture-anti-hotlinking-local-test/</loc>
+    
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.codewalker.me/2011/03/18/normalized-commonly-used-software-linux-occasionally-update-rollup/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -1360,6 +1374,13 @@
   </url>
   
   <url>
+    <loc>https://blog.codewalker.me/2012/12/13/perlampnbsptodolist/</loc>
+    
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.codewalker.me/2014/01/03/php-e6-89-a9-e5-b1-95-e4-b9-8bstomp-e5-8a-a8-e6-89-8b-e7-8e-a9-e5-84-bf-1-e5-ae-89-e8-a3-85/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
@@ -1381,21 +1402,7 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2012/12/13/perlampnbsptodolist/</loc>
-    
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.codewalker.me/2013/11/17/pyrename-with-getopt/</loc>
-    
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.codewalker.me/2013/11/17/pyrename/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -1416,6 +1423,13 @@
   </url>
   
   <url>
+    <loc>https://blog.codewalker.me/2013/11/17/pyrename/</loc>
+    
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.codewalker.me/2013/10/27/python-e4-b9-8b-e5-9c-a81-9-e4-b8-ad-e9-80-89n-e4-b8-aa-e6-95-b0-e4-b8-8d-e9-87-8d-e5-a4-8d-e7-9a-84-e5-ae-9e-e7-8e-b0/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
@@ -1424,13 +1438,6 @@
   
   <url>
     <loc>https://blog.codewalker.me/2013/11/09/python-e4-b9-8b-e6-8a-93-e5-8f-96-e6-8b-9b-e8-a1-8c-e7-be-8e-e5-85-83-e7-8e-b0-e9-92-9e-e4-bb-b7/</loc>
-    
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.codewalker.me/2011/03/18/normalized-commonly-used-software-linux-occasionally-update-rollup/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -1459,6 +1466,13 @@
   
   <url>
     <loc>https://blog.codewalker.me/2013/07/01/python-e5-ae-9e-e7-94-a8-e5-b7-a5-e5-85-b7-e4-b9-8bdis/</loc>
+    
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.codewalker.me/2013/06/28/python-e5-87-bd-e6-95-b0-e8-a3-85-e9-a5-b0-e5-99-a8/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -1500,14 +1514,14 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2011/08/13/quel-que-and-quoi-difference/</loc>
+    <loc>https://blog.codewalker.me/2016/05/20/recoverloacaldb/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2016/05/20/recoverloacaldb/</loc>
+    <loc>https://blog.codewalker.me/2011/08/13/quel-que-and-quoi-difference/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -1528,14 +1542,14 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2011/11/05/reserved-adverbial-participle-distinction-and-modernity/</loc>
+    <loc>https://blog.codewalker.me/2010/11/08/reserved-archlinux-installation-configuration-and-some-nonsense/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2010/11/08/reserved-archlinux-installation-configuration-and-some-nonsense/</loc>
+    <loc>https://blog.codewalker.me/2011/11/05/reserved-adverbial-participle-distinction-and-modernity/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -1549,13 +1563,6 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2011/09/16/reserved-beijing-to-raise-a-child-is-the-cost-original/</loc>
-    
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.codewalker.me/2010/11/08/reserved-color-man-page-configuration/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
@@ -1563,7 +1570,7 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2011/11/09/reserved-french-first-quarter-classified/</loc>
+    <loc>https://blog.codewalker.me/2011/09/16/reserved-beijing-to-raise-a-child-is-the-cost-original/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -1612,7 +1619,7 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2011/03/09/reserved-jquery-cookie-usage/</loc>
+    <loc>https://blog.codewalker.me/2011/11/09/reserved-french-first-quarter-classified/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -1626,14 +1633,14 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2010/11/08/reserved-linux-console-under-the-personal-collection-of-some-software-original/</loc>
+    <loc>https://blog.codewalker.me/2011/03/09/reserved-jquery-cookie-usage/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2013/05/07/reserved-linux-running-locally-built-under-sae-python-environment/</loc>
+    <loc>https://blog.codewalker.me/2010/11/08/reserved-linux-console-under-the-personal-collection-of-some-software-original/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -1647,7 +1654,21 @@
   </url>
   
   <url>
+    <loc>https://blog.codewalker.me/2013/05/07/reserved-linux-running-locally-built-under-sae-python-environment/</loc>
+    
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.codewalker.me/2011/05/22/reserved-may-20-2011/</loc>
+    
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.codewalker.me/2011/11/03/reserved-php-file-and-folder-traversal/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -1661,7 +1682,7 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2011/11/03/reserved-php-file-and-folder-traversal/</loc>
+    <loc>https://blog.codewalker.me/2011/11/03/reserved-php-interview/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -1689,7 +1710,7 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2011/09/18/reserved-secret-taiwan-version-chinese-maps-still-retains-the-reasons-for-mongolia/</loc>
+    <loc>https://blog.codewalker.me/2011/11/05/reserved-simple-complex-sentences-la-phrase-simple-et-la-phras/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -1703,13 +1724,6 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2011/11/05/reserved-simple-complex-sentences-la-phrase-simple-et-la-phras/</loc>
-    
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.codewalker.me/2011/08/08/reserved-slow-down-will-you/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
@@ -1717,14 +1731,14 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2010/11/10/reserved-the-best-creative-advertising-content-that-you-can-understand-it/</loc>
+    <loc>https://blog.codewalker.me/2011/11/09/reserved-some-of-the-grammar-points-and-sentence-writing-exercises-and-long-term-help-to-learn-french/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2011/08/08/reserved-traveled-to-france-reflets-taxi-alter-studio-and-other-textbooks/</loc>
+    <loc>https://blog.codewalker.me/2010/11/10/reserved-the-best-creative-advertising-content-that-you-can-understand-it/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -1745,14 +1759,14 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2013/04/12/reserved-wget-download-site-directory-of-all-files/</loc>
+    <loc>https://blog.codewalker.me/2011/08/08/reserved-traveled-to-france-reflets-taxi-alter-studio-and-other-textbooks/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2013/04/17/returnerampnbspandampnbsprendre/</loc>
+    <loc>https://blog.codewalker.me/2013/04/12/reserved-wget-download-site-directory-of-all-files/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -1773,14 +1787,21 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2013/12/08/scandir-py/</loc>
+    <loc>https://blog.codewalker.me/2011/09/18/reserved-secret-taiwan-version-chinese-maps-still-retains-the-reasons-for-mongolia/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2012/12/21/selinux-concerning-ftp-and-samba-settings/</loc>
+    <loc>https://blog.codewalker.me/2013/04/17/returnerampnbspandampnbsprendre/</loc>
+    
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.codewalker.me/2013/12/08/scandir-py/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -1808,7 +1829,7 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2010/12/02/slide-show-div-and-set-the-display-time-after-contraction-hidden-div/</loc>
+    <loc>https://blog.codewalker.me/2012/12/21/selinux-concerning-ftp-and-samba-settings/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -1850,14 +1871,7 @@
   </url>
   
   <url>
-    <loc>https://blog.codewalker.me/2013/06/28/python-e5-87-bd-e6-95-b0-e8-a3-85-e9-a5-b0-e5-99-a8/</loc>
-    
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.codewalker.me/2011/11/09/reserved-some-of-the-grammar-points-and-sentence-writing-exercises-and-long-term-help-to-learn-french/</loc>
+    <loc>https://blog.codewalker.me/2010/12/02/slide-show-div-and-set-the-display-time-after-contraction-hidden-div/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -1885,6 +1899,13 @@
   </url>
   
   <url>
+    <loc>https://blog.codewalker.me/2013/11/17/touchscript-update-at-2013-11-17/</loc>
+    
+    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.codewalker.me/2012/11/22/tips-on-pacman-tips/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
@@ -1893,13 +1914,6 @@
   
   <url>
     <loc>https://blog.codewalker.me/2013/11/21/track-package-py-0-2/</loc>
-    
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.codewalker.me/2013/11/17/touchscript-update-at-2013-11-17/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     
@@ -1998,13 +2012,6 @@
   
   <url>
     <loc>https://blog.codewalker.me/2012/12/12/zathuraampnbsppdfampnbspxpfd/</loc>
-    
-    <lastmod>2018-07-13T12:49:34.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.codewalker.me/2011/11/03/reserved-php-interview/</loc>
     
     <lastmod>2018-07-13T12:49:34.000Z</lastmod>
     

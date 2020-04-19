@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.codewalker.me/"/>
-  <updated>2020-04-01T09:08:46.000Z</updated>
+  <updated>2020-04-19T13:49:56.000Z</updated>
   <id>https://blog.codewalker.me/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Public key for jenkins-2.232-1.1.noarch.rpm is not installed</title>
+    <link href="https://blog.codewalker.me/2020/04/19/Public-key-for-jenkins-2-232-1-1-noarch-rpm-is-not-installed/"/>
+    <id>https://blog.codewalker.me/2020/04/19/Public-key-for-jenkins-2-232-1-1-noarch-rpm-is-not-installed/</id>
+    <published>2020-04-19T13:44:12.000Z</published>
+    <updated>2020-04-19T13:49:56.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>How to fix <code>Public key for jenkins-2.232-1.1.noarch.rpm is not installed</code><br>when you update your system by running yum</p><p>what you should to do the only thing is import the <code>key file</code> from jenkins offical website</p><p>run this command as root</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key</span><br></pre></td></tr></table></figure><p>This’s all done.<br>EOF<br>Enjoy<br>I, simon love this world ❤️</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;How to fix &lt;code&gt;Public key for jenkins-2.232-1.1.noarch.rpm is not installed&lt;/code&gt;&lt;br&gt;when you update your system by running yum&lt;/p&gt;
+&lt;p
+      
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://blog.codewalker.me/tags/linux/"/>
+    
+      <category term="rpm" scheme="https://blog.codewalker.me/tags/rpm/"/>
+    
+      <category term="centos" scheme="https://blog.codewalker.me/tags/centos/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Build python 3.6 based on alpine</title>
     <link href="https://blog.codewalker.me/2020/04/01/Build-python-3-6-based-on-alpine/"/>
     <id>https://blog.codewalker.me/2020/04/01/Build-python-3-6-based-on-alpine/</id>
     <published>2020-04-01T07:19:38.000Z</published>
-    <updated>2020-04-01T09:08:46.000Z</updated>
+    <updated>2020-04-01T09:10:33.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Talk-is-cheap"><a href="#Talk-is-cheap" class="headerlink" title="Talk is cheap"></a>Talk is cheap</h2><p>Files:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; tree</span><br><span class="line">.</span><br><span class="line">├── Dockerfile</span><br><span class="line">└── Python-3.6.10.tar.xz</span><br></pre></td></tr></table></figure><h2 id="1-Preparation"><a href="#1-Preparation" class="headerlink" title="1. Preparation"></a>1. Preparation</h2><ul><li>Make a new dir for your work</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir alpine_python3.6.10</span><br><span class="line"><span class="built_in">cd</span> alpine_python3.6.10</span><br></pre></td></tr></table></figure><ul><li>Download python souce code tar-ball.</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget <span class="string">'https://www.python.org/ftp/python/3.6.10/Python-3.6.10.tar.xz'</span></span><br></pre></td></tr></table></figure><ul><li>cp &amp; past <code>Dockerfile</code> below.</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">FROM alpine:latest AS alpine_py3.6</span><br><span class="line"></span><br><span class="line">COPY ./Python-3.6.10.tar.xz /root</span><br><span class="line">WORKDIR /root</span><br><span class="line"></span><br><span class="line">RUN \</span><br><span class="line">    sed -i <span class="string">'s/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g'</span> /etc/apk/repositories \</span><br><span class="line">    &amp;&amp; <span class="built_in">echo</span> <span class="string">"ipv6"</span> &gt;&gt; /etc/modules</span><br><span class="line">RUN \</span><br><span class="line">    apk update \ &amp;&amp; apk upgrade \</span><br><span class="line">    &amp;&amp; apk add --no-cache bash gcc libffi-dev python-dev openssl-dev make zlib-dev libc-dev bash-doc bash-completion \</span><br><span class="line">    &amp;&amp; rm -rf /var/cache/apk/* \</span><br><span class="line">    &amp;&amp; tar -xf Python-3.6.10.tar.xz \</span><br><span class="line">    &amp;&amp; rm -rf Python-3.6.10.tar.xz \</span><br><span class="line">    &amp;&amp; <span class="built_in">cd</span> Python-3.6.10 \</span><br><span class="line">    &amp;&amp; ./configure --<span class="built_in">enable</span>-optimizations \</span><br><span class="line">    &amp;&amp; make -j 8 \</span><br><span class="line">    &amp;&amp; make install \</span><br><span class="line">    &amp;&amp; pip3 install --upgrade pip \</span><br><span class="line">    &amp;&amp; rm -rf /root/Python-3.6.10</span><br><span class="line">CMD /bin/sh</span><br></pre></td></tr></table></figure><h2 id="2-Build-image"><a href="#2-Build-image" class="headerlink" title="2. Build image"></a>2. Build image</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t alpine:python3.6.10 .</span><br></pre></td></tr></table></figure><h2 id="3-Play-with-your-new-alpine-python3-6-10"><a href="#3-Play-with-your-new-alpine-python3-6-10" class="headerlink" title="3. Play with your new alpine:python3.6.10"></a>3. Play with your new alpine:python3.6.10</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -itd alpine:python3.6.10</span><br></pre></td></tr></table></figure><p>EOF<br>Enjoy<br>I, simon love this world ❤️</p>]]></content>
     
@@ -36,11 +64,11 @@
     </summary>
     
     
+      <category term="python" scheme="https://blog.codewalker.me/tags/python/"/>
+    
       <category term="docker" scheme="https://blog.codewalker.me/tags/docker/"/>
     
       <category term="linux" scheme="https://blog.codewalker.me/tags/linux/"/>
-    
-      <category term="python" scheme="https://blog.codewalker.me/tags/python/"/>
     
   </entry>
   
@@ -90,9 +118,9 @@
     </summary>
     
     
-      <category term="docker" scheme="https://blog.codewalker.me/tags/docker/"/>
-    
       <category term="python" scheme="https://blog.codewalker.me/tags/python/"/>
+    
+      <category term="docker" scheme="https://blog.codewalker.me/tags/docker/"/>
     
       <category term="redis" scheme="https://blog.codewalker.me/tags/redis/"/>
     
@@ -511,35 +539,6 @@
       <category term="asyncio" scheme="https://blog.codewalker.me/tags/asyncio/"/>
     
       <category term="aiphttp" scheme="https://blog.codewalker.me/tags/aiphttp/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>let your site fly</title>
-    <link href="https://blog.codewalker.me/2018/07/23/let-t-your-site-fly/"/>
-    <id>https://blog.codewalker.me/2018/07/23/let-t-your-site-fly/</id>
-    <published>2018-07-23T07:40:48.000Z</published>
-    <updated>2018-07-24T16:25:03.000Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li>Intor</li></ol><blockquote><p>“Builds can be the most awful sinkhole for teams to waste their time with - gulp is a serious win for any project.”<br>Eric, Co-founder @ stae</p></blockquote><ol><li><p>Get ready</p><ul><li><p>Install <code>gulp</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp</span><br></pre></td></tr></table></figure></li><li><p>Install plugins</p><ul><li>gulp-minify-css</li><li>gulp-uglify</li><li>gulp-htmlmin</li><li>gulp-htmlclean<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp-minify-css</span><br></pre></td></tr></table></figure></li></ul><p>ETC…</p></li></ul></li><li><p>Configuration<br> Write your own <code>gulpfile.js</code> &amp; put it in your root dir</p> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> debug = <span class="literal">true</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="keyword">var</span> minifycss = <span class="built_in">require</span>(<span class="string">'gulp-minify-css'</span>);</span><br><span class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>);</span><br><span class="line"><span class="keyword">var</span> htmlmin = <span class="built_in">require</span>(<span class="string">'gulp-htmlmin'</span>);</span><br><span class="line"><span class="keyword">var</span> htmlclean = <span class="built_in">require</span>(<span class="string">'gulp-htmlclean'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 压缩 public 目录 css文件</span></span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'minify-css'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'./public/css/*.css'</span>)</span><br><span class="line">        .pipe(minifycss())</span><br><span class="line">        .pipe(gulp.dest(<span class="string">'./public'</span>));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 压缩 public 目录 html文件</span></span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'minify-html'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="keyword">return</span> gulp.src(<span class="string">'./public/**/*.html'</span>)</span><br><span class="line">    .pipe(htmlclean())</span><br><span class="line">    .pipe(htmlmin(&#123;</span><br><span class="line">        removeComments: <span class="literal">true</span>,</span><br><span class="line">        minifyJS: <span class="literal">true</span>,</span><br><span class="line">        minifyCSS: <span class="literal">true</span>,</span><br><span class="line">        minifyURLs: <span class="literal">true</span>,</span><br><span class="line">    &#125;))</span><br><span class="line">    .pipe(gulp.dest(<span class="string">'./public'</span>))</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 压缩 public/js 目录 js文件</span></span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'minify-js'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.src(<span class="string">'./public/js/*.js'</span>)</span><br><span class="line">        .pipe(uglify())</span><br><span class="line">        .pipe(gulp.dest(<span class="string">'./public'</span>));</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行 gulp 命令时执行的任务</span></span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'hexo'</span>, [</span><br><span class="line">    <span class="string">'minify-html'</span>,<span class="string">'minify-css'</span></span><br><span class="line">]);</span><br></pre></td></tr></table></figure></li><li><p>Deploy</p></li></ol><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">gulp hexo</span><br><span class="line">hexo deply</span><br></pre></td></tr></table></figure><p>Done.<br>EOF.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;Intor&lt;/li&gt;
-&lt;/ol&gt;
-&lt;blockquote&gt;
-&lt;p&gt;“Builds can be the most awful sinkhole for teams to waste their time with - gulp is a serious win 
-      
-    
-    </summary>
-    
-    
-      <category term="hexo" scheme="https://blog.codewalker.me/tags/hexo/"/>
-    
-      <category term="frontend" scheme="https://blog.codewalker.me/tags/frontend/"/>
     
   </entry>
   
