@@ -16,12 +16,17 @@
     </title>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -137,15 +142,14 @@
 </span>
     </div>
     <div class="post-content ">
-        <p><strong>原文地址：</strong><a href="http://blog.sina.com.cn/s/blog_439628be01013e0s.html" title="rhel6安装配置iscsi并实现自动挂载" target="_blank" rel="noopener">rhel6安装配置iscsi并实现自动挂载</a><strong>作者：</strong><a href="http://blog.sina.com.cn/u/1133914302" title="月满西楼" target="_blank" rel="noopener">月满西楼</a></p>
+        <p><strong>原文地址：</strong><a href="http://blog.sina.com.cn/s/blog_439628be01013e0s.html" target="_blank" rel="noopener" title="rhel6安装配置iscsi并实现自动挂载">rhel6安装配置iscsi并实现自动挂载</a><strong>作者：</strong><a href="http://blog.sina.com.cn/u/1133914302" target="_blank" rel="noopener" title="月满西楼">月满西楼</a></p>
 <p>在iscsi server上的操作步骤：</p>
 <p>a、安装iscsi server软件包。<br>(1) 用RPM的方式安装。<br>[root@server ~]# rpm -ivh scsi-target-utils-1.0.4-3.el6.x86_64.rpm</p>
 <p>[root@server ~]# rpm -ivh perl-Config-General-2.44-1.el6.noarch.rpm</p>
 <p>(2) 用yum命令安装。<br>yum -y install scsi-target-utils</p>
 <p>b. 启动服务并且添加到开机自启动。<br>[root@server ~]# /etc/init.d/tgtd start<br>Starting SCSI target daemon: [ OK ]<br>[root@server ~]# chkconfig tgtd on</p>
 <p>c. 使用fdisk命令创建一个分区，或者在文件系统上创建一个镜像文件。<br>(1)创建了一个500M的分区/dev/sda5。你可以根据自己实际情况来创建分区,lv,镜像文件。</p>
-<p>d. 编辑配置文件/etc/tgt/targets.conf,并设置下iSCSI Qualified Name (IQN).<br>如果你是自己分区或者lvm,设置成自己的分区和lv即可。  </p>
-<p><target iqn.2012-02.com.example:server.target1=""><br>backing-store /dev/sda5 #share 1<br>backing-store /var/lib/tgtd/virtualization/virtimage2.img #share 2<br>write-cache off<br></target><br>重启服务，使修改后的配置生效。<br>[root@server ~]# /etc/init.d/tgtd restart</p>
+<p>d. 编辑配置文件/etc/tgt/targets.conf,并设置下iSCSI Qualified Name (IQN).<br>如果你是自己分区或者lvm,设置成自己的分区和lv即可。<br><target iqn.2012-02.com.example:server.target1><br>backing-store /dev/sda5 #share 1<br>backing-store /var/lib/tgtd/virtualization/virtimage2.img #share 2<br>write-cache off<br></target><br>重启服务，使修改后的配置生效。<br>[root@server ~]# /etc/init.d/tgtd restart</p>
 <p>f. 确定iscsi server是否成功。如果现实如下说明配置iscsi server已经OK。<br>[root@server ~]# tgt-admin –show</p>
 <p>Target 1: iqn.2012-02.com.example:server.target1<br>System information:<br>Driver: iscsi<br>State: ready<br>I_T nexus information:<br>LUN information:<br>LUN: 0<br>Type: controller<br>SCSI ID: IET 00010000<br>SCSI SN: beaf10<br>Size: 0 MB<br>Online: Yes<br>Removable media: No<br>Backing store type: rdwr<br>Backing store path: None<br>LUN: 1<br>Type: disk<br>SCSI ID: IET 00010001<br>SCSI SN: beaf11<br>Size: 532 MB<br>Online: Yes<br>Removable media: No<br>Backing store type: rdwr<br>Backing store path: /dev/sda5<br>LUN: 2<br>Type: disk<br>SCSI ID: IET 00010002<br>SCSI SN: beaf12<br>Size: 524 MB<br>Online: Yes<br>Removable media: No<br>Backing store type: rdwr<br>Backing store path: /var/lib/tgtd/virtualization/virtimage2.img<br>Account information:<br>ACL information:<br>ALL</p>
 <p>在Iscsi client的配置。<br>a. 安装iscsi客户端安装包。<br>同样你也可以使用yum来安装。<br>[root@client ~]# rpm -ivh /mnt/Packages/iscsi-initiator-utils-6.2.0.872-10.el6.x86_64.rpm<br>warning: /mnt/Packages/iscsi-initiator-utils-6.2.0.872-10.el6.x86_64.rpm: Header V3 RSA /SHA256 Signature, key ID fd431d51: NOKEY<br>Preparing… ########################################### [100%]<br>1:iscsi-initiator-utils ########################################### [100%]  </p>
@@ -238,7 +242,7 @@
     <p>
         <span>/</span>
         
-        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span><a href="https://codewalker.me" target="_blank" rel="noopener">Old blog</a></span>
         <span>/</span>
         
     </p>
@@ -250,7 +254,7 @@
         <span id="busuanzi_container_site_uv">
             <span id="busuanzi_value_site_uv"></span>UV
         </span>
-        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+        Drive by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> On <a href="https://www.github.com" target="_blank" rel="noopener">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
     <h6>
         The value of a man resides in what he gives and not in what he is capable of receiving.
         <br />  
@@ -270,10 +274,14 @@
     window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="/js/index.js"></script>
+
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
 <script src="/js/gitment.js"></script>
+
 <script>
     var gitment = new Gitment({
         id: '[转载]rhel6安装配置iscsi并实现自动挂载',

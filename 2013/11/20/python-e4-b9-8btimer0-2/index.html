@@ -16,12 +16,17 @@
     </title>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -127,10 +132,10 @@
         
         <span class="attr">Tags：/
         
-        <a class="tag" href="/tags/#linux" title="linux">linux</a>
+        <a class="tag" href="/tags/#python" title="python">python</a>
         <span>/</span>
         
-        <a class="tag" href="/tags/#python" title="python">python</a>
+        <a class="tag" href="/tags/#linux" title="linux">linux</a>
         <span>/</span>
         
         <a class="tag" href="/tags/#timer" title="timer">timer</a>
@@ -143,11 +148,9 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>想了想能不能不换行再加上进度条呢，于是在google上搜了一阵还真有这个包 在<a href="https://code.google.com/p/python-progressbar/" title="python-progressbar" target="_blank" rel="noopener">这里</a> 再封装一下</p>
+        <p>想了想能不能不换行再加上进度条呢，于是在google上搜了一阵还真有这个包 在<a href="https://code.google.com/p/python-progressbar/" target="_blank" rel="noopener" title="python-progressbar">这里</a> 再封装一下</p>
 <p>#!/usr/bin/python2</p>
-<p>#auth:codewalker #mail:<a href="mailto:001@codewalker.me" target="_blank" rel="noopener">001@codewalker.me</a></p>
-<p>#version 0.2</p>
-<p>#date 2013-10-20<br>from time import sleep<br>from progressbar import ETA,ProgressBar,Bar, Percentage</p>
+<p>#auth:codewalker #mail:<a href="mailto:001@codewalker.me">001@codewalker.me</a><br>#version 0.2<br>#date 2013-10-20<br>from time import sleep<br>from progressbar import ETA,ProgressBar,Bar, Percentage</p>
 <p>class timer:<br>  def __init__(self, sec=10):<br>    self.sec = sec</p>
 <p>  def main(self, sec):<br>      widgets = [Bar(‘&gt;’),<br>                 Percentage(),<br>                 “ “,<br>                 ETA()]<br>      pbar = ProgressBar(widgets=widgets, maxval=(self.sec+1)<em>10).start()<br>      for i in range(1,self.sec</em>10):<br>          sleep(0.1)<br>          pbar.update(i+1)<br>      pbar.finish()</p>
 <p>  def start(self):<br>    self.main(self)</p>
@@ -238,7 +241,7 @@
     <p>
         <span>/</span>
         
-        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span><a href="https://codewalker.me" target="_blank" rel="noopener">Old blog</a></span>
         <span>/</span>
         
     </p>
@@ -250,7 +253,7 @@
         <span id="busuanzi_container_site_uv">
             <span id="busuanzi_value_site_uv"></span>UV
         </span>
-        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+        Drive by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> On <a href="https://www.github.com" target="_blank" rel="noopener">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
     <h6>
         The value of a man resides in what he gives and not in what he is capable of receiving.
         <br />  
@@ -270,10 +273,14 @@
     window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="/js/index.js"></script>
+
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
 <script src="/js/gitment.js"></script>
+
 <script>
     var gitment = new Gitment({
         id: 'python之timer0.2',

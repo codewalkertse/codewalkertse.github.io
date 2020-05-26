@@ -16,12 +16,17 @@
     </title>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -174,18 +179,15 @@
 <p>my $error_color = “red”;</p>
 <p>$_ = `fetchmail -c $timeout $is_silent`;</p>
 <p>if (/([1-9]{0,2}) message/ig) {</p>
-<pre><code>$message = &apos;You have ${voffset -3}${color &apos;.$num\_color.&apos;}${font &apos;.$num\_font.&apos;:pixelsize=&apos;.$num_size.&apos;}&apos;.$1.&apos;${font}${color}${voffset -1} mail&apos;;
-</code></pre><p>}else{</p>
-<pre><code>$message =  &apos;${voffset -3}Mail ${color &apos;.$error\_color.&apos;}${font &apos;.$num\_font.&apos;:pixelsize=&apos;.$num_size.&apos;}error${font}${color}&apos;;
-</code></pre><p>}</p>
+<pre><code>$message = &apos;You have ${voffset -3}${color &apos;.$num\_color.&apos;}${font &apos;.$num\_font.&apos;:pixelsize=&apos;.$num_size.&apos;}&apos;.$1.&apos;${font}${color}${voffset -1} mail&apos;;</code></pre><p>}else{</p>
+<pre><code>$message =  &apos;${voffset -3}Mail ${color &apos;.$error\_color.&apos;}${font &apos;.$num\_font.&apos;:pixelsize=&apos;.$num_size.&apos;}error${font}${color}&apos;;</code></pre><p>}</p>
 <p>open (FO, “&gt; $tmp_file “); </p>
-<pre><code>print FO&quot;$message&quot;;
-</code></pre><p>close (FO);</p>
+<pre><code>print FO&quot;$message&quot;;</code></pre><p>close (FO);</p>
 <p>在conky中的调用<strong>切记！切记！切记！</strong>一定是${<strong>execpi</strong>}我就是在这个地方卡了1个小时都没有办法把颜色显示出来，直接显示的是<strong>color orange 1 color</strong></p>
 <p>${execpi 300 cat /tmp/fetchmail.message}</p>
 <p>最后把checkMail.pl加入计划任务就ok了</p>
 <p>邮件我是放在左边上面的。送上一张现在的桌面截图以后有更好的脚本也会更新上来</p>
-<p><a href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb60701015ggi&amp;url=http://s15.sinaimg.cn/orignal/6c7cb607xd0e07cb7563e" target="_blank" rel="noopener"><img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="fetchmail &lt;wbr&gt;命令行下的邮件客户端">命令行下的邮件客户端” TITLE=”fetchmail 命令行下的邮件客户端” /&gt;</a></p>
+<p><a href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb60701015ggi&url=http://s15.sinaimg.cn/orignal/6c7cb607xd0e07cb7563e" target="_blank" rel="noopener"><img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="fetchmail &lt;wbr&gt;命令行下的邮件客户端">命令行下的邮件客户端” TITLE=”fetchmail 命令行下的邮件客户端” /&gt;</a></p>
 
         
             <div class="donate-container">
@@ -272,7 +274,7 @@
     <p>
         <span>/</span>
         
-        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span><a href="https://codewalker.me" target="_blank" rel="noopener">Old blog</a></span>
         <span>/</span>
         
     </p>
@@ -284,7 +286,7 @@
         <span id="busuanzi_container_site_uv">
             <span id="busuanzi_value_site_uv"></span>UV
         </span>
-        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+        Drive by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> On <a href="https://www.github.com" target="_blank" rel="noopener">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
     <h6>
         The value of a man resides in what he gives and not in what he is capable of receiving.
         <br />  
@@ -304,10 +306,14 @@
     window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="/js/index.js"></script>
+
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
 <script src="/js/gitment.js"></script>
+
 <script>
     var gitment = new Gitment({
         id: 'fetchmail 命令行下的邮件客户端',

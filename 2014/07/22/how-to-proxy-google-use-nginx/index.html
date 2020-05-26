@@ -16,12 +16,17 @@
     </title>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -150,28 +155,8 @@
     </div>
     <div class="post-content ">
         <p>很简单只需要在nginx.conf中加入下面几行或者新建一个文件再include进nginx.conf中即可。 每一行我会写入注释帮助理解。这里感谢伟大的互联网. 说明下面的codewalker.me 为代理服务器域名配置时设置为<strong>自己的任意公网可访问域名</strong>。</p>
-<p>#配置代理的缓存 </p>
-<p>#keys_zone后面的GPC是名字后面要调用.<br>proxy_cache_path  /tmp/google_proxy_cache/one  levels=1:2   keys_zone=GPC:10m max_size=2g;<br>proxy_cache_key  “$host$request_uri”;</p>
-<p>upstream google.agent {</p>
-<p>#下面的IP地址是通过nslookup获得。<br>＃多写点用于轮训<br>＃1 代理方式有三种默认不写就是轮训<br>＃2 ip_hash<br>＃3 url_hash<br>＃很好理解就是字面意思, ip哈希， URL哈希.<br>     server 74.125.239.116:80 max_fails=3;<br>     server 74.125.239.115:80 max_fails=3;<br>     server 74.125.239.112:80 max_fails=3;<br>     server 74.125.239.113:80 max_fails=3;<br>     server 74.125.239.114:80 max_fails=3;<br>     server 74.125.224.80:80 max_fails=3;<br>     server 74.125.224.81:80 max_fails=3;<br>     server 74.125.224.82:80 max_fails=3;<br>     server 74.125.224.83:80 max_fails=3;<br>     server 74.125.224.84:80 max_fails=3;<br>}<br>server {<br>    listen   80;<br>    server_name  codewalker.me; #配置的时候是通过这个域名访问然后反向代理到上面的server列表中去.<br>    location / {<br>                    proxy_cache GPC;<br>                    proxy_cache_valid  200 302  1h;<br>                    proxy_cache_valid  404      1m;</p>
-<pre><code>                #很重要，把连接中的google链接换成代理服务器的域名这里也就是codewalker.me
-                #不然就要直接访问Google所以跳转一下
-                proxy_redirect https://www.google.com/ /; 
-                #设置cookie
-                proxy\_cookie\_domain google.com codewalker.me;
-                proxy_pass  http://google.agent;#使用最上面的servers.
-                proxy\_set\_header Host &quot;www.google.com&quot;;
-                proxy\_set\_header Accept-Encoding &quot;&quot;;
-                proxy\_set\_header User-Agent $http\_user\_agent;
-                proxy\_set\_header Accept-Language &quot;zh-CN&quot;;
-                #设置cookie很重要不然你就等着输验证码吧
-                proxy\_set\_header Cookie &quot;PREF=ID=047808f19f6de346:U=0f62f33dd8549d11:FF=2:LD=zh-CN:NW=1:TM=1325338577:LM=1332142444:GM=1:SG=2:S=rE0SyJh2w1IQ-Maw&quot;;
-                #超级重要啊！这里你的nginx必须安装有http\_sub\_module模块
-                ＃编译安装的时候--with-http\_sub\_module      
-                sub_filter www.google.com codewalker.me;
-                sub\_filter\_once off;
-}
-</code></pre><p>}</p>
+<p>#配置代理的缓存<br>#keys_zone后面的GPC是名字后面要调用.<br>proxy_cache_path  /tmp/google_proxy_cache/one  levels=1:2   keys_zone=GPC:10m max_size=2g;<br>proxy_cache_key  “$host$request_uri”;</p>
+<p>upstream google.agent {<br>#下面的IP地址是通过nslookup获得。<br>＃多写点用于轮训<br>＃1 代理方式有三种默认不写就是轮训<br>＃2 ip_hash<br>＃3 url_hash<br>＃很好理解就是字面意思, ip哈希， URL哈希.<br>     server 74.125.239.116:80 max_fails=3;<br>     server 74.125.239.115:80 max_fails=3;<br>     server 74.125.239.112:80 max_fails=3;<br>     server 74.125.239.113:80 max_fails=3;<br>     server 74.125.239.114:80 max_fails=3;<br>     server 74.125.224.80:80 max_fails=3;<br>     server 74.125.224.81:80 max_fails=3;<br>     server 74.125.224.82:80 max_fails=3;<br>     server 74.125.224.83:80 max_fails=3;<br>     server 74.125.224.84:80 max_fails=3;<br>}<br>server {<br>    listen   80;<br>    server_name  codewalker.me; #配置的时候是通过这个域名访问然后反向代理到上面的server列表中去.<br>    location / {<br>                    proxy_cache GPC;<br>                    proxy_cache_valid  200 302  1h;<br>                    proxy_cache_valid  404      1m;<br>                    #很重要，把连接中的google链接换成代理服务器的域名这里也就是codewalker.me<br>                    #不然就要直接访问Google所以跳转一下<br>                    proxy_redirect <a href="https://www.google.com/" target="_blank" rel="noopener">https://www.google.com/</a> /;<br>                    #设置cookie<br>                    proxy_cookie_domain google.com codewalker.me;<br>                    proxy_pass  <a href="http://google.agent;#使用最上面的servers" target="_blank" rel="noopener">http://google.agent;#使用最上面的servers</a>.<br>                    proxy_set_header Host “<a href="http://www.google.com&quot;" target="_blank" rel="noopener">www.google.com&quot;</a>;<br>                    proxy_set_header Accept-Encoding “”;<br>                    proxy_set_header User-Agent $http_user_agent;<br>                    proxy_set_header Accept-Language “zh-CN”;<br>                    #设置cookie很重要不然你就等着输验证码吧<br>                    proxy_set_header Cookie “PREF=ID=047808f19f6de346:U=0f62f33dd8549d11:FF=2:LD=zh-CN:NW=1:TM=1325338577:LM=1332142444:GM=1:SG=2:S=rE0SyJh2w1IQ-Maw”;<br>                    #超级重要啊！这里你的nginx必须安装有http_sub_module模块<br>                    ＃编译安装的时候–with-http_sub_module<br>                    sub_filter <a href="http://www.google.com" target="_blank" rel="noopener">www.google.com</a> codewalker.me;<br>                    sub_filter_once off;<br>    }<br>}</p>
 <p><strong>题外话</strong> 其实这就是Nginx的反向代理可用于负载均衡。 也就是你的主域名解析到这个server上。通过这个server再分发到其他servers. 打完收工 EOF</p>
 
         
@@ -259,7 +244,7 @@
     <p>
         <span>/</span>
         
-        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span><a href="https://codewalker.me" target="_blank" rel="noopener">Old blog</a></span>
         <span>/</span>
         
     </p>
@@ -271,7 +256,7 @@
         <span id="busuanzi_container_site_uv">
             <span id="busuanzi_value_site_uv"></span>UV
         </span>
-        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+        Drive by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> On <a href="https://www.github.com" target="_blank" rel="noopener">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
     <h6>
         The value of a man resides in what he gives and not in what he is capable of receiving.
         <br />  
@@ -291,10 +276,14 @@
     window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="/js/index.js"></script>
+
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
 <script src="/js/gitment.js"></script>
+
 <script>
     var gitment = new Gitment({
         id: 'How to proxy Google use Nginx',

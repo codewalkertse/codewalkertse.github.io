@@ -16,12 +16,17 @@
     </title>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -132,17 +137,11 @@
     </div>
     <div class="post-content ">
         <p><strong>Because I’m lazy</strong></p>
-<p>#/<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>*</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></p>
-<p> #> File Name: recoverLoacalDB_hellomoney.sh</p>
-<p> #> Author: Simon</p>
-<p> #> Mail: <a href="mailto:simon.xie@codewalker.me" target="_blank" rel="noopener">simon.xie@codewalker.me</a></p>
-<p> #> Created Time: Fri May 20 10:29:51 2016</p>
-<p> #<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><em>**</em></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>/</p>
+<p>#/<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>*****</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br> #&gt; File Name: recoverLoacalDB_hellomoney.sh<br> #&gt; Author: Simon<br> #&gt; Mail: <a href="mailto:simon.xie@codewalker.me">simon.xie@codewalker.me</a><br> #&gt; Created Time: Fri May 20 10:29:51 2016<br> #<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>****</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>/</p>
 <p>#!/bin/bash </p>
 <p>read -p “Input Password for remote Database: “ remoteDBP<br>read -p “Input Password for local Database: “ localDBP</p>
 <p>REMOTEDB_NAME=<br>REMOTEIP=<br>LOCALDB_NAME=<br>LOCALIP=</p>
-<p>exportHellomoney(){<br>    echo “Downloading… wait a second…”<br>    mysqldump -h $REMOTEIP -u root -p$remoteDBP  REMOTEDB_NAME &gt; /tmp/$LOCALDB_NAME.`date +%y%m%d`.sql<br>    echo ‘Download  done.’<br>}<br>importDB(){<br>    echo ‘Importing Database….’<br>    mysqldump -h $LOCALIP -u root -p$localDBP LOCALDB_NAME &lt; /tmp/$LOCALDB_NAME.`date +%y%m%d`.sql<br>    echo ‘Import  done.’<br>}<br>cleanTmp(){<br>    rm -fv /tmp/`date +%y%m%d`.sql<br>    echo ‘Cleaning…’<br>}<br>read -p “Press Y to start: “ isStart<br>case $isStart in<br>    y|Y)<br>        read -p “[d] only download|[r] download&amp;Import|[i]Import|[c] do clean tmp file: “ mOption<br>         case $mOption in<br>             d|D)<br>                 exportHellomoney<br>                 ;;<br>             r|R)<br>                 exportHellomoney&amp;&amp;importDB<br>                 ;;<br>             i|I)<br>                 importDB<br>                 ;;<br>             c|C)<br>                 cleanTmp<br>                 ;;<br>             <em>)<br>                 echo ‘Input error’<br>                 exit 0<br>                 ;;<br>         esac<br>         ;;
-    </em>)<br>        echo ‘Input error’<br>        exit 0<br>        ;;<br>esac</p>
+<p>exportHellomoney(){<br>    echo “Downloading… wait a second…”<br>    mysqldump -h $REMOTEIP -u root -p$remoteDBP  REMOTEDB_NAME &gt; /tmp/$LOCALDB_NAME.`date +%y%m%d`.sql<br>    echo ‘Download  done.’<br>}<br>importDB(){<br>    echo ‘Importing Database….’<br>    mysqldump -h $LOCALIP -u root -p$localDBP LOCALDB_NAME &lt; /tmp/$LOCALDB_NAME.`date +%y%m%d`.sql<br>    echo ‘Import  done.’<br>}<br>cleanTmp(){<br>    rm -fv /tmp/`date +%y%m%d`.sql<br>    echo ‘Cleaning…’<br>}<br>read -p “Press Y to start: “ isStart<br>case $isStart in<br>    y|Y)<br>        read -p “[d] only download|[r] download&amp;Import|[i]Import|[c] do clean tmp file: “ mOption<br>         case $mOption in<br>             d|D)<br>                 exportHellomoney<br>                 ;;<br>             r|R)<br>                 exportHellomoney&amp;&amp;importDB<br>                 ;;<br>             i|I)<br>                 importDB<br>                 ;;<br>             c|C)<br>                 cleanTmp<br>                 ;;<br>             *)<br>                 echo ‘Input error’<br>                 exit 0<br>                 ;;<br>         esac<br>         ;;<br>    *)<br>        echo ‘Input error’<br>        exit 0<br>        ;;<br>esac</p>
 <p>read -p “Are you do clean? “ isClear<br>case $isClear in<br>    y|Y)<br>        cleanTmp<br>        ;;<br>    *)<br>        echo ‘Input error’<br>        ;;<br>esac<br>exit 1</p>
 
         
@@ -230,7 +229,7 @@
     <p>
         <span>/</span>
         
-        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span><a href="https://codewalker.me" target="_blank" rel="noopener">Old blog</a></span>
         <span>/</span>
         
     </p>
@@ -242,7 +241,7 @@
         <span id="busuanzi_container_site_uv">
             <span id="busuanzi_value_site_uv"></span>UV
         </span>
-        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+        Drive by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> On <a href="https://www.github.com" target="_blank" rel="noopener">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
     <h6>
         The value of a man resides in what he gives and not in what he is capable of receiving.
         <br />  
@@ -262,10 +261,14 @@
     window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="/js/index.js"></script>
+
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
 <script src="/js/gitment.js"></script>
+
 <script>
     var gitment = new Gitment({
         id: 'recoverLoacalDB',

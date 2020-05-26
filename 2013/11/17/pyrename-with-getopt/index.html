@@ -16,12 +16,17 @@
     </title>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -127,10 +132,10 @@
         
         <span class="attr">Tags：/
         
-        <a class="tag" href="/tags/#linux" title="linux">linux</a>
+        <a class="tag" href="/tags/#python" title="python">python</a>
         <span>/</span>
         
-        <a class="tag" href="/tags/#python" title="python">python</a>
+        <a class="tag" href="/tags/#linux" title="linux">linux</a>
         <span>/</span>
         
         <a class="tag" href="/tags/#rename" title="rename">rename</a>
@@ -145,8 +150,7 @@
     <div class="post-content ">
         <p>这是第三个版本加入了参数选项</p>
 <p>#!/usr/bin/python2</p>
-<p>#auth:codewalker</p>
-<p>#mail:<a href="mailto:001@codewalker.me" target="_blank" rel="noopener">001@codewalker.me</a><br>version = 0.3</p>
+<p>#auth:codewalker<br>#mail:<a href="mailto:001@codewalker.me">001@codewalker.me</a><br>version = 0.3</p>
 <p>from sys import argv, exit<br>from os import rename, listdir, getcwd<br>import re<br>import getopt</p>
 <p>def usage():<br>    print “USAGE:%s oldpart newpart” % argv[0]<br>    print ‘’’<br>    -v|–verbose verbose<br>    -V|–version show version<br>    -h|–help show this<br>    ‘’’</p>
 <p>def main():<br>    try:<br>        opts, args = getopt.getopt(argv[1:], “hvV”, [“help”, “verbose”,”version”])<br>    except getopt.GetoptError, e:<br>        print e<br>        usage()<br>        exit(1)<br>    is_output = False<br>    is_verbose = False<br>    is_show_version = False</p>
@@ -177,8 +181,7 @@ if len(args) ==  2:
     else: print &quot;DONE&quot;
 else:
     usage()
-    exit(1)
-</code></pre><p>if __name__ == ‘__main__‘:<br>    main()</p>
+    exit(1)</code></pre><p>if __name__ == ‘__main__‘:<br>    main()</p>
 
         
             <div class="donate-container">
@@ -265,7 +268,7 @@ else:
     <p>
         <span>/</span>
         
-        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span><a href="https://codewalker.me" target="_blank" rel="noopener">Old blog</a></span>
         <span>/</span>
         
     </p>
@@ -277,7 +280,7 @@ else:
         <span id="busuanzi_container_site_uv">
             <span id="busuanzi_value_site_uv"></span>UV
         </span>
-        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+        Drive by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> On <a href="https://www.github.com" target="_blank" rel="noopener">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
     <h6>
         The value of a man resides in what he gives and not in what he is capable of receiving.
         <br />  
@@ -297,10 +300,14 @@ else:
     window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="/js/index.js"></script>
+
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
 <script src="/js/gitment.js"></script>
+
 <script>
     var gitment = new Gitment({
         id: 'pyrename with getopt',

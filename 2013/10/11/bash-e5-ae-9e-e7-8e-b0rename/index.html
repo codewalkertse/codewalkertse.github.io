@@ -16,12 +16,17 @@
     </title>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -127,13 +132,13 @@
         
         <span class="attr">Tags：/
         
+        <a class="tag" href="/tags/#python" title="python">python</a>
+        <span>/</span>
+        
         <a class="tag" href="/tags/#bash" title="bash">bash</a>
         <span>/</span>
         
         <a class="tag" href="/tags/#linux" title="linux">linux</a>
-        <span>/</span>
-        
-        <a class="tag" href="/tags/#python" title="python">python</a>
         <span>/</span>
         
         <a class="tag" href="/tags/#egg" title="egg">egg</a>
@@ -156,10 +161,22 @@
     </div>
     <div class="post-content ">
         <p>昨天被问道个重命名文件的问题要求bash实现，一时没有想起怎么实现只想到个rename命令也由于没有开发环境不能调试就放弃了。回家后想了想可以如下完成。 一 关键是<strong>${file/.png}</strong></p>
-<p><pre></pre></p>
-<p>#!/bin/bash<br>lists=`ls *png`<br>for file in $lists;do<br>    mv “$file” “${file/.png}”.jpg;<br>done<br><br>二 关键是<strong>basename</strong></p>
-<p><pre><code></code></pre></p>
-<p>#!/bin/bash<br>lists=`ls *png`<br>for file in $lists;do<br>        mv $file `basename $file .png`.jpg;<br>done<br><br>update：15:51; 刚才突然想起来昨日面试还有一个题目是怎么查看<strong>The Zen of Python</strong></p>
+<pre>
+#!/bin/bash
+lists=\`ls *png\`
+for file in $lists;do
+    mv "$file" "${file/.png}".jpg; 
+done
+</pre>
+<p>二 关键是<strong>basename</strong></p>
+<pre><code>
+#!/bin/bash
+lists=\`ls *png\`
+for file in $lists;do
+        mv $file \`basename $file .png\`.jpg;
+done
+</code></pre>
+<p>update：15:51; 刚才突然想起来昨日面试还有一个题目是怎么查看<strong>The Zen of Python</strong></p>
 <p>import this</p>
 <p>有时候看来记性这东西还真让人琢磨不透，明明知道的东西有时候就是想不起来。但有时候又会自己就从脑子里蹦出来</p>
 
@@ -248,7 +265,7 @@
     <p>
         <span>/</span>
         
-        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span><a href="https://codewalker.me" target="_blank" rel="noopener">Old blog</a></span>
         <span>/</span>
         
     </p>
@@ -260,7 +277,7 @@
         <span id="busuanzi_container_site_uv">
             <span id="busuanzi_value_site_uv"></span>UV
         </span>
-        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+        Drive by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> On <a href="https://www.github.com" target="_blank" rel="noopener">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
     <h6>
         The value of a man resides in what he gives and not in what he is capable of receiving.
         <br />  
@@ -280,10 +297,14 @@
     window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="/js/index.js"></script>
+
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
 <script src="/js/gitment.js"></script>
+
 <script>
     var gitment = new Gitment({
         id: 'bash实现rename',

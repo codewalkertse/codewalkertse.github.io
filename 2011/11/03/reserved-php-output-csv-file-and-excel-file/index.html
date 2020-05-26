@@ -16,12 +16,17 @@
     </title>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -140,13 +145,32 @@
 </span>
     </div>
     <div class="post-content ">
-        <p><strong>原文地址：</strong><a href="http://blog.sina.com.cn/s/blog_610997850100t86i.html" title="php &lt;wbr&gt;输出csv文件及excel文件" target="_blank" rel="noopener">输出csv文件及excel文件”&gt;php 输出csv文件及excel文件</a><strong>作者：</strong><a href="http://blog.sina.com.cn/u/1628018565" title="流星飞雨" target="_blank" rel="noopener">流星飞雨</a></p>
+        <p><strong>原文地址：</strong><a href="http://blog.sina.com.cn/s/blog_610997850100t86i.html" target="_blank" rel="noopener" title="php &lt;wbr&gt;输出csv文件及excel文件">输出csv文件及excel文件”&gt;php 输出csv文件及excel文件</a><strong>作者：</strong><a href="http://blog.sina.com.cn/u/1628018565" target="_blank" rel="noopener" title="流星飞雨">流星飞雨</a></p>
 <p>php输出csv和excel的原理  </p>
 <p>php手册例子,输出pdf文件<br>// We’ll be outputting a PDF<br>header(‘Content-type: application/pdf’);  </p>
 <p>// It will be called downloaded.pdf<br>header(‘Content-Disposition: attachment; filename=”downloaded.pdf”‘);  </p>
 <p>// The PDF source is in original.pdf<br>readfile(‘original.pdf’);  </p>
 <p>输出编码和支持的格式<br>1.支持普通格式的csv文本规范，以空格和换行来识别<br>常用： tn 填充空白和换行<br>2.支持简单的html代码和表格规范<br>常用: table规范，表格合并规范，font标签规范  </p>
-<table><br>    <tr><br>    <td colspan="3"><font color="red">统计</font></td><br>    </tr><br>    <tr><br>    <td>11</td><br>    <td>12</td><br>    <td>13</td><br>    </tr><br>    <tr><br>    <td>21</td><br>    <td>22</td><br>    <td>23</td><br>    </tr><br>   <tr><br>    <td>=A1+A2</td><br>    <td>22</td><br>    <td>SUM(A3:A4)</td><br>    </tr><br></table>  
+<table>  
+    <tr>  
+    <td colspan="3"><font color=red>统计</font></td>  
+    </tr>  
+    <tr>  
+    <td>11</td>  
+    <td>12</td>  
+    <td>13</td>  
+    </tr>  
+    <tr>  
+    <td>21</td>  
+    <td>22</td>  
+    <td>23</td>  
+    </tr>  
+   <tr>  
+    <td>=A1+A2</td>  
+    <td>22</td>  
+    <td>SUM(A3:A4)</td>  
+    </tr>  
+</table>  
 
 <p>php 输出excel 代码<br>&lt;?php<br>header(“Content-type:application/vnd.ms-excel”);<br>header(“Content-Disposition:filename=excel.xls”);  </p>
 <p>echo “A1t B1t C1n”;<br>echo “A2t B2t C2n”;<br>echo “A3t B3t c3n”;<br>?&gt;<br>利用t来区分单元格<br>利用n来换行  </p>
@@ -237,7 +261,7 @@
     <p>
         <span>/</span>
         
-        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span><a href="https://codewalker.me" target="_blank" rel="noopener">Old blog</a></span>
         <span>/</span>
         
     </p>
@@ -249,7 +273,7 @@
         <span id="busuanzi_container_site_uv">
             <span id="busuanzi_value_site_uv"></span>UV
         </span>
-        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+        Drive by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> On <a href="https://www.github.com" target="_blank" rel="noopener">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
     <h6>
         The value of a man resides in what he gives and not in what he is capable of receiving.
         <br />  
@@ -269,10 +293,14 @@
     window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="/js/index.js"></script>
+
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
 <script src="/js/gitment.js"></script>
+
 <script>
     var gitment = new Gitment({
         id: '[转载]php 输出csv文件及excel文件',

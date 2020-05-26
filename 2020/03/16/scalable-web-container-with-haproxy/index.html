@@ -16,12 +16,17 @@
     </title>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -127,10 +132,10 @@
         
         <span class="attr">Tags：/
         
-        <a class="tag" href="/tags/#docker" title="docker">docker</a>
+        <a class="tag" href="/tags/#python" title="python">python</a>
         <span>/</span>
         
-        <a class="tag" href="/tags/#python" title="python">python</a>
+        <a class="tag" href="/tags/#docker" title="docker">docker</a>
         <span>/</span>
         
         <a class="tag" href="/tags/#redis" title="redis">redis</a>
@@ -148,21 +153,27 @@
     <div class="post-content ">
         <h2 id="Talk-is-cheap"><a href="#Talk-is-cheap" class="headerlink" title="Talk is cheap"></a>Talk is cheap</h2><p>Files:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; tree</span><br><span class="line">.</span><br><span class="line">├── app.py</span><br><span class="line">├── docker-compose.yml</span><br><span class="line">└── web.Dockerfile</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>docker-compose.yml</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">version: <span class="string">"3"</span></span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line"></span><br><span class="line">  redis:</span><br><span class="line">    image: redis</span><br><span class="line">    restart: always</span><br><span class="line"></span><br><span class="line">  web:</span><br><span class="line">    build:</span><br><span class="line">      context: .</span><br><span class="line">      dockerfile: web.Dockerfile</span><br><span class="line">    depends_on: </span><br><span class="line">      - redis</span><br><span class="line">    environment:</span><br><span class="line">      REDIS_HOST: redis</span><br><span class="line">    restart: always</span><br><span class="line"></span><br><span class="line">  lb:</span><br><span class="line">    image: dockercloud/haproxy</span><br><span class="line">    links:</span><br><span class="line">      - web</span><br><span class="line">    ports:</span><br><span class="line">      - 80:80</span><br><span class="line">    depends_on: </span><br><span class="line">      - web</span><br><span class="line">    volumes:</span><br><span class="line">      - /var/run/docker.sock:/var/run/docker.sock</span><br><span class="line">    restart: always</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>app.py</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">from flask import Flask</span><br><span class="line">from redis import Redis</span><br><span class="line">import os</span><br><span class="line">import socket</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">redis = Redis(host=os.environ.get(<span class="string">'REDIS_HOST'</span>, <span class="string">'127.0.0.1'</span>), port=6379)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@app.route(<span class="string">'/'</span>)</span><br><span class="line">def hello():</span><br><span class="line">    redis.incr(<span class="string">'hits'</span>)</span><br><span class="line">    <span class="built_in">return</span> <span class="string">'Hello Container World! I have been seen %s times and my hostname is %s.\n'</span> % (redis.get(<span class="string">'hits'</span>),socket.gethostname())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    app.run(host=<span class="string">"0.0.0.0"</span>, port=8000, debug=True)</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>web.Dockerfile</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">FROM python:2.7</span><br><span class="line">LABEL maintaner=<span class="string">"simon.xie@codewalker.me"</span></span><br><span class="line">COPY . /app</span><br><span class="line">WORKDIR /app</span><br><span class="line">RUN python -m pip install --upgrade pip &amp;&amp; pip install flask redis</span><br><span class="line">EXPOSE 8000</span><br><span class="line">CMD [ <span class="string">"python"</span>, <span class="string">"app.py"</span> ]</span><br></pre></td></tr></table></figure>
+
 <h2 id="How-to-run"><a href="#How-to-run" class="headerlink" title="How to run"></a>How to run</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+
 <p>then you should see something like this:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt; docker-compose up</span><br><span class="line">Starting scale_redis_1 ... <span class="keyword">done</span></span><br><span class="line">Starting scale_web_1   ... <span class="keyword">done</span></span><br><span class="line">Starting scale_lb_1    ... <span class="keyword">done</span></span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">lb_1     |   maxconn 4096</span><br><span class="line">lb_1     |   default_backend default_service</span><br><span class="line">lb_1     | backend default_service</span><br><span class="line">lb_1     |   server scale_web_1 scale_web_1:80 check inter 2000 rise 2 fall 3</span><br><span class="line">lb_1     | INFO:haproxy:Launching HAProxy</span><br><span class="line">lb_1     | INFO:haproxy:HAProxy has been launched(PID: 9)</span><br><span class="line">lb_1     | INFO:haproxy:===========END===========</span><br></pre></td></tr></table></figure>
+
 <h2 id="How-to-see"><a href="#How-to-see" class="headerlink" title="How to see"></a>How to see</h2><p>Open 127.0.0.1 in your browser whatever you like.</p>
 <p>EOF<br>Enjoy<br>I, simon love this world ❤️</p>
 
@@ -251,7 +262,7 @@
     <p>
         <span>/</span>
         
-        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span><a href="https://codewalker.me" target="_blank" rel="noopener">Old blog</a></span>
         <span>/</span>
         
     </p>
@@ -263,7 +274,7 @@
         <span id="busuanzi_container_site_uv">
             <span id="busuanzi_value_site_uv"></span>UV
         </span>
-        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+        Drive by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> On <a href="https://www.github.com" target="_blank" rel="noopener">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
     <h6>
         The value of a man resides in what he gives and not in what he is capable of receiving.
         <br />  
@@ -283,10 +294,14 @@
     window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="/js/index.js"></script>
+
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
 <script src="/js/gitment.js"></script>
+
 <script>
     var gitment = new Gitment({
         id: 'scalable web container with haproxy',

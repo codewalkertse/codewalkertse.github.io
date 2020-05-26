@@ -16,12 +16,17 @@
     </title>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -160,8 +165,7 @@
 <p>修改selinux 上下文</p>
 <pre><code>方法一 直接修改 chcon -t allow\_xxx\_anon_write /path/to/dir
 
-方法二 参照xxx文件\[夹\] chcon -t --reference=/path/to/dir/old /path/to/dir/new
-</code></pre><p>环境说明。一台server 192.168.122.49 一台localhost 192.168.122.101</p>
+方法二 参照xxx文件\[夹\] chcon -t --reference=/path/to/dir/old /path/to/dir/new</code></pre><p>环境说明。一台server 192.168.122.49 一台localhost 192.168.122.101</p>
 <p>例如</p>
 <p>[root@localhost ftp]# ls -lZD</p>
 <p>drwxr-xrwx. root root system_u:object_r:public_content_t:s0 pub</p>
@@ -179,10 +183,8 @@
 <p>203 bytes transferred#这就是成功的标志</p>
 <p>FTP 服務：</p>
 <p>ftpd_disable_trans：</p>
-<pre><code>是否關閉 SELinux 對 ftpd daemon 的保護。預設為 off。 
-</code></pre><p>allow_ftpd_anon_write：</p>
-<pre><code>是否允許 client 上傳檔案至標記為 public\_content\_rw_t 的目錄。預設為 off。
-</code></pre><p>ftp_home_dir：</p>
+<pre><code>是否關閉 SELinux 對 ftpd daemon 的保護。預設為 off。 </code></pre><p>allow_ftpd_anon_write：</p>
+<pre><code>是否允許 client 上傳檔案至標記為 public\_content\_rw_t 的目錄。預設為 off。</code></pre><p>ftp_home_dir：</p>
 <p>是否允許使用者讀取/寫入檔案於自己家目錄內。預設為 off。</p>
 <p>SAMBA 服務：</p>
 <p>smbd_disable_trans：</p>
@@ -279,7 +281,7 @@
     <p>
         <span>/</span>
         
-        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span><a href="https://codewalker.me" target="_blank" rel="noopener">Old blog</a></span>
         <span>/</span>
         
     </p>
@@ -291,7 +293,7 @@
         <span id="busuanzi_container_site_uv">
             <span id="busuanzi_value_site_uv"></span>UV
         </span>
-        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+        Drive by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> On <a href="https://www.github.com" target="_blank" rel="noopener">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
     <h6>
         The value of a man resides in what he gives and not in what he is capable of receiving.
         <br />  
@@ -311,10 +313,14 @@
     window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="/js/index.js"></script>
+
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
 <script src="/js/gitment.js"></script>
+
 <script>
     var gitment = new Gitment({
         id: 'selinux中关于ftp及samba的设置',

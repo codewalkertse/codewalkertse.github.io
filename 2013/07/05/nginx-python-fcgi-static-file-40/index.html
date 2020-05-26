@@ -16,12 +16,17 @@
     </title>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -127,10 +132,10 @@
         
         <span class="attr">Tags：/
         
-        <a class="tag" href="/tags/#linux" title="linux">linux</a>
+        <a class="tag" href="/tags/#python" title="python">python</a>
         <span>/</span>
         
-        <a class="tag" href="/tags/#python" title="python">python</a>
+        <a class="tag" href="/tags/#linux" title="linux">linux</a>
         <span>/</span>
         
         <a class="tag" href="/tags/#nginx" title="nginx">nginx</a>
@@ -179,8 +184,7 @@ server {
         break;
             #include /etc/nginx/uwsgi_params;
     }
-}
-</code></pre><p>很奇怪哦。动态文件可以访问，但是静态文件就是403.没权限。 曾经我测试过，<strong>在没有设置过nginx 的user时候用浏览器访问nginx代理的python脚本生成文件</strong>，文件owner是我<strong>自己</strong>而不是<strong>root</strong> 。 好，那么说明我访问的时候也是我自己来访问而不是root（因为我猜想，在我开启服务的时候比如是root，所以也就是用root是这个程序的owner），那么现在当我访问某文件的owner为自己的时候就是正确的。 但是！但是这个时候我的猜想错误了，通过我最上面叙述的方法是无法访问而返回403,于是我把所有这个网站改成777 不行哦！是不行哦！所有人都可以访问都还是403,奇怪了吧！ 最后，最后，修改nginx的配置文件在top添加user xxx;也就是我自己之后，nginx -s reload之后就正常了，为啥呢？</p>
+}</code></pre><p>很奇怪哦。动态文件可以访问，但是静态文件就是403.没权限。 曾经我测试过，<strong>在没有设置过nginx 的user时候用浏览器访问nginx代理的python脚本生成文件</strong>，文件owner是我<strong>自己</strong>而不是<strong>root</strong> 。 好，那么说明我访问的时候也是我自己来访问而不是root（因为我猜想，在我开启服务的时候比如是root，所以也就是用root是这个程序的owner），那么现在当我访问某文件的owner为自己的时候就是正确的。 但是！但是这个时候我的猜想错误了，通过我最上面叙述的方法是无法访问而返回403,于是我把所有这个网站改成777 不行哦！是不行哦！所有人都可以访问都还是403,奇怪了吧！ 最后，最后，修改nginx的配置文件在top添加user xxx;也就是我自己之后，nginx -s reload之后就正常了，为啥呢？</p>
 
         
             <div class="donate-container">
@@ -267,7 +271,7 @@ server {
     <p>
         <span>/</span>
         
-        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span><a href="https://codewalker.me" target="_blank" rel="noopener">Old blog</a></span>
         <span>/</span>
         
     </p>
@@ -279,7 +283,7 @@ server {
         <span id="busuanzi_container_site_uv">
             <span id="busuanzi_value_site_uv"></span>UV
         </span>
-        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+        Drive by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> On <a href="https://www.github.com" target="_blank" rel="noopener">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
     <h6>
         The value of a man resides in what he gives and not in what he is capable of receiving.
         <br />  
@@ -299,10 +303,14 @@ server {
     window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="/js/index.js"></script>
+
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
 <script src="/js/gitment.js"></script>
+
 <script>
     var gitment = new Gitment({
         id: 'nginx代理Django访问静态文件static时返回403',

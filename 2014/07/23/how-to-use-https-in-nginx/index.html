@@ -16,12 +16,17 @@
     </title>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -131,14 +136,14 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>[caption id=”attachment_666” align=”alignnone” width=”276”]<a href="http://codewalker.me/wp-content/uploads/2014/07/images.jpeg" target="_blank" rel="noopener"><img src="http://codewalker.me/wp-content/uploads/2014/07/images.jpeg" alt="ssl"></a> ssl[/caption] 既前两天做了个<a href="http://codewalker.me/2014/07/22/how-to-proxy-google-use-nginx/" title="How to proxy Google use Nginx" target="_blank" rel="noopener">HOW TO PROXY GOOGLE USE NGINX</a>之后感觉有必要再弄个https强化一下所以有了如下设置 中间有个小插曲在申请CA证书的时候我想使用<em>google.codewalker.me</em>发生了如下对话</p>
+        <p>[caption id=”attachment_666” align=”alignnone” width=”276”]<a href="http://codewalker.me/wp-content/uploads/2014/07/images.jpeg" target="_blank" rel="noopener"><img src="http://codewalker.me/wp-content/uploads/2014/07/images.jpeg" alt="ssl"></a> ssl[/caption] 既前两天做了个<a href="http://codewalker.me/2014/07/22/how-to-proxy-google-use-nginx/" target="_blank" rel="noopener" title="How to proxy Google use Nginx">HOW TO PROXY GOOGLE USE NGINX</a>之后感觉有必要再弄个https强化一下所以有了如下设置 中间有个小插曲在申请CA证书的时候我想使用_google.codewalker.me_发生了如下对话</p>
 <blockquote>
 <p>To Simon Xie, This electronic mail message was created by StartCom’s Administration Personnel: Google is a high-profile brand for which we don\‘t allow usage by others, except of Google themselves. Thank you for your understanding. Best Regards Karen Sargsyan StartCom Ltd. StartSSL™ Certification Authority</p>
 </blockquote>
 <blockquote>
 <p>Hi Unfortunately it’s impossible. You should use a different sub domain.</p>
 </blockquote>
-<p>解释也不听所以只有换一个可以看<a href="http://codewalker.me/2014/07/23/%e8%af%b7%e5%bc%80%e5%90%af%e7%a7%91%e5%ad%a6%e4%b8%8a%e7%bd%91%e6%a8%a1%e5%bc%8f/" title="请开启科学上网模式" target="_blank" rel="noopener">这片文章</a> 我使用的是<a href="https://www.startssl.com/" title="startssl" target="_blank" rel="noopener">startssl.com</a>上面申请的免费证书是一年期限。 使用<a href="http://iwannatovisitguge.codewalker.me/search?newwindow=1&amp;safe=strict&amp;site=&amp;source=hp&amp;q=startssl+%E5%85%8D%E8%B4%B9%E8%AF%81%E4%B9%A6&amp;oq=startssl+%E5%85%8D%E8%B4%B9&amp;gs_l=hp.3.1.0j0i30.1631.5302.0.7546.17.14.0.0.0.0.574.2027.2-2j1j0j2.5.0....0...1c.1j4.49.hp..12.5.2024.f2387NLyACM&amp;gws_rd=ssl" target="_blank" rel="noopener">科学上网法</a>去搜索一下就知道怎么申请了. 我再配置的时候遇到一个小问题是_PEM_read_bio:no start line_科学上网法告诉我说是文件的格式没对 具体到我的问题是由于key文件的开头的 - 的个数没写对，这里卡了我1个小时…真无语. <strong>正题开始</strong> 在你的nginx文件中的http段中加入或者新建文件然后再include进nginx.conf中.</p>
+<p>解释也不听所以只有换一个可以看<a href="http://codewalker.me/2014/07/23/%e8%af%b7%e5%bc%80%e5%90%af%e7%a7%91%e5%ad%a6%e4%b8%8a%e7%bd%91%e6%a8%a1%e5%bc%8f/" target="_blank" rel="noopener" title="请开启科学上网模式">这片文章</a> 我使用的是<a href="https://www.startssl.com/" target="_blank" rel="noopener" title="startssl">startssl.com</a>上面申请的免费证书是一年期限。 使用<a href="http://iwannatovisitguge.codewalker.me/search?newwindow=1&safe=strict&site=&source=hp&q=startssl+%E5%85%8D%E8%B4%B9%E8%AF%81%E4%B9%A6&oq=startssl+%E5%85%8D%E8%B4%B9&gs_l=hp.3.1.0j0i30.1631.5302.0.7546.17.14.0.0.0.0.574.2027.2-2j1j0j2.5.0....0...1c.1j4.49.hp..12.5.2024.f2387NLyACM&gws_rd=ssl" target="_blank" rel="noopener">科学上网法</a>去搜索一下就知道怎么申请了. 我再配置的时候遇到一个小问题是_PEM_read_bio:no start line_科学上网法告诉我说是文件的格式没对 具体到我的问题是由于key文件的开头的 - 的个数没写对，这里卡了我1个小时…真无语. <strong>正题开始</strong> 在你的nginx文件中的http段中加入或者新建文件然后再include进nginx.conf中.</p>
 <p>listen 443;#加入一个https的监听端口<br>    ssl on;开启ssl<br>    ssl_certificate /path/to/filename.crt;#crt证书位置<br>    ssl_certificate_key  /path/to/filename.key;#key证书位置<br>    ssl_session_timeout 5m;＃字面意思</p>
 <p>然后test 一下 最后reload一下 打完收工 EOF</p>
 
@@ -227,7 +232,7 @@
     <p>
         <span>/</span>
         
-        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span><a href="https://codewalker.me" target="_blank" rel="noopener">Old blog</a></span>
         <span>/</span>
         
     </p>
@@ -239,7 +244,7 @@
         <span id="busuanzi_container_site_uv">
             <span id="busuanzi_value_site_uv"></span>UV
         </span>
-        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+        Drive by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> On <a href="https://www.github.com" target="_blank" rel="noopener">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
     <h6>
         The value of a man resides in what he gives and not in what he is capable of receiving.
         <br />  
@@ -259,10 +264,14 @@
     window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="/js/index.js"></script>
+
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
 <script src="/js/gitment.js"></script>
+
 <script>
     var gitment = new Gitment({
         id: 'How to use https in nginx',

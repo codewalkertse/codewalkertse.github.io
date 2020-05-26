@@ -16,12 +16,17 @@
     </title>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -140,7 +145,7 @@
         <p>来源于道哥的公共微信。这个人是专注于白冒的大牛</p>
 <p>非常的简单服务端不需要配置，服务端怎么把ssh的访问转化为外网的访问这个我还不得而知。</p>
 <p>只需要一行简单的代码建立客户端与服务端的ssh链接就ok了。</p>
-<p><strong> ssh -qCNgf <a href="mailto:codewalker@192.168.123.102" target="_blank" rel="noopener">codewalker@192.168.123.102</a> -D 127.0.0.1:7978</strong></p>
+<p>** ssh -qCNgf <a href="mailto:codewalker@192.168.123.102">codewalker@192.168.123.102</a> -D 127.0.0.1:7978**</p>
 <p>参数解释</p>
 <p>-q     Quiet mode.  Causes most warning and diagnostic messages to be suppressed.</p>
 <p>-C     Requests compression of all data (including stdin, stdout, stderr, and data for</p>
@@ -154,10 +159,8 @@ connections,  but  will  only  slow  down things on fast networks.  The default
 
 value can be set on a host-by-host basis in the configuration  files;  see  the
 
-Compression option.
-</code></pre><p>-N     Do  not  execute  a  remote  command.  This is useful for just forwarding ports</p>
-<pre><code>(protocol version 2 only).
-</code></pre><p>-g     Allows remote hosts to connect to local forwarded ports.</p>
+Compression option.</code></pre><p>-N     Do  not  execute  a  remote  command.  This is useful for just forwarding ports</p>
+<pre><code>(protocol version 2 only).</code></pre><p>-g     Allows remote hosts to connect to local forwarded ports.</p>
 <p>-f     Requests ssh to go to background just before command execution.  This is useful</p>
 <pre><code>if  ssh  is going to ask for passwords or passphrases, but the user wants it in
 
@@ -171,8 +174,7 @@ If  the  ExitOnForwardFailure  configuration  option  is set to ``yes&apos;&apos
 
 client started with -f will wait for all remote port forwards  to  be  success‐
 
-fully established before placing itself in the background.
-</code></pre><p>-D [bind_address:] port</p>
+fully established before placing itself in the background.</code></pre><p>-D [bind_address:] port</p>
 <pre><code>Specifies a local ``dynamic&apos;&apos; application-level port forwarding.  This works by
 
 allocating a socket to listen to port on the local side,  optionally  bound  to
@@ -203,8 +205,7 @@ bind_address of ``localhost&apos;&apos; indicates that the listening port  be  b
 
 local use only, while an empty address or `*&apos; indicates that the port should be
 
-available from all interfaces.
-</code></pre>
+available from all interfaces.</code></pre>
         
             <div class="donate-container">
     <div class="donate-button">
@@ -290,7 +291,7 @@ available from all interfaces.
     <p>
         <span>/</span>
         
-        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span><a href="https://codewalker.me" target="_blank" rel="noopener">Old blog</a></span>
         <span>/</span>
         
     </p>
@@ -302,7 +303,7 @@ available from all interfaces.
         <span id="busuanzi_container_site_uv">
             <span id="busuanzi_value_site_uv"></span>UV
         </span>
-        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+        Drive by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> On <a href="https://www.github.com" target="_blank" rel="noopener">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
     <h6>
         The value of a man resides in what he gives and not in what he is capable of receiving.
         <br />  
@@ -322,10 +323,14 @@ available from all interfaces.
     window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="/js/index.js"></script>
+
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
 <script src="/js/gitment.js"></script>
+
 <script>
     var gitment = new Gitment({
         id: 'ssh代理',

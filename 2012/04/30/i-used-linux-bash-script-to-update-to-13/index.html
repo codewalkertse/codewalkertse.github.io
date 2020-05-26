@@ -16,12 +16,17 @@
     </title>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -146,7 +151,7 @@
 <p>└─$cat ~/my_script/start_web_server.sh </p>
 <p>#!/bin/bash</p>
 <p>#writen by codewalker</p>
-<p>#email <a href="mailto:xyy.xx.victor@gmail.com" target="_blank" rel="noopener">xyy.xx.victor@gmail.com</a></p>
+<p>#email <a href="mailto:xyy.xx.victor@gmail.com">xyy.xx.victor@gmail.com</a></p>
 <p>#qq 58626619</p>
 <p>#Modify date: 2012-4-30 </p>
 <p>#update 1.3 comlete network control with netcfg2</p>
@@ -163,12 +168,10 @@
 
 4:online&amp;startx;
 
-5:contact wifi;
-</code></pre><p>EOF</p>
+5:contact wifi;</code></pre><p>EOF</p>
 <p>}</p>
 <p>function go(){</p>
-<pre><code>startx
-</code></pre><p>}</p>
+<pre><code>startx</code></pre><p>}</p>
 <p>function online (){</p>
 <pre><code>echo &apos;get ip&apos;;
 
@@ -180,8 +183,7 @@ sudo /etc/rc.d/goagent start
 
 echo &apos;starting dnsmasq...&apos;;
 
-sudo /etc/rc.d/dnsmasq start
-</code></pre><p>}</p>
+sudo /etc/rc.d/dnsmasq start</code></pre><p>}</p>
 <p>function start_php_nginx_varnish (){</p>
 <pre><code>echo &apos;starting php-fpm...&apos;;
 
@@ -195,8 +197,7 @@ echo &apos;starting varnish&apos;;
 
 sudo varnishd -f /etc/varnish/default.vcl -s malloc,1G -T 127.0.0.1:2000 -a 0.0.0.0:8080
 
-sudo /etc/rc.d/varnish start
-</code></pre><p>}</p>
+sudo /etc/rc.d/varnish start</code></pre><p>}</p>
 <p>function stop_php_nginx_varnish (){</p>
 <pre><code>echo &apos;stop webserver&apos;;
 
@@ -206,13 +207,11 @@ sudo /etc/rc.d/nginx stop
 
 sudo /etc/rc.d/varnish stop
 
-sudo pkill varnish
-</code></pre><p>}</p>
+sudo pkill varnish</code></pre><p>}</p>
 <p>function restart_php_nginx_varnish (){</p>
 <pre><code>stop\_php\_nginx_varnish
 
-start\_php\_nginx_varnish
-</code></pre><p>}</p>
+start\_php\_nginx_varnish</code></pre><p>}</p>
 <p> function mysql_control(){</p>
 <pre><code>echo &quot;you chose $@ mysql&quot;
 
@@ -244,8 +243,7 @@ q|Q) done=&quot;true&quot; #ends while loop
 
     ;;
 
- *)   echo &quot;Invalid option, choose again...&quot;;;
-</code></pre><p>   esac</p>
+ *)   echo &quot;Invalid option, choose again...&quot;;;</code></pre><p>   esac</p>
 <p>}</p>
 <p>count_input=0</p>
 <p> while [ “$switch” == ‘’ ]; do</p>
@@ -285,8 +283,7 @@ q|Q) done=&quot;true&quot; #ends while loop
 
      exit 0
 
- fi
-</code></pre><p> done</p>
+ fi</code></pre><p> done</p>
 <p>if [ “$switch” == “1” ];then</p>
 <pre><code>start\_php\_nginx_varnish
 
@@ -296,8 +293,7 @@ if \[ &quot;$is\_start\_mysql&quot; == &quot;1&quot; \];then
 
     mysql_control &apos;start&apos;
 
-fi
-</code></pre><p>fi</p>
+fi</code></pre><p>fi</p>
 <p>if [ “$switch” == “2” ];then</p>
 <pre><code>stop\_php\_nginx_varnish
 
@@ -307,8 +303,7 @@ if \[ &quot;$is\_start\_mysql&quot; == &quot;1&quot; \];then
 
      mysql_control &apos;stop&apos;
 
-fi
-</code></pre><p>fi</p>
+fi</code></pre><p>fi</p>
 <p>if [ “$switch” == “3” ];then</p>
 <pre><code>restart\_php\_nginx_varnish
 
@@ -324,8 +319,7 @@ else
 
     exit 1
 
-fi
-</code></pre><p>fi</p>
+fi</code></pre><p>fi</p>
 <p>if [ “$switch” == “4” ];then</p>
 <pre><code>online;
 
@@ -341,8 +335,7 @@ else
 
     exit 1
 
-fi
-</code></pre><p>fi</p>
+fi</code></pre><p>fi</p>
 <p>if [ “$switch” == “5” ];then</p>
 <pre><code>\_net\_config_file=&apos;/tmp/wireless-cfg&apos;;
 
@@ -404,8 +397,7 @@ sudo chmod 644 /etc/network.d/wireless.cfg;
 
 sudo chown root.root /etc/network.d/wireless.cfg;
 
-sudo netcfg2 wireless.cfg
-</code></pre><p>fi</p>
+sudo netcfg2 wireless.cfg</code></pre><p>fi</p>
 
         
             <div class="donate-container">
@@ -492,7 +484,7 @@ sudo netcfg2 wireless.cfg
     <p>
         <span>/</span>
         
-        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span><a href="https://codewalker.me" target="_blank" rel="noopener">Old blog</a></span>
         <span>/</span>
         
     </p>
@@ -504,7 +496,7 @@ sudo netcfg2 wireless.cfg
         <span id="busuanzi_container_site_uv">
             <span id="busuanzi_value_site_uv"></span>UV
         </span>
-        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+        Drive by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> On <a href="https://www.github.com" target="_blank" rel="noopener">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
     <h6>
         The value of a man resides in what he gives and not in what he is capable of receiving.
         <br />  
@@ -524,10 +516,14 @@ sudo netcfg2 wireless.cfg
     window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="/js/index.js"></script>
+
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
 <script src="/js/gitment.js"></script>
+
 <script>
     var gitment = new Gitment({
         id: '我的常用linux bash 脚本更新至1.3',

@@ -16,12 +16,17 @@
     </title>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -142,8 +147,7 @@
 <p>1. git 的用户信息注册： </p>
 <pre><code>git config --global  user.name “abdo&quot;
 
-git config --global user.email &quot;abdo@xxxx&quot;
-</code></pre><p>注意git 配置文件的解析顺序(优先级递减）：</p>
+git config --global user.email &quot;abdo@xxxx&quot;</code></pre><p>注意git 配置文件的解析顺序(优先级递减）：</p>
 <p> .git/config  ~/.gitconfig /etc/gitconfig</p>
 <p># .git/config 最重要，最后解析</p>
 <p>同时用户信息注销</p>
@@ -156,25 +160,19 @@ git config --global user.email &quot;abdo@xxxx&quot;
 <p>   git clone [ak@]sever:/git/source_code . # 克隆sever下的code到本地，支持ssh</p>
 <p>4. git 的同步</p>
 <p>  A 拷贝最新到本地的master下，并新建一个beta分支</p>
-<pre><code>git fetch server:/git/source\_code local\_path master:beta
-</code></pre><p> B 比较master 与beta 的区别</p>
-<pre><code>git whatchanged master newest 
-</code></pre><p> C 将本地的master code与beta融合</p>
+<pre><code>git fetch server:/git/source\_code local\_path master:beta</code></pre><p> B 比较master 与beta 的区别</p>
+<pre><code>git whatchanged master newest </code></pre><p> C 将本地的master code与beta融合</p>
 <p>   选择1</p>
-<pre><code>git merge beta   # 把beta 放入master， 有点不建议这样，因为容易改动master
-</code></pre><p>   选择2</p>
+<pre><code>git merge beta   # 把beta 放入master， 有点不建议这样，因为容易改动master</code></pre><p>   选择2</p>
 <pre><code>git checkout beta 
 
-git merge master  \# 把master放入beta 
-</code></pre><p>D 消除冲突 （如果有的话）</p>
-<pre><code>用文本编辑器（emacs, vi） 编译，消除冲突
-</code></pre><p>5. git 更新远程server的code</p>
+git merge master  \# 把master放入beta </code></pre><p>D 消除冲突 （如果有的话）</p>
+<pre><code>用文本编辑器（emacs, vi） 编译，消除冲突</code></pre><p>5. git 更新远程server的code</p>
 <p>   git push server:/git/source_code   # 注意，如果server只有一个master，默认是不允许修改的。 因为容易发生错误有风险。</p>
 <p> 建议是推送到server 的master下的一个分支，等管理员检查后在更新server 的master。</p>
 <p>  git push server:/git/source_code master:dev # 把最新上传的code 放在master下的dev分支。</p>
 <p>6. git的邮件提醒（未检验）</p>
-<pre><code>由于git 允许分布管理，在同一时间内如果不同的人上传，容易把没有及时更新的code 覆盖，因此在git中，当有人上传最新code时候，进行邮件提醒。默认git 的邮件群发脚本在/usr/share/git-core/templates/hooks/post-receive-email
-</code></pre><p>把这个文件拷贝到server的source code 下的.git/hooks/下，添加执行操作。</p>
+<pre><code>由于git 允许分布管理，在同一时间内如果不同的人上传，容易把没有及时更新的code 覆盖，因此在git中，当有人上传最新code时候，进行邮件提醒。默认git 的邮件群发脚本在/usr/share/git-core/templates/hooks/post-receive-email</code></pre><p>把这个文件拷贝到server的source code 下的.git/hooks/下，添加执行操作。</p>
 <p>这个脚本是用sendmail发送邮件，因此server需开启sendmail服务，也有其他邮件系统的脚步，google立得！</p>
 <p>7. git 小技巧</p>
 <p>   git diff  -p hash1 hash2  #hash1 hash2 指哈希值1 和2. 可以不必全，头就行 </p>
@@ -267,7 +265,7 @@ git merge master  \# 把master放入beta
     <p>
         <span>/</span>
         
-        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span><a href="https://codewalker.me" target="_blank" rel="noopener">Old blog</a></span>
         <span>/</span>
         
     </p>
@@ -279,7 +277,7 @@ git merge master  \# 把master放入beta
         <span id="busuanzi_container_site_uv">
             <span id="busuanzi_value_site_uv"></span>UV
         </span>
-        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+        Drive by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> On <a href="https://www.github.com" target="_blank" rel="noopener">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
     <h6>
         The value of a man resides in what he gives and not in what he is capable of receiving.
         <br />  
@@ -299,10 +297,14 @@ git merge master  \# 把master放入beta
     window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="/js/index.js"></script>
+
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
 <script src="/js/gitment.js"></script>
+
 <script>
     var gitment = new Gitment({
         id: '关于github(二)',

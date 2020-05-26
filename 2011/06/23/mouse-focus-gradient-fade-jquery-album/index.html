@@ -16,12 +16,17 @@
     </title>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -139,10 +144,260 @@
     <div class="post-content ">
         <p><strong>关键词 鼠标 焦点jquery 相册 渐变 渐隐</strong></p>
 <p><strong>网上找的都不太合适要不然就是兼容问题，要不然就是更本用不起，此修改版基于阿里西西,兼容chrome IE6</strong></p>
-<p>&lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;" target="_blank" rel="noopener">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</a></p>
-<html xmlns="http://www.w3.org/1999/xhtml"><br><br><head><br><br><meta http-equiv="Content-Type" content="text/html; charset={$ns.charset}"><br><br><title>{$ns.site_part_name_cn}{$page_title}{if $cat_info.seo_keywords} - {$cat_info.seo_keywords}{/if} - {$ns.title}</title><br><br><meta content="codewalker" name="author"><br><br><meta content="codewalker" name="copyright"><br><br><meta content="{if $cat\_info.seo\_keywords}{$cat\_info.seo\_keywords}{else}{$ns.keywords}{/if}" name="keywords"><br><br><meta content="{if $cat\_info.seo\_description}{$cat\_info.seo\_description}{else}{$ns.description}{/if}" name="description"><br><br><meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"><br><br><link href="css/css.css" rel="stylesheet" type="text/css"><br><br><style rel="stylesheet" type="text/css"><br><br>#pic-box img.thumb_img {cursor:pointer;display:block;margin-bottom:10px}<br><br>#pic-box img#main_img {cursor:pointer;display:block;}<br><br>#pic-box #gotop {cursor:pointer;display:block;}<br><br>#pic-box #gobottom {cursor:pointer;display:block;}<br><br>#pic-box #showArea {height:350px;margin:5px;overflow:hidden}<br><br>#pic-box .info {color:#666;font:normal 9px Verdana;margin-top:20px}<br><br>#pic-box .info a:link, .info a:visited {color:#666;text-decoration:none}<br><br>#pic-box .info a:hover {color:#fff;text-decoration:none}<br><br></style><br><br><br><br><br><br>{insert_scripts files=’jquery_min.js’}<br><br><script type="text/javascript"><br><br>$(document).ready(function() {<br><br>$(“img[name=’thumb_img’]“).hover(<br><br>function(){<br><br>  $(“#main_img”).attr(“src”,this.src).fadeTo(3000,1);<br><br>},<br><br>function(){<br><br>  $(“#main_img”).attr(“src”,this.src).fadeTo(1000,0.65);<br><br>});<br><br><br><br>});<br><br></script><br><br></head><br><br><br><br><body><br><br><div class="box"><br><br><br><br><br><br><br><br> &lt;!-- #BeginLibraryItem “/Library/page_top.lbi” –&gt;<br><br> <div class="box-top"><br><br> <div class="box-top-left"></div><br><br> <div class="box-top-right"><br><br>  <div class="box-top-right01"></div><br><br>  <div class="box-top-right02"></div><br><br>  <div class="box-top-right03"></div><br><br>  <div class="box-top-right04"><a href="#" target="\_self"><img src="images/index\_07.jpg" width="87" height="32" border="0"></a></div><br><br>  <div class="box-top-right05"><a href="#" target="\_self"><img src="images/index\_08.jpg" width="81" height="32" border="0"></a></div><br><br>  <div class="box-top-right06"><a href="#" target="\_self"><img src="images/index\_09.jpg" width="76" height="32" border="0"></a></div><br><br>  <div class="box-top-right07"><a href="#" target="\_self"><img src="images/index\_10.jpg" width="91" height="32" border="0"></a></div><br><br>  <div class="box-top-right08"><a href="#" target="\_self"><img src="images/index\_11.jpg" width="83" height="32" border="0"></a></div><br><br>  <div class="box-top-right09"><a href="#" target="\_self"><img src="images/index\_12.jpg" width="82" height="32" border="0"></a></div><br><br>  <div class="box-top-right10"><a href="#" target="\_self"><img src="images/index\_13.jpg" width="67" height="32" border="0"></a></div><br><br>  <div class="box-top-right11"><a href="#" target="\_self"><img src="images/index\_14.jpg" width="86" height="32" border="0"></a></div><br><br> </div><br><br> </div><br><br> &lt;!-- #EndLibraryItem –&gt;<!--END top--><br><br><br><br><br><br><br><br> <div class="box-index-center"><br><br>  <div class="box-index-center1"><br><br>   <div class="box-find-center1left"></div><br><br>   <div class="box-find-center1right"></div><br><br>  </div><br><br>  <div class="box-index-center2"></div><br><br>  <div class="box-ho-center3"><br><br>   <ul><br><br>    <li><a href="{$guide\_header.yinxiang}" target="\_self">·茹布查卡印象</a></li><br><br>    <li><a href="{$guide\_header.chuanshuo}" target="\_self">·美丽传说</a></li><br><br>   </ul><br><br>  </div><br><br>  <div class="box-pic-center4"><br><br>   <div class="box-pic-center4-01"><br><br>    <div class="box-pic-img1"></div><br><br>    <div class="box-pic-img2"></div><br><br><div id="pic-box" name="pic-box" class="pic-box"><br><br><table width="100%" border="0" align="center" cellpadding="0" cellspacing=""><br><br>  <tr><br><br>    <td width="640" align="center"><img src="{$arr\_new\_pic.big\_pic}" alt="qinyong" width="640" height="401" border="0" id="main\_img"></td><br><br>    <td width="108" align="center" valign="top"><br><br>   <img src="images/gotop.gif" width="100" height="14" id="gotop"><br><br>   <div id="showArea"><br><br>   <!--{if $arr\_focus\_list}--><br><br><!--{foreach from=$arr\_focus\_list item=value}--><br><br><img src="{$value.big\_pic}" title="{$value.title}" alt="{$value.title}" width="80" height="50" border="0" class="thumb\_img" name="thumb_img"><br><br><!--{/foreach}--><br><br><!--{else}--><br><br>暂无图<br><br><!--{/if}--><br><br>   </div><br><br>   <img src="images/gobottom.gif" width="100" height="14" id="gobottom"><br><br>    </td><br><br>    <td width="11" align="center" valign="top" style="background-image:url(images/pic/pic\_04\_01.jpg);"></td><br><br>  </tr><br><br></table><br><br></div><br><br><br><br>    <div class="box-pic-img5"></div><br><br>   </div><br><br>  </div><br><br> </div><br><br><br><br><br><br><br><br><br><br><br><br> &lt;!-- #BeginLibraryItem “/Library/page_foot.lbi” –&gt;<br><br> <div class="foot"><br><br>  <div class="foot-top"><img src="images/index_40.jpg" width="980" height="8" border="0"></div><br><br>  <div class="foot-left"></div><br><br>  <div class="foot-right"><br><br>   <ul>地址：{$ns.org_address}  邮箱：{$ns.org_email}<br><br><br>       电话：{$ns.org_phone}    传真： {$ns.org_fax}  邮编：{$ns.org_postal}<br><br><br>       版权所有·稻城润泽天成旅游开发公司  {$ns.icp}<br><br>   </ul><br><br>  </div><br><br> </div><br><br></div><br><br> &lt;!-- #EndLibraryItem –&gt;<!--END foot--><br><br><script language="javascript" type="text/javascript"><br><br>var MyMar;<br><br>var speed = 1;<br><br>var spec = 1;<br><br>var ipath = ‘./images/roll_img/‘;<br><br>document.getElementByIdx_x_x_x(‘gotop’).onmouseover = function() {this.src = ipath + ‘gotop2.gif’; MyMar=setInterval(gotop,speed);}<br><br>document.getElementByIdx_x_x_x(‘gotop’).onmouseout = function() {this.src = ipath + ‘gotop.gif’; clearInterval(MyMar);}<br><br>document.getElementByIdx_x_x_x(‘gobottom’).onmouseover = function() {this.src = ipath + ‘gobottom2.gif’; MyMar=setInterval(gobottom,speed);}<br><br>document.getElementByIdx_x_x_x(‘gobottom’).onmouseout = function() {this.src = ipath + ‘gobottom.gif’; clearInterval(MyMar);}<br><br>function gotop() {document.getElementByIdx_x_x_x(‘showArea’).scrollTop-=spec;}<br><br>function gobottom() {document.getElementByIdx_x_x_x(‘showArea’).scrollTop+=spec;}<br><br></script><br><br></body><br><br></html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<p><a href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100t18v&amp;url=http://s2.sinaimg.cn/orignal/6c7cb607ga65bd560dfd1" target="_blank" rel="noopener"><img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="鼠标 &lt;wbr&gt;焦点jquery &lt;wbr&gt;相册 &lt;wbr&gt;渐变 &lt;wbr&gt;渐隐">焦点jquery 相册 渐变 渐隐” TITLE=”鼠标 焦点jquery 相册 渐变 渐隐” /&gt;</a></p>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset={$ns.charset}" />
+
+<title>{$ns.site\_part\_name\_cn}{$page\_title}{if $cat\_info.seo\_keywords} - {$cat\_info.seo\_keywords}{/if} - {$ns.title}</title>
+
+<meta content="codewalker" name="author" />
+
+<meta content="codewalker" name="copyright" />
+
+<meta content="{if $cat\_info.seo\_keywords}{$cat\_info.seo\_keywords}{else}{$ns.keywords}{/if}" name="keywords" />
+
+<meta content="{if $cat\_info.seo\_description}{$cat\_info.seo\_description}{else}{$ns.description}{/if}" name="description" />
+
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
+<link href="css/css.css" rel="stylesheet" type="text/css" />
+
+<style rel="stylesheet" type="text/css" >
+
+#pic-box img.thumb_img {cursor:pointer;display:block;margin-bottom:10px}
+
+#pic-box img#main_img {cursor:pointer;display:block;}
+
+#pic-box #gotop {cursor:pointer;display:block;}
+
+#pic-box #gobottom {cursor:pointer;display:block;}
+
+#pic-box #showArea {height:350px;margin:5px;overflow:hidden}
+
+#pic-box .info {color:#666;font:normal 9px Verdana;margin-top:20px}
+
+#pic-box .info a:link, .info a:visited {color:#666;text-decoration:none}
+
+#pic-box .info a:hover {color:#fff;text-decoration:none}
+
+</style>
+
+
+
+
+
+<p>{insert_scripts files=’jquery_min.js’}</p>
+<script type="text/javascript"> 
+
+$(document).ready(function() {
+
+$("img\[name='thumb_img'\]").hover(
+
+function(){
+
+  $("#main_img").attr("src",this.src).fadeTo(3000,1);
+
+},
+
+function(){
+
+  $("#main_img").attr("src",this.src).fadeTo(1000,0.65);
+
+});
+
+
+
+});
+
+</script>
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
+</head>
+
+
+
+<body>
+
+<div class="box">
+
+
+
+
+
+
+
+<p> &lt;!-- #BeginLibraryItem “/Library/page_top.lbi” –&gt;</p>
+ <div class="box-top">
+
+ <div class="box-top-left"></div>
+
+ <div class="box-top-right">
+
+  <div class="box-top-right01"></div>
+
+  <div class="box-top-right02"></div>
+
+  <div class="box-top-right03"></div>
+
+  <div class="box-top-right04"><a href="#" target="\_self"><img src="images/index\_07.jpg" width="87" height="32" border="0" /></a></div>
+
+  <div class="box-top-right05"><a href="#" target="\_self"><img src="images/index\_08.jpg" width="81" height="32" border="0" /></a></div>
+
+  <div class="box-top-right06"><a href="#" target="\_self"><img src="images/index\_09.jpg" width="76" height="32" border="0" /></a></div>
+
+  <div class="box-top-right07"><a href="#" target="\_self"><img src="images/index\_10.jpg" width="91" height="32" border="0" /></a></div>
+
+  <div class="box-top-right08"><a href="#" target="\_self"><img src="images/index\_11.jpg" width="83" height="32" border="0" /></a></div>
+
+  <div class="box-top-right09"><a href="#" target="\_self"><img src="images/index\_12.jpg" width="82" height="32" border="0" /></a></div>
+
+  <div class="box-top-right10"><a href="#" target="\_self"><img src="images/index\_13.jpg" width="67" height="32" border="0" /></a></div>
+
+  <div class="box-top-right11"><a href="#" target="\_self"><img src="images/index\_14.jpg" width="86" height="32" border="0" /></a></div>
+
+ </div>
+
+ </div>
+
+<p> &lt;!-- #EndLibraryItem –&gt;<!--END top--></p>
+ <div class="box-index-center">
+
+  <div class="box-index-center1">
+
+   <div class="box-find-center1left"></div>
+
+   <div class="box-find-center1right"></div>
+
+  </div>
+
+  <div class="box-index-center2"></div>
+
+  <div class="box-ho-center3">
+
+   <ul>
+
+<pre><code>&lt;li&gt;&lt;a href=&quot;{$guide\_header.yinxiang}&quot; target=&quot;\_self&quot;&gt;·茹布查卡印象&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href=&quot;{$guide\_header.chuanshuo}&quot; target=&quot;\_self&quot;&gt;·美丽传说&lt;/a&gt;&lt;/li&gt;</code></pre>   </ul>
+
+  </div>
+
+  <div class="box-pic-center4">
+
+   <div class="box-pic-center4-01">
+
+<pre><code>&lt;div class=&quot;box-pic-img1&quot;&gt;&lt;/div&gt;
+
+&lt;div class=&quot;box-pic-img2&quot;&gt;&lt;/div&gt;</code></pre><div id="pic-box" name="pic-box" class="pic-box">
+
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="">
+
+  <tr>
+
+<pre><code>&lt;td width=&quot;640&quot; align=&quot;center&quot;&gt;&lt;img src=&quot;{$arr\_new\_pic.big\_pic}&quot; alt=&quot;qinyong&quot; width=&quot;640&quot; height=&quot;401&quot; border=&quot;0&quot; id=&quot;main\_img&quot;/&gt;&lt;/td&gt;
+
+&lt;td width=&quot;108&quot; align=&quot;center&quot; valign=&quot;top&quot;&gt;</code></pre>   <img src="images/gotop.gif" width="100" height="14" id="gotop" />
+
+   <div id="showArea">
+
+   <!--{if $arr\_focus\_list}-->
+
+<!--{foreach from=$arr\_focus\_list item=value}-->
+
+<img src="{$value.big\_pic}" title="{$value.title}" alt="{$value.title}" width="80" height="50" border="0" class="thumb\_img" name="thumb_img"/>
+
+<!--{/foreach}-->
+
+<!--{else}-->
+
+<p>暂无图</p>
+<!--{/if}-->
+
+   </div>
+
+   <img src="images/gobottom.gif" width="100" height="14" id="gobottom" />
+
+<pre><code>&lt;/td&gt;
+
+&lt;td width=&quot;11&quot; align=&quot;center&quot; valign=&quot;top&quot; style=&quot;background-image:url(images/pic/pic\_04\_01.jpg);&quot;&gt;&lt;/td&gt;</code></pre>  </tr>
+
+</table>
+
+</div>
+
+
+
+<pre><code>&lt;div class=&quot;box-pic-img5&quot;&gt;&lt;/div&gt;</code></pre>   </div>
+
+  </div>
+
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+<p> &lt;!-- #BeginLibraryItem “/Library/page_foot.lbi” –&gt;</p>
+ <div class="foot">
+
+  <div class="foot-top"><img src="images/index_40.jpg" width="980" height="8"  border="0"/></div>
+
+  <div class="foot-left"></div>
+
+  <div class="foot-right"> 
+
+   <ul>地址：{$ns.org_address}  邮箱：{$ns.org_email}<br />
+
+<pre><code>电话：{$ns.org_phone}    传真： {$ns.org_fax}  邮编：{$ns.org_postal}&lt;br /&gt;
+
+版权所有·稻城润泽天成旅游开发公司  {$ns.icp} </code></pre>   </ul>
+
+  </div>
+
+ </div>
+
+</div>
+
+<p> &lt;!-- #EndLibraryItem –&gt;<!--END foot--></p>
+<script language="javascript" type="text/javascript">
+
+var MyMar;
+
+var speed = 1;
+
+var spec = 1;
+
+var ipath = './images/roll_img/';
+
+document.getElementByIdx\_x\_x_x('gotop').onmouseover = function() {this.src = ipath + 'gotop2.gif'; MyMar=setInterval(gotop,speed);}
+
+document.getElementByIdx\_x\_x_x('gotop').onmouseout = function() {this.src = ipath + 'gotop.gif'; clearInterval(MyMar);}
+
+document.getElementByIdx\_x\_x_x('gobottom').onmouseover = function() {this.src = ipath + 'gobottom2.gif'; MyMar=setInterval(gobottom,speed);}
+
+document.getElementByIdx\_x\_x_x('gobottom').onmouseout = function() {this.src = ipath + 'gobottom.gif'; clearInterval(MyMar);}
+
+function gotop() {document.getElementByIdx\_x\_x_x('showArea').scrollTop-=spec;}
+
+function gobottom() {document.getElementByIdx\_x\_x_x('showArea').scrollTop+=spec;}
+
+</script>
+
+</body>
+
+</html>
+
+<p><a href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100t18v&url=http://s2.sinaimg.cn/orignal/6c7cb607ga65bd560dfd1" target="_blank" rel="noopener"><img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="鼠标 &lt;wbr&gt;焦点jquery &lt;wbr&gt;相册 &lt;wbr&gt;渐变 &lt;wbr&gt;渐隐">焦点jquery 相册 渐变 渐隐” TITLE=”鼠标 焦点jquery 相册 渐变 渐隐” /&gt;</a></p>
 
         
             <div class="donate-container">
@@ -229,7 +484,7 @@
     <p>
         <span>/</span>
         
-        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span><a href="https://codewalker.me" target="_blank" rel="noopener">Old blog</a></span>
         <span>/</span>
         
     </p>
@@ -241,7 +496,7 @@
         <span id="busuanzi_container_site_uv">
             <span id="busuanzi_value_site_uv"></span>UV
         </span>
-        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+        Drive by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> On <a href="https://www.github.com" target="_blank" rel="noopener">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
     <h6>
         The value of a man resides in what he gives and not in what he is capable of receiving.
         <br />  
@@ -261,10 +516,14 @@
     window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="/js/index.js"></script>
+
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
 <script src="/js/gitment.js"></script>
+
 <script>
     var gitment = new Gitment({
         id: '鼠标 焦点jquery 相册 渐变 渐隐',

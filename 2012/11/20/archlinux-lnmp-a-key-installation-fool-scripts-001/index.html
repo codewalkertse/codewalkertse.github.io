@@ -16,12 +16,17 @@
     </title>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -154,8 +159,7 @@
 <p>if [ $(id -u) != “0” ]; then</p>
 <pre><code>echo &quot;Error: You must be root to run this script, please use root to install lnmp&quot;
 
-exit 1
-</code></pre><p>fi</p>
+exit 1</code></pre><p>fi</p>
 <p>clear</p>
 <p>echo “=========================================================================”</p>
 <p>echo “LNMP V0.0.1 for Archlinux base on Licess Written by codewalkertse”</p>
@@ -167,7 +171,7 @@ exit 1
 <p>#set main domain name</p>
 <p>domain=”<a href="http://www.lnmp.org&quot;" target="_blank" rel="noopener">www.lnmp.org&quot;</a></p>
 <p>echo “Please input domain:”</p>
-<p>read -p “(Default domain: <a href="http://www.lnmp.org):&quot;" target="_blank" rel="noopener">www.lnmp.org):&quot;</a> domain</p>
+<p>read -p “(Default domain: <a href="http://www.lnmp.org):&quot;">www.lnmp.org):&quot;</a> domain</p>
 <p>if [ “$domain” = “” ]; then</p>
 <p>domain=”<a href="http://www.lnmp.org&quot;" target="_blank" rel="noopener">www.lnmp.org&quot;</a></p>
 <p>fi</p>
@@ -353,8 +357,7 @@ exit 1
 <p>if [ `getconf WORD_BIT` = ‘32’ ] &amp;&amp; [ `getconf LONG_BIT` = ‘64’ ] ; then</p>
 <pre><code>ln -s /usr/lib64/libpng.* /usr/lib/
 
-ln -s /usr/lib64/libjpeg.* /usr/lib/
-</code></pre><p>fi</p>
+ln -s /usr/lib64/libjpeg.* /usr/lib/</code></pre><p>fi</p>
 <p>ulimit -v unlimited</p>
 <p>if [ ! <code>grep -l &quot;/lib&quot;    &#39;/etc/ld.so.conf&#39;</code> ]; then</p>
 <p>echo “/lib” &gt;&gt; /etc/ld.so.conf</p>
@@ -419,7 +422,7 @@ ln -s /usr/lib64/libjpeg.* /usr/lib/
 <p>delete from user where not (user=’root’) ;</p>
 <p>delete from user where user=’root’ and password=’’; </p>
 <p>drop database test;</p>
-<p>DROP USER ‘‘@’%’;</p>
+<p>DROP USER ‘’@’%’;</p>
 <p>flush privileges;</p>
 <p>EOF</p>
 <p>/usr/local/mysql/bin/mysql -u root -p$mysqlrootpwd -h localhost &lt; /tmp/mysql_sec_script</p>
@@ -472,12 +475,10 @@ ln -s /usr/lib64/libjpeg.* /usr/lib/
 <p>if [ `getconf WORD_BIT` = ‘32’ ] &amp;&amp; [ `getconf LONG_BIT` = ‘64’ ] ; then</p>
 <pre><code>wget -c http://soft.vpser.net/web/zend/ZendOptimizer-3.3.9-linux-glibc23-x86_64.tar.gz
 
-tar zxvf ZendOptimizer-3.3.9-linux-glibc23-x86_64.tar.gz
-</code></pre><p>mkdir -p /usr/local/zend/</p>
+tar zxvf ZendOptimizer-3.3.9-linux-glibc23-x86_64.tar.gz</code></pre><p>mkdir -p /usr/local/zend/</p>
 <p>cp ZendOptimizer-3.3.9-linux-glibc23-x86_64/data/5_2_x_comp/ZendOptimizer.so /usr/local/zend/</p>
 <p>else</p>
-<pre><code>wget -c http://soft.vpser.net/web/zend/ZendOptimizer-3.3.9-linux-glibc23-i386.tar.gz
-</code></pre><p>tar zxvf ZendOptimizer-3.3.9-linux-glibc23-i386.tar.gz</p>
+<pre><code>wget -c http://soft.vpser.net/web/zend/ZendOptimizer-3.3.9-linux-glibc23-i386.tar.gz</code></pre><p>tar zxvf ZendOptimizer-3.3.9-linux-glibc23-i386.tar.gz</p>
 <p>mkdir -p /usr/local/zend/</p>
 <p>cp ZendOptimizer-3.3.9-linux-glibc23-i386/data/5_2_x_comp/ZendOptimizer.so /usr/local/zend/</p>
 <p>fi</p>
@@ -538,25 +539,25 @@ tar zxvf ZendOptimizer-3.3.9-linux-glibc23-x86_64.tar.gz
 <p>#phpinfo</p>
 <p>cat &gt;/home/wwwroot/phpinfo.php&lt;&lt;eof</p>
 <p>–&gt;</p>
-<p>分享： <a href="javascript:;" target="_blank" rel="noopener"><img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="" title="分享到新浪Qing">分享到新浪Qing</a> <a href="javascript:;" target="_blank" rel="noopener"><img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="" title="分享到新浪邮箱"></a></p>
+<p>分享： <a href="javascript:;"><img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="" title="分享到新浪Qing">分享到新浪Qing</a> <a href="javascript:;"><img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="" title="分享到新浪邮箱"></a></p>
 <p><img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="">喜欢</p>
 <p>–&gt;</p>
-<p>阅读_┊_ <a href="#commonComment">评论</a> _┊_ <a href="javascript:;" target="_blank" rel="noopener">收藏</a> _┊_<a href="#">转载</a><a href="#"></a> _┊_ <a href="javascript:;" target="_blank" rel="noopener">喜欢</a><a href="javascript:;" target="_blank" rel="noopener"><strong>▼</strong></a> _┊_<a href="http://blog.sina.com.cn/main_v5/ria/print.html?blog_id=blog_6c7cb60701014ygd" target="_blank" rel="noopener">打印</a>_┊_<a href="#">举报</a></p>
+<p>阅读<em>┊</em> <a href="#commonComment">评论</a> <em>┊</em> <a href="javascript:;">收藏</a> <em>┊</em><a href="#">转载</a><a href="#"></a> <em>┊</em> <a href="javascript:;">喜欢</a><a href="javascript:;"><strong>▼</strong></a> <em>┊</em><a href="http://blog.sina.com.cn/main_v5/ria/print.html?blog_id=blog_6c7cb60701014ygd" target="_blank" rel="noopener">打印</a><em>┊</em><a href="#">举报</a></p>
 <p>已投稿到：</p>
 <p> <img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="" title="排行榜"> <a href="http://blog.sina.com.cn/lm/114/113/day.html" target="_blank" rel="noopener">排行榜</a> <img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="" title="圈子"> <a href="http://q.sina.com.cn/blog_groups.php?fid=6c7cb60701014ygd" target="_blank" rel="noopener">圈子</a></p>
 <p>加载中，请稍候……</p>
 <p>前一篇：<a href="http://blog.sina.com.cn/s/blog_6c7cb60701014y8a.html" target="_blank" rel="noopener">bash script for auto install pptpd server</a></p>
 <p>后一篇：<a href="http://blog.sina.com.cn/s/blog_6c7cb60701014zzs.html" target="_blank" rel="noopener">关于pacman Tips 小贴士</a></p>
-<p><strong>评论</strong> <a href="http://blog.sina.com.cn/lm/8/2009/0325/105340.html" target="_blank" rel="noopener">重要提示：警惕虚假中奖信息</a>       <a href="http://blog.sina.com.cn/s/blog_4bb440080102ef01.html?tj=1" target="_blank" rel="noopener">岛国宛如仙境樱花城</a>       <a href="http://sina.allyes.com/main/adfclick?db=sina&amp;bid=118883,251213,256255&amp;cid=0,0,0&amp;sid=247096&amp;advid=358&amp;camid=19809&amp;show=ignore&amp;url=http://weibo.com/blogkefu" target="_blank" rel="noopener">关注每日最热门博客</a> </p>
+<p><strong>评论</strong> <a href="http://blog.sina.com.cn/lm/8/2009/0325/105340.html" target="_blank" rel="noopener">重要提示：警惕虚假中奖信息</a>       <a href="http://blog.sina.com.cn/s/blog_4bb440080102ef01.html?tj=1" target="_blank" rel="noopener">岛国宛如仙境樱花城</a>       <a href="http://sina.allyes.com/main/adfclick?db=sina&bid=118883,251213,256255&cid=0,0,0&sid=247096&advid=358&camid=19809&show=ignore&url=http://weibo.com/blogkefu" target="_blank" rel="noopener">关注每日最热门博客</a> </p>
 <p><a href="#post">[发评论]</a></p>
 <p>–&gt;*   评论加载中，请稍候…<br>–&gt;</p>
-<p><strong>发评论</strong> <a href="http://blog.sina.com.cn/s/blog_4a8a80490102e7zm.html?tj=1" target="_blank" rel="noopener">最适合调情西班牙海湾</a>       <a href="http://sina.allyes.com/main/adfclick?db=sina&amp;bid=118883,251212,256254&amp;cid=0,0,0&amp;sid=247095&amp;advid=358&amp;camid=19809&amp;show=ignore&amp;url=http://weibo.com/blogkefu" target="_blank" rel="noopener">关注每日最热门博客</a></p>
-<p>登录名： 密码： <a href="http://login.sina.com.cn/getpass.html" target="_blank" rel="noopener">找回密码</a> <a href="http://login.sina.com.cn/signup/signup.php?entry=blog&amp;src=blogicp&amp;srcuid=1820112391" target="_blank" rel="noopener">注册</a> 记住登录状态</p>
+<p><strong>发评论</strong> <a href="http://blog.sina.com.cn/s/blog_4a8a80490102e7zm.html?tj=1" target="_blank" rel="noopener">最适合调情西班牙海湾</a>       <a href="http://sina.allyes.com/main/adfclick?db=sina&bid=118883,251212,256254&cid=0,0,0&sid=247095&advid=358&camid=19809&show=ignore&url=http://weibo.com/blogkefu" target="_blank" rel="noopener">关注每日最热门博客</a></p>
+<p>登录名： 密码： <a href="http://login.sina.com.cn/getpass.html" target="_blank" rel="noopener">找回密码</a> <a href="http://login.sina.com.cn/signup/signup.php?entry=blog&src=blogicp&srcuid=1820112391" target="_blank" rel="noopener">注册</a> 记住登录状态</p>
 <p>昵   称：</p>
 <p> <img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="">分享到微博 <img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="" title="新">    评论并转载此博文<img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="" title="新"></p>
 <p>验证码： 请点击后输入验证码 <a href="#">收听验证码</a></p>
 <p>匿名评论</p>
-<p><a href="javascript:;" target="_blank" rel="noopener">发评论</a></p>
+<p><a href="javascript:;">发评论</a></p>
 <p>以上网友发言只代表其个人观点，不代表新浪网的观点或立场。</p>
 <p>&lt; 前一篇<a href="http://blog.sina.com.cn/s/blog_6c7cb60701014y8a.html" target="_blank" rel="noopener">bash script for auto install pptpd server</a></p>
 <p>后一篇 &gt;<a href="http://blog.sina.com.cn/s/blog_6c7cb60701014zzs.html" target="_blank" rel="noopener">关于pacman Tips 小贴士</a></p>
@@ -647,7 +648,7 @@ tar zxvf ZendOptimizer-3.3.9-linux-glibc23-x86_64.tar.gz
     <p>
         <span>/</span>
         
-        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span><a href="https://codewalker.me" target="_blank" rel="noopener">Old blog</a></span>
         <span>/</span>
         
     </p>
@@ -659,7 +660,7 @@ tar zxvf ZendOptimizer-3.3.9-linux-glibc23-x86_64.tar.gz
         <span id="busuanzi_container_site_uv">
             <span id="busuanzi_value_site_uv"></span>UV
         </span>
-        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+        Drive by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> On <a href="https://www.github.com" target="_blank" rel="noopener">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
     <h6>
         The value of a man resides in what he gives and not in what he is capable of receiving.
         <br />  
@@ -679,10 +680,14 @@ tar zxvf ZendOptimizer-3.3.9-linux-glibc23-x86_64.tar.gz
     window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="/js/index.js"></script>
+
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
 <script src="/js/gitment.js"></script>
+
 <script>
     var gitment = new Gitment({
         id: 'archlinux lnmp 一键安装傻瓜脚本0.0.1',

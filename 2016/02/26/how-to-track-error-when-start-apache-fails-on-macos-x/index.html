@@ -16,12 +16,17 @@
     </title>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -147,7 +152,7 @@
 <p>sudo apachectl -k start -e DEBUG</p>
 <p>then you will see something like this below</p>
 <blockquote>
-<p>> sudo apachectl -k start -e DEBUG Password: [Fri Feb 26 10:31:06.062695 2016] [so:debug] [pid 3754] mod_so.c(266): AH01575: loaded module authn_file_module from /usr/libexec/apache2/mod_authn_file.so [Fri Feb 26 10:31:06.063281 2016] [so:debug] [pid 3754] mod_so.c(266): AH01575: loaded module authn_core_module from /usr/libexec/apache2/mod_authn_core.so … … … [Fri Feb 26 10:31:06.081539 2016] [so:debug] [pid 3754] mod_so.c(266): AH01575: loaded module alias_module from /usr/libexec/apache2/mod_alias.so [Fri Feb 26 10:31:06.081962 2016] [so:debug] [pid 3754] mod_so.c(266): AH01575: loaded module rewrite_module from /usr/libexec/apache2/mod_rewrite.so httpd: Syntax error on line 170 of /private/etc/apache2/httpd.conf: Cannot load /usr/local/Cellar/php56/5.6.17/libexec/apache2/libphp5.so into server: dlopen(/usr/local/Cellar/php56/5.6.17/libexec/apache2/libphp5.so, 10): image not found</p>
+<p>&gt; sudo apachectl -k start -e DEBUG Password: [Fri Feb 26 10:31:06.062695 2016] [so:debug] [pid 3754] mod_so.c(266): AH01575: loaded module authn_file_module from /usr/libexec/apache2/mod_authn_file.so [Fri Feb 26 10:31:06.063281 2016] [so:debug] [pid 3754] mod_so.c(266): AH01575: loaded module authn_core_module from /usr/libexec/apache2/mod_authn_core.so … … … [Fri Feb 26 10:31:06.081539 2016] [so:debug] [pid 3754] mod_so.c(266): AH01575: loaded module alias_module from /usr/libexec/apache2/mod_alias.so [Fri Feb 26 10:31:06.081962 2016] [so:debug] [pid 3754] mod_so.c(266): AH01575: loaded module rewrite_module from /usr/libexec/apache2/mod_rewrite.so httpd: Syntax error on line 170 of /private/etc/apache2/httpd.conf: Cannot load /usr/local/Cellar/php56/5.6.17/libexec/apache2/libphp5.so into server: dlopen(/usr/local/Cellar/php56/5.6.17/libexec/apache2/libphp5.so, 10): image not found</p>
 </blockquote>
 <p>Let’s focusing on last line, we can figure out that’s why my apache cant startup. then. just vim httpd.conf. Changing 5.6.17 to 5.6.18. EOF.</p>
 
@@ -236,7 +241,7 @@
     <p>
         <span>/</span>
         
-        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span><a href="https://codewalker.me" target="_blank" rel="noopener">Old blog</a></span>
         <span>/</span>
         
     </p>
@@ -248,7 +253,7 @@
         <span id="busuanzi_container_site_uv">
             <span id="busuanzi_value_site_uv"></span>UV
         </span>
-        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+        Drive by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> On <a href="https://www.github.com" target="_blank" rel="noopener">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
     <h6>
         The value of a man resides in what he gives and not in what he is capable of receiving.
         <br />  
@@ -268,10 +273,14 @@
     window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="/js/index.js"></script>
+
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
 <script src="/js/gitment.js"></script>
+
 <script>
     var gitment = new Gitment({
         id: 'How to track error when start apache fails on MacOS X',

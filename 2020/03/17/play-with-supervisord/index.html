@@ -16,12 +16,17 @@
     </title>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -142,13 +147,16 @@
     <div class="post-content ">
         <h2 id="Talk-is-cheap"><a href="#Talk-is-cheap" class="headerlink" title="Talk is cheap"></a>Talk is cheap</h2><p>Files:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; tree</span><br><span class="line">.</span><br><span class="line">├── requirements.txt</span><br><span class="line">└── supervisord</span><br></pre></td></tr></table></figure>
+
 <p>++File requirements.txt++</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisor&gt;=4.1.0</span><br></pre></td></tr></table></figure>
+
 <h2 id="1-Install"><a href="#1-Install" class="headerlink" title="1. Install"></a>1. Install</h2><p>Install supervisord by pip3, in your terminal run this</p>
 <p><code>pip3 install -r requirements.txt</code></p>
 <h2 id="2-The-conf"><a href="#2-The-conf" class="headerlink" title="2. The .conf"></a>2. The .conf</h2><p>Write <code>supervisord.conf</code> for yourself. In this case, it would be check the status of <code>gunicorn</code>.</p>
 <p>++File supervisord.conf++</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[supervisord]</span><br><span class="line">logfile=/code/logs/supervisord/supervisord.log     ; (main <span class="built_in">log</span> file;default <span class="variable">$CWD</span>/supervisord.log)</span><br><span class="line">logfile_maxbytes=0              ; (max main logfile bytes b4 rotation;default 50MB)</span><br><span class="line">logfile_backups=10                  ; (num of main logfile rotation backups;default 10)</span><br><span class="line">loglevel=info                       ; (<span class="built_in">log</span> level;default info; others: debug,warn,trace)</span><br><span class="line">pidfile=/code/supervisord/supervisord.pid ; (supervisord pidfile;default supervisord.pid)</span><br><span class="line">nodaemon=<span class="literal">true</span>                      ; (start <span class="keyword">in</span> foreground <span class="keyword">if</span> <span class="literal">true</span>;default <span class="literal">false</span>)</span><br><span class="line">minfds=1024                         ; (min. avail startup file descriptors;default 1024)</span><br><span class="line">minprocs=200                        ; (min. avail process descriptors;default 200)</span><br><span class="line">nocleanup=<span class="literal">false</span>                     ; (don<span class="string">'t clean up tempfiles at start;default false)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">[program:gunicorn]</span></span><br><span class="line"><span class="string">startsecs = 2</span></span><br><span class="line"><span class="string">autorestart = true</span></span><br><span class="line"><span class="string">command=gunicorn -c gunicorn.conf.py wolfeye.wsgi:application</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="3-Fire-the-rocket"><a href="#3-Fire-the-rocket" class="headerlink" title="3. Fire the rocket"></a>3. Fire the rocket</h2><p><code>supervisord -c supervisord.conf</code></p>
 <h2 id="4-Watch-the-logs"><a href="#4-Watch-the-logs" class="headerlink" title="4. Watch the logs"></a>4. Watch the logs</h2><p><code>tail -F /code/logs/supervisord/supervisord.log</code></p>
 <p>EOF<br>Enjoy<br>I, simon love this world ❤️</p>
@@ -238,7 +246,7 @@
     <p>
         <span>/</span>
         
-        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span><a href="https://codewalker.me" target="_blank" rel="noopener">Old blog</a></span>
         <span>/</span>
         
     </p>
@@ -250,7 +258,7 @@
         <span id="busuanzi_container_site_uv">
             <span id="busuanzi_value_site_uv"></span>UV
         </span>
-        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+        Drive by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> On <a href="https://www.github.com" target="_blank" rel="noopener">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
     <h6>
         The value of a man resides in what he gives and not in what he is capable of receiving.
         <br />  
@@ -270,10 +278,14 @@
     window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="/js/index.js"></script>
+
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
 <script src="/js/gitment.js"></script>
+
 <script>
     var gitment = new Gitment({
         id: 'play with supervisord',

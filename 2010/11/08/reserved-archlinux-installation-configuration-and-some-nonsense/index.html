@@ -16,12 +16,17 @@
     </title>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -141,7 +146,7 @@
     </div>
     <div class="post-content ">
         <p>用了很久洗发水了，一直没有总结过，借贵博文一用，呵呵</p>
-<p><strong>原文地址：</strong><a href="http://blog.sina.com.cn/s/blog_4d2bb0b10100jy01.html" title="archlinux安装后的配置以及一些废话～" target="_blank" rel="noopener">archlinux安装后的配置以及一些废话～</a><strong>作者：</strong><a href="http://blog.sina.com.cn/u/1294708913" title="prongs" target="_blank" rel="noopener">prongs</a></p>
+<p><strong>原文地址：</strong><a href="http://blog.sina.com.cn/s/blog_4d2bb0b10100jy01.html" target="_blank" rel="noopener" title="archlinux安装后的配置以及一些废话～">archlinux安装后的配置以及一些废话～</a><strong>作者：</strong><a href="http://blog.sina.com.cn/u/1294708913" target="_blank" rel="noopener" title="prongs">prongs</a></p>
 <pre><code>似乎很久都没有发过文章了，最近一直在忙着准备考试，没有时间，唉，好歹终于大部分考完了，有时间休息一下，就乘这个时间把电脑收拾一下。  
 我机子上装的是WIN7和ubuntu10.04的双系统，不过最近是对于ubuntu越来越不满意了，当时换了ubuntu10.04之后，第一感觉确实不错，不过用了一段时间之后就发现不舒服，首先就是显卡的问题，不过这个也之发生在我们可怜的ATI用户身上，装了受限驱动之后，就发现开机的分辨率不对，接着就是compiz fusion的最大化和最小化的延迟很严重，当然这个纯粹是驱动的问题，在ubuntu9.10上也有发生，不过9.10是通过安装补丁来解决这个问题的，并且效果不错的说，但是10.04目前还没有发现有相应的补丁，或许是我土鳖了～～～每次最大化和最小化的顿卡就让我郁闷，其次就是ubuntu和 gnome的整合问题，总是感觉gnome和ubuntu的配合不是很好，每次打开一个文件夹就要卡一下，实在是有点受不了。  
 反正就是这样了，基于这几个原因，我决定换一下版本，当然，并不是说ubuntu这个发行版不好，可能是我自己的配置问题，也可能是我就是传说中的伪高手，在瞎折腾～反正情况就是这么个情况，这也不是这篇文章的关键所在。  
@@ -156,14 +161,11 @@
 
 前面已经说过了，这篇文章的主要目的就是为了记录一下arch的配置，所以我就不说arch的安装了，其实很简单，也很快速，我开始的阶段是gnome桌面已经安装好了的情况下，什么，你是用KDE的，那，凑活着看吧，一些东西都是一样的～  
 
-首先的问题就是输入法，输入法的安装不多说了，直接pacman，关键就是选词框的光标跟随，顺便说一下，小生用的是IBUS，在arch下是有这个问题的，不知道其他的输入法有没有这样的问题，所以这个方法原则上是使用于IBUS，其他的就不知道了，解决方法就是gedit /etc/gtk-2.0/gtk.immodules，然后删除里面所有内容，用下面这句话代替  
-</code></pre><p>“/usr/lib/gtk-2.0/2.10.0/immodules/im-ibus.so”<br>“ibus” “X Input Method” “gtk20” “/usr/share/locale” “en:zh”<br>重启搞定，很简单。  </p>
-<pre><code>接下来的问题就是chrome的字体模糊或者其他的字体问题，小生还是很喜欢这个浏览器的，本人的解决方法也很简单，首先，如果你装的是 Vista或最近出的Windows 7，不是？那～～还是安装文泉驿的微米黑字体吧，那么就用Nautilus进入到你机子上的安装windows的C盘下，然后进入WINDOWS文件夹下的Fonts文件夹，然后在里面找到“msyh.ttf”和“msyhbd.ttf”这两个文件，将他们复制到linux下的任意文件夹内，因为gnome有个字体查看工具，似乎是可以直接打开这个文件，然后在右下角有个安装的选项，点击就可以了，不过我没有试过，反正我是将这两个文件复制到主目录的.fonts文件夹内，如果没有这个文件夹的话就自己建一个，这样就可以了，然后重新启动chrome在字体更改选项中选择微软雅黑就可以看到完美的效果了～～是不是很简单呀～～～话说这个方法是小生实验了很多次才想出来的，是本人博客里面访问量最高的文章，效果应该不错，至少在ubuntu和arch下都没有问题，各位看官如果有更好的方法可以指教一下，还有就是不要嘲笑小生愚钝呀～可能众位早知道这个方法了。嘿嘿～抓的图片有点模糊，实际效果还是不错的。还有就是其实本人也不推荐使用微软的雅黑字体，毕竟人家是有版权的，推荐使用文泉驿的字体，比如微米黑就不错。  
-</code></pre><p>[<img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="[转载]archlinux安装后的配置以及一些废话～" title="[转载]archlinux安装后的配置以及一些废话～">](<a href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100n6zs&amp;url=http://s13.sinaimg.cn/orignal/4d2bb0b1h89c73dbe6a5c" target="_blank" rel="noopener">http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100n6zs&amp;url=http://s13.sinaimg.cn/orignal/4d2bb0b1h89c73dbe6a5c</a>)  </p>
+首先的问题就是输入法，输入法的安装不多说了，直接pacman，关键就是选词框的光标跟随，顺便说一下，小生用的是IBUS，在arch下是有这个问题的，不知道其他的输入法有没有这样的问题，所以这个方法原则上是使用于IBUS，其他的就不知道了，解决方法就是gedit /etc/gtk-2.0/gtk.immodules，然后删除里面所有内容，用下面这句话代替  </code></pre><p>“/usr/lib/gtk-2.0/2.10.0/immodules/im-ibus.so”<br>“ibus” “X Input Method” “gtk20” “/usr/share/locale” “en:zh”<br>重启搞定，很简单。  </p>
+<pre><code>接下来的问题就是chrome的字体模糊或者其他的字体问题，小生还是很喜欢这个浏览器的，本人的解决方法也很简单，首先，如果你装的是 Vista或最近出的Windows 7，不是？那～～还是安装文泉驿的微米黑字体吧，那么就用Nautilus进入到你机子上的安装windows的C盘下，然后进入WINDOWS文件夹下的Fonts文件夹，然后在里面找到“msyh.ttf”和“msyhbd.ttf”这两个文件，将他们复制到linux下的任意文件夹内，因为gnome有个字体查看工具，似乎是可以直接打开这个文件，然后在右下角有个安装的选项，点击就可以了，不过我没有试过，反正我是将这两个文件复制到主目录的.fonts文件夹内，如果没有这个文件夹的话就自己建一个，这样就可以了，然后重新启动chrome在字体更改选项中选择微软雅黑就可以看到完美的效果了～～是不是很简单呀～～～话说这个方法是小生实验了很多次才想出来的，是本人博客里面访问量最高的文章，效果应该不错，至少在ubuntu和arch下都没有问题，各位看官如果有更好的方法可以指教一下，还有就是不要嘲笑小生愚钝呀～可能众位早知道这个方法了。嘿嘿～抓的图片有点模糊，实际效果还是不错的。还有就是其实本人也不推荐使用微软的雅黑字体，毕竟人家是有版权的，推荐使用文泉驿的字体，比如微米黑就不错。  </code></pre><p>[<img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="[转载]archlinux安装后的配置以及一些废话～" title="[转载]archlinux安装后的配置以及一些废话～">](<a href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100n6zs&amp;url=http://s13.sinaimg.cn/orignal/4d2bb0b1h89c73dbe6a5c" target="_blank" rel="noopener">http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100n6zs&amp;url=http://s13.sinaimg.cn/orignal/4d2bb0b1h89c73dbe6a5c</a>)  </p>
 <pre><code>接着是vim的问题，直接使用pacman -S vim会有问题，具体是怎么样的忘记了，好像是什么view或者rview的exist什么的，似乎也不是一定会出现的，解决的方法就是在安装vim之前先执行 rm /usr/bin/{view,rview}，再pacman -Syu。vim就可以正常安装了。  
 
-由于小生所在的地方同时需要，有线路由，ADSL，以及无线路由（晕，怎么这么复杂），有线路由以及ADSL都很简单，关键是无线路由问题，其实主要是驱动的问题，WIKI上提供的一般方法就是找硬件类型然后安装驱动什么的，看的我这种菜鸟头大，索性安装了WICD，关于它的介绍是Wicd是一个既能管理有线网络又能管理无线网络 (如Wifi Radar)的网络接入管理器，和NetworkManager功能相似并且相互冲突。Wicd是用Python和GTK+写成的。wicd位于extra软件仓库中。由于WIKI很详细，下面就直接是根据WIKI来:  
-</code></pre><p>你可能还需要DHCP, 无线安全管理程序, 以及图形界面图标，可通过下面命令安装:  </p>
+由于小生所在的地方同时需要，有线路由，ADSL，以及无线路由（晕，怎么这么复杂），有线路由以及ADSL都很简单，关键是无线路由问题，其实主要是驱动的问题，WIKI上提供的一般方法就是找硬件类型然后安装驱动什么的，看的我这种菜鸟头大，索性安装了WICD，关于它的介绍是Wicd是一个既能管理有线网络又能管理无线网络 (如Wifi Radar)的网络接入管理器，和NetworkManager功能相似并且相互冲突。Wicd是用Python和GTK+写成的。wicd位于extra软件仓库中。由于WIKI很详细，下面就直接是根据WIKI来:  </code></pre><p>你可能还需要DHCP, 无线安全管理程序, 以及图形界面图标，可通过下面命令安装:  </p>
 <p>pacman -S dhclient wpa_supplicant hicolor-icon-theme  </p>
 <p>使用多种网络管理工具容易产生各种问题，因此，请只用一种网络管理工具来管理网络连接。所以，在使用wicd前，必须先关闭其他网络管理工具。  </p>
 <p>1、使用以下命令手动关闭network、dhcdbd和networkmanager这些守护程序。  </p>
@@ -184,8 +186,7 @@
 <p># /etc/rc.d/dbus restart  </p>
 <pre><code>由于最近在学习xelatex，所以需要安装一套texlive，其他的不介绍了，就是关于环境变量，安装了texlive之后由于texlive的安装程序默认的是/usr/local/bin,但是我机子上没有这个环境变量，所以需要加入这个环境变量，修改一下/etc/profile文件就可以了，很简单。  
 
-好了，打了这么多字手都酸了，目前就到这里吧，以后想到了再加～
-</code></pre>
+好了，打了这么多字手都酸了，目前就到这里吧，以后想到了再加～</code></pre>
         
             <div class="donate-container">
     <div class="donate-button">
@@ -271,7 +272,7 @@
     <p>
         <span>/</span>
         
-        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span><a href="https://codewalker.me" target="_blank" rel="noopener">Old blog</a></span>
         <span>/</span>
         
     </p>
@@ -283,7 +284,7 @@
         <span id="busuanzi_container_site_uv">
             <span id="busuanzi_value_site_uv"></span>UV
         </span>
-        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+        Drive by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> On <a href="https://www.github.com" target="_blank" rel="noopener">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
     <h6>
         The value of a man resides in what he gives and not in what he is capable of receiving.
         <br />  
@@ -303,10 +304,14 @@
     window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="/js/index.js"></script>
+
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
 <script src="/js/gitment.js"></script>
+
 <script>
     var gitment = new Gitment({
         id: '[转载]archlinux安装后的配置以及一些废话～',

@@ -16,12 +16,17 @@
     </title>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -157,8 +162,7 @@
 <p>use strict;</p>
 <p>my $filename =”$ENV{PWD}/todolist.file”;</p>
 <p>sub badarg{</p>
-<pre><code>print &quot;badargs&quot;;
-</code></pre><p>}</p>
+<pre><code>print &quot;badargs&quot;;</code></pre><p>}</p>
 <p>sub dump_arr{</p>
 <pre><code>my $line_num = 0;
 
@@ -176,16 +180,14 @@ foreach my $line (@_){
 
     $line_num++;
 
-}
-</code></pre><p>}</p>
+}</code></pre><p>}</p>
 <p>########read only file begin######</p>
 <p>sub readfile{</p>
 <pre><code>open(IN, &quot;&lt; $filename&quot;) or die &quot;Couldn&apos;t open $filename for reading: $!&quot;;
 
 #close(IN);
 
-return ;
-</code></pre><p>}</p>
+return ;</code></pre><p>}</p>
 <p>########read only file end######</p>
 <p>#</p>
 <p>########Append line open file begin######</p>
@@ -226,8 +228,7 @@ if($is_append eq &quot;yes&quot;){
 
     print &quot;You are quitn&quot;;
 
-}
-</code></pre><p>}</p>
+}</code></pre><p>}</p>
 <p>########Append line open file end######</p>
 <p>#</p>
 <p>########inster file begin######</p>
@@ -262,8 +263,7 @@ chomp;
 
 push @new\_todo,$\_;
 
-&amp;appendline(@new_todo);
-</code></pre><p>}</p>
+&amp;appendline(@new_todo);</code></pre><p>}</p>
 <p>########inster file end######</p>
 <p>#</p>
 <p>########modify file begin######</p>
@@ -306,8 +306,7 @@ push my @new\_file\_lines,$changeto;
 
 print &quot;now newline will be append!==&gt; @new\_file\_linesn&quot;;
 
-&amp;appendline(@new\_file\_lines);
-</code></pre><p>}</p>
+&amp;appendline(@new\_file\_lines);</code></pre><p>}</p>
 <p>########modify file end######</p>
 <p>#########read only file begin######</p>
 <p>sub list{</p>
@@ -325,8 +324,7 @@ my $num=0;
 
 #    $num++;
 
-#}
-</code></pre><p>}</p>
+#}</code></pre><p>}</p>
 <p>########read only file end######</p>
 <p>#</p>
 <p>########delete file begin######</p>
@@ -349,25 +347,19 @@ foreach my $s (@$file_lines){
 
 }
 
-close (FO);
-</code></pre><p>}</p>
+close (FO);</code></pre><p>}</p>
 <p>########delete file end######</p>
 <p>my $count_arg = $#ARGV + 1;</p>
 <p>if ( $count_arg &gt;1 ){</p>
 <pre><code>print &quot;your args are: @ARGVn&quot;;
 
-exit 1;
-</code></pre><p>}</p>
+exit 1;</code></pre><p>}</p>
 <p>if ($ARGV[0] =~ s/-|–//){</p>
-<pre><code>$_ = $ARGV\[0\];
-</code></pre><p>}</p>
+<pre><code>$_ = $ARGV\[0\];</code></pre><p>}</p>
 <p>if (/i|inster/i){</p>
-<pre><code>&amp;inster;
-</code></pre><p>}elsif(/m|modify/i){</p>
-<pre><code>&amp;modify;
-</code></pre><p>}elsif(/l|list/i){</p>
-<pre><code>&amp;list;
-</code></pre><p>}elsif(/d|(delete)/i){</p>
+<pre><code>&amp;inster;</code></pre><p>}elsif(/m|modify/i){</p>
+<pre><code>&amp;modify;</code></pre><p>}elsif(/l|list/i){</p>
+<pre><code>&amp;list;</code></pre><p>}elsif(/d|(delete)/i){</p>
 <pre><code>my @file_lines = &amp;readfile;
 
 my $count\_lines = @file\_lines;
@@ -382,10 +374,8 @@ my $n = ;
 
 chomp($n);
 
-&amp;delete(@file_lines,$n);
-</code></pre><p>}else{</p>
-<pre><code>print &quot;USAGE:todolist \[-i|--inster\] \[-m|--modify\] \[-l|--list\]n&quot;;
-</code></pre><p>}</p>
+&amp;delete(@file_lines,$n);</code></pre><p>}else{</p>
+<pre><code>print &quot;USAGE:todolist \[-i|--inster\] \[-m|--modify\] \[-l|--list\]n&quot;;</code></pre><p>}</p>
 
         
             <div class="donate-container">
@@ -472,7 +462,7 @@ chomp($n);
     <p>
         <span>/</span>
         
-        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span><a href="https://codewalker.me" target="_blank" rel="noopener">Old blog</a></span>
         <span>/</span>
         
     </p>
@@ -484,7 +474,7 @@ chomp($n);
         <span id="busuanzi_container_site_uv">
             <span id="busuanzi_value_site_uv"></span>UV
         </span>
-        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+        Drive by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> On <a href="https://www.github.com" target="_blank" rel="noopener">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
     <h6>
         The value of a man resides in what he gives and not in what he is capable of receiving.
         <br />  
@@ -504,10 +494,14 @@ chomp($n);
     window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="/js/index.js"></script>
+
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
 <script src="/js/gitment.js"></script>
+
 <script>
     var gitment = new Gitment({
         id: 'perl todolist',

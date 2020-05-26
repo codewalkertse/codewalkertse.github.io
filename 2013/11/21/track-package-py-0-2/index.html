@@ -16,12 +16,17 @@
     </title>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -127,10 +132,10 @@
         
         <span class="attr">Tags：/
         
-        <a class="tag" href="/tags/#linux" title="linux">linux</a>
+        <a class="tag" href="/tags/#python" title="python">python</a>
         <span>/</span>
         
-        <a class="tag" href="/tags/#python" title="python">python</a>
+        <a class="tag" href="/tags/#linux" title="linux">linux</a>
         <span>/</span>
         
         <a class="tag" href="/tags/#trackpackage" title="trackpackage">trackpackage</a>
@@ -145,8 +150,7 @@
     <div class="post-content ">
         <p>update：修改了一下输出样式，增加地点的输出</p>
 <p>#!/usr/bin/python2</p>
-<p>#auth:codewalker #mail:<a href="mailto:001@codewalker.me" target="_blank" rel="noopener">001@codewalker.me</a></p>
-<p>#date: 2013-11-21</p>
+<p>#auth:codewalker #mail:<a href="mailto:001@codewalker.me">001@codewalker.me</a><br>#date: 2013-11-21</p>
 <p>from bs4 import BeautifulSoup<br>import urllib2<br>import sys</p>
 <p>def main():<br>    if len(sys.argv) !=  2:<br>        print “Need a track number”<br>        exit(1)<br>    track_number = sys.argv[1]<br>    track_date = []<br>    track_location = []<br>    headers = { ‘User-Agent’ : ‘Mozilla/5.0’ }<br>    url = “<a href="https://tools.usps.com/go/TrackConfirmAction!input.action?tRef=qt&amp;tLc=1&amp;tLabels=&quot;" target="_blank" rel="noopener">https://tools.usps.com/go/TrackConfirmAction!input.action?tRef=qt&amp;tLc=1&amp;tLabels=&quot;</a> + track_number<br>    req = urllib2.Request(url, None, headers)<br>    htmltext = urllib2.urlopen(req).read()<br>    soup = BeautifulSoup(htmltext)<br>    track_info = soup.find_all(“span”, { “class” : “info-text” })<br>    dates = soup.find_all(“td”, { “class” : “date-time” })<br>    locations = soup.find_all(“td”, { “class” : “location” })</p>
 <pre><code>for date in dates:
@@ -160,12 +164,7 @@ for location in locations:
 for i in range(len(track_date)):
     print &quot;%s : %s&quot; % (i,track_date\[i\])
     print &quot;%s IN %s&quot; % (track\_info\[i\].text,track\_location\[i\])
-    print &apos;#&apos; * 30
-</code></pre><p>if __name__ == “__main__“:<br>    main()</p>
-<p>#INPUT:<br>#    ./track.package.py LC945862504US</p>
-<p>#OUTPUT:<br># 0 : November 21, 2013 , 12:04 am<br># Processed at USPS Origin Sort Facility  IN BALTIMORE, MD 21233</p>
-<p>##############################<br># 1 : November 20, 2013 , 6:14 pm<br>#  Dispatched to Sort Facility  IN BALTIMORE, MD 21202</p>
-<p>##############################<br># 2 : November 20, 2013 , 4:07 pm<br>#   Acceptance  IN BALTIMORE, MD 21202</p>
+    print &apos;#&apos; * 30</code></pre><p>if __name__ == “__main__“:<br>    main()<br>#INPUT:<br>#    ./track.package.py LC945862504US<br>#OUTPUT:<br># 0 : November 21, 2013 , 12:04 am<br># Processed at USPS Origin Sort Facility  IN BALTIMORE, MD 21233<br>##############################<br># 1 : November 20, 2013 , 6:14 pm<br>#  Dispatched to Sort Facility  IN BALTIMORE, MD 21202<br>##############################<br># 2 : November 20, 2013 , 4:07 pm<br>#   Acceptance  IN BALTIMORE, MD 21202</p>
 
         
             <div class="donate-container">
@@ -252,7 +251,7 @@ for i in range(len(track_date)):
     <p>
         <span>/</span>
         
-        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span><a href="https://codewalker.me" target="_blank" rel="noopener">Old blog</a></span>
         <span>/</span>
         
     </p>
@@ -264,7 +263,7 @@ for i in range(len(track_date)):
         <span id="busuanzi_container_site_uv">
             <span id="busuanzi_value_site_uv"></span>UV
         </span>
-        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+        Drive by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> On <a href="https://www.github.com" target="_blank" rel="noopener">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
     <h6>
         The value of a man resides in what he gives and not in what he is capable of receiving.
         <br />  
@@ -284,10 +283,14 @@ for i in range(len(track_date)):
     window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="/js/index.js"></script>
+
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
 <script src="/js/gitment.js"></script>
+
 <script>
     var gitment = new Gitment({
         id: 'track.package.py 0.2',

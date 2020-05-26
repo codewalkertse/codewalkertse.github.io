@@ -16,12 +16,17 @@
     </title>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -143,9 +148,9 @@
 <p><strong>1</strong></p>
 <p><strong>yaourt -S dnsmasq</strong></p>
 <p><strong>2</strong></p>
-<p><strong> 2.1 sudo cp -v dnsmasq.conf{,.orig}</strong></p>
-<p><strong> 2.2 sudo vim dnsmasq.conf</strong></p>
-<p><strong> 2.3 找到下面语句并修改如下</strong></p>
+<p>** 2.1 sudo cp -v dnsmasq.conf{,.orig}**</p>
+<p>** 2.2 sudo vim dnsmasq.conf**</p>
+<p>** 2.3 找到下面语句并修改如下**</p>
 <p>resolv-file=/etc/dnsmasq.resolv.conf</p>
 <pre><code>addn-hosts=/etc/dnsmasq.hosts
 
@@ -153,8 +158,7 @@ local=/localnet/
 
 no-dhcp-interface=eth0
 
-conf-dir=/etc/dnsmasq.d
-</code></pre><p><strong> 3</strong></p>
+conf-dir=/etc/dnsmasq.d</code></pre><p>** 3**</p>
 <p>sudo cp -v resolv.conf dnsmasq.resolv.conf</p>
 <p><strong>`resolv.conf’ -&gt; `dnsmasq.resolv.conf’</strong></p>
 <p>sudo mkdir /etc/dnsmasq.d</p>
@@ -175,7 +179,7 @@ conf-dir=/etc/dnsmasq.d
 <p>{codewalker}&lt;=Fri Mar 09-09:04 PM=&gt;</p>
 <p>==&gt;/etc&lt;==</p>
 <p>=&gt;$dig baidu.com</p>
-<p>; &lt;&lt;&gt;> DiG 9.9.0 &lt;&lt;&gt;&gt; baidu.com</p>
+<p>; &lt;&lt;&gt;&gt; DiG 9.9.0 &lt;&lt;&gt;&gt; baidu.com</p>
 <p>;; global options: +cmd</p>
 <p>;; Got answer:</p>
 <p>;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 6355</p>
@@ -218,7 +222,7 @@ conf-dir=/etc/dnsmasq.d
 <p>{codewalker}&lt;=Fri Mar 09-09:04 PM=&gt;</p>
 <p>==&gt;/etc&lt;==</p>
 <p>=&gt;$dig baidu.com</p>
-<p>; &lt;&lt;&gt;> DiG 9.9.0 &lt;&lt;&gt;&gt; baidu.com</p>
+<p>; &lt;&lt;&gt;&gt; DiG 9.9.0 &lt;&lt;&gt;&gt; baidu.com</p>
 <p>;; global options: +cmd</p>
 <p>;; Got answer:</p>
 <p>;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 1157</p>
@@ -319,7 +323,7 @@ conf-dir=/etc/dnsmasq.d
     <p>
         <span>/</span>
         
-        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span><a href="https://codewalker.me" target="_blank" rel="noopener">Old blog</a></span>
         <span>/</span>
         
     </p>
@@ -331,7 +335,7 @@ conf-dir=/etc/dnsmasq.d
         <span id="busuanzi_container_site_uv">
             <span id="busuanzi_value_site_uv"></span>UV
         </span>
-        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+        Drive by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> On <a href="https://www.github.com" target="_blank" rel="noopener">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
     <h6>
         The value of a man resides in what he gives and not in what he is capable of receiving.
         <br />  
@@ -351,10 +355,14 @@ conf-dir=/etc/dnsmasq.d
     window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="/js/index.js"></script>
+
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
 <script src="/js/gitment.js"></script>
+
 <script>
     var gitment = new Gitment({
         id: '在archlinux中安装Dnsmasq 个人笔记',

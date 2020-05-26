@@ -16,12 +16,17 @@
     </title>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -343,15 +348,12 @@
 <p>   if [ “$1” = “-i” ]; then</p>
 <pre><code>infile=&quot;$2&quot;
 
-shift 2
-</code></pre><p>   elif [ “$1” = “-o” ] </p>
+shift 2</code></pre><p>   elif [ “$1” = “-o” ] </p>
 <p>   then</p>
 <pre><code>outfile=&quot;$2&quot;
 
-shift 2
-</code></pre><p>   else</p>
-<pre><code>echo &quot;Program $0 does not recognize option $1&quot;
-</code></pre><p>   fi</p>
+shift 2</code></pre><p>   else</p>
+<pre><code>echo &quot;Program $0 does not recognize option $1&quot;</code></pre><p>   fi</p>
 <p>done</p>
 <p>tr a-z A-Z &lt; $infile &gt; $outfile</p>
 <p>Functions</p>
@@ -374,8 +376,7 @@ rm $1
 
 mv $1.out $1
 
-shift
-</code></pre><p>   done;</p>
+shift</code></pre><p>   done;</p>
 <p>}</p>
 <p>lower () {</p>
 <p>   shift</p>
@@ -387,8 +388,7 @@ rm $1
 
 mv $1.out $1
 
-shift
-</code></pre><p>   done;</p>
+shift</code></pre><p>   done;</p>
 <p>}</p>
 <p>print () {</p>
 <p>   shift</p>
@@ -396,11 +396,10 @@ shift
 <p>   do</p>
 <pre><code>lpr $1
 
-shift
-</code></pre><p>   done;</p>
+shift</code></pre><p>   done;</p>
 <p>}</p>
 <p>usage_error () {</p>
-<p>   echo “$1 syntax is $1 <option> </option><input files="">“</p>
+<p>   echo “$1 syntax is $1 <option> <input files>“</p>
 <p>   echo “”</p>
 <p>   echo “where option is one of the following”</p>
 <p>   echo “p to print frame files”</p>
@@ -503,7 +502,7 @@ shift
     <p>
         <span>/</span>
         
-        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span><a href="https://codewalker.me" target="_blank" rel="noopener">Old blog</a></span>
         <span>/</span>
         
     </p>
@@ -515,7 +514,7 @@ shift
         <span id="busuanzi_container_site_uv">
             <span id="busuanzi_value_site_uv"></span>UV
         </span>
-        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+        Drive by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> On <a href="https://www.github.com" target="_blank" rel="noopener">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
     <h6>
         The value of a man resides in what he gives and not in what he is capable of receiving.
         <br />  
@@ -535,10 +534,14 @@ shift
     window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="/js/index.js"></script>
+
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
 <script src="/js/gitment.js"></script>
+
 <script>
     var gitment = new Gitment({
         id: 'Shell Programming',

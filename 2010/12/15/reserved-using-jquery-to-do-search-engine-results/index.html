@@ -16,12 +16,17 @@
     </title>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -140,7 +145,7 @@
 </span>
     </div>
     <div class="post-content ">
-        <p><strong>原文地址：</strong><a href="http://blog.sina.com.cn/s/blog_49f485700100exx9.html" title="使用jquery做搜索引擎效果" target="_blank" rel="noopener">使用jquery做搜索引擎效果</a><strong>作者：</strong><a href="http://blog.sina.com.cn/u/1240761712" title="Hope" target="_blank" rel="noopener">Hope</a></p>
+        <p><strong>原文地址：</strong><a href="http://blog.sina.com.cn/s/blog_49f485700100exx9.html" target="_blank" rel="noopener" title="使用jquery做搜索引擎效果">使用jquery做搜索引擎效果</a><strong>作者：</strong><a href="http://blog.sina.com.cn/u/1240761712" target="_blank" rel="noopener" title="Hope">Hope</a></p>
 <p>当用户输入电话号码的时候，会自动出现提示。类似于google搜索引擎效果，</p>
 <p>之前用javascript写过一个，但是目前使用jquery更为简单。</p>
 <p>[<img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="[转载]使用jquery做搜索引擎效果" title="[转载]使用jquery做搜索引擎效果">](<a href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100o5gx&amp;url=http://s8.sinaimg.cn/orignal/49f4857046aa2e8bed467&amp;690" target="_blank" rel="noopener">http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100o5gx&amp;url=http://s8.sinaimg.cn/orignal/49f4857046aa2e8bed467&amp;690</a>)</p>
@@ -182,8 +187,7 @@ $(document).ready(function(){
                  del();  
              }  
          }    
-     });
-</code></pre><p>//只要id为phoneno的文本框变化，就调用function()</p>
+     });</code></pre><p>//只要id为phoneno的文本框变化，就调用function()</p>
 <pre><code> $(&quot;#phoneno&quot;).bind(&quot;propertychange&quot;, function(){              
      del();             
 var top = $(&quot;#phoneno&quot;).offset().top;  
@@ -199,9 +203,8 @@ var top = $(&quot;#phoneno&quot;).offset().top;
      var table = $(&quot;&lt;table width=&apos;100%&apos;/&gt;&quot;)  
          .attr(&quot;cellpadding&quot;, &quot;0&quot;)  
          .attr(&quot;cellspacing&quot;, &quot;0&quot;);                     
- //$.get(&quot;xmlPhoneno&quot;, {phoneno: $(&quot;#phoneno&quot;).val()},function(xml){   
-</code></pre><p>   $.get(“phoneNoInfo.xml”, {PhoneNumber: $(“#phoneno”).val()},function(xml){ </p>
-<p>//这里调用了后台的xmlController来执行发挥xml。以下为解析xml<br>                    $(xml).find(“phones phone”).each(function(){<br>                     var phoneno = $(this).attr(“phoneno”);<br>                        var sname = $(this).attr(“sname”);<br>                         var tr = $(“<tr>“).css(“cursor”, “pointer”).mouseout(function(){<br>                            $(this).css(“backgroundColor”, “white”).css(“color”, “black”);<br>                        }).mouseover(function(){<br>                            $(this).css(“backgroundColor”, “blue”).css(“color”, “white”);<br>                        }).click(function(){<br>                            $(“#phoneno”).val($(this).find(“td”).eq(0).html());<br>                            del();<br>                        });<br>                        var td1 = $(“<td>“).html(phoneno).css(“fontSize”, “12px”)<br>                            .css(“margin”, “5 5 5 5”);<br>                        var td2 = $(“</td><td>“).html(sname)<br>                        .attr(“align”, “right”).css(“fontSize”, “12px”)<br>                        .css(“color”, “green”).css(“margin”, “5 5 5 5”);  </td></tr></p>
+ //$.get(&quot;xmlPhoneno&quot;, {phoneno: $(&quot;#phoneno&quot;).val()},function(xml){   </code></pre><p>   $.get(“phoneNoInfo.xml”, {PhoneNumber: $(“#phoneno”).val()},function(xml){ </p>
+<p>//这里调用了后台的xmlController来执行发挥xml。以下为解析xml<br>                    $(xml).find(“phones phone”).each(function(){<br>                     var phoneno = $(this).attr(“phoneno”);<br>                        var sname = $(this).attr(“sname”);<br>                         var tr = $(“<tr/>“).css(“cursor”, “pointer”).mouseout(function(){<br>                            $(this).css(“backgroundColor”, “white”).css(“color”, “black”);<br>                        }).mouseover(function(){<br>                            $(this).css(“backgroundColor”, “blue”).css(“color”, “white”);<br>                        }).click(function(){<br>                            $(“#phoneno”).val($(this).find(“td”).eq(0).html());<br>                            del();<br>                        });<br>                        var td1 = $(“<td/>“).html(phoneno).css(“fontSize”, “12px”)<br>                            .css(“margin”, “5 5 5 5”);<br>                        var td2 = $(“<td/>“).html(sname)<br>                        .attr(“align”, “right”).css(“fontSize”, “12px”)<br>                        .css(“color”, “green”).css(“margin”, “5 5 5 5”);  </p>
 <pre><code>                tr.append(td1).append(td2);  
                 table.append(tr);  
                 newDiv.append(table);                          
@@ -212,8 +215,7 @@ var top = $(&quot;#phoneno&quot;).offset().top;
             $(&quot;#newDiv&quot;).remove();  
         }                
     });  
-}
-</code></pre>
+}</code></pre>
         
             <div class="donate-container">
     <div class="donate-button">
@@ -299,7 +301,7 @@ var top = $(&quot;#phoneno&quot;).offset().top;
     <p>
         <span>/</span>
         
-        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span><a href="https://codewalker.me" target="_blank" rel="noopener">Old blog</a></span>
         <span>/</span>
         
     </p>
@@ -311,7 +313,7 @@ var top = $(&quot;#phoneno&quot;).offset().top;
         <span id="busuanzi_container_site_uv">
             <span id="busuanzi_value_site_uv"></span>UV
         </span>
-        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+        Drive by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> On <a href="https://www.github.com" target="_blank" rel="noopener">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
     <h6>
         The value of a man resides in what he gives and not in what he is capable of receiving.
         <br />  
@@ -331,10 +333,14 @@ var top = $(&quot;#phoneno&quot;).offset().top;
     window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="/js/index.js"></script>
+
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
 <script src="/js/gitment.js"></script>
+
 <script>
     var gitment = new Gitment({
         id: '[转载]使用jquery做搜索引擎效果',

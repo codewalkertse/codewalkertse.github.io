@@ -16,12 +16,17 @@
     </title>
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/css/aircloud.css">
-    <link rel="stylesheet" href="/css/gitment.css">
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
     <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -127,10 +132,10 @@
         
         <span class="attr">Tags：/
         
-        <a class="tag" href="/tags/#linux" title="linux">linux</a>
+        <a class="tag" href="/tags/#python" title="python">python</a>
         <span>/</span>
         
-        <a class="tag" href="/tags/#python" title="python">python</a>
+        <a class="tag" href="/tags/#linux" title="linux">linux</a>
         <span>/</span>
         
         
@@ -140,7 +145,7 @@
 </span>
     </div>
     <div class="post-content ">
-        <p><strong>原文地址：</strong><a href="http://blog.sina.com.cn/s/blog_6f97247e0101af5e.html" title="linux下搭建SAE &lt;wbr&gt;Python &lt;wbr&gt;本地运行环境" target="_blank" rel="noopener">Python 本地运行环境”&gt;linux下搭建SAE Python 本地运行环境</a><strong>作者：</strong><a href="http://blog.sina.com.cn/u/1872176254" title="醋根" target="_blank" rel="noopener">醋根</a></p>
+        <p><strong>原文地址：</strong><a href="http://blog.sina.com.cn/s/blog_6f97247e0101af5e.html" target="_blank" rel="noopener" title="linux下搭建SAE &lt;wbr&gt;Python &lt;wbr&gt;本地运行环境">Python 本地运行环境”&gt;linux下搭建SAE Python 本地运行环境</a><strong>作者：</strong><a href="http://blog.sina.com.cn/u/1872176254" target="_blank" rel="noopener" title="醋根">醋根</a></p>
 <p>我先看的<a href="http://saepy.sinaapp.com/topic/21/轻松搭建sae-python-本地运行环境，但是作者用的是windows，有诸多不同。" target="_blank" rel="noopener">http://saepy.sinaapp.com/topic/21/轻松搭建sae-python-本地运行环境，但是作者用的是windows，有诸多不同。</a>  </p>
 <p>下面简单说一下archlinux 下搭建的过程，其它linux基本一样。主要区别是：arch默认地python版本是python3！！  </p>
 <h3 id="环境需求"><a href="#环境需求" class="headerlink" title="环境需求"></a>环境需求</h3><p>比如我想用tornado + Mysql</p>
@@ -153,15 +158,12 @@
     &apos;argparse&apos;,
     &apos;tornado==2.4.1&apos;,   # 添加
     &apos;MySQL-python&apos;    # 添加
-    ],
-</code></pre><p>打开终端，在dev_server 目录下运行（要su或sudo）：<br>python2 setup.py install</p>
+    ],</code></pre><p>打开终端，在dev_server 目录下运行（要su或sudo）：<br>python2 setup.py install</p>
 <p>要不会出现错误：</p>
 <p>running install<br>error: can’t create or remove files in install directory  </p>
 <p>The following error occurred while trying to add or remove files in the<br>installation directory:  </p>
-<pre><code>\[Errno 13\] Permission denied: &apos;/usr/lib/python2.7/site-packages/test-easy-install-814.write-test&apos;  
-</code></pre><p>The installation directory you specified (via –install-dir, –prefix, or<br>the distutils default setting) was:  </p>
-<pre><code>/usr/lib/python2.7/site-packages/  
-</code></pre><p>Perhaps your account does not have write access to this directory?  If the<br>installation directory is a system-owned directory, you may need to sign in<br>as the administrator or “root” account.  If you do not have administrative<br>access to this machine, you may wish to choose a different installation<br>directory, preferably one that is listed in your PYTHONPATH environment<br>variable.  </p>
+<pre><code>\[Errno 13\] Permission denied: &apos;/usr/lib/python2.7/site-packages/test-easy-install-814.write-test&apos;  </code></pre><p>The installation directory you specified (via –install-dir, –prefix, or<br>the distutils default setting) was:  </p>
+<pre><code>/usr/lib/python2.7/site-packages/  </code></pre><p>Perhaps your account does not have write access to this directory?  If the<br>installation directory is a system-owned directory, you may need to sign in<br>as the administrator or “root” account.  If you do not have administrative<br>access to this machine, you may wish to choose a different installation<br>directory, preferably one that is listed in your PYTHONPATH environment<br>variable.  </p>
 <p>For information on other options, you may wish to consult the<br>documentation at:  </p>
 <p>  <a href="http://packages.python.org/distribute/easy_install.html" target="_blank" rel="noopener">http://packages.python.org/distribute/easy_install.html</a>  </p>
 <p>Please make the appropriate changes for your system and try again.  </p>
@@ -174,8 +176,7 @@ def app(environ, start_response):
     start_response(status, response_headers)
     return [&apos;Hello, world!&apos;]
 
-application = sae.create_wsgi_app(app)
-</code></pre><p><strong>把上面dev_server 目录下的dev_server.py 拷贝到saeapp/saepy/ 目录下</strong>（这个不是必要，你可以安装dev_server.py ，让dev_server.py在path中就可以，你可以参考<a href="http://www.douban.com/group/topic/27119337/" target="_blank" rel="noopener">这里安装</a>），</p>
+application = sae.create_wsgi_app(app)</code></pre><p><strong>把上面dev_server 目录下的dev_server.py 拷贝到saeapp/saepy/ 目录下</strong>（这个不是必要，你可以安装dev_server.py ，让dev_server.py在path中就可以，你可以参考<a href="http://www.douban.com/group/topic/27119337/" target="_blank" rel="noopener">这里安装</a>），</p>
 <p>还需要一个config.yaml：  </p>
 <p>name: test<br>version: 1<br>如果没出错的话就会出现下面内容：</p>
 <p>MySQL config not found: app.py<br>Start development server on <a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a></p>
@@ -267,7 +268,7 @@ application = sae.create_wsgi_app(app)
     <p>
         <span>/</span>
         
-        <span><a href="https://codewalker.me">Old blog</a></span>
+        <span><a href="https://codewalker.me" target="_blank" rel="noopener">Old blog</a></span>
         <span>/</span>
         
     </p>
@@ -279,7 +280,7 @@ application = sae.create_wsgi_app(app)
         <span id="busuanzi_container_site_uv">
             <span id="busuanzi_value_site_uv"></span>UV
         </span>
-        Drive by <a href="https://hexo.io/">Hexo</a> On <a href="https://www.github.com">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+        Drive by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> On <a href="https://www.github.com" target="_blank" rel="noopener">GitHub</a> Theme <a href="https://github.com/aircloud/hexo-theme-aircloud" target="_blank" rel="noopener">AirCloud</a></p>
     <h6>
         The value of a man resides in what he gives and not in what he is capable of receiving.
         <br />  
@@ -299,10 +300,14 @@ application = sae.create_wsgi_app(app)
     window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="/js/index.js"></script>
+
 <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+
 <script src="/js/gitment.js"></script>
+
 <script>
     var gitment = new Gitment({
         id: '[转载]linux下搭建SAE Python 本地运行环境',
