@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.codewalker.me/"/>
-  <updated>2020-04-26T08:50:59.000Z</updated>
+  <updated>2020-05-26T09:22:26.000Z</updated>
   <id>https://blog.codewalker.me/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>multi-version nodejs in your system</title>
+    <link href="https://blog.codewalker.me/2020/05/26/multi-version-nodejs-in-your-system/"/>
+    <id>https://blog.codewalker.me/2020/05/26/multi-version-nodejs-in-your-system/</id>
+    <published>2020-05-26T09:07:25.000Z</published>
+    <updated>2020-05-26T09:22:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Allow multi-version nodejs in your system</p><h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><p>Install <code>n</code> globally in your system</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install n -g</span><br></pre></td></tr></table></figure><h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><ol><li><p>install stable version nodejs</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo n stable</span><br></pre></td></tr></table></figure></li><li><p>install latest version nodejs</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo n latest</span><br></pre></td></tr></table></figure></li><li><p>upgrade/downgrade nodejs</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo n [version]</span><br><span class="line">// Eg. upgrade/downgrade to version 8.4.0</span><br><span class="line">// sudo n 8.4.0</span><br></pre></td></tr></table></figure></li><li><p>view all version</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">n</span><br></pre></td></tr></table></figure></li></ol><p>EOF<br>Enjoy<br>I, simon love this world ❤️</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Allow multi-version nodejs in your system&lt;/p&gt;
+&lt;h2 id=&quot;Install&quot;&gt;&lt;a href=&quot;#Install&quot; class=&quot;headerlink&quot; title=&quot;Install&quot;&gt;&lt;/a&gt;Install&lt;/h2&gt;&lt;p&gt;I
+      
+    
+    </summary>
+    
+    
+    
+      <category term="shell" scheme="https://blog.codewalker.me/tags/shell/"/>
+    
+      <category term="nodejs" scheme="https://blog.codewalker.me/tags/nodejs/"/>
+    
+  </entry>
   
   <entry>
     <title>how much should I pay for v2ray cloudflare namesilo google cloud platformg cp</title>
@@ -122,9 +149,9 @@
     
     
     
-      <category term="python" scheme="https://blog.codewalker.me/tags/python/"/>
-    
       <category term="linux" scheme="https://blog.codewalker.me/tags/linux/"/>
+    
+      <category term="python" scheme="https://blog.codewalker.me/tags/python/"/>
     
       <category term="docker" scheme="https://blog.codewalker.me/tags/docker/"/>
     
@@ -530,34 +557,6 @@
       <category term="python" scheme="https://blog.codewalker.me/tags/python/"/>
     
       <category term="argparse" scheme="https://blog.codewalker.me/tags/argparse/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>String tip capitalize</title>
-    <link href="https://blog.codewalker.me/2018/07/28/String-tip-capitalize/"/>
-    <id>https://blog.codewalker.me/2018/07/28/String-tip-capitalize/</id>
-    <published>2018-07-28T01:47:08.000Z</published>
-    <updated>2018-07-28T02:35:51.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Intor"><a href="#Intor" class="headerlink" title="Intor"></a>Intor</h1><p>In our work life, sometimes we wanna capitalize a word using <code>str.capitalize</code>, but for serveral sentense how to do it?</p><h2 id="Talk-is-cheap"><a href="#Talk-is-cheap" class="headerlink" title="Talk is cheap"></a>Talk is cheap</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Date    : 2018-07-28 09:50:38</span></span><br><span class="line"><span class="comment"># @Author  : Simon (simon.xie@codewalker.meg)</span></span><br><span class="line"><span class="comment"># @Link    : http://www.codewalker.me</span></span><br><span class="line"><span class="comment"># @Version : 1.0.0</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">capitalize_sentense</span><span class="params">(s,sep=None)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> (sep <span class="keyword">or</span> <span class="string">' '</span>).join(x.capitalize() <span class="keyword">for</span> x <span class="keyword">in</span> s.split(sep))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">capitalize_the_first</span><span class="params">(s)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> s.capitalize()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    s = <span class="string">'Et mollJJDKitia et iJJDJkdn. digKKDJnissimos kdjkdjHHSJ.'</span></span><br><span class="line">    out = capitalize_sentense(s,sep=<span class="string">'. '</span>)</span><br><span class="line">    print(out)</span><br><span class="line">    out = capitalize_the_first(s)</span><br><span class="line">    print(out)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure><p>Here’s a little trigger. we split them first, then capitalize them.</p><h2 id="Lazy-makes-the-world-better"><a href="#Lazy-makes-the-world-better" class="headerlink" title="Lazy makes the world better"></a>Lazy makes the world better</h2><p>EOF.</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Intor&quot;&gt;&lt;a href=&quot;#Intor&quot; class=&quot;headerlink&quot; title=&quot;Intor&quot;&gt;&lt;/a&gt;Intor&lt;/h1&gt;&lt;p&gt;In our work life, sometimes we wanna capitalize a word usi
-      
-    
-    </summary>
-    
-    
-    
-      <category term="python" scheme="https://blog.codewalker.me/tags/python/"/>
-    
-      <category term="tips" scheme="https://blog.codewalker.me/tags/tips/"/>
-    
-      <category term="string" scheme="https://blog.codewalker.me/tags/string/"/>
     
   </entry>
   
