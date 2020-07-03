@@ -149,11 +149,11 @@
     
     
     
-      <category term="linux" scheme="https://blog.codewalker.me/tags/linux/"/>
-    
       <category term="python" scheme="https://blog.codewalker.me/tags/python/"/>
     
       <category term="docker" scheme="https://blog.codewalker.me/tags/docker/"/>
+    
+      <category term="linux" scheme="https://blog.codewalker.me/tags/linux/"/>
     
   </entry>
   
@@ -345,9 +345,9 @@
     
     
     
-      <category term="bash" scheme="https://blog.codewalker.me/tags/bash/"/>
-    
       <category term="docker" scheme="https://blog.codewalker.me/tags/docker/"/>
+    
+      <category term="bash" scheme="https://blog.codewalker.me/tags/bash/"/>
     
       <category term="oh-my-zsh" scheme="https://blog.codewalker.me/tags/oh-my-zsh/"/>
     
