@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.codewalker.me/2020/07/10/more-commond-for-FIND-in-cli/</loc>
+    
+    <lastmod>2020-07-10T02:14:44.104Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.codewalker.me/2020/05/26/multi-version-nodejs-in-your-system/</loc>
     
     <lastmod>2020-05-26T09:22:26.000Z</lastmod>

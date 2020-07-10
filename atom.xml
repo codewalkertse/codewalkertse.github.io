@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.codewalker.me/"/>
-  <updated>2020-05-26T09:22:26.000Z</updated>
+  <updated>2020-07-10T02:14:44.104Z</updated>
   <id>https://blog.codewalker.me/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>more commond for FIND in cli</title>
+    <link href="https://blog.codewalker.me/2020/07/10/more-commond-for-FIND-in-cli/"/>
+    <id>https://blog.codewalker.me/2020/07/10/more-commond-for-FIND-in-cli/</id>
+    <published>2020-07-10T01:39:52.000Z</published>
+    <updated>2020-07-10T02:14:44.104Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Bref"><a href="#Bref" class="headerlink" title="Bref"></a>Bref</h2><p>In general, Finding the file what you want to use is <code>find</code>. but there’re more.</p><h2 id="Let’s-rolling"><a href="#Let’s-rolling" class="headerlink" title="Let’s rolling"></a>Let’s rolling</h2><ol><li><p><code>locate</code></p><p> this command, it will search its own db in sys where in <code>/var/lib/mlocate/mlocate.db</code> and it will update once aday in the morning automatically.</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">locate locate</span><br></pre></td></tr></table></figure><p> And more. To update the db file immediately use <code>updatedb</code> when you want to update the <code>mlocate.db</code></p></li><li><p><code>which</code></p><p> To find the <code>executable</code> file in “${PATH,MANPATH}”</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">which</span> <span class="built_in">cd</span> ls</span><br><span class="line"><span class="comment">#cd: shell built-in command</span></span><br><span class="line"><span class="comment">#ls: aliased to ls -G</span></span><br></pre></td></tr></table></figure></li><li><p><code>whereis</code><br> To check the standard binary directories for the specified programs, printing out the paths of any it finds</p> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">whereis ls</span><br><span class="line"><span class="comment">#/bin/ls</span></span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Bref&quot;&gt;&lt;a href=&quot;#Bref&quot; class=&quot;headerlink&quot; title=&quot;Bref&quot;&gt;&lt;/a&gt;Bref&lt;/h2&gt;&lt;p&gt;In general, Finding the file what you want to use is &lt;code&gt;fin
+      
+    
+    </summary>
+    
+    
+    
+      <category term="linux" scheme="https://blog.codewalker.me/tags/linux/"/>
+    
+  </entry>
   
   <entry>
     <title>multi-version nodejs in your system</title>
@@ -531,32 +555,6 @@
     
     
       <category term="hire_template" scheme="https://blog.codewalker.me/tags/hire-template/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Knowing Argparse in Python</title>
-    <link href="https://blog.codewalker.me/2018/07/28/Knowing-Argparse-in-Python/"/>
-    <id>https://blog.codewalker.me/2018/07/28/Knowing-Argparse-in-Python/</id>
-    <published>2018-07-28T03:00:31.000Z</published>
-    <updated>2018-07-31T07:26:21.000Z</updated>
-    
-    <content type="html"><![CDATA[<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Date    : 2018-07-28 11:01:21</span></span><br><span class="line"><span class="comment"># @Author  : Simon (simon.xie@codewalker.meg)</span></span><br><span class="line"><span class="comment"># @Link    : http://www.codewalker.me</span></span><br><span class="line"><span class="comment"># @Version : 1.0.0</span></span><br><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span></span><br><span class="line">    a, b = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(n):</span><br><span class="line">        a, b = b, a+b</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    parser = argparse.ArgumentParser(description=<span class="string">"Calculate fibonacci"</span>)</span><br><span class="line">    group = parser.add_mutually_exclusive_group()</span><br><span class="line">    group.add_argument(<span class="string">'-v'</span>, <span class="string">'--verbose'</span>, action=<span class="string">'store_true'</span>)</span><br><span class="line">    group.add_argument(<span class="string">'-q'</span>, <span class="string">'--quit'</span>, action=<span class="string">'store_true'</span>)</span><br><span class="line">    parser.add_argument(</span><br><span class="line">        <span class="string">'num'</span>, help=<span class="string">'The fibonacci number you wish to calculate.'</span>, type=int)</span><br><span class="line">    parser.add_argument(</span><br><span class="line">        <span class="string">'-o'</span>, <span class="string">'--output'</span>, help=<span class="string">'Output result into a file'</span>, action=<span class="string">'store_true'</span>)</span><br><span class="line">    args = parser.parse_args()</span><br><span class="line">    num = args.num</span><br><span class="line">    result = fib(num)</span><br><span class="line">    output_result = <span class="string">f'The <span class="subst">&#123;num&#125;</span>th fibonacci is <span class="subst">&#123;result&#125;</span>'</span></span><br><span class="line">    <span class="keyword">if</span> args.verbose:</span><br><span class="line">        print(output_result)</span><br><span class="line">    <span class="keyword">elif</span> args.quit:</span><br><span class="line">        print(result)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">f'Fib(<span class="subst">&#123;num&#125;</span>)=<span class="subst">&#123;result&#125;</span>'</span>)</span><br><span class="line">    <span class="keyword">if</span> args.output:</span><br><span class="line">        <span class="keyword">with</span> open(<span class="string">'fibonacci.txt'</span>, <span class="string">'a'</span>) <span class="keyword">as</span> f_h:</span><br><span class="line">            f_h.write(<span class="string">'\n'</span> + output_result)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span clas
-      
-    
-    </summary>
-    
-    
-    
-      <category term="python" scheme="https://blog.codewalker.me/tags/python/"/>
-    
-      <category term="argparse" scheme="https://blog.codewalker.me/tags/argparse/"/>
     
   </entry>
   
