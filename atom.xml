@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.codewalker.me/"/>
-  <updated>2020-12-19T17:49:47.900Z</updated>
+  <updated>2021-01-24T03:55:56.049Z</updated>
   <id>https://blog.codewalker.me/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Your CLT does not support macOS 11</title>
+    <link href="https://blog.codewalker.me/2021/01/24/Your-CLT-does-not-support-macOS-11/"/>
+    <id>https://blog.codewalker.me/2021/01/24/Your-CLT-does-not-support-macOS-11/</id>
+    <published>2021-01-24T03:47:53.000Z</published>
+    <updated>2021-01-24T03:55:56.049Z</updated>
+    
+    <content type="html"><![CDATA[<p>Fix [Your CLT does not support macOS 11] when you are updating/upgrading brew</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf /Library/Developer/CommandLineTools</span><br><span class="line">sudo xcode-select --install</span><br></pre></td></tr></table></figure><p>then you will see something below by execute <code>pkgutil --pkg-info=com.apple.pkg.</code></p><blockquote><p>CLTools_Executables                                                                                 1 ↵<br> package-id: com.apple.pkg.CLTools_Executables<br> version: 12.3.0.0.1.1607026830<br> volume: /<br> location: /<br> install-time: 1611460194<br> groups: com.apple.FindSystemFiles.pkg-group</p></blockquote><p>After doing this, you should be able to <code>brew upgrade --fetch-HEAD</code> again.</p><p>EOF<br>Enjoy<br>I, simon love this world ❤️</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Fix [Your CLT does not support macOS 11] when you are updating/upgrading brew&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gu
+      
+    
+    </summary>
+    
+    
+    
+      <category term="MaxOS" scheme="https://blog.codewalker.me/tags/MaxOS/"/>
+    
+  </entry>
   
   <entry>
     <title>how to install unison</title>
@@ -526,35 +551,6 @@
       <category term="python" scheme="https://blog.codewalker.me/tags/python/"/>
     
       <category term="alogorithm" scheme="https://blog.codewalker.me/tags/alogorithm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>How to implement Stack in python</title>
-    <link href="https://blog.codewalker.me/2018/08/09/How-to-implement-Stack-in-python/"/>
-    <id>https://blog.codewalker.me/2018/08/09/How-to-implement-Stack-in-python/</id>
-    <published>2018-08-09T02:49:48.000Z</published>
-    <updated>2018-08-09T02:53:51.000Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>Talk is cheap</p></blockquote><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Date    : 2018-08-09 10:42:22</span></span><br><span class="line"><span class="comment"># @Author  : Simon (simon.xie@codewalker.meg)</span></span><br><span class="line"><span class="comment"># @Link    : http://www.codewalker.me</span></span><br><span class="line"><span class="comment"># @Version : 1.0.0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Element</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, value)</span>:</span></span><br><span class="line">        self.value = value</span><br><span class="line">        self.next = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LinkedList</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, head=None)</span>:</span></span><br><span class="line">        self.head = head</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">append</span><span class="params">(self, new_element)</span>:</span></span><br><span class="line">        current = self.head</span><br><span class="line">        <span class="keyword">if</span> self.head:</span><br><span class="line">            <span class="keyword">while</span> current.next:</span><br><span class="line">                current = current.next</span><br><span class="line">            current.next = new_element</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.head = new_element</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insert_first</span><span class="params">(self, new_element)</span>:</span></span><br><span class="line">        <span class="string">"Insert new element as the head of the LinkedList"</span></span><br><span class="line">        current = self.head</span><br><span class="line">        self.head = new_element</span><br><span class="line">        new_element.next = current</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">delete_first</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"Delete the first (head) element in the LinkedList as return it"</span></span><br><span class="line">        current = self.head.next</span><br><span class="line">        self.head = current</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Stack</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, top=None)</span>:</span></span><br><span class="line">        self.ll = LinkedList(top)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">push</span><span class="params">(self, new_element)</span>:</span></span><br><span class="line">        <span class="string">"Push (add) a new element onto the top of the stack"</span></span><br><span class="line">        self.ll.insert_first(new_element)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pop</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"Pop (remove) the first element off the top of the stack and return it"</span></span><br><span class="line">        <span class="keyword">if</span> self.ll.head == <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        current = self.ll.head</span><br><span class="line">        self.ll.delete_first()</span><br><span class="line">        <span class="keyword">return</span> current</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># Test cases</span></span><br><span class="line">    <span class="comment"># Set up some Elements</span></span><br><span class="line">    e1 = Element(<span class="number">1</span>)</span><br><span class="line">    e2 = Element(<span class="number">2</span>)</span><br><span class="line">    e3 = Element(<span class="number">3</span>)</span><br><span class="line">    e4 = Element(<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Start setting up a Stack</span></span><br><span class="line">    stack = Stack(e1)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Test stack functionality</span></span><br><span class="line">    stack.push(e2)</span><br><span class="line">    stack.push(e3)</span><br><span class="line">    print(stack.pop().value)</span><br><span class="line">    print(stack.pop().value)</span><br><span class="line">    print(stack.pop().value)</span><br><span class="line">    print(stack.pop())</span><br><span class="line">    stack.push(e4)</span><br><span class="line">    print(stack.pop().value)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;Talk is cheap&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/sp
-      
-    
-    </summary>
-    
-    
-    
-      <category term="python" scheme="https://blog.codewalker.me/tags/python/"/>
-    
-      <category term="stack" scheme="https://blog.codewalker.me/tags/stack/"/>
     
   </entry>
   
