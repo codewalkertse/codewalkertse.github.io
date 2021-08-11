@@ -152,9 +152,9 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;str name=<span class="string">"host"</span>&gt;<span class="variable">$&#123;host:&#125;</span>&lt;/str&gt;</span><br></pre></td></tr></table></figure>
 
 <p>this line should be var. Thus it will be named your host ip automatically when you star your solr node, registering in zookeeper.</p>
-<h3 id="step-two"><a href="#step-two" class="headerlink" title="step two"></a>step two</h3><p>Here’s what I’v found in my case.<br>step one is right but why am I faild start my solr node.</p>
+<h3 id="step-two"><a href="#step-two" class="headerlink" title="step two"></a>step two</h3><p>Here’s what I’v found in my case.<br>step one is right but why am I faild to start my solr node.</p>
 <p>The Point is <code>/etc/hosts</code>, it records <code>127.0.0.1 xxxxhostnamexxx</code> at the top of this file.<br>and then at the bottom of this file it records <code>xxx.xxx.xxx.xxx xxxxhostnamexxx</code>, so I think that node name will be read line by line from top to bottom via tomcat from hosts this file.</p>
-<p>Okay this is why.</p>
+<p>Deleting this line <code>127xxxxxxxx</code>, then restart your nodes.<br>Logining and checking your node names in live_nodes of zookeeper.<br>Done.</p>
 <p>EOF<br>Enjoy<br>I, simon love this world ❤️</p>
 
         
