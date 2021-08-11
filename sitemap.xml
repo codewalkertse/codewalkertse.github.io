@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.codewalker.me/2021/08/11/fix-solrCloud-A-previous-ephemeral-live-node-still-exists/</loc>
+    
+    <lastmod>2021-08-11T06:25:34.995Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.codewalker.me/2021/01/24/Your-CLT-does-not-support-macOS-11/</loc>
     
     <lastmod>2021-01-24T03:55:56.049Z</lastmod>
