@@ -6,7 +6,7 @@
   <link href="https://blog.codewalker.me/atom.xml" rel="self"/>
   
   <link href="https://blog.codewalker.me/"/>
-  <updated>2021-08-11T06:30:01.891Z</updated>
+  <updated>2023-04-03T18:12:57.880Z</updated>
   <id>https://blog.codewalker.me/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://blog.codewalker.me/2023/04/04/fix-github-submitt-error/"/>
+    <id>https://blog.codewalker.me/2023/04/04/fix-github-submitt-error/</id>
+    <published>2023-04-03T18:10:13.803Z</published>
+    <updated>2023-04-03T18:12:57.880Z</updated>
+    
+    <content type="html"><![CDATA[<hr><p>title: ‘[FIX] how to fix github submitt error’<br>date: 2023-04-04 02:10:13<br>tags:</p><ul><li>inode</li><li>linux</li><li>logrotate<br>url: 729.html<br>id: 729<br>categories:</li><li>Linux</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -vT git@github.com</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;hr&gt;
+&lt;p&gt;title: ‘[FIX] how to fix github submitt error’&lt;br&gt;date: 2023-04-04 02:10:13&lt;br&gt;tags:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;inode&lt;/li&gt;
+&lt;li&gt;linux&lt;/li&gt;
+&lt;li&gt;logr</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>fix solrCloud A previous ephemeral live node still exists</title>
@@ -487,30 +512,6 @@
     <category term="html5" scheme="https://blog.codewalker.me/tags/html5/"/>
     
     <category term="css3" scheme="https://blog.codewalker.me/tags/css3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hotel website design</title>
-    <link href="https://blog.codewalker.me/2018/08/19/Hotel-website-design/"/>
-    <id>https://blog.codewalker.me/2018/08/19/Hotel-website-design/</id>
-    <published>2018-08-18T16:06:05.000Z</published>
-    <updated>2018-08-18T16:12:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Meet-my-new-hotel-website-design"><a href="#Meet-my-new-hotel-website-design" class="headerlink" title="Meet my new hotel website design"></a>Meet my new hotel website design</h1><p>press <a href="http://motel.codewalker.me" target="_blank" rel="noopener" title="hotel websitedesing">HERE</a> to view it.</p><p>I love this world.<br>Good night. &lt;3</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;Meet-my-new-hotel-website-design&quot;&gt;&lt;a href=&quot;#Meet-my-new-hotel-website-design&quot; class=&quot;headerlink&quot; title=&quot;Meet my new hotel website de</summary>
-      
-    
-    
-    
-    
-    <category term="webdesign" scheme="https://blog.codewalker.me/tags/webdesign/"/>
-    
-    <category term="bootstrap" scheme="https://blog.codewalker.me/tags/bootstrap/"/>
     
   </entry>
   
