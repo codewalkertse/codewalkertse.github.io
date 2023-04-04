@@ -144,7 +144,7 @@
     <div class="post-content ">
         <p>昨天从Initscripts升级到了systemd之后启动时间到了</p>
 <p>code:systemd-analyze  </p>
-<p>Startup finished in 6994ms (kernel) + 13175ms (userspace) = 20170ms</p>
+<p>Startup finished in 6994ms (kernel) + 13175ms (userspace) &#x3D; 20170ms</p>
 <p>结果kvm的guest xp无法联网，开始以为是桥接的网络问题，结果看了配置文件是正确了。</p>
 <p>guest中访问网络返回的是dns服务。而我使用的是本地dnsmasq.service</p>
 <p>遂sudo systemctl status dnsmasq.service 按照wiki中查看没问题。</p>

@@ -146,14 +146,14 @@
     </div>
     <div class="post-content ">
         <p>既然有了自己vps不架设一个vps简直是太浪费了。 写了个脚本自己安装，纯傻瓜操作一键搞定。 环境centos6 64</p>
-<p>[root@codewalker ~]# cat ./auto.install.vpn.sh<br>yum remove -y pptpd ppp<br>iptables –flush POSTROUTING –table nat<br>iptables –flush FORWARD<br>rm -rf /etc/pptpd.conf<br>rm -rf /etc/ppp</p>
-<p>rpm -Uvh <a href="http://poptop.sourceforge.net/yum/stable/rhel6/pptp-release-current.noarch.rpm" target="_blank" rel="noopener">http://poptop.sourceforge.net/yum/stable/rhel6/pptp-release-current.noarch.rpm</a><br>yum -y install policycoreutils make libpcap iptables gcc-c++ logrotate tar cpio perl pam tcp_wrappers kernel_ppp_mppe</p>
+<p>[root@codewalker ~]# cat .&#x2F;auto.install.vpn.sh<br>yum remove -y pptpd ppp<br>iptables –flush POSTROUTING –table nat<br>iptables –flush FORWARD<br>rm -rf &#x2F;etc&#x2F;pptpd.conf<br>rm -rf &#x2F;etc&#x2F;ppp</p>
+<p>rpm -Uvh <a target="_blank" rel="noopener" href="http://poptop.sourceforge.net/yum/stable/rhel6/pptp-release-current.noarch.rpm">http://poptop.sourceforge.net/yum/stable/rhel6/pptp-release-current.noarch.rpm</a><br>yum -y install policycoreutils make libpcap iptables gcc-c++ logrotate tar cpio perl pam tcp_wrappers kernel_ppp_mppe</p>
 <p>yum -y install ppp pptpd</p>
-<p>rm -rf /dev/ppp<br>mknod /dev/ppp c 108 0<br>#echo 1 &gt; /proc/sys/net/ipv4/ip_forward<br>echo “mknod /dev/ppp c 108 0” &gt;&gt; /etc/rc.local<br>#echo “echo 1 &gt; /proc/sys/net/ipv4/ip_forward” &gt;&gt; /etc/rc.local<br>echo “localip 10.0.0.1” &gt;&gt; /etc/pptpd.conf<br>echo “remoteip 10.0.0.2-254” &gt;&gt; /etc/pptpd.conf<br>echo “ms-dns 8.8.8.8” &gt;&gt; /etc/ppp/options.pptpd<br>echo “ms-dns 8.8.4.4” &gt;&gt; /etc/ppp/options.pptpd</p>
-<p>pass=`openssl rand 6 -base64`<br>if [ “$1” != “” ]<br>then pass=$1<br>fi</p>
-<p>echo “username pptpd hereisyourpassword *” &gt;&gt; /etc/ppp/chap-secrets<br>#update @20150311 上面那句需要解释一下<br>#格式为:<br>#client        server  secret                  IP addresses<br>#需要增加用户的话直接修改这个文件/etc/ppp/chap-secrets后重启pptpd即可.</p>
-<p>iptables -t nat -A POSTROUTING -s 10.0.0.0/24 -j SNAT –to-source `ifconfig  | grep ‘inet addr:’| grep -v ‘127.0.0.1’ | cut -d: -f2 | awk ‘NR==1 { print $1}’`<br>iptables -A FORWARD -p tcp –syn -s 10.0.0.0/24 -j TCPMSS –set-mss 1356<br>service iptables save</p>
-<p>chkconfig iptables on<br>chkconfig pptpd on<br>service iptables start<br>service pptpd start<br>cat /etc/ppp/chap-secrets</p>
+<p>rm -rf &#x2F;dev&#x2F;ppp<br>mknod &#x2F;dev&#x2F;ppp c 108 0<br>#echo 1 &gt; &#x2F;proc&#x2F;sys&#x2F;net&#x2F;ipv4&#x2F;ip_forward<br>echo “mknod &#x2F;dev&#x2F;ppp c 108 0” &gt;&gt; &#x2F;etc&#x2F;rc.local<br>#echo “echo 1 &gt; &#x2F;proc&#x2F;sys&#x2F;net&#x2F;ipv4&#x2F;ip_forward” &gt;&gt; &#x2F;etc&#x2F;rc.local<br>echo “localip 10.0.0.1” &gt;&gt; &#x2F;etc&#x2F;pptpd.conf<br>echo “remoteip 10.0.0.2-254” &gt;&gt; &#x2F;etc&#x2F;pptpd.conf<br>echo “ms-dns 8.8.8.8” &gt;&gt; &#x2F;etc&#x2F;ppp&#x2F;options.pptpd<br>echo “ms-dns 8.8.4.4” &gt;&gt; &#x2F;etc&#x2F;ppp&#x2F;options.pptpd</p>
+<p>pass&#x3D;`openssl rand 6 -base64`<br>if [ “$1” !&#x3D; “” ]<br>then pass&#x3D;$1<br>fi</p>
+<p>echo “username pptpd hereisyourpassword *” &gt;&gt; &#x2F;etc&#x2F;ppp&#x2F;chap-secrets<br>#update @20150311 上面那句需要解释一下<br>#格式为:<br>#client        server  secret                  IP addresses<br>#需要增加用户的话直接修改这个文件&#x2F;etc&#x2F;ppp&#x2F;chap-secrets后重启pptpd即可.</p>
+<p>iptables -t nat -A POSTROUTING -s 10.0.0.0&#x2F;24 -j SNAT –to-source `ifconfig  | grep ‘inet addr:’| grep -v ‘127.0.0.1’ | cut -d: -f2 | awk ‘NR&#x3D;&#x3D;1 { print $1}’`<br>iptables -A FORWARD -p tcp –syn -s 10.0.0.0&#x2F;24 -j TCPMSS –set-mss 1356<br>service iptables save</p>
+<p>chkconfig iptables on<br>chkconfig pptpd on<br>service iptables start<br>service pptpd start<br>cat &#x2F;etc&#x2F;ppp&#x2F;chap-secrets</p>
 <p>打完收工</p>
 
         

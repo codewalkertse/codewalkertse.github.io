@@ -151,57 +151,65 @@
 </span>
     </div>
     <div class="post-content ">
-        <pre><code>\* { margin:0; padding:0;} 
-body { font-size:12px;} 
-p{ margin: 5px;} 
-.box{ 
-    padding: 10px;
-    width: 300px;
-    height: 200px;
-    float: left;
-    overflow: hidden;
-    margin: 20px 40px;
-}
+        <pre><code>    \* &#123; margin:0; padding:0;&#125; 
+    body &#123; font-size:12px;&#125; 
+    p&#123; margin: 5px;&#125; 
+    .box&#123; 
+        padding: 10px;
+        width: 300px;
+        height: 200px;
+        float: left;
+        overflow: hidden;
+        margin: 20px 40px;
+    &#125;
+ 
+ 
+ 
+ 
+    $(function()&#123;
+        var ENDDATA=&#39;&lt;div id=&quot;do_load&quot;&gt;&lt;h3&gt;At ready ready ready ready ready ready ready bottom,loading...:( &lt;/h3&gt;&lt;/div&gt;&#39;;
+        $(window).bind(&#39;scroll&#39;,function()&#123;do\_ajax\_show()&#125;); 
+        function do\_ajax\_show() &#123; 
+            if($(window).scrollTop()+$(window).height()&gt;=$(document).height()) 
+            &#123; 
+                do\_ajax\_load();
+            &#125; 
+        &#125; 
+        function do\_ajax\_load() &#123; 
+            var html=&quot;&quot;; 
+            $.ajax(&#123; 
+                type:&#39;get&#39;, 
+                dataType:&#39;jsonp&#39;, 
+                url:&#39;http://api.flickr.com/services/feeds/photos_public.gne?tags=cat&amp;tagmode=any&amp;format=json&amp;jsoncallback=?&#39;, 
+                beforeSend:function()&#123;
+                    console.log(&#39;loading...&#39;);
+                    $(&quot;#resText&quot;).after($(ENDDATA));
+                &#125;, 
+                success:function(data)&#123; 
+                    $.each(data.items,function(i,item)&#123; 
+                        html+=&#39;&lt;div class=&quot;box&quot;&gt;&#39;; 
+                        html+=&#39;&lt;h1&gt;&#39;+item.title+&#39;&lt;/h1&gt;&#39;; 
+                        html+=&#39;&lt;a hreft=&quot;&#39;+item.link+&#39;&quot;&gt;&lt;img src=&quot;&#39;+item.media.m+&#39;&quot;/&gt;&lt;/a&gt;&#39; 
+                        html+=&#39;&lt;div&gt;&#39;+item.tags+&#39;&lt;/div&gt;&#39;; 
+                        html+=&#39;&lt;/div&gt;&#39;; 
+                    &#125;); 
+                    $(&quot;#resText&quot;).append($(html)); 
+                &#125;, 
+                complete:function()&#123;
+                    console.log(&#39;mission acomplete.&#39;);
+                    $(&quot;#do_load&quot;).remove();
+                &#125; 
+            &#125;); 
+        &#125; 
+    &#125;) 
+ 
 
 
 
 
-$(function(){
-    var ENDDATA=&apos;&lt;div id=&quot;do_load&quot;&gt;&lt;h3&gt;At ready ready ready ready ready ready ready bottom,loading...:( &lt;/h3&gt;&lt;/div&gt;&apos;;
-    $(window).bind(&apos;scroll&apos;,function(){do\_ajax\_show()}); 
-    function do\_ajax\_show() { 
-        if($(window).scrollTop()+$(window).height()&gt;=$(document).height()) 
-        { 
-            do\_ajax\_load();
-        } 
-    } 
-    function do\_ajax\_load() { 
-        var html=&quot;&quot;; 
-        $.ajax({ 
-            type:&apos;get&apos;, 
-            dataType:&apos;jsonp&apos;, 
-            url:&apos;http://api.flickr.com/services/feeds/photos_public.gne?tags=cat&amp;tagmode=any&amp;format=json&amp;jsoncallback=?&apos;, 
-            beforeSend:function(){
-                console.log(&apos;loading...&apos;);
-                $(&quot;#resText&quot;).after($(ENDDATA));
-            }, 
-            success:function(data){ 
-                $.each(data.items,function(i,item){ 
-                    html+=&apos;&lt;div class=&quot;box&quot;&gt;&apos;; 
-                    html+=&apos;&lt;h1&gt;&apos;+item.title+&apos;&lt;/h1&gt;&apos;; 
-                    html+=&apos;&lt;a hreft=&quot;&apos;+item.link+&apos;&quot;&gt;&lt;img src=&quot;&apos;+item.media.m+&apos;&quot;/&gt;&lt;/a&gt;&apos; 
-                    html+=&apos;&lt;div&gt;&apos;+item.tags+&apos;&lt;/div&gt;&apos;; 
-                    html+=&apos;&lt;/div&gt;&apos;; 
-                }); 
-                $(&quot;#resText&quot;).append($(html)); 
-            }, 
-            complete:function(){
-                console.log(&apos;mission acomplete.&apos;);
-                $(&quot;#do_load&quot;).remove();
-            } 
-        }); 
-    } 
-}) </code></pre><p>scroll down</p>
+    
+</code></pre>
+<p>scroll down</p>
 <p>scroll down</p>
 <p>scroll down</p>
 <p>scroll down</p>

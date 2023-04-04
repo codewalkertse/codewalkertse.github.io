@@ -136,7 +136,7 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>Step 1. Check IPv6 module is enable for Kernel lsmod | grep ipv6 step 2.Enable IT. 2.1 ##notice may file name is different## Editing the file /etc/modprobe.d/disable_ipv6.conf Change options ipv6 disable=0 to options ipv6 disable=1 2.2 Editing the file /etc/sysconfig/network Change NETWORKING_IPV6=no to NETWORKING_IPV6=yes step 3 rebooting your server step 4 configure kernel parameters to enable IPv6 sysctl -w net.ipv6.conf.all.disable_ipv6=0 then reboot step 5 Checking if it works. sysctl -a | grep ipv6 then it will outputting something like net.ipv6.confXXXXXXX = 0. all done.</p>
+        <p>Step 1. Check IPv6 module is enable for Kernel lsmod | grep ipv6 step 2.Enable IT. 2.1 ##notice may file name is different## Editing the file &#x2F;etc&#x2F;modprobe.d&#x2F;disable_ipv6.conf Change options ipv6 disable&#x3D;0 to options ipv6 disable&#x3D;1 2.2 Editing the file &#x2F;etc&#x2F;sysconfig&#x2F;network Change NETWORKING_IPV6&#x3D;no to NETWORKING_IPV6&#x3D;yes step 3 rebooting your server step 4 configure kernel parameters to enable IPv6 sysctl -w net.ipv6.conf.all.disable_ipv6&#x3D;0 then reboot step 5 Checking if it works. sysctl -a | grep ipv6 then it will outputting something like net.ipv6.confXXXXXXX &#x3D; 0. all done.</p>
 
         
             <div class="donate-container">

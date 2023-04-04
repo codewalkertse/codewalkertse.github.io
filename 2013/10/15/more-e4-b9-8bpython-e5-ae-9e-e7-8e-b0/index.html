@@ -148,10 +148,10 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>#!/usr/bin/python2</p>
+        <p>#!&#x2F;usr&#x2F;bin&#x2F;python2</p>
 <p>import sys</p>
-<p>filename = raw_input(‘Enter a filename: ‘)</p>
-<p>try:<br>    fobj = file(filename,’r’)<br>except IOError, e:<br>    print e<br>else:<br>    start  = 0<br>    i = 1<br>    end = pagesize = 5<br>    lines = fobj.readlines()<br>    while True:<br>        if i &gt;= len(lines):<br>            print ‘End of file. exit…’<br>            sys.exit()<br>        for line in lines[start:end]:<br>            print ‘%s:\t%s’ % (i,line),<br>            i += 1<br>        start  = end<br>        i = end + 1<br>        end +=  pagesize<br>        r = raw_input(‘Press any key to continue…’)<br>        if r == ‘x’:<br>            sys.exit()</p>
+<p>filename &#x3D; raw_input(‘Enter a filename: ‘)</p>
+<p>try:<br>    fobj &#x3D; file(filename,’r’)<br>except IOError, e:<br>    print e<br>else:<br>    start  &#x3D; 0<br>    i &#x3D; 1<br>    end &#x3D; pagesize &#x3D; 5<br>    lines &#x3D; fobj.readlines()<br>    while True:<br>        if i &gt;&#x3D; len(lines):<br>            print ‘End of file. exit…’<br>            sys.exit()<br>        for line in lines[start:end]:<br>            print ‘%s:\t%s’ % (i,line),<br>            i +&#x3D; 1<br>        start  &#x3D; end<br>        i &#x3D; end + 1<br>        end +&#x3D;  pagesize<br>        r &#x3D; raw_input(‘Press any key to continue…’)<br>        if r &#x3D;&#x3D; ‘x’:<br>            sys.exit()</p>
 
         
             <div class="donate-container">

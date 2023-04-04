@@ -94,7 +94,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#python2-fix"><span class="toc-text">python2 fix</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#remove-CA-crt-CA-key-for-security-issues"><span class="toc-text">remove CA.crt CA.key for security issues</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#config-file"><span class="toc-text">config file</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#rc-d-daemon"><span class="toc-text">rc.d daemon</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#systemd-service"><span class="toc-text">systemd service</span></a></li></ol>
+    
 </div>
     
 </div>
@@ -144,53 +144,59 @@
     <div class="post-content ">
         <p><strong>红色</strong>为修改部分</p>
 <p>从aur 下载goagent.tar.gz解压</p>
-<p>从code.google.com或者<a href="https://www.github.com/goagent/" target="_blank" rel="noopener">https://www.github.com/goagent/</a> 下载goagent-2.1.9.zip在重新打包为tar.gz</p>
-<p><strong>pkgname.daemon pkgname.service  goagent-2.1.9.tar.gz三个文件放在刚才解压的文件中也就是/tmp/goagent</strong></p>
-<p><strong>在用md5 **</strong>goagent-2.1.9.tar.gz 生成md5码 替换最后的那个代码伪造验证码**</p>
-<p>codewalker@codehost:/tmp/goagent</p>
-<p>$ cat PKGBUILD </p>
+<p>从code.google.com或者<a target="_blank" rel="noopener" href="https://www.github.com/goagent/">https://www.github.com/goagent/</a> 下载goagent-2.1.9.zip在重新打包为tar.gz</p>
+<p><strong>pkgname.daemon pkgname.service  goagent-2.1.9.tar.gz三个文件放在刚才解压的文件中也就是&#x2F;tmp&#x2F;goagent</strong></p>
+<p>**在用md5 **<strong>goagent-2.1.9.tar.gz 生成md5码 替换最后的那个代码伪造验证码</strong></p>
+<p>codewalker@codehost:&#x2F;tmp&#x2F;goagent</p>
+<p>$ cat PKGBUILD </p>
 <p># Maintainer: Felix Yan</p>
 <p># Contributor: cuihao</p>
-<p># Contributor: Guten  </p>
-<p>pkgname=goagent</p>
-<p>pkgver=2.1.9</p>
-<p>pkgrel=1</p>
-<p>pkgdesc=”A gae proxy forked from gappproxy/wallproxy”</p>
-<p>arch=(“i686” “x86_64”)</p>
-<p>url=”<a href="http://goagent.googlecode.com&quot;" target="_blank" rel="noopener">http://goagent.googlecode.com&quot;</a></p>
-<p>license=(“GPL2”)</p>
-<p>depends=(‘python2’ ‘python2-pyopenssl’)</p>
-<p>optdepends=(</p>
-<p>  ‘python26: (AUR) upload GAE code using /opt/server/uploader.zip’</p>
-<p>  ‘python2-gevent-beta: (AUR) enable gevent support’</p>
+<p># Contributor: Guten  </p>
+<p>pkgname&#x3D;goagent</p>
+<p>pkgver&#x3D;2.1.9</p>
+<p>pkgrel&#x3D;1</p>
+<p>pkgdesc&#x3D;”A gae proxy forked from gappproxy&#x2F;wallproxy”</p>
+<p>arch&#x3D;(“i686” “x86_64”)</p>
+<p>url&#x3D;”<a target="_blank" rel="noopener" href="http://goagent.googlecode.com/">http://goagent.googlecode.com</a>“</p>
+<p>license&#x3D;(“GPL2”)</p>
+<p>depends&#x3D;(‘python2’ ‘python2-pyopenssl’)</p>
+<p>optdepends&#x3D;(</p>
+<p>  ‘python26: (AUR) upload GAE code using &#x2F;opt&#x2F;server&#x2F;uploader.zip’</p>
+<p>  ‘python2-gevent-beta: (AUR) enable gevent support’</p>
 <p>)</p>
-<p>conflicts=(‘python2-gevent&lt;=0.99’)</p>
-<p>source=(</p>
-<p>  “$pkgname.daemon”</p>
-<p>  “$pkgname.service”</p>
-<p>  “<strong>$pkgname-$pkgver.tar.gz</strong>“</p>
+<p>conflicts&#x3D;(‘python2-gevent&lt;&#x3D;0.99’)</p>
+<p>source&#x3D;(</p>
+<p>  “$pkgname.daemon”</p>
+<p>  “$pkgname.service”</p>
+<p>  “<strong>$pkgname-$pkgver.tar.gz</strong>“</p>
 <p>)</p>
-<p>backup=(‘etc/goagent’)</p>
-<p>install=’goagent.install’</p>
+<p>backup&#x3D;(‘etc&#x2F;goagent’)</p>
+<p>install&#x3D;’goagent.install’</p>
 <p>build() {</p>
-<p>  cd “$srcdir”</p>
-<p>  rm -rf $pkgname</p>
-<p>  mv <strong>goagent-$pkgver</strong> $pkgname</p>
+<p>  cd “$srcdir”</p>
+<p>  </p>
+<p>  rm -rf $pkgname</p>
+<p>  mv <strong>goagent-$pkgver</strong> $pkgname</p>
 <p>}</p>
 <p>package() {</p>
-<p>  cd “$srcdir/$pkgname”</p>
-<h1 id="python2-fix"><a href="#python2-fix" class="headerlink" title="python2 fix"></a>python2 fix</h1><p>  sed -i -re “1s/python2?/python2/“ local*.{vbs,dll,exe,manifest,bat}</p>
-<h1 id="remove-CA-crt-CA-key-for-security-issues"><a href="#remove-CA-crt-CA-key-for-security-issues" class="headerlink" title="remove CA.crt CA.key for security issues"></a>remove CA.crt CA.key for security issues</h1><p>  rm -f “$pkgdir/opt/goagent/local/CA.crt” “$pkgdir/opt/goagent/local/CA.key”</p>
-<h1 id="config-file"><a href="#config-file" class="headerlink" title="config file"></a>config file</h1><p>  install -Dm644 “${pkgdir}/opt/goagent/local/proxy.ini” “${pkgdir}/etc/goagent”</p>
-<p>  ln -sf “/etc/goagent” “${pkgdir}/opt/goagent/local/proxy.ini”</p>
-<h1 id="rc-d-daemon"><a href="#rc-d-daemon" class="headerlink" title="rc.d daemon"></a>rc.d daemon</h1><p>  install -Dm755 “${srcdir}/goagent.daemon” “${pkgdir}/etc/rc.d/goagent”</p>
-<h1 id="systemd-service"><a href="#systemd-service" class="headerlink" title="systemd service"></a>systemd service</h1><p>  install -Dm644 “${srcdir}/goagent.service” “${pkgdir}/usr/lib/systemd/system/goagent.service”</p>
+<p>  cd “$srcdir&#x2F;$pkgname”</p>
+<p>  # python2 fix</p>
+<p>  sed -i -re “1s&#x2F;python2?&#x2F;python2&#x2F;“ local*.{vbs,dll,exe,manifest,bat}</p>
+<p>  # remove CA.crt CA.key for security issues</p>
+<p>  rm -f “$pkgdir&#x2F;opt&#x2F;goagent&#x2F;local&#x2F;CA.crt” “$pkgdir&#x2F;opt&#x2F;goagent&#x2F;local&#x2F;CA.key”</p>
+<p>  # config file</p>
+<p>  install -Dm644 “${pkgdir}&#x2F;opt&#x2F;goagent&#x2F;local&#x2F;proxy.ini” “${pkgdir}&#x2F;etc&#x2F;goagent”</p>
+<p>  ln -sf “&#x2F;etc&#x2F;goagent” “${pkgdir}&#x2F;opt&#x2F;goagent&#x2F;local&#x2F;proxy.ini”</p>
+<p>  # rc.d daemon</p>
+<p>  install -Dm755 “${srcdir}&#x2F;goagent.daemon” “${pkgdir}&#x2F;etc&#x2F;rc.d&#x2F;goagent”</p>
+<p>  # systemd service</p>
+<p>  install -Dm644 “${srcdir}&#x2F;goagent.service” “${pkgdir}&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;goagent.service”</p>
 <p>}</p>
-<p># vim:set ts=2 sw=2 et:</p>
-<p>md5sums=(‘94e66bb9673157bc7fcfc2e7d01be389’</p>
-<pre><code>&apos;a0223e4e436a4d5cc17f76fc1fbbc140&apos;
+<p># vim:set ts&#x3D;2 sw&#x3D;2 et:</p>
+<p>md5sums&#x3D;(‘94e66bb9673157bc7fcfc2e7d01be389’</p>
+<p>         ‘a0223e4e436a4d5cc17f76fc1fbbc140’</p>
+<p>         ‘<strong>faffee0d13aefba59f3997be</strong>2a5a1c8f’)</p>
 
-&apos;**faffee0d13aefba59f3997be**2a5a1c8f&apos;)</code></pre>
         
             <div class="donate-container">
     <div class="donate-button">

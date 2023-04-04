@@ -145,19 +145,13 @@
 </span>
     </div>
     <div class="post-content ">
-        <p><strong>原文地址：</strong><a href="http://blog.sina.com.cn/s/blog_610997850100iblw.html" target="_blank" rel="noopener" title="php面试">php面试</a><strong>作者：</strong><a href="http://blog.sina.com.cn/u/1628018565" target="_blank" rel="noopener" title="流星飞雨">流星飞雨</a></p>
-<ol>
-<li>编一个字符串顺序倒过来输出的涵数. 例：请把“abcde” 输出为 “edcba”. 必须使用涵数来编成.</li>
-</ol>
-<p>*<em>echo strrev(“abcde”);<br>*</em>2. 编 一个排列数字的程序. 例：请把 9,5,13,3,1几个数字按1,3,5,9,13最小的数字开始排序.但是不能使用语言中的排列涵数，只能使用for,while来编成.</p>
-<p>**&lt;?php<br>//冒泡排序函数<br>function bubble(&amp;$arr){<br>    $count=count($arr);<br>    if($count&gt;1){<br>        for($i=0;$i&lt;$count;$i++){<br>            for($j=$count-1;$j&gt;=$i;$j–){<br>                if($arr[$j-1]&gt;$arr[$j]){<br>                    $temp=$arr[$j-1];<br>                    $arr[$j-1]=$arr[$j];<br>                    $arr[$j]=$temp;<br>                }<br>            }<br>        }<br>    }<br>    return $arr;<br>}  </p>
-<p>$arr=array(9,5,13,3,1);<br>print_r(bubble($arr));**</p>
+        <p><strong>原文地址：</strong><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_610997850100iblw.html" title="php面试">php面试</a><strong>作者：</strong><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/u/1628018565" title="流星飞雨">流星飞雨</a></p>
+<p>1. 编一个字符串顺序倒过来输出的涵数. 例：请把“abcde” 输出为 “edcba”. 必须使用涵数来编成.</p>
+<p>**echo strrev(“abcde”);<br>**2. 编 一个排列数字的程序. 例：请把 9,5,13,3,1几个数字按1,3,5,9,13最小的数字开始排序.但是不能使用语言中的排列涵数，只能使用for,while来编成.</p>
+<p><strong>&lt;?php<br>&#x2F;&#x2F;冒泡排序函数<br>function bubble(&amp;$arr){<br>    $count&#x3D;count($arr);<br>    if($count&gt;1){<br>        for($i&#x3D;0;$i&lt;$count;$i++){<br>            for($j&#x3D;$count-1;$j&gt;&#x3D;$i;$j–){<br>                if($arr[$j-1]&gt;$arr[$j]){<br>                    $temp&#x3D;$arr[$j-1];<br>                    $arr[$j-1]&#x3D;$arr[$j];<br>                    $arr[$j]&#x3D;$temp;<br>                } <br>            } <br>        } <br>    }<br>    return $arr;<br>}<br> <br>$arr&#x3D;array(9,5,13,3,1);<br>print_r(bubble($arr));</strong></p>
 <p><strong>?&gt;</strong></p>
-<ol start="3">
-<li>编一个输出从1到10,000单数总合的程序.即,1+3+5+7+9+11+…+9997+9999的总合值的程序.  </li>
-</ol>
-<p><strong>$sum=0;</strong></p>
-<p><strong>while($i&lt;=9999)<br>{<br> $sum=$sum+$i;<br> $i=$i+2;<br>}<br>echo $sum;</strong></p>
+<p>3. 编一个输出从1到10,000单数总合的程序.即,1+3+5+7+9+11+…+9997+9999的总合值的程序.<br><strong>$sum&#x3D;0;</strong></p>
+<p><strong>while($i&lt;&#x3D;9999)<br>{<br> $sum&#x3D;$sum+$i;<br> $i&#x3D;$i+2;<br>}<br>echo $sum;</strong></p>
 
         
             <div class="donate-container">

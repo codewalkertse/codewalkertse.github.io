@@ -147,311 +147,114 @@
 <p>[2012-12-09 10:16] installed zathura-pdf-mupdf (0.2.1-1)</p>
 <p>安装上面两个就可以了。操作方式是vim的有一些细小的区别。</p>
 <p>来源:</p>
-<p><a href="http://manpages.ubuntu.com/manpages/maverick/man1/zathura.1.html" target="_blank" rel="noopener">http://manpages.ubuntu.com/manpages/maverick/man1/zathura.1.html</a></p>
+<p><a target="_blank" rel="noopener" href="http://manpages.ubuntu.com/manpages/maverick/man1/zathura.1.html">http://manpages.ubuntu.com/manpages/maverick/man1/zathura.1.html</a></p>
 <p>and</p>
-<p><a href="http://pwmt.org/projects/zathura/" target="_blank" rel="noopener">http://pwmt.org/projects/zathura/</a></p>
+<p><a target="_blank" rel="noopener" href="http://pwmt.org/projects/zathura/">http://pwmt.org/projects/zathura/</a></p>
 <p>NAME</p>
-<pre><code>zathura - a PDF viewer</code></pre><p>SYNOPSIS</p>
-<pre><code>zathura \[-e xid\] \[-c path\] \[file\] \[password\]</code></pre><p>DESCRIPTION</p>
-<pre><code>zathura is a highly customizable and functional PDF viewer based on the
+<p>       zathura - a PDF viewer</p>
+<p>SYNOPSIS</p>
+<p>       zathura [-e xid] [-c path] [file] [password]</p>
+<p>DESCRIPTION</p>
+<p>       zathura is a highly customizable and functional PDF viewer based on the</p>
+<p>       poppler rendering library and the  gtk+  toolkit.  zathura  provides  a</p>
+<p>       minimalistic  and  space  saving  interface,  with  a focus on keyboard</p>
+<p>       interaction.</p>
+<p>OPTIONS</p>
+<p>       -e xid Reparents to window specified by  xid.   -c  path  Path  to  the</p>
+<p>              config directory</p>
+<p>DEFAULT SETTINGS</p>
+<p>   Shortcuts</p>
+<p>       J      Go to next page</p>
+<p>       K      Go to previous page</p>
+<p>       h      Scroll to the left</p>
+<p>       k      Scroll upwards</p>
+<p>       j      Scroll downwards</p>
+<p>       ^f     Scroll page down</p>
+<p>       ^b     Scroll page up</p>
+<p>       ^d     Scroll half a page down</p>
+<p>       ^u     Scroll half a page up</p>
+<p>       l      Scroll to the right</p>
+<p>       &#x2F;      Search forwards</p>
+<p>       ?      Search backwards</p>
+<p>       n      Search last keyword forwards</p>
+<p>       N      Search last keyword backwards</p>
+<p>       Tab    Toggle index</p>
+<p>       o      Open a file</p>
+<p>       a      Zoom to fit</p>
+<p>       s      Zoom to width</p>
+<p>       f      Follow a link on the page</p>
+<p>       m      Mark  current  position  and  save it in register specified by a</p>
+<p>              character</p>
+<p>       ‘      Go to saved position specified by the ensuing character</p>
+<p>       r      Rotate the page</p>
+<p>       R      Reload the document</p>
+<p>       O      Change goto mode  (L:  search  labels,  D:  default,  O:  manual</p>
+<p>              offset)</p>
+<p>       ^i     Invert the colors of the page</p>
+<p>       i      Change to insert mode</p>
+<p>       v      Change to visual mode</p>
+<p>       :      Focus inputbar</p>
+<p>       Backspace</p>
+<p>              Delete last character in the buffer</p>
+<p>       F5     Toggle fullscreen mode</p>
+<p>       ^n     Toggle statusbar visibility</p>
+<p>       ^m     Toggle inputbar visibility</p>
+<p>       Esc | ^c</p>
+<p>              Abort</p>
+<p>       ^q     Quit the program</p>
+<p>   Index commands</p>
+<p>       k      Navigate to one element above the current position</p>
+<p>       j      Navigate to one element below the current position</p>
+<p>       h      Collapse current element</p>
+<p>       l      Expand current element</p>
+<p>       Space | Return</p>
+<p>              Select current element</p>
+<p>   Buffered commands</p>
+<p>       gg     Go to the first page</p>
+<p>       GG     Go to the last page</p>
+<p>       [0-9]+G</p>
+<p>              Go to the specified page</p>
+<p>       zI     Zoom in</p>
+<p>       zO     Zoom out</p>
+<p>       z0     Zoom to the original size</p>
+<p>       [0-9]+Z</p>
+<p>              Zoom to the given level</p>
+<p>       [0-9]+%</p>
+<p>              Move to the given position</p>
+<p>   Commands</p>
+<p>       blist  List and open bookmark</p>
+<p>       bmark  Bookmark current page</p>
+<p>       close  Close current file</p>
+<p>       coffset</p>
+<p>              Set page offset</p>
+<p>       delbmark</p>
+<p>              Delete given bookmark</p>
+<p>       export Export images or attached files</p>
+<p>       info   Show information about the document</p>
+<p>       map    Map shortcut functions (map )</p>
+<p>       open   Open a file</p>
+<p>       print  Print the document</p>
+<p>       quit   Quit the program</p>
+<p>       rotate Rotate the page</p>
+<p>       set    Set an option (set )</p>
+<p>       write  Save the document</p>
+<p>   Inputbar shortcuts</p>
+<p>       Up     Move up in the command history</p>
+<p>       Down   Move down in the command history</p>
+<p>       Tab | Shift + Tab</p>
+<p>              Tab completion</p>
+<p>       ^w     Delete last word</p>
+<p>CONFIGURATION</p>
+<p>       The  complete  configuration  including the appearance and shortcuts of</p>
+<p>       the program are defined in a separate file named config.h. In this file</p>
+<p>       you are able to change and adjust all the settings of zathura according</p>
+<p>       to your wishes.</p>
+<p>       In  addition  you  can  create  a   zathurarc   file   (default   path:</p>
+<p>       ~&#x2F;.config&#x2F;zathura&#x2F;zathurarc)  to  overwrite settings and keybindings by</p>
+<p>       using the set and map function. For more information please  check  the</p>
+<p>       faq on the website: <a target="_blank" rel="noopener" href="http://pwmt.org/projects/zathura">http://pwmt.org/projects/zathura</a></p>
+<p>                                zathura-0.0.8.1                     ZATHURA(1)</p>
 
-poppler rendering library and the  gtk+  toolkit.  zathura  provides  a
-
-minimalistic  and  space  saving  interface,  with  a focus on keyboard
-
-interaction.</code></pre><p>OPTIONS</p>
-<pre><code>-e xid Reparents to window specified by  xid.   -c  path  Path  to  the
-
-       config directory</code></pre><p>DEFAULT SETTINGS</p>
-<p>   Shortcuts</p>
-<pre><code>J      Go to next page
-
-
-
-K      Go to previous page
-
-
-
-h      Scroll to the left
-
-
-
-k      Scroll upwards
-
-
-
-j      Scroll downwards
-
-
-
-^f     Scroll page down
-
-
-
-^b     Scroll page up
-
-
-
-^d     Scroll half a page down
-
-
-
-^u     Scroll half a page up
-
-
-
-l      Scroll to the right
-
-
-
-/      Search forwards
-
-
-
-?      Search backwards
-
-
-
-n      Search last keyword forwards
-
-
-
-N      Search last keyword backwards
-
-
-
-Tab    Toggle index
-
-
-
-o      Open a file
-
-
-
-a      Zoom to fit
-
-
-
-s      Zoom to width
-
-
-
-f      Follow a link on the page
-
-
-
-m      Mark  current  position  and  save it in register specified by a
-
-       character
-
-
-
-&apos;      Go to saved position specified by the ensuing character
-
-
-
-r      Rotate the page
-
-
-
-R      Reload the document
-
-
-
-O      Change goto mode  (L:  search  labels,  D:  default,  O:  manual
-
-       offset)
-
-
-
-^i     Invert the colors of the page
-
-
-
-i      Change to insert mode
-
-
-
-v      Change to visual mode
-
-
-
-:      Focus inputbar
-
-
-
-Backspace
-
-       Delete last character in the buffer
-
-
-
-F5     Toggle fullscreen mode
-
-
-
-^n     Toggle statusbar visibility
-
-
-
-^m     Toggle inputbar visibility
-
-
-
-Esc | ^c
-
-       Abort
-
-
-
-^q     Quit the program</code></pre><p>   Index commands</p>
-<pre><code>k      Navigate to one element above the current position
-
-
-
-j      Navigate to one element below the current position
-
-
-
-h      Collapse current element
-
-
-
-l      Expand current element
-
-
-
-Space | Return
-
-       Select current element</code></pre><p>   Buffered commands</p>
-<pre><code>gg     Go to the first page
-
-
-
-GG     Go to the last page
-
-
-
-\[0-9\]+G
-
-       Go to the specified page
-
-
-
-zI     Zoom in
-
-
-
-zO     Zoom out
-
-
-
-z0     Zoom to the original size
-
-
-
-\[0-9\]+Z
-
-       Zoom to the given level
-
-
-
-\[0-9\]+%
-
-       Move to the given position</code></pre><p>   Commands</p>
-<pre><code>blist  List and open bookmark
-
-
-
-bmark  Bookmark current page
-
-
-
-close  Close current file
-
-
-
-coffset
-
-       Set page offset
-
-
-
-delbmark
-
-       Delete given bookmark
-
-
-
-export Export images or attached files
-
-
-
-info   Show information about the document
-
-
-
-map    Map shortcut functions (map )
-
-
-
-open   Open a file
-
-
-
-print  Print the document
-
-
-
-quit   Quit the program
-
-
-
-rotate Rotate the page
-
-
-
-set    Set an option (set )
-
-
-
-write  Save the document</code></pre><p>   Inputbar shortcuts</p>
-<pre><code>Up     Move up in the command history
-
-
-
-Down   Move down in the command history
-
-
-
-Tab | Shift + Tab
-
-       Tab completion
-
-
-
-^w     Delete last word</code></pre><p>CONFIGURATION</p>
-<pre><code>The  complete  configuration  including the appearance and shortcuts of
-
-the program are defined in a separate file named config.h. In this file
-
-you are able to change and adjust all the settings of zathura according
-
-to your wishes.
-
-
-
-In  addition  you  can  create  a   zathurarc   file   (default   path:
-
-~/.config/zathura/zathurarc)  to  overwrite settings and keybindings by
-
-using the set and map function. For more information please  check  the
-
-faq on the website: http://pwmt.org/projects/zathura
-
-
-
-                         zathura-0.0.8.1                     ZATHURA(1)</code></pre>
         
             <div class="donate-container">
     <div class="donate-button">

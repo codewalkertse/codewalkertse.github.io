@@ -145,67 +145,43 @@
         <p>来源于道哥的公共微信。这个人是专注于白冒的大牛</p>
 <p>非常的简单服务端不需要配置，服务端怎么把ssh的访问转化为外网的访问这个我还不得而知。</p>
 <p>只需要一行简单的代码建立客户端与服务端的ssh链接就ok了。</p>
-<p>** ssh -qCNgf <a href="mailto:codewalker@192.168.123.102">codewalker@192.168.123.102</a> -D 127.0.0.1:7978**</p>
+<p>** ssh -qCNgf <a href="mailto:&#99;&#x6f;&#100;&#101;&#119;&#x61;&#x6c;&#107;&#101;&#x72;&#64;&#49;&#x39;&#x32;&#x2e;&#49;&#54;&#56;&#46;&#x31;&#50;&#x33;&#46;&#x31;&#48;&#x32;">&#99;&#x6f;&#100;&#101;&#119;&#x61;&#x6c;&#107;&#101;&#x72;&#64;&#49;&#x39;&#x32;&#x2e;&#49;&#54;&#56;&#46;&#x31;&#50;&#x33;&#46;&#x31;&#48;&#x32;</a> -D 127.0.0.1:7978**</p>
 <p>参数解释</p>
-<p>-q     Quiet mode.  Causes most warning and diagnostic messages to be suppressed.</p>
-<p>-C     Requests compression of all data (including stdin, stdout, stderr, and data for</p>
-<pre><code>forwarded X11 and TCP connections).  The compression algorithm is the same used
+<p>-q     Quiet mode.  Causes most warning and diagnostic messages to be suppressed.</p>
+<p>-C     Requests compression of all data (including stdin, stdout, stderr, and data for</p>
+<p>              forwarded X11 and TCP connections).  The compression algorithm is the same used</p>
+<p>              by  gzip(1), and the &#96;&#96;level’’ can be controlled by the CompressionLevel option</p>
+<p>              for protocol version 1.  Compression is desirable on modem lines and other slow</p>
+<p>              connections,  but  will  only  slow  down things on fast networks.  The default</p>
+<p>              value can be set on a host-by-host basis in the configuration  files;  see  the</p>
+<p>              Compression option.</p>
+<p>-N     Do  not  execute  a  remote  command.  This is useful for just forwarding ports</p>
+<p>              (protocol version 2 only).</p>
+<p>-g     Allows remote hosts to connect to local forwarded ports.</p>
+<p>-f     Requests ssh to go to background just before command execution.  This is useful</p>
+<p>              if  ssh  is going to ask for passwords or passphrases, but the user wants it in</p>
+<p>              the background.  This implies -n.  The recommended way to start X11 programs at</p>
+<p>              a remote site is with something like ssh -f host xterm.</p>
+<p>              If  the  ExitOnForwardFailure  configuration  option  is set to &#96;&#96;yes’’, then a</p>
+<p>              client started with -f will wait for all remote port forwards  to  be  success‐</p>
+<p>              fully established before placing itself in the background.</p>
+<p>-D [bind_address:] port</p>
+<p>              Specifies a local &#96;&#96;dynamic’’ application-level port forwarding.  This works by</p>
+<p>              allocating a socket to listen to port on the local side,  optionally  bound  to</p>
+<p>              the  specified  bind_address.   Whenever a connection is made to this port, the</p>
+<p>              connection is forwarded over the secure channel, and the  application  protocol</p>
+<p>              is  then  used  to determine where to connect to from the remote machine.  Cur‐</p>
+<p>              rently the SOCKS4 and SOCKS5 protocols are supported, and ssh  will  act  as  a</p>
+<p>              SOCKS  server.   Only root can forward privileged ports.  Dynamic port forward‐</p>
+<p>              ings can also be specified in the configuration file.</p>
+<p>              IPv6 addresses can be specified by enclosing the address  in  square  brackets.</p>
+<p>              Only the superuser can forward privileged ports.  By default, the local port is</p>
+<p>              bound in accordance  with  the  GatewayPorts  setting.   However,  an  explicit</p>
+<p>              bind_address  may  be  used  to bind the connection to a specific address.  The</p>
+<p>              bind_address of &#96;&#96;localhost’’ indicates that the listening port  be  bound  for</p>
+<p>              local use only, while an empty address or &#96;*’ indicates that the port should be</p>
+<p>              available from all interfaces.</p>
 
-by  gzip(1), and the ``level&apos;&apos; can be controlled by the CompressionLevel option
-
-for protocol version 1.  Compression is desirable on modem lines and other slow
-
-connections,  but  will  only  slow  down things on fast networks.  The default
-
-value can be set on a host-by-host basis in the configuration  files;  see  the
-
-Compression option.</code></pre><p>-N     Do  not  execute  a  remote  command.  This is useful for just forwarding ports</p>
-<pre><code>(protocol version 2 only).</code></pre><p>-g     Allows remote hosts to connect to local forwarded ports.</p>
-<p>-f     Requests ssh to go to background just before command execution.  This is useful</p>
-<pre><code>if  ssh  is going to ask for passwords or passphrases, but the user wants it in
-
-the background.  This implies -n.  The recommended way to start X11 programs at
-
-a remote site is with something like ssh -f host xterm.
-
-
-
-If  the  ExitOnForwardFailure  configuration  option  is set to ``yes&apos;&apos;, then a
-
-client started with -f will wait for all remote port forwards  to  be  success‐
-
-fully established before placing itself in the background.</code></pre><p>-D [bind_address:] port</p>
-<pre><code>Specifies a local ``dynamic&apos;&apos; application-level port forwarding.  This works by
-
-allocating a socket to listen to port on the local side,  optionally  bound  to
-
-the  specified  bind_address.   Whenever a connection is made to this port, the
-
-connection is forwarded over the secure channel, and the  application  protocol
-
-is  then  used  to determine where to connect to from the remote machine.  Cur‐
-
-rently the SOCKS4 and SOCKS5 protocols are supported, and ssh  will  act  as  a
-
-SOCKS  server.   Only root can forward privileged ports.  Dynamic port forward‐
-
-ings can also be specified in the configuration file.
-
-
-
-IPv6 addresses can be specified by enclosing the address  in  square  brackets.
-
-Only the superuser can forward privileged ports.  By default, the local port is
-
-bound in accordance  with  the  GatewayPorts  setting.   However,  an  explicit
-
-bind_address  may  be  used  to bind the connection to a specific address.  The
-
-bind_address of ``localhost&apos;&apos; indicates that the listening port  be  bound  for
-
-local use only, while an empty address or `*&apos; indicates that the port should be
-
-available from all interfaces.</code></pre>
         
             <div class="donate-container">
     <div class="donate-button">

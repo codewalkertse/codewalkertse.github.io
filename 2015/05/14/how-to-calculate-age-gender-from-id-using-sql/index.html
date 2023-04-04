@@ -142,7 +142,7 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>SELECT<br>        0<br>        ,getip.lastloginip<br>        ,getip.location<br>        ,info.uid as userID<br>        ,info.truename<br>        ,left(CAST(SUBSTRING(idnumber,7,8) AS DATETIME),4) AS BIRTHDAY_YEAR#this is IMPORTANT<br>        ,FROM_UNIXTIME(UNIX_TIMESTAMP(CAST(SUBSTRING(idnumber,7,8) AS DATETIME)),’%m-%d’) AS BIRTHDAY#this is IMPORTANT<br>        ,MOD(right(idnumber,2),2) AS SEX<br>        FROM p2p_member_security info, p2p_member getip<br>        WHERE<br>        1<br>        and info.uid = getip.uid<br>        and idnumber != ‘’<br>        and idnumber is not null<br>        and (length(idnumber) = 18 or length(idnumber) = 15)<br>        ORDER BY BIRTHDAY desc;</p>
+        <p>SELECT<br>        0<br>        ,getip.lastloginip<br>        ,getip.location<br>        ,info.uid as userID<br>        ,info.truename<br>        ,left(CAST(SUBSTRING(idnumber,7,8) AS DATETIME),4) AS BIRTHDAY_YEAR#this is IMPORTANT<br>        ,FROM_UNIXTIME(UNIX_TIMESTAMP(CAST(SUBSTRING(idnumber,7,8) AS DATETIME)),’%m-%d’) AS BIRTHDAY#this is IMPORTANT<br>        ,MOD(right(idnumber,2),2) AS SEX<br>        FROM p2p_member_security info, p2p_member getip<br>        WHERE<br>        1<br>        and info.uid &#x3D; getip.uid<br>        and idnumber !&#x3D; ‘’<br>        and idnumber is not null<br>        and (length(idnumber) &#x3D; 18 or length(idnumber) &#x3D; 15)<br>        ORDER BY BIRTHDAY desc;</p>
 
         
             <div class="donate-container">

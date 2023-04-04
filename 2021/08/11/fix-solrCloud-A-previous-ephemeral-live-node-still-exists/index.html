@@ -149,7 +149,7 @@
 <p>it said <code>A previous ephemeral live node st ill exists</code> when I’ve started another solr node via tomcat.</p>
 <p>then login to zookeeper find out what happed. The <code>live_nodes</code> shows me this:<code>127.0.0.1:8080</code>.<br>what!!! why its name is like this?? As usual, it should be <code>realIP:port</code> not <strong>local ip</strong>.</p>
 <h2 id="Let’s-fix-it"><a href="#Let’s-fix-it" class="headerlink" title="Let’s fix it"></a>Let’s fix it</h2><h3 id="step-one"><a href="#step-one" class="headerlink" title="step one"></a>step one</h3><p>Checking your <code>solr.xml</code> is corrate or not</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;str name=<span class="string">"host"</span>&gt;<span class="variable">$&#123;host:&#125;</span>&lt;/str&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;str name=<span class="string">&quot;host&quot;</span>&gt;<span class="variable">$&#123;host:&#125;</span>&lt;/str&gt;</span><br></pre></td></tr></table></figure>
 
 <p>this line should be var. Thus it will be named your host ip automatically when you star your solr node, registering in zookeeper.</p>
 <h3 id="step-two"><a href="#step-two" class="headerlink" title="step two"></a>step two</h3><p>Here’s what I’v found in my case.<br>step one is right but why am I faild to start my solr node.</p>

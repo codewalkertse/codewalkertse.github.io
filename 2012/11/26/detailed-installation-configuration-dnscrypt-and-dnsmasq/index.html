@@ -146,38 +146,38 @@
 <p>在archlinux中此包是aur方式安装，可直接共过pacman安装或者yaourt这里不再赘述。</p>
 <p><strong>aur 源码安装</strong>：</p>
 <p>我安装的时候比较慢所以就直接从官网下载了tar包在生成安装文件。</p>
-<p>cd /tmp</p>
-<p>wget <a href="https://aur.archlinux.org/packages/dn/dnscrypt-proxy/dnscrypt-proxy.tar.gz" target="_blank" rel="noopener">https://aur.archlinux.org/packages/dn/dnscrypt-proxy/dnscrypt-proxy.tar.gz</a></p>
-<p>tar xvf dnscrypt-proxy.tar.gz</p>
+<p>cd &#x2F;tmp</p>
+<p>wget <a target="_blank" rel="noopener" href="https://aur.archlinux.org/packages/dn/dnscrypt-proxy/dnscrypt-proxy.tar.gz">https://aur.archlinux.org/packages/dn/dnscrypt-proxy/dnscrypt-proxy.tar.gz</a></p>
+<p>tar xvf dnscrypt-proxy.tar.gz</p>
 <p>makepkg -s</p>
-<p>sudo pacman -U dnscrypt-proxy-1.2.0-1-x86_64.pkg.tar.xz</p>
+<p>sudo pacman -U dnscrypt-proxy-1.2.0-1-x86_64.pkg.tar.xz</p>
 <p>这样就安装完成了。</p>
 <p><strong>配置dnscrypt：</strong></p>
-<p>因为现在使用的是<strong>systemd</strong>，所以dnscrypt的启动配置文件在/etc/conf.d/dnscrypt-proxy</p>
+<p>因为现在使用的是<strong>systemd</strong>，所以dnscrypt的启动配置文件在&#x2F;etc&#x2F;conf.d&#x2F;dnscrypt-proxy</p>
 <p>默认的端口号为dns的53，因为要和dnsmasq搭配使用和他在端口上有冲突现改为35535</p>
 <p>这是我的配置</p>
-<p>codewalker@codehost:/tmp/dnscrypt-proxy</p>
-<p>$ cat /etc/conf.d/dnscrypt-proxy </p>
-<p>DNSCRYPT_LOCALIP=127.0.0.1</p>
-<p>DNSCRYPT_LOCALPORT=35535</p>
-<p>DNSCRYPT_USER=nobody</p>
-<p>测试 dnscrypt</p>
-<p>启动 sudo systemctl start dnscrypt-proxy.service</p>
-<p>dig -p 35535 <a href="http://www.twitter" target="_blank" rel="noopener">www.twitter</a></p>
-<p><a href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb607010152md&url=http://s7.sinaimg.cn/orignal/6c7cb607xcf5fbcb394e6" target="_blank" rel="noopener"><img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="详细安装配置 &lt;wbr&gt;dnscrypt &lt;wbr&gt;和 &lt;wbr&gt;dnsmasq">dnscrypt 和 dnsmasq” TITLE=”详细安装配置 dnscrypt 和 dnsmasq” /&gt;</a><br>已经看到下面的server为127.0.0.1：35535</p>
+<p>codewalker@codehost:&#x2F;tmp&#x2F;dnscrypt-proxy</p>
+<p>$ cat &#x2F;etc&#x2F;conf.d&#x2F;dnscrypt-proxy </p>
+<p>DNSCRYPT_LOCALIP&#x3D;127.0.0.1</p>
+<p>DNSCRYPT_LOCALPORT&#x3D;35535</p>
+<p>DNSCRYPT_USER&#x3D;nobody</p>
+<p>测试 dnscrypt</p>
+<p>启动 sudo systemctl start dnscrypt-proxy.service</p>
+<p>dig -p 35535 <a target="_blank" rel="noopener" href="http://www.twitter/">www.twitter</a></p>
+<p><a target="_blank" rel="noopener" href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb607010152md&url=http://s7.sinaimg.cn/orignal/6c7cb607xcf5fbcb394e6"><img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="详细安装配置 &lt;wbr&gt;dnscrypt &lt;wbr&gt;和 &lt;wbr&gt;dnsmasq">dnscrypt 和 dnsmasq” TITLE&#x3D;”详细安装配置 dnscrypt 和 dnsmasq” &#x2F;&gt;</a><br>已经看到下面的server为127.0.0.1：35535</p>
 <p><strong>整合dnsmasq</strong></p>
-<p>sudo vim /etc/dnsmasq.conf</p>
-<p>下面两行如没有则加入，有则修改.这里需要注意后面跟端口号的符号为<strong>#</strong>不是通常的<strong>:</strong></p>
+<p>sudo vim &#x2F;etc&#x2F;dnsmasq.conf</p>
+<p>下面两行如没有则加入，有则修改.这里需要注意后面跟端口号的符号为**#<strong>不是通常的</strong>:**</p>
 <p>#这是dnscrypt刚才的IP+端口号</p>
-<p>server=127.0.0.1#35535</p>
+<p>server&#x3D;127.0.0.1#35535</p>
 <p>#这是opendns的ip地址</p>
-<p>bogus-nxdomain=67.215.65.132</p>
+<p>bogus-nxdomain&#x3D;67.215.65.132</p>
 <p>保存。</p>
 <p>启动dnsmasq</p>
 <p>sudo systemctl start dnsmasq.service</p>
 <p>检查</p>
-<p>dig -p 53 <a href="http://www.twitter" target="_blank" rel="noopener">www.twitter</a></p>
-<p><a href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb607010152md&url=http://s6.sinaimg.cn/orignal/6c7cb607xcf5fd764f1d5" target="_blank" rel="noopener"><img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="详细安装配置 &lt;wbr&gt;dnscrypt &lt;wbr&gt;和 &lt;wbr&gt;dnsmasq">dnscrypt 和 dnsmasq” TITLE=”详细安装配置 dnscrypt 和 dnsmasq” /&gt;</a>  </p>
+<p>dig -p 53 <a target="_blank" rel="noopener" href="http://www.twitter/">www.twitter</a></p>
+<p><a target="_blank" rel="noopener" href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb607010152md&url=http://s6.sinaimg.cn/orignal/6c7cb607xcf5fd764f1d5"><img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="详细安装配置 &lt;wbr&gt;dnscrypt &lt;wbr&gt;和 &lt;wbr&gt;dnsmasq">dnscrypt 和 dnsmasq” TITLE&#x3D;”详细安装配置 dnscrypt 和 dnsmasq” &#x2F;&gt;</a>  </p>
 <p>可以把他们都设为开机启动</p>
 <p>sudo systemctl enable dnsmasq.service</p>
 <p>sudo systemctl enable dnscrypt-proxy.service</p>

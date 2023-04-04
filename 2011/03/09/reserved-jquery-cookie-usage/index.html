@@ -26,7 +26,7 @@
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
-<link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -145,19 +145,24 @@
 </span>
     </div>
     <div class="post-content ">
-        <p><strong>原文地址：</strong><a href="http://blog.sina.com.cn/s/blog_48474ade0100e4nk.html" target="_blank" rel="noopener" title="jQuery &lt;wbr&gt;cookie用法">cookie用法”&gt;jQuery cookie用法</a><strong>作者：</strong><a href="http://blog.sina.com.cn/u/1212631774" target="_blank" rel="noopener" title="江南梦">江南梦</a></p>
-<pre><code>$.cookie(&apos;the_cookie&apos;); // get cookie
+        <p><strong>原文地址：</strong><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_48474ade0100e4nk.html" title="jQuery &lt;wbr&gt;cookie用法">cookie用法”&gt;jQuery cookie用法</a><strong>作者：</strong><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/u/1212631774" title="江南梦">江南梦</a></p>
+<pre><code>$.cookie(&#39;the_cookie&#39;); // get cookie
 
-$.cookie(&apos;the_cookie&apos;, &apos;the_value&apos;); // set cookie
+$.cookie(&#39;the_cookie&#39;, &#39;the_value&#39;); // set cookie
 
-$.cookie(&apos;the_cookie&apos;, &apos;the_value&apos;, { expires: 7 }); // set cookie with an expiration date seven days in the future
+$.cookie(&#39;the_cookie&#39;, &#39;the_value&#39;, &#123; expires: 7 &#125;); // set cookie with an expiration date seven days in the future
 
-$.cookie(&apos;the_cookie&apos;, &apos;&apos;, { expires: -1 }); // delete cookie</code></pre><p><code>$.cookie(&#39;the_cookie&#39;, null); // delete cookie</code></p>
-<p>$.cookie(‘the_cookie’,’the_value’, {expires: 7, path: ‘/‘, domain:’80tvb.com’, secure: true});//完整调用方式 </p>
-<p>//或者这样：$.cookie(‘the_cookie’,’the_value’);</p>
-<p>//删除Cookie： $.cookie(‘the_cookie’,null);</p>
+$.cookie(&#39;the_cookie&#39;, &#39;&#39;, &#123; expires: -1 &#125;); // delete cookie
+</code></pre>
+<p> </p>
+<p><code>$.cookie(&#39;the_cookie&#39;, null); // delete cookie</code></p>
+<p> </p>
+<p>$.cookie(‘the_cookie’,’the_value’, {expires: 7, path: ‘&#x2F;‘, domain:’80tvb.com’, secure: true});&#x2F;&#x2F;完整调用方式 </p>
+<p>&#x2F;&#x2F;或者这样：$.cookie(‘the_cookie’,’the_value’);</p>
+<p>&#x2F;&#x2F;删除Cookie： $.cookie(‘the_cookie’,null);</p>
+<p> </p>
 <p>jQuery操作cookie的插件,大概的使用方法如下</p>
-<p>$.cookie(‘the_cookie’); //读取Cookie值<br>$.cookie(’the_cookie’, ‘the_value’); //设置cookie的值<br>$.cookie(’the_cookie’, ‘the_value’, {expires: 7, path: ‘/’, domain: ‘jquery.com’, secure: true});//新建一个cookie 包括有效期 路径 域名等<br>$.cookie(’the_cookie’, ‘the_value’); //新建cookie<br>$.cookie(’the_cookie’, null); //删除一个cookie</p>
+<p>$.cookie(‘the_cookie’); &#x2F;&#x2F;读取Cookie值<br>$.cookie(’the_cookie’, ‘the_value’); &#x2F;&#x2F;设置cookie的值<br>$.cookie(’the_cookie’, ‘the_value’, {expires: 7, path: ‘&#x2F;’, domain: ‘jquery.com’, secure: true});&#x2F;&#x2F;新建一个cookie 包括有效期 路径 域名等<br>$.cookie(’the_cookie’, ‘the_value’); &#x2F;&#x2F;新建cookie<br>$.cookie(’the_cookie’, null); &#x2F;&#x2F;删除一个cookie</p>
 
         
             <div class="donate-container">

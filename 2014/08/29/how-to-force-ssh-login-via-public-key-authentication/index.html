@@ -145,7 +145,7 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>昨天与人聊到Linux系统远程登录问题，以前限制ssh登录的时候常常是通过iptables port的限制与修改来做一定的限制。 而这里有个疏忽的地方是只要有账号则<strong>在指定IP(段)</strong>下即可登录， 那么我们怎么才能限制<strong>单个指定host</strong>下登录了，回家后查看了下sshd_config中有这么一个选项</p>
+        <p>昨天与人聊到Linux系统远程登录问题，以前限制ssh登录的时候常常是通过iptables port的限制与修改来做一定的限制。 而这里有个疏忽的地方是只要有账号则<strong>在指定IP(段)<strong>下即可登录， 那么我们怎么才能限制</strong>单个指定host</strong>下登录了，回家后查看了下sshd_config中有这么一个选项</p>
 <p># To disable tunneled clear text passwords both PasswordAuthentication and<br># ChallengeResponseAuthentication must be set to “no”.<br>#PasswordAuthentication no</p>
 <p>这里去掉＃即可，也就是不允许使用密码登录。不允许密码登录的另一个选择既是使用证书登录。 那么这样就可以只允许有key的机器才能登录到HOST上面。 BTW 需要确认一下</p>
 <p>RSAAuthentication yes<br>PubkeyAuthentication yes</p>

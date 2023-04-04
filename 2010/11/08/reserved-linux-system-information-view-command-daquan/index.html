@@ -26,7 +26,7 @@
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
-<link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -142,22 +142,22 @@
 </span>
     </div>
     <div class="post-content ">
-        <p><strong>原文地址：</strong><a href="http://blog.sina.com.cn/s/blog_4d2bb0b10100m3lt.html" target="_blank" rel="noopener" title="Linux系统信息查看命令大全">Linux系统信息查看命令大全</a><strong>作者：</strong><a href="http://blog.sina.com.cn/u/1294708913" target="_blank" rel="noopener" title="prongs">prongs</a></p>
-<p>watch -n 1 “/sbin/ifconfig eth0 | grep bytes”</p>
-<p>最近看了一些Linux命令行的文章，在系统信息查看方面学到不少命令。 想起以前写过的一篇<a href="http://tech.idv2.com/2007/08/25/simpler-linux/" target="_blank" rel="noopener">其实 Linux这样用更简单</a>， 发现这些系统信息查看命令也可以总结出一篇小小的东西来了。</p>
-<p>另外<a href="http://www.pixelbeat.org/cmdline.html" target="_blank" rel="noopener">这里</a>还有非常多的命令， 可以作为参考。</p>
+        <p><strong>原文地址：</strong><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_4d2bb0b10100m3lt.html" title="Linux系统信息查看命令大全">Linux系统信息查看命令大全</a><strong>作者：</strong><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/u/1294708913" title="prongs">prongs</a></p>
+<p>watch -n 1 “&#x2F;sbin&#x2F;ifconfig eth0 | grep bytes”</p>
+<p>最近看了一些Linux命令行的文章，在系统信息查看方面学到不少命令。 想起以前写过的一篇<a target="_blank" rel="noopener" href="http://tech.idv2.com/2007/08/25/simpler-linux/">其实 Linux这样用更简单</a>， 发现这些系统信息查看命令也可以总结出一篇小小的东西来了。</p>
+<p>另外<a target="_blank" rel="noopener" href="http://www.pixelbeat.org/cmdline.html">这里</a>还有非常多的命令， 可以作为参考。</p>
 <p><strong>系统</strong></p>
-<p># uname -a               # 查看内核/操作系统/CPU信息<br># head -n 1 /etc/issue   # 查看操作系统版本<br># cat /proc/cpuinfo      # 查看CPU信息<br># hostname               # 查看计算机名<br># lspci -tv              # 列出所有PCI设备<br># lsusb -tv              # 列出所有USB设备<br># lsmod                  # 列出加载的内核模块<br># env                    # 查看环境变量</p>
+<p># uname -a               # 查看内核&#x2F;操作系统&#x2F;CPU信息<br># head -n 1 &#x2F;etc&#x2F;issue   # 查看操作系统版本<br># cat &#x2F;proc&#x2F;cpuinfo      # 查看CPU信息<br># hostname               # 查看计算机名<br># lspci -tv              # 列出所有PCI设备<br># lsusb -tv              # 列出所有USB设备<br># lsmod                  # 列出加载的内核模块<br># env                    # 查看环境变量</p>
 <p><strong>资源</strong></p>
-<p># free -m                # 查看内存使用量和交换区使用量<br># df -h                  # 查看各分区使用情况<br># du -sh &lt;目录名&gt;        # 查看指定目录的大小<br># grep MemTotal /proc/meminfo   # 查看内存总量<br># grep MemFree /proc/meminfo    # 查看空闲内存量<br># uptime                 # 查看系统运行时间、用户数、负载<br># cat /proc/loadavg      # 查看系统负载</p>
+<p># free -m                # 查看内存使用量和交换区使用量<br># df -h                  # 查看各分区使用情况<br># du -sh &lt;目录名&gt;        # 查看指定目录的大小<br># grep MemTotal &#x2F;proc&#x2F;meminfo   # 查看内存总量<br># grep MemFree &#x2F;proc&#x2F;meminfo    # 查看空闲内存量<br># uptime                 # 查看系统运行时间、用户数、负载<br># cat &#x2F;proc&#x2F;loadavg      # 查看系统负载</p>
 <p><strong>磁盘和分区</strong></p>
-<p># mount | column -t      # 查看挂接的分区状态<br># fdisk -l               # 查看所有分区<br># swapon -s              # 查看所有交换分区<br># hdparm -i /dev/hda     # 查看磁盘参数(仅适用于IDE设备)<br># dmesg | grep IDE       # 查看启动时IDE设备检测状况</p>
+<p># mount | column -t      # 查看挂接的分区状态<br># fdisk -l               # 查看所有分区<br># swapon -s              # 查看所有交换分区<br># hdparm -i &#x2F;dev&#x2F;hda     # 查看磁盘参数(仅适用于IDE设备)<br># dmesg | grep IDE       # 查看启动时IDE设备检测状况</p>
 <p><strong>网络</strong></p>
 <p># ifconfig               # 查看所有网络接口的属性<br># iptables -L            # 查看防火墙设置<br># route -n               # 查看路由表<br># netstat -lntp          # 查看所有监听端口<br># netstat -antp          # 查看所有已经建立的连接<br># netstat -s             # 查看网络统计信息</p>
 <p><strong>进程</strong></p>
 <p># ps -ef                 # 查看所有进程<br># top                    # 实时显示进程状态</p>
 <p><strong>用户</strong></p>
-<p># w                      # 查看活动用户<br># id &lt;用户名&gt;            # 查看指定用户信息<br># last                   # 查看用户登录日志<br># cut -d: -f1 /etc/passwd   # 查看系统所有用户<br># cut -d: -f1 /etc/group    # 查看系统所有组<br># crontab -l             # 查看当前用户的计划任务</p>
+<p># w                      # 查看活动用户<br># id &lt;用户名&gt;            # 查看指定用户信息<br># last                   # 查看用户登录日志<br># cut -d: -f1 &#x2F;etc&#x2F;passwd   # 查看系统所有用户<br># cut -d: -f1 &#x2F;etc&#x2F;group    # 查看系统所有组<br># crontab -l             # 查看当前用户的计划任务</p>
 <p><strong>服务</strong></p>
 <p># chkconfig –list       # 列出所有系统服务<br># chkconfig –list | grep on    # 列出所有启动的系统服务</p>
 

@@ -142,35 +142,35 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>[root@server named]# /etc/init.d/named status</p>
-<p>rndc: neither /etc/rndc.conf nor /etc/rndc.key was found</p>
-<p>named (pid  4086) is running…</p>
+        <p>[root@server named]# &#x2F;etc&#x2F;init.d&#x2F;named status</p>
+<p>rndc: neither &#x2F;etc&#x2F;rndc.conf nor &#x2F;etc&#x2F;rndc.key was found</p>
+<p>named (pid  4086) is running…</p>
 <p>[root@server named]# rndc status</p>
-<p>rndc: neither /etc/rndc.conf nor /etc/rndc.key was found</p>
+<p>rndc: neither &#x2F;etc&#x2F;rndc.conf nor &#x2F;etc&#x2F;rndc.key was found</p>
 <p>提示没有rndc.key，主要原因还是在RHEL6上没有caching-named这个包了，EL5上是把key包含在里面的。所以我们要手动创建key</p>
 <p>1）创建key</p>
-<p>[root@server named]# rndc-confgen -r /dev/urandom -a</p>
-<p>wrote key file “/etc/rndc.key”</p>
+<p>[root@server named]# rndc-confgen -r &#x2F;dev&#x2F;urandom -a</p>
+<p>wrote key file “&#x2F;etc&#x2F;rndc.key”</p>
 <p>2）更改权限</p>
 <p>[root@server named]# rndc status</p>
 <p>rndc: connect failed: 127.0.0.1#953: connection refused</p>
-<p>[root@server named]# cat /etc/rndc.key </p>
+<p>[root@server named]# cat &#x2F;etc&#x2F;rndc.key </p>
 <p>key “rndc-key” {</p>
-<pre><code>algorithm hmac-md5;
-
-secret &quot;MEARtiTMJzFfRwBKlY5lpQ==&quot;;</code></pre><p>};</p>
-<p>[root@server named]# ls -l /etc/rndc.key </p>
-<p>-rw——- 1 root root 77 May  1 06:57 /etc/rndc.key</p>
-<p>[root@server named]# chown root:named /etc/rndc.key </p>
-<p>[root@server named]# chmod 644 /etc/rndc.key </p>
+<p>    algorithm hmac-md5;</p>
+<p>    secret “MEARtiTMJzFfRwBKlY5lpQ&#x3D;&#x3D;”;</p>
+<p>};</p>
+<p>[root@server named]# ls -l &#x2F;etc&#x2F;rndc.key </p>
+<p>-rw——- 1 root root 77 May  1 06:57 &#x2F;etc&#x2F;rndc.key</p>
+<p>[root@server named]# chown root:named &#x2F;etc&#x2F;rndc.key </p>
+<p>[root@server named]# chmod 644 &#x2F;etc&#x2F;rndc.key </p>
 <p>[root@server named]# rndc status</p>
 <p>rndc: connect failed: 127.0.0.1#953: connection refused</p>
 <p>重启named服务！</p>
 <p>3）验证</p>
-<p>[root@server named]# /etc/init.d/named restart</p>
-<p>Stopping named: .                                          [  OK  ]</p>
-<p>Starting named:                                            [  OK  ]</p>
-<p>[root@server named]# /etc/init.d/named status</p>
+<p>[root@server named]# &#x2F;etc&#x2F;init.d&#x2F;named restart</p>
+<p>Stopping named: .                                          [  OK  ]</p>
+<p>Starting named:                                            [  OK  ]</p>
+<p>[root@server named]# &#x2F;etc&#x2F;init.d&#x2F;named status</p>
 <p>version: 9.7.3-P3-RedHat-9.7.3-8.P3.el6</p>
 <p>CPUs found: 1</p>
 <p>worker threads: 1</p>
@@ -180,10 +180,10 @@ secret &quot;MEARtiTMJzFfRwBKlY5lpQ==&quot;;</code></pre><p>};</p>
 <p>xfers deferred: 0</p>
 <p>soa queries in progress: 0</p>
 <p>query logging is OFF</p>
-<p>recursive clients: 0/0/1000</p>
-<p>tcp clients: 0/100</p>
+<p>recursive clients: 0&#x2F;0&#x2F;1000</p>
+<p>tcp clients: 0&#x2F;100</p>
 <p>server is up and running</p>
-<p>named (pid  4224) is running…</p>
+<p>named (pid  4224) is running…</p>
 <p>[root@server named]# rndc status</p>
 <p>version: 9.7.3-P3-RedHat-9.7.3-8.P3.el6</p>
 <p>CPUs found: 1</p>
@@ -194,8 +194,8 @@ secret &quot;MEARtiTMJzFfRwBKlY5lpQ==&quot;;</code></pre><p>};</p>
 <p>xfers deferred: 0</p>
 <p>soa queries in progress: 0</p>
 <p>query logging is OFF</p>
-<p>recursive clients: 0/0/1000</p>
-<p>tcp clients: 0/100</p>
+<p>recursive clients: 0&#x2F;0&#x2F;1000</p>
+<p>tcp clients: 0&#x2F;100</p>
 <p>server is up and running</p>
 
         

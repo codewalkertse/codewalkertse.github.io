@@ -26,7 +26,7 @@
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
-<link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -144,65 +144,65 @@
     <div class="post-content ">
         <script type="text/javascript">
 
-var intervalId = null;    
+var intervalId = null;    
 
-function slideAd(id,nStayTime,sState,nMaxHth,nMinHth){    
+function slideAd(id,nStayTime,sState,nMaxHth,nMinHth){    
 
-  this.stayTime=nStayTime*2000 || 8000;    
+  this.stayTime=nStayTime*2000 || 8000;    
 
-  this.maxHeigth=nMaxHth || 570;    
+  this.maxHeigth=nMaxHth || 570;    
 
-  this.minHeigth=nMinHth || 2.5;    
+  this.minHeigth=nMinHth || 2.5;    
 
-  this.state=sState || "down" ;    
+  this.state=sState || "down" ;    
 
-  var obj = document.getElementByIdx_x(id);    
+  var obj = document.getElementByIdx_x(id);    
 
-  if(intervalId != null)window.clearInterval(intervalId);    
+  if(intervalId != null)window.clearInterval(intervalId);    
 
-  function openBox(){    
+  function openBox(){    
 
-   var h = obj.offsetHeight;    
+   var h = obj.offsetHeight;    
 
-   obj.style.height = ((this.state == "down") ? (h + 2) : (h - 2))+"px";    
+   obj.style.height = ((this.state == "down") ? (h + 2) : (h - 2))+"px";    
 
-    if(obj.offsetHeight>this.maxHeigth){    
+    if(obj.offsetHeight>this.maxHeigth){    
 
-    window.clearInterval(intervalId);    
+    window.clearInterval(intervalId);    
 
-    intervalId=window.setInterval(closeBox,this.stayTime);    
+    intervalId=window.setInterval(closeBox,this.stayTime);    
 
-    }    
+    }    
 
-    if (obj.offsetHeight<this.minHeigth){    
+    if (obj.offsetHeight<this.minHeigth){    
 
-    window.clearInterval(intervalId);    
+    window.clearInterval(intervalId);    
 
-    obj.style.display="none";    
+    obj.style.display="none";    
 
-    }    
+    }    
 
-  }    
+  }    
 
-  function closeBox(){    
+  function closeBox(){    
 
-   slideAd(id,this.stayTime,"up",nMaxHth,nMinHth);    
+   slideAd(id,this.stayTime,"up",nMaxHth,nMinHth);    
 
-  }    
+  }    
 
-  intervalId = window.setInterval(openBox,2);    
+  intervalId = window.setInterval(openBox,2);    
 
-}   
+}   
 
 </script>
 
-<pre><code>&lt;/head&gt;
-
-&lt;body&gt;
-
-    &lt;div align=&quot;center&quot; id=&quot;MyMoveAd&quot; style=&quot;height: 12px; overflow: hidden;&quot;&gt;&lt;a href=&quot;#&quot; target=&quot;_blank&quot;&gt;&lt;img border=&quot;0&quot; alt=&quot;&quot; src=&quot;2010-10-21.jpg&quot; /&gt;&lt;/a&gt;&lt;/div&gt;
-
-    &lt;script type=&quot;text/javascript&quot;&gt;    </code></pre><p> slideAd(‘MyMoveAd’,2);   </p>
+<p>    </head></p>
+<p>    <body></p>
+<p>        <div align="center" id="MyMoveAd" style="height: 12px; overflow: hidden;"><a href="#" target="_blank"><img border="0" alt="" src="2010-10-21.jpg" /></a></div></p>
+<p>        <script type="text/javascript">    </p>
+<p>   </p>
+<p> slideAd('MyMoveAd',2);   </p>
+<p>    </p>
 <p></script></p>
 </body>
 

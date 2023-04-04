@@ -148,8 +148,8 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>#!/bin/bash<br>LOGFILE=/path/to/your/log/file.log<br>REMOTE=/path/to/remote/dir/<br>LOCAL=/path/to/local/dir</p>
-<p>REMOTEIP=x.x.x.x<br>USERNAME=x.x.x.x<br>PORT=xxx</p>
+        <p>#!&#x2F;bin&#x2F;bash<br>LOGFILE&#x3D;&#x2F;path&#x2F;to&#x2F;your&#x2F;log&#x2F;file.log<br>REMOTE&#x3D;&#x2F;path&#x2F;to&#x2F;remote&#x2F;dir&#x2F;<br>LOCAL&#x3D;&#x2F;path&#x2F;to&#x2F;local&#x2F;dir</p>
+<p>REMOTEIP&#x3D;x.x.x.x<br>USERNAME&#x3D;x.x.x.x<br>PORT&#x3D;xxx</p>
 <p>echo “CP remote dirs to local START at `date +%Y%m%d-%H:%M:%S`“ &gt;&gt; $LOGFILE<br>scp -rv -P $PORT $USERNAMEt@$REMOTEIP:$REMOTE`date +%Y%m%d` $LOCAL<br>echo “CP remote dirs to local END at `date +%Y%m%d-%H:%M:%S`“ &gt;&gt; $LOGFILE</p>
 
         

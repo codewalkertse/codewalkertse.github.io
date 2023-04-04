@@ -152,20 +152,20 @@
     </div>
     <div class="post-content ">
         <p>这两天在搞Django，访问动态文件的时候很正常长，通过Nginx的代理带访问fcgi都没问题，但是比如访问css，jpg的时候就访问了，查看nginx的error之后看到是403就是返回没有权限，于是就改吧。我是吧这个文件放在Home下的子文件夹中的。于是就相当与个人用户吧。 然后用</p>
-<p>./manage.py runfcgi daemonize=false host=127.0.0.1 port=8005</p>
+<p>.&#x2F;manage.py runfcgi daemonize&#x3D;false host&#x3D;127.0.0.1 port&#x3D;8005</p>
 <p>开启python的fcgi的解析. 在nginx中添加python的代理本地环境域名也是解析到本地，注意这里python的解析我是用的端口而没有用socket.</p>
-<pre><code>upstream mysite {
+<pre><code>upstream mysite &#123;
     #server unix:/tmp/uwsgi.sock; # use Unix socket
     server 127.0.0.1:8005; # uncomment to use a port instead
-}
-server {
+&#125;
+server &#123;
     listen       80;
     server_name  python.codewalker.com;
     autoindex on;
-    location /static {
+    location /static &#123;
         alias /path/to/static;
-    }
-    location / {
+    &#125;
+    location / &#123;
         proxy\_set\_header X-Forwarded-For $proxy\_add\_x\_forwarded\_for;
         proxy\_set\_header Host $http_host;
         proxy_redirect off;
@@ -183,8 +183,10 @@ server {
         fastcgi\_intercept\_errors off;
         break;
             #include /etc/nginx/uwsgi_params;
-    }
-}</code></pre><p>很奇怪哦。动态文件可以访问，但是静态文件就是403.没权限。 曾经我测试过，<strong>在没有设置过nginx 的user时候用浏览器访问nginx代理的python脚本生成文件</strong>，文件owner是我<strong>自己</strong>而不是<strong>root</strong> 。 好，那么说明我访问的时候也是我自己来访问而不是root（因为我猜想，在我开启服务的时候比如是root，所以也就是用root是这个程序的owner），那么现在当我访问某文件的owner为自己的时候就是正确的。 但是！但是这个时候我的猜想错误了，通过我最上面叙述的方法是无法访问而返回403,于是我把所有这个网站改成777 不行哦！是不行哦！所有人都可以访问都还是403,奇怪了吧！ 最后，最后，修改nginx的配置文件在top添加user xxx;也就是我自己之后，nginx -s reload之后就正常了，为啥呢？</p>
+    &#125;
+&#125;
+</code></pre>
+<p>很奇怪哦。动态文件可以访问，但是静态文件就是403.没权限。 曾经我测试过，<strong>在没有设置过nginx 的user时候用浏览器访问nginx代理的python脚本生成文件</strong>，文件owner是我<strong>自己</strong>而不是<strong>root</strong> 。 好，那么说明我访问的时候也是我自己来访问而不是root（因为我猜想，在我开启服务的时候比如是root，所以也就是用root是这个程序的owner），那么现在当我访问某文件的owner为自己的时候就是正确的。 但是！但是这个时候我的猜想错误了，通过我最上面叙述的方法是无法访问而返回403,于是我把所有这个网站改成777 不行哦！是不行哦！所有人都可以访问都还是403,奇怪了吧！ 最后，最后，修改nginx的配置文件在top添加user xxx;也就是我自己之后，nginx -s reload之后就正常了，为啥呢？</p>
 
         
             <div class="donate-container">

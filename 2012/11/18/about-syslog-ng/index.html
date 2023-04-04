@@ -142,11 +142,11 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>安装咯kvm之后我把虚拟机中的dns服务器换成了本地主机的dnsmasq,查看调用情况的时候发现本地之际中日志全部为空，我干 机子被入侵了么！随机先查看syslog-ng服务是否正常，结果尼马都没启动。遂启动之，结果boot不了。发现是一个文件夹不存在，又google了一阵，解决方法在<a href="https://bugs.archlinux.org/task/32125" target="_blank" rel="noopener">https://bugs.archlinux.org/task/32125</a></p>
-<p>syslog-ng does not work, because it can not find the folder /run/systemd/journal</p>
+        <p>安装咯kvm之后我把虚拟机中的dns服务器换成了本地主机的dnsmasq,查看调用情况的时候发现本地之际中日志全部为空，我干 机子被入侵了么！随机先查看syslog-ng服务是否正常，结果尼马都没启动。遂启动之，结果boot不了。发现是一个文件夹不存在，又google了一阵，解决方法在<a target="_blank" rel="noopener" href="https://bugs.archlinux.org/task/32125">https://bugs.archlinux.org/task/32125</a></p>
+<p>syslog-ng does not work, because it can not find the folder &#x2F;run&#x2F;systemd&#x2F;journal</p>
 <p>Solution:</p>
-<p>Edit /usr/lib/tmpfiles.d/systemd.conf and add line;</p>
-<p>d /run/systemd/journal 0755 root root -</p>
+<p>Edit &#x2F;usr&#x2F;lib&#x2F;tmpfiles.d&#x2F;systemd.conf and add line;</p>
+<p>d &#x2F;run&#x2F;systemd&#x2F;journal 0755 root root -</p>
 <p>Reboot,</p>
 <p>syslog-ng work again.</p>
 <p>打完收工</p>

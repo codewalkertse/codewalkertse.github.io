@@ -142,12 +142,12 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>Fix [Your CLT does not support macOS 11] when you are updating/upgrading brew</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf /Library/Developer/CommandLineTools</span><br><span class="line">sudo xcode-select --install</span><br></pre></td></tr></table></figure>
+        <p>Fix [Your CLT does not support macOS 11] when you are updating&#x2F;upgrading brew</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">rm</span> -rf /Library/Developer/CommandLineTools</span><br><span class="line">sudo xcode-select --install</span><br></pre></td></tr></table></figure>
 
 <p>then you will see something below by execute <code>pkgutil --pkg-info=com.apple.pkg.</code></p>
 <blockquote>
-<p>CLTools_Executables                                                                                 1 ↵<br> package-id: com.apple.pkg.CLTools_Executables<br> version: 12.3.0.0.1.1607026830<br> volume: /<br> location: /<br> install-time: 1611460194<br> groups: com.apple.FindSystemFiles.pkg-group</p>
+<p>CLTools_Executables                                                                                 1 ↵<br> package-id: com.apple.pkg.CLTools_Executables<br> version: 12.3.0.0.1.1607026830<br> volume: &#x2F;<br> location: &#x2F;<br> install-time: 1611460194<br> groups: com.apple.FindSystemFiles.pkg-group</p>
 </blockquote>
 <p>After doing this, you should be able to <code>brew upgrade --fetch-HEAD</code> again.</p>
 <p>EOF<br>Enjoy<br>I, simon love this world ❤️</p>

@@ -142,7 +142,7 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>详细说明来源于一个台湾的网站<a href="http://www.suse.url.tw/redhat/SELinux.htm" target="_blank" rel="noopener">http://www.suse.url.tw/redhat/SELinux.htm</a></p>
+        <p>详细说明来源于一个台湾的网站<a target="_blank" rel="noopener" href="http://www.suse.url.tw/redhat/SELinux.htm">http://www.suse.url.tw/redhat/SELinux.htm</a></p>
 <p>下面总结一些重点。</p>
 <p>以vsftp为例，一定要牢记type是什么类型。所对应的sebool是什么规则，一般的话都是allow_<strong>xxx</strong>_anon_write 这个xxx可替换为<strong>fpt的守护进程</strong>ftpd以及<strong>samba的守护进程</strong>smbd</p>
 <p>要修改不同的权限先查看该目录是什么状态使用命令</p>
@@ -160,39 +160,43 @@
 <p>sftpd_full_access –&gt; off</p>
 <p>sftpd_write_ssh_home –&gt; off</p>
 <p>tftp_anon_write –&gt; off</p>
-<p>如果红色标记为<strong>off</strong> 使用 setsebool -P allow_ftpd_anon_write on 注意：一定要跟上<strong>-P</strong> 意思是立即生效且重启时候同样有效</p>
-<p>查看selinux 上下文ls -lZD /path/to/dir</p>
+<p>如果红色标记为<strong>off</strong> 使用 setsebool -P allow_ftpd_anon_write on 注意：一定要跟上**-P** 意思是立即生效且重启时候同样有效</p>
+<p>查看selinux 上下文ls -lZD &#x2F;path&#x2F;to&#x2F;dir</p>
 <p>修改selinux 上下文</p>
-<pre><code>方法一 直接修改 chcon -t allow\_xxx\_anon_write /path/to/dir
-
-方法二 参照xxx文件\[夹\] chcon -t --reference=/path/to/dir/old /path/to/dir/new</code></pre><p>环境说明。一台server 192.168.122.49 一台localhost 192.168.122.101</p>
+<p>        方法一 直接修改 chcon -t allow_xxx_anon_write &#x2F;path&#x2F;to&#x2F;dir</p>
+<p>        方法二 参照xxx文件[夹] chcon -t –reference&#x3D;&#x2F;path&#x2F;to&#x2F;dir&#x2F;old &#x2F;path&#x2F;to&#x2F;dir&#x2F;new</p>
+<p>环境说明。一台server 192.168.122.49 一台localhost 192.168.122.101</p>
 <p>例如</p>
 <p>[root@localhost ftp]# ls -lZD</p>
 <p>drwxr-xrwx. root root system_u:object_r:public_content_t:s0 pub</p>
 <p>上面所示type为public_content_t是不接受上传的。因为没有写权限。</p>
 <p>例如我用server来测试</p>
-<p>lftp 192.168.122.101:/pub&gt; put root.ldif </p>
+<p>lftp 192.168.122.101:&#x2F;pub&gt; put root.ldif </p>
 <p>put: Access failed: 553 Could not create file. (root.ldif)</p>
 <p>我们需要把type修改为public_content_rw_t就需要在本地修改,使用下面的命令</p>
-<p>chcon -t public_content_rw_t /var/ftp/pub</p>
+<p>chcon -t public_content_rw_t &#x2F;var&#x2F;ftp&#x2F;pub</p>
 <p>再来查看权限</p>
 <p>[root@localhost ftp]# ls -lZD</p>
 <p>drwxr-xrwx. root root system_u:object_r:public_content_<strong>rw</strong>_t:s0 pub</p>
 <p>这样就有了写入的权限。</p>
-<p>lftp 192.168.122.101:/pub&gt; put root.ldif </p>
+<p>lftp 192.168.122.101:&#x2F;pub&gt; put root.ldif </p>
 <p>203 bytes transferred#这就是成功的标志</p>
 <p>FTP 服務：</p>
 <p>ftpd_disable_trans：</p>
-<pre><code>是否關閉 SELinux 對 ftpd daemon 的保護。預設為 off。 </code></pre><p>allow_ftpd_anon_write：</p>
-<pre><code>是否允許 client 上傳檔案至標記為 public\_content\_rw_t 的目錄。預設為 off。</code></pre><p>ftp_home_dir：</p>
-<p>是否允許使用者讀取/寫入檔案於自己家目錄內。預設為 off。</p>
+<p>       是否關閉 SELinux 對 ftpd daemon 的保護。預設為 off。 </p>
+<p>allow_ftpd_anon_write：</p>
+<p>       是否允許 client 上傳檔案至標記為 public_content_rw_t 的目錄。預設為 off。</p>
+<p>ftp_home_dir：</p>
+<p>是否允許使用者讀取&#x2F;寫入檔案於自己家目錄內。預設為 off。</p>
+<p>   </p>
+<p> </p>
 <p>SAMBA 服務：</p>
 <p>smbd_disable_trans：</p>
-<p>是否關閉 SELinux 對 smbd daemon 的保護。預設為 off。 </p>
+<p>是否關閉 SELinux 對 smbd daemon 的保護。預設為 off。 </p>
 <p>nmbd_disable_trans：</p>
-<p>是否關閉 SELinux 對 nmbd daemon 的保護。預設為 off。 </p>
-<p> allow_smbd_anon_write：</p>
-<p>是否允許對標記為 public_content_rw_t 的目錄具有寫入的權限。預設為 off。 </p>
+<p>是否關閉 SELinux 對 nmbd daemon 的保護。預設為 off。 </p>
+<p> allow_smbd_anon_write：</p>
+<p>是否允許對標記為 public_content_rw_t 的目錄具有寫入的權限。預設為 off。 </p>
 <p>samba_enable_home_dirs：</p>
 <p>是否允許使用者能存取自己的家目錄。預設為 off。</p>
 

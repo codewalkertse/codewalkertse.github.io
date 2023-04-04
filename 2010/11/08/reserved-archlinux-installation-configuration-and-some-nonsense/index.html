@@ -26,7 +26,7 @@
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
-<link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -146,47 +146,35 @@
     </div>
     <div class="post-content ">
         <p>用了很久洗发水了，一直没有总结过，借贵博文一用，呵呵</p>
-<p><strong>原文地址：</strong><a href="http://blog.sina.com.cn/s/blog_4d2bb0b10100jy01.html" target="_blank" rel="noopener" title="archlinux安装后的配置以及一些废话～">archlinux安装后的配置以及一些废话～</a><strong>作者：</strong><a href="http://blog.sina.com.cn/u/1294708913" target="_blank" rel="noopener" title="prongs">prongs</a></p>
-<pre><code>似乎很久都没有发过文章了，最近一直在忙着准备考试，没有时间，唉，好歹终于大部分考完了，有时间休息一下，就乘这个时间把电脑收拾一下。  
-我机子上装的是WIN7和ubuntu10.04的双系统，不过最近是对于ubuntu越来越不满意了，当时换了ubuntu10.04之后，第一感觉确实不错，不过用了一段时间之后就发现不舒服，首先就是显卡的问题，不过这个也之发生在我们可怜的ATI用户身上，装了受限驱动之后，就发现开机的分辨率不对，接着就是compiz fusion的最大化和最小化的延迟很严重，当然这个纯粹是驱动的问题，在ubuntu9.10上也有发生，不过9.10是通过安装补丁来解决这个问题的，并且效果不错的说，但是10.04目前还没有发现有相应的补丁，或许是我土鳖了～～～每次最大化和最小化的顿卡就让我郁闷，其次就是ubuntu和 gnome的整合问题，总是感觉gnome和ubuntu的配合不是很好，每次打开一个文件夹就要卡一下，实在是有点受不了。  
-反正就是这样了，基于这几个原因，我决定换一下版本，当然，并不是说ubuntu这个发行版不好，可能是我自己的配置问题，也可能是我就是传说中的伪高手，在瞎折腾～反正情况就是这么个情况，这也不是这篇文章的关键所在。  
-既然决定更换发行版，首要问题就是发行版的选择，对于想我们这样的菜鸟或者伪高手来说，良好的社区支持是少不了的，不然出现问题能愁死你，包括良好的中文社区，这个个人感觉也很重要，当然如果你英语过关，请直接无视吧，像我们这种英语也就是4级的人是很看中这个的，想当初去国外翻论坛的时候，那个苦阿，呃，扯远了，接着说刚才的问题。要获得所谓的良好的社区支持或者说良好的文档支持，以小生的观点来看，就是找一个用的人多的发行版～这个自己去搜就可以了，反正也就那么几个，列入我考虑的发行版也就是那么几个了，ubuntu就不说了，刚删的，接着是fedora，据说不错，不过想想它3个国G的大小，还是算了把，何况当时用的时候，fedora的显卡驱动问题让我郁闷了很久，有心理阴影了～～～再就是suse，很漂亮的一个发行版，来自德国，品质可靠，话说这个opensuse呀，我家里现在还有几张没有开封过的10.3的DVD光盘，是原装德国进口的，嘿嘿，珍藏了。呃，好像又扯远了，接着说suse，子的最后用的发行版就是11.2了，很华丽没错，但总是感觉失去了灵魂，虽然YAST还是那么的优秀，但是我个人认为opensuse10.3是suse最后的一个经典版本，后来的就不提了，这个更是夸张的4G多，也不要了，虽然suse是当时我最喜欢的发行版，但不可否认，suse在走下坡路，还有centos，似乎拿它作服务器比较多，桌面的话还是排除吧。  
-其实排除以上的几个版本还有一个比较重要的原因就是他们都是基于RPM的，恩，最近想换换口味～  
-其他的话还有像debian阿，mint什么的，是基于APT-GET的，不过也是不想用了，现在发现原来自己是想用一下新鲜的～  
-好了，既然有这个目标，接着找发行版，经过考虑发现只有gentoo和arch了，两者很相似，不过不相对比较喜欢arch，为什么呢，就是简洁喽，其实说起来gentoo比arch更简介，好歹别人是一步一步编译出来的撒～还有两者同样都是那么的高效，不会在系统里面装一些不想要的东西，这个我喜欢，说实话，这两个发行版很难取舍，不过最终让我做下决定的是因为时间问题，我没有那么多的时间，搞不好系统还没有全部弄好自己就没时间了，那样会很尴尬的～  
-顺便提一句，以上关于各个发行版的看法纯粹是小生的一面之词，各位看官不要喷我撒～  
-
-发现说了一大堆废话，唉，好吧，进入正题，这篇文章的主要目的是做个备忘，最近好不容易把ARCH调整好了，就把一些安装好了之后自己需要的一些配置记录一下，方便以后查看，也方便大家配置，可以从小生这篇拙劣的文章中得到一点经验。  
-好，现在就开始吧！  
-
-前面已经说过了，这篇文章的主要目的就是为了记录一下arch的配置，所以我就不说arch的安装了，其实很简单，也很快速，我开始的阶段是gnome桌面已经安装好了的情况下，什么，你是用KDE的，那，凑活着看吧，一些东西都是一样的～  
-
-首先的问题就是输入法，输入法的安装不多说了，直接pacman，关键就是选词框的光标跟随，顺便说一下，小生用的是IBUS，在arch下是有这个问题的，不知道其他的输入法有没有这样的问题，所以这个方法原则上是使用于IBUS，其他的就不知道了，解决方法就是gedit /etc/gtk-2.0/gtk.immodules，然后删除里面所有内容，用下面这句话代替  </code></pre><p>“/usr/lib/gtk-2.0/2.10.0/immodules/im-ibus.so”<br>“ibus” “X Input Method” “gtk20” “/usr/share/locale” “en:zh”<br>重启搞定，很简单。  </p>
-<pre><code>接下来的问题就是chrome的字体模糊或者其他的字体问题，小生还是很喜欢这个浏览器的，本人的解决方法也很简单，首先，如果你装的是 Vista或最近出的Windows 7，不是？那～～还是安装文泉驿的微米黑字体吧，那么就用Nautilus进入到你机子上的安装windows的C盘下，然后进入WINDOWS文件夹下的Fonts文件夹，然后在里面找到“msyh.ttf”和“msyhbd.ttf”这两个文件，将他们复制到linux下的任意文件夹内，因为gnome有个字体查看工具，似乎是可以直接打开这个文件，然后在右下角有个安装的选项，点击就可以了，不过我没有试过，反正我是将这两个文件复制到主目录的.fonts文件夹内，如果没有这个文件夹的话就自己建一个，这样就可以了，然后重新启动chrome在字体更改选项中选择微软雅黑就可以看到完美的效果了～～是不是很简单呀～～～话说这个方法是小生实验了很多次才想出来的，是本人博客里面访问量最高的文章，效果应该不错，至少在ubuntu和arch下都没有问题，各位看官如果有更好的方法可以指教一下，还有就是不要嘲笑小生愚钝呀～可能众位早知道这个方法了。嘿嘿～抓的图片有点模糊，实际效果还是不错的。还有就是其实本人也不推荐使用微软的雅黑字体，毕竟人家是有版权的，推荐使用文泉驿的字体，比如微米黑就不错。  </code></pre><p>[<img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="[转载]archlinux安装后的配置以及一些废话～" title="[转载]archlinux安装后的配置以及一些废话～">](<a href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100n6zs&amp;url=http://s13.sinaimg.cn/orignal/4d2bb0b1h89c73dbe6a5c" target="_blank" rel="noopener">http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100n6zs&amp;url=http://s13.sinaimg.cn/orignal/4d2bb0b1h89c73dbe6a5c</a>)  </p>
-<pre><code>接着是vim的问题，直接使用pacman -S vim会有问题，具体是怎么样的忘记了，好像是什么view或者rview的exist什么的，似乎也不是一定会出现的，解决的方法就是在安装vim之前先执行 rm /usr/bin/{view,rview}，再pacman -Syu。vim就可以正常安装了。  
-
-由于小生所在的地方同时需要，有线路由，ADSL，以及无线路由（晕，怎么这么复杂），有线路由以及ADSL都很简单，关键是无线路由问题，其实主要是驱动的问题，WIKI上提供的一般方法就是找硬件类型然后安装驱动什么的，看的我这种菜鸟头大，索性安装了WICD，关于它的介绍是Wicd是一个既能管理有线网络又能管理无线网络 (如Wifi Radar)的网络接入管理器，和NetworkManager功能相似并且相互冲突。Wicd是用Python和GTK+写成的。wicd位于extra软件仓库中。由于WIKI很详细，下面就直接是根据WIKI来:  </code></pre><p>你可能还需要DHCP, 无线安全管理程序, 以及图形界面图标，可通过下面命令安装:  </p>
+<p><strong>原文地址：</strong><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_4d2bb0b10100jy01.html" title="archlinux安装后的配置以及一些废话～">archlinux安装后的配置以及一些废话～</a><strong>作者：</strong><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/u/1294708913" title="prongs">prongs</a></p>
+<p>    似乎很久都没有发过文章了，最近一直在忙着准备考试，没有时间，唉，好歹终于大部分考完了，有时间休息一下，就乘这个时间把电脑收拾一下。<br>    我机子上装的是WIN7和ubuntu10.04的双系统，不过最近是对于ubuntu越来越不满意了，当时换了ubuntu10.04之后，第一感觉确实不错，不过用了一段时间之后就发现不舒服，首先就是显卡的问题，不过这个也之发生在我们可怜的ATI用户身上，装了受限驱动之后，就发现开机的分辨率不对，接着就是compiz fusion的最大化和最小化的延迟很严重，当然这个纯粹是驱动的问题，在ubuntu9.10上也有发生，不过9.10是通过安装补丁来解决这个问题的，并且效果不错的说，但是10.04目前还没有发现有相应的补丁，或许是我土鳖了～～～每次最大化和最小化的顿卡就让我郁闷，其次就是ubuntu和 gnome的整合问题，总是感觉gnome和ubuntu的配合不是很好，每次打开一个文件夹就要卡一下，实在是有点受不了。<br>    反正就是这样了，基于这几个原因，我决定换一下版本，当然，并不是说ubuntu这个发行版不好，可能是我自己的配置问题，也可能是我就是传说中的伪高手，在瞎折腾～反正情况就是这么个情况，这也不是这篇文章的关键所在。<br>    既然决定更换发行版，首要问题就是发行版的选择，对于想我们这样的菜鸟或者伪高手来说，良好的社区支持是少不了的，不然出现问题能愁死你，包括良好的中文社区，这个个人感觉也很重要，当然如果你英语过关，请直接无视吧，像我们这种英语也就是4级的人是很看中这个的，想当初去国外翻论坛的时候，那个苦阿，呃，扯远了，接着说刚才的问题。要获得所谓的良好的社区支持或者说良好的文档支持，以小生的观点来看，就是找一个用的人多的发行版～这个自己去搜就可以了，反正也就那么几个，列入我考虑的发行版也就是那么几个了，ubuntu就不说了，刚删的，接着是fedora，据说不错，不过想想它3个国G的大小，还是算了把，何况当时用的时候，fedora的显卡驱动问题让我郁闷了很久，有心理阴影了～～～再就是suse，很漂亮的一个发行版，来自德国，品质可靠，话说这个opensuse呀，我家里现在还有几张没有开封过的10.3的DVD光盘，是原装德国进口的，嘿嘿，珍藏了。呃，好像又扯远了，接着说suse，子的最后用的发行版就是11.2了，很华丽没错，但总是感觉失去了灵魂，虽然YAST还是那么的优秀，但是我个人认为opensuse10.3是suse最后的一个经典版本，后来的就不提了，这个更是夸张的4G多，也不要了，虽然suse是当时我最喜欢的发行版，但不可否认，suse在走下坡路，还有centos，似乎拿它作服务器比较多，桌面的话还是排除吧。<br>    其实排除以上的几个版本还有一个比较重要的原因就是他们都是基于RPM的，恩，最近想换换口味～<br>    其他的话还有像debian阿，mint什么的，是基于APT-GET的，不过也是不想用了，现在发现原来自己是想用一下新鲜的～<br>    好了，既然有这个目标，接着找发行版，经过考虑发现只有gentoo和arch了，两者很相似，不过不相对比较喜欢arch，为什么呢，就是简洁喽，其实说起来gentoo比arch更简介，好歹别人是一步一步编译出来的撒～还有两者同样都是那么的高效，不会在系统里面装一些不想要的东西，这个我喜欢，说实话，这两个发行版很难取舍，不过最终让我做下决定的是因为时间问题，我没有那么多的时间，搞不好系统还没有全部弄好自己就没时间了，那样会很尴尬的～<br>    顺便提一句，以上关于各个发行版的看法纯粹是小生的一面之词，各位看官不要喷我撒～  </p>
+<p>    发现说了一大堆废话，唉，好吧，进入正题，这篇文章的主要目的是做个备忘，最近好不容易把ARCH调整好了，就把一些安装好了之后自己需要的一些配置记录一下，方便以后查看，也方便大家配置，可以从小生这篇拙劣的文章中得到一点经验。<br>    好，现在就开始吧！<br>    <br>    前面已经说过了，这篇文章的主要目的就是为了记录一下arch的配置，所以我就不说arch的安装了，其实很简单，也很快速，我开始的阶段是gnome桌面已经安装好了的情况下，什么，你是用KDE的，那，凑活着看吧，一些东西都是一样的～  </p>
+<p>    首先的问题就是输入法，输入法的安装不多说了，直接pacman，关键就是选词框的光标跟随，顺便说一下，小生用的是IBUS，在arch下是有这个问题的，不知道其他的输入法有没有这样的问题，所以这个方法原则上是使用于IBUS，其他的就不知道了，解决方法就是gedit &#x2F;etc&#x2F;gtk-2.0&#x2F;gtk.immodules，然后删除里面所有内容，用下面这句话代替<br>“&#x2F;usr&#x2F;lib&#x2F;gtk-2.0&#x2F;2.10.0&#x2F;immodules&#x2F;im-ibus.so”<br>“ibus” “X Input Method” “gtk20” “&#x2F;usr&#x2F;share&#x2F;locale” “en:zh”<br>重启搞定，很简单。<br>    <br>    接下来的问题就是chrome的字体模糊或者其他的字体问题，小生还是很喜欢这个浏览器的，本人的解决方法也很简单，首先，如果你装的是 Vista或最近出的Windows 7，不是？那～～还是安装文泉驿的微米黑字体吧，那么就用Nautilus进入到你机子上的安装windows的C盘下，然后进入WINDOWS文件夹下的Fonts文件夹，然后在里面找到“msyh.ttf”和“msyhbd.ttf”这两个文件，将他们复制到linux下的任意文件夹内，因为gnome有个字体查看工具，似乎是可以直接打开这个文件，然后在右下角有个安装的选项，点击就可以了，不过我没有试过，反正我是将这两个文件复制到主目录的.fonts文件夹内，如果没有这个文件夹的话就自己建一个，这样就可以了，然后重新启动chrome在字体更改选项中选择微软雅黑就可以看到完美的效果了～～是不是很简单呀～～～话说这个方法是小生实验了很多次才想出来的，是本人博客里面访问量最高的文章，效果应该不错，至少在ubuntu和arch下都没有问题，各位看官如果有更好的方法可以指教一下，还有就是不要嘲笑小生愚钝呀～可能众位早知道这个方法了。嘿嘿～抓的图片有点模糊，实际效果还是不错的。还有就是其实本人也不推荐使用微软的雅黑字体，毕竟人家是有版权的，推荐使用文泉驿的字体，比如微米黑就不错。  </p>
+<p>[<img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="[转载]archlinux安装后的配置以及一些废话～" title="[转载]archlinux安装后的配置以及一些废话～">](<a target="_blank" rel="noopener" href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100n6zs&url=http://s13.sinaimg.cn/orignal/4d2bb0b1h89c73dbe6a5c">http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100n6zs&amp;url=http://s13.sinaimg.cn/orignal/4d2bb0b1h89c73dbe6a5c</a>)  </p>
+<p>    接着是vim的问题，直接使用pacman -S vim会有问题，具体是怎么样的忘记了，好像是什么view或者rview的exist什么的，似乎也不是一定会出现的，解决的方法就是在安装vim之前先执行 rm &#x2F;usr&#x2F;bin&#x2F;{view,rview}，再pacman -Syu。vim就可以正常安装了。  </p>
+<p>    由于小生所在的地方同时需要，有线路由，ADSL，以及无线路由（晕，怎么这么复杂），有线路由以及ADSL都很简单，关键是无线路由问题，其实主要是驱动的问题，WIKI上提供的一般方法就是找硬件类型然后安装驱动什么的，看的我这种菜鸟头大，索性安装了WICD，关于它的介绍是Wicd是一个既能管理有线网络又能管理无线网络 (如Wifi Radar)的网络接入管理器，和NetworkManager功能相似并且相互冲突。Wicd是用Python和GTK+写成的。wicd位于extra软件仓库中。由于WIKI很详细，下面就直接是根据WIKI来:  </p>
+<p>你可能还需要DHCP, 无线安全管理程序, 以及图形界面图标，可通过下面命令安装:  </p>
 <p>pacman -S dhclient wpa_supplicant hicolor-icon-theme  </p>
 <p>使用多种网络管理工具容易产生各种问题，因此，请只用一种网络管理工具来管理网络连接。所以，在使用wicd前，必须先关闭其他网络管理工具。  </p>
 <p>1、使用以下命令手动关闭network、dhcdbd和networkmanager这些守护程序。  </p>
-<p># /etc/rc.d/network stop<br># /etc/rc.d/dhcdbd stop<br># /etc/rc.d/networkmanager stop  </p>
-<p>2、以root身份编辑/etc/rc.conf，注释掉（或者直接删除）相关的网络设置。（!network，之前加一个!就可以不加载了。）  </p>
+<p># &#x2F;etc&#x2F;rc.d&#x2F;network stop<br># &#x2F;etc&#x2F;rc.d&#x2F;dhcdbd stop<br># &#x2F;etc&#x2F;rc.d&#x2F;networkmanager stop  </p>
+<p>2、以root身份编辑&#x2F;etc&#x2F;rc.conf，注释掉（或者直接删除）相关的网络设置。（!network，之前加一个!就可以不加载了。）  </p>
 <p>A、在INTERFACES的参数前加一个(!) ，禁止使用，如下：  </p>
-<p>INTERFACES=(!eth0 !wlan0) #这里的lo不再需要了，因为其是由 /etc/rc.sysinit启动的。  </p>
+<p>INTERFACES&#x3D;(!eth0 !wlan0) #这里的lo不再需要了，因为其是由 &#x2F;etc&#x2F;rc.sysinit启动的。  </p>
 <p>B、禁止使用的各种网络管理守护进程，包括network, dhcdbd, 和 networkmanager：  </p>
-<p>DAEMONS=(syslog-ng @alsa !network dbus !dhcdbd !networkmanager wicd netfs …)  </p>
+<p>DAEMONS&#x3D;(syslog-ng @alsa !network dbus !dhcdbd !networkmanager wicd netfs …)  </p>
 <p>C、添加守护进程dbus 和wicd 到DAEMONS中，使得守护进程参数列表看起来像这样：  </p>
-<p>DAEMONS=(syslog-ng dbus !network !dhcdbd !networkmanager wicd …)  </p>
+<p>DAEMONS&#x3D;(syslog-ng dbus !network !dhcdbd !networkmanager wicd …)  </p>
 <p>Note: 如果你使用了 hal,把 dbus 替换成hal，守护进程hal会自动启动 dbus 。  </p>
 <p>D、使用如下命令把你帐号加入到network组中，把$USERNAME替换成你自己帐号名称。  </p>
 <p>gpasswd -a $USERNAME network  </p>
 <p>E、最后，启动守护进程 dbus 和wicd :  </p>
-<p># /etc/rc.d/dbus start<br># /etc/rc.d/wicd start  </p>
+<p># &#x2F;etc&#x2F;rc.d&#x2F;dbus start<br># &#x2F;etc&#x2F;rc.d&#x2F;wicd start  </p>
 <p>Note: 如果守护进程dbus已经启动，需要重新启动它:  </p>
-<p># /etc/rc.d/dbus restart  </p>
-<pre><code>由于最近在学习xelatex，所以需要安装一套texlive，其他的不介绍了，就是关于环境变量，安装了texlive之后由于texlive的安装程序默认的是/usr/local/bin,但是我机子上没有这个环境变量，所以需要加入这个环境变量，修改一下/etc/profile文件就可以了，很简单。  
+<p># &#x2F;etc&#x2F;rc.d&#x2F;dbus restart  </p>
+<p>    由于最近在学习xelatex，所以需要安装一套texlive，其他的不介绍了，就是关于环境变量，安装了texlive之后由于texlive的安装程序默认的是&#x2F;usr&#x2F;local&#x2F;bin,但是我机子上没有这个环境变量，所以需要加入这个环境变量，修改一下&#x2F;etc&#x2F;profile文件就可以了，很简单。  </p>
+<p>    好了，打了这么多字手都酸了，目前就到这里吧，以后想到了再加～</p>
 
-好了，打了这么多字手都酸了，目前就到这里吧，以后想到了再加～</code></pre>
         
             <div class="donate-container">
     <div class="donate-button">

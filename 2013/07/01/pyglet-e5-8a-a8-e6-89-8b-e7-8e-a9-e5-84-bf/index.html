@@ -148,13 +148,13 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>今天开机的时候琢磨为什么linux开机没有声音呢？于是乎琢磨着写一个脚本来完成这个事儿。 然后就找到了一个非常强大的python库，pyglet <a href="http://www.pyglet.org/" target="_blank" rel="noopener" title="pyglet 官方网站">这里</a>是他的官方网站。 我只用到了其中很小的一块就是媒体的播放，其他还有很多强大的模块有兴趣的可以自己去探索。同时，如果播放sound的话还需要AvBin的依赖，所以这也必须安装上，不然加载媒体文件的时候会抛出错误。应该是从错误中可以看到AVBin是解码只用。</p>
-<p>File “/usr/lib/python2.7/site-packages/pyglet/media/riff.py”, line 202, in __init__<br>    ‘AVbin is required to decode compressed media’)<br>pyglet.media.riff.WAVEFormatException: AVbin is required to decode compressed media</p>
+        <p>今天开机的时候琢磨为什么linux开机没有声音呢？于是乎琢磨着写一个脚本来完成这个事儿。 然后就找到了一个非常强大的python库，pyglet <a target="_blank" rel="noopener" href="http://www.pyglet.org/" title="pyglet 官方网站">这里</a>是他的官方网站。 我只用到了其中很小的一块就是媒体的播放，其他还有很多强大的模块有兴趣的可以自己去探索。同时，如果播放sound的话还需要AvBin的依赖，所以这也必须安装上，不然加载媒体文件的时候会抛出错误。应该是从错误中可以看到AVBin是解码只用。</p>
+<p>File “&#x2F;usr&#x2F;lib&#x2F;python2.7&#x2F;site-packages&#x2F;pyglet&#x2F;media&#x2F;riff.py”, line 202, in __init__<br>    ‘AVbin is required to decode compressed media’)<br>pyglet.media.riff.WAVEFormatException: AVbin is required to decode compressed media</p>
 <p>播放声音的代码很简单如下：</p>
-<p>#!/usr/bin/python2</p>
+<p>#!&#x2F;usr&#x2F;bin&#x2F;python2</p>
 <p>import pyglet</p>
-<p>m = pyglet.media.load(‘m.ogg’)<br>m.play()<br>pyglet.app.run() #昨天代码有点儿问题，如果不加上这句的话大概只能播放一秒时间。</p>
-<p>更多用法请移步官网查询api==&gt;<a href="http://www.pyglet.org/doc/api/index.html" target="_blank" rel="noopener">http://www.pyglet.org/doc/api/index.html</a></p>
+<p>m &#x3D; pyglet.media.load(‘m.ogg’)<br>m.play()<br>pyglet.app.run() #昨天代码有点儿问题，如果不加上这句的话大概只能播放一秒时间。</p>
+<p>更多用法请移步官网查询api&#x3D;&#x3D;&gt;<a target="_blank" rel="noopener" href="http://www.pyglet.org/doc/api/index.html">http://www.pyglet.org/doc/api/index.html</a></p>
 
         
             <div class="donate-container">

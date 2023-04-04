@@ -136,10 +136,10 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>#!/usr/bin/env python3<br># -<em>- coding: utf-8 -</em>-<br># @Date    : 2018-07-12 16:14:53<br># @Author  : Simon (<a href="mailto:simon.xie@codewalker.meg">simon.xie@codewalker.meg</a>)<br># @Link    : <a href="http://www.codewalker.me" target="_blank" rel="noopener">http://www.codewalker.me</a><br># @Version : 1.0.0</p>
+        <p>#!&#x2F;usr&#x2F;bin&#x2F;env python3<br># -<em>- coding: utf-8 -</em>-<br># @Date    : 2018-07-12 16:14:53<br># @Author  : Simon (<a href="mailto:&#x73;&#x69;&#x6d;&#x6f;&#x6e;&#46;&#120;&#105;&#101;&#64;&#x63;&#111;&#x64;&#x65;&#119;&#97;&#108;&#107;&#x65;&#114;&#x2e;&#109;&#x65;&#x67;">&#x73;&#x69;&#x6d;&#x6f;&#x6e;&#46;&#120;&#105;&#101;&#64;&#x63;&#111;&#x64;&#x65;&#119;&#97;&#108;&#107;&#x65;&#114;&#x2e;&#109;&#x65;&#x67;</a>)<br># @Link    : <a target="_blank" rel="noopener" href="http://www.codewalker.me/">http://www.codewalker.me</a><br># @Version : 1.0.0</p>
 <p>import sys, bisect</p>
-<p>def tax_calculator(income):<br>    if income &lt; 5000:<br>        return 0.0<br>    above = income - 5000<br>    ranges = [ 0, 1500, 4500, 9000, 35000, 55000, 80000 ]<br>    rate = [ .03, .1, .2, .25, .30, .35, .45 ]<br>    i =  bisect.bisect_left(ranges, above)<br>    j = 0<br>    tax = 0.0<br>    while j &lt; i:<br>        if j + 1 &lt; i:<br>            tax += (ranges[j+1]-ranges[j])*rate[j]<br>        else:<br>            tax += (above-ranges[j]) * rate[j]<br>        j += 1<br>    return tax<br>def main(income):<br>    tax = tax_calculator(income)<br>    print(‘Tax is {}’.format(tax))</p>
-<p>if __name__ == “__main__“:<br>    if len(sys.argv) &lt; 2:<br>        print(‘Usage: {} ‘.format(sys.argv[0]))<br>        sys.exit(1)<br>    main(float(sys.argv[1]))</p>
+<p>def tax_calculator(income):<br>    if income &lt; 5000:<br>        return 0.0<br>    above &#x3D; income - 5000<br>    ranges &#x3D; [ 0, 1500, 4500, 9000, 35000, 55000, 80000 ]<br>    rate &#x3D; [ .03, .1, .2, .25, .30, .35, .45 ]<br>    i &#x3D;  bisect.bisect_left(ranges, above)<br>    j &#x3D; 0<br>    tax &#x3D; 0.0<br>    while j &lt; i:<br>        if j + 1 &lt; i:<br>            tax +&#x3D; (ranges[j+1]-ranges[j])*rate[j]<br>        else:<br>            tax +&#x3D; (above-ranges[j]) * rate[j]<br>        j +&#x3D; 1<br>    return tax<br>def main(income):<br>    tax &#x3D; tax_calculator(income)<br>    print(‘Tax is {}’.format(tax))</p>
+<p>if __name__ &#x3D;&#x3D; “__main__“:<br>    if len(sys.argv) &lt; 2:<br>        print(‘Usage: {} ‘.format(sys.argv[0]))<br>        sys.exit(1)<br>    main(float(sys.argv[1]))</p>
 
         
             <div class="donate-container">

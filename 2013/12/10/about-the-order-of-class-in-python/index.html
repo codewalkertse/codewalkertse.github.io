@@ -148,15 +148,15 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>#!/usr/bin/python2</p>
+        <p>#!&#x2F;usr&#x2F;bin&#x2F;python2</p>
 <p>class A(object):<br>    print ‘in A  class…’<br>    def __init__(self):<br>        print ‘-‘ * 20<br>        print ‘init ‘, self.__class__.__name__,’ calss…’<br>        print ‘Created Class:’, self.__class__.__name__<br>        print ‘out ‘, self.__class__.__name__,’A calss…’<br>        print ‘-‘ * 20<br>    print ‘out A class…’</p>
 <p>class B(A):<br>    print ‘in B class…’</p>
 <p>class C(B):<br>    print ‘in B class…’</p>
 <p>class D(B, A):<br>    print ‘in D class…’</p>
-<p>a = A()</p>
-<p>b = B()</p>
-<p>c = C()</p>
-<p>d = D()</p>
+<p>a &#x3D; A()</p>
+<p>b &#x3D; B()</p>
+<p>c &#x3D; C()</p>
+<p>d &#x3D; D()</p>
 <p>outputs:</p>
 <p>in A  class…<br>out A class…<br>in B class…<br>in B class…<br>in D class…<br>--------------------<br>init  A  calss…<br>Created Class: A<br>out  A A calss…<br>--------------------<br>--------------------<br>init  B  calss…<br>Created Class: B<br>out  B A calss…<br>--------------------<br>--------------------<br>init  C  calss…<br>Created Class: C<br>out  C A calss…<br>--------------------</p>
 <p><strong>由输出可见，当class在声明的时候其中的语句就可被执行，而其中的init只会在实例化时被调用。</strong></p>

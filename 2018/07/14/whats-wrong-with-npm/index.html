@@ -152,11 +152,11 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; node -v</span><br><span class="line">v10.6.0</span><br><span class="line">brew reisntall node</span><br></pre></td></tr></table></figure>
 <p>肯定没问题撒，老司机出马安个软件还会有问题吗?结果悲剧又发生了…<br>安装完之后告诉我说需要<code>brew postinstall node</code><br>WHT</p>
 <blockquote>
-<p>  Permission denied @ rb_sysopen - /usr/local/lib/node_modules/npm/.npmignore<br>    /usr/local/lib/node_modules</p>
+<p>  Permission denied @ rb_sysopen - &#x2F;usr&#x2F;local&#x2F;lib&#x2F;node_modules&#x2F;npm&#x2F;.npmignore<br>    &#x2F;usr&#x2F;local&#x2F;lib&#x2F;node_modules</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">drwxr-xr-x   9 codewalkertes  admin   288B Nov 23  2017 cnpm</span><br><span class="line">drwxr-xr-x   9 codewalkertes  admin   288B Nov 23  2017 express</span><br><span class="line">drwxr-xr-x   9 codewalkertes  admin   288B Nov 23  2017 grunt-cli</span><br><span class="line">drwxr-xr-x  16 codewalkertes  admin   512B Jul 13 17:58 hexo-cli</span><br><span class="line">drwxr-xr-x   7 codewalkertes  admin   224B Jul 14 15:59 n</span><br><span class="line">drwxr-xr-x  25 root           admin   800B Jul 14 16:07 npm</span><br></pre></td></tr></table></figure>
 <p>看吧自己种下的恶果还是要自己吃下去才行。都是因为之前sudo安装造成的。不怕生命还是在于折腾把虽然这都三十好几了.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R codewalkertes npm</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">chown</span> -R codewalkertes npm</span><br></pre></td></tr></table></figure>
 <h2 id="Voila"><a href="#Voila" class="headerlink" title="Voilà"></a>Voilà</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm -v</span><br><span class="line">6.1.0</span><br></pre></td></tr></table></figure>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>遇到问题了还是要想办法<code>debug</code>, 这次主要原因还是因为手动安装和Brew安装起了冲突所致。<br>总结嘛吃一堑长一智，不过有时候真是也因为记性的原因或者现代软件包管理的原因太过于复杂了。</p>
 

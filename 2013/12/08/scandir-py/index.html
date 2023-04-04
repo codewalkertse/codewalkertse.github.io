@@ -145,11 +145,11 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>#!/usr/bin/python2</p>
-<p>#auth:codewalker #mail:<a href="mailto:001@codewalker.me">001@codewalker.me</a></p>
+        <p>#!&#x2F;usr&#x2F;bin&#x2F;python2</p>
+<p>#auth:codewalker #mail:<a href="mailto:&#x30;&#48;&#x31;&#x40;&#99;&#x6f;&#100;&#101;&#119;&#x61;&#108;&#107;&#101;&#x72;&#x2e;&#x6d;&#x65;">&#x30;&#48;&#x31;&#x40;&#99;&#x6f;&#100;&#101;&#119;&#x61;&#108;&#107;&#101;&#x72;&#x2e;&#x6d;&#x65;</a></p>
 <p>import sys<br>import os</p>
-<p>def scandir(p):<br>    try:<br>        items = os.listdir(p)<br>    except OSError:<br>        print ‘OSError, Could not Open dir: %s’ % p<br>        exit(1)<br>    for element in items:<br>        fullpath = p + ‘/‘ + element<br>        if os.path.isdir(fullpath):<br>            scandir(fullpath)<br>        print fullpath<br>def main():<br>    if len(sys.argv) == 2:<br>        path = sys.argv[1]<br>        print ‘path is: %s’ % path<br>    else:<br>        path = os.getcwd()<br>        print ‘No arg, Using cwd is: %s’ % path<br>    scandir(path)</p>
-<p>if __name__ == “__main__“:<br>    main()</p>
+<p>def scandir(p):<br>    try:<br>        items &#x3D; os.listdir(p)<br>    except OSError:<br>        print ‘OSError, Could not Open dir: %s’ % p<br>        exit(1)<br>    for element in items:<br>        fullpath &#x3D; p + ‘&#x2F;‘ + element<br>        if os.path.isdir(fullpath):<br>            scandir(fullpath)<br>        print fullpath<br>def main():<br>    if len(sys.argv) &#x3D;&#x3D; 2:<br>        path &#x3D; sys.argv[1]<br>        print ‘path is: %s’ % path<br>    else:<br>        path &#x3D; os.getcwd()<br>        print ‘No arg, Using cwd is: %s’ % path<br>    scandir(path)</p>
+<p>if __name__ &#x3D;&#x3D; “__main__“:<br>    main()</p>
 
         
             <div class="donate-container">

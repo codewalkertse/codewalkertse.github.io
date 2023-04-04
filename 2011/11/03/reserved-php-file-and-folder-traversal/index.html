@@ -145,44 +145,44 @@
 </span>
     </div>
     <div class="post-content ">
-        <p><strong>原文地址：</strong><a href="http://blog.sina.com.cn/s/blog_610997850100ibst.html" target="_blank" rel="noopener" title="php &lt;wbr&gt;遍历文件和文件夹">遍历文件和文件夹”&gt;php 遍历文件和文件夹</a><strong>作者：</strong><a href="http://blog.sina.com.cn/u/1628018565" target="_blank" rel="noopener" title="流星飞雨">流星飞雨</a></p>
+        <p><strong>原文地址：</strong><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_610997850100ibst.html" title="php &lt;wbr&gt;遍历文件和文件夹">遍历文件和文件夹”&gt;php 遍历文件和文件夹</a><strong>作者：</strong><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/u/1628018565" title="流星飞雨">流星飞雨</a></p>
 <?php  
+ 
 
-
-   function list_dir($dirpath){  
-    //判断路径最后面的字符是否是反斜线，如果没有就加上一个  
-    if($dirpath\[strlen($dirpath)-1\] !=''){ $dirpath.='';}  
-    //申明一个静态变量数组，这样每次递归调用该数组的值还会存在  
-    static $result_array = array();  
-    //判断所给目录是否为目录  
-    if(is_dir($dirpath)){  
-     //获取当前的子目录和文件名  
-     $file_dirs = scandir($dirpath);//scandir -- 列出指定路径中的文件和目录      
-     //如果是两个特殊目录，就跳过去  
-     foreach($file_dirs as $file){  
-      if($file == '.' || $file =='..'){ continue;}  
-      if(is_dir($dirpath.$file)){  
-       //如果是目录，递归调用  
-       list_dir($dirpath.$file.'');  
-      }else{  
-       //如果是文件，存入数组  
-       array\_push($result\_array,$dirpath.$file);  
-      }  
-     }  
-    }  
-    return $result_array;  
-   }  
-
-   //调用函数  
-   $array = list_dir('d:php5');  
-   foreach($array as $value){  
-    echo $value;  
-    echo'<br/>';  
-   }
+   function list_dir($dirpath){  
+    //判断路径最后面的字符是否是反斜线，如果没有就加上一个  
+    if($dirpath\[strlen($dirpath)-1\] !=''){ $dirpath.='';}  
+    //申明一个静态变量数组，这样每次递归调用该数组的值还会存在  
+    static $result_array = array();  
+    //判断所给目录是否为目录  
+    if(is_dir($dirpath)){  
+     //获取当前的子目录和文件名  
+     $file_dirs = scandir($dirpath);//scandir -- 列出指定路径中的文件和目录      
+     //如果是两个特殊目录，就跳过去  
+     foreach($file_dirs as $file){  
+      if($file == '.' || $file =='..'){ continue;}  
+      if(is_dir($dirpath.$file)){  
+       //如果是目录，递归调用  
+       list_dir($dirpath.$file.'');  
+      }else{  
+       //如果是文件，存入数组  
+       array\_push($result\_array,$dirpath.$file);  
+      }  
+     }  
+    }  
+    return $result_array;  
+   }  
+    
+   //调用函数  
+   $array = list_dir('d:php5');  
+   foreach($array as $value){  
+    echo $value;  
+    echo'<br/>';  
+   }
 
 ?>
 
-<p>//方法一<br>function bianli($dir)<br>{<br> if(!is_dir($dir)) return;<br> $files = array();<br> if($handle = opendir($dir)){<br>  while(false !== ($file = readdir($handle))){<br>   if($file != ‘.’ &amp;&amp; $file != ‘..’){<br>    if(is_dir($dir.’/‘.$file)){<br>     $files[$file] = bianli($dir.’/‘.$file);<br>    }else {<br>     $files[] = $file;<br>    }<br>   }<br>  }<br> }<br> closedir($handle);<br> return $files;<br>}<br>//方法二<br>function getdir($path)<br>{<br> if(!is_dir($path)) return;<br> $handle = dir($path);<br> $files = array();<br> while($file=$handle-&gt;read())<br> {<br>  if($file!=’.’ &amp;&amp; $file!=’..’)<br>  {<br>   $path2 = $path.’/‘.$file;<br>   if(is_dir($path2))<br>   {<br>    $files[$file] = getdir($path2);<br>   }else<br>   {<br>    $files[] = $file;<br>   }<br>  }<br> }<br> $handle-&gt;close();<br> return $files;<br>}<br>//方法三<br>function get_dir_scandir($path)<br>{<br>    if(!is_dir($path)) return;<br> $tree = array();<br> foreach(scandir($path) as $single){<br>  if($single!=’.’ &amp;&amp; $single!=’..’)<br>  {<br>   $path2 = $path.’/‘.$single;<br>   if(is_dir($path2))<br>   {<br>    $tree[$single] = get_dir_scandir($path2);<br>   }else<br>   {<br>    $tree[] = $single;<br>   }<br>  }<br> }<br> return $tree;<br>}</p>
+<p>&#x2F;&#x2F;方法一<br>function bianli($dir)<br>{<br> if(!is_dir($dir)) return;<br> $files &#x3D; array();<br> if($handle &#x3D; opendir($dir)){<br>  while(false !&#x3D;&#x3D; ($file &#x3D; readdir($handle))){<br>   if($file !&#x3D; ‘.’ &amp;&amp; $file !&#x3D; ‘..’){<br>    if(is_dir($dir.’&#x2F;‘.$file)){<br>     $files[$file] &#x3D; bianli($dir.’&#x2F;‘.$file);<br>    }else {<br>     $files[] &#x3D; $file;<br>    } <br>   }<br>  }<br> }<br> closedir($handle);<br> return $files;<br>}<br>&#x2F;&#x2F;方法二<br>function getdir($path)<br>{<br> if(!is_dir($path)) return;<br> $handle &#x3D; dir($path);<br> $files &#x3D; array();<br> while($file&#x3D;$handle-&gt;read())<br> {<br>  if($file!&#x3D;’.’ &amp;&amp; $file!&#x3D;’..’)<br>  {<br>   $path2 &#x3D; $path.’&#x2F;‘.$file;<br>   if(is_dir($path2))<br>   {<br>    $files[$file] &#x3D; getdir($path2);<br>   }else<br>   {<br>    $files[] &#x3D; $file;<br>   }<br>  }<br> }<br> $handle-&gt;close();<br> return $files;<br>}<br>&#x2F;&#x2F;方法三<br>function get_dir_scandir($path)<br>{<br>    if(!is_dir($path)) return;<br> $tree &#x3D; array();<br> foreach(scandir($path) as $single){<br>  if($single!&#x3D;’.’ &amp;&amp; $single!&#x3D;’..’)<br>  {<br>   $path2 &#x3D; $path.’&#x2F;‘.$single;<br>   if(is_dir($path2))<br>   {<br>    $tree[$single] &#x3D; get_dir_scandir($path2);<br>   }else<br>   {<br>    $tree[] &#x3D; $single;<br>   }<br>  }<br> }<br> return $tree;<br>}</p>
 
         
             <div class="donate-container">

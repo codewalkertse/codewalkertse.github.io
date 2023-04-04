@@ -145,23 +145,23 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>记录一下mysql/MariaDB的主从设置，因为5.5之后在配置文件中撤销了Master_host, Master_user, Master_password等关键字的支持所以网上查到的很多信息都是错误的用不了。这里根据<a href="https://mariadb.com/kb/en/mariadb/mariadb-documentation/replication-cluster-multi-master/replication/setting-up-replication/" target="_blank" rel="noopener" title="Setting Up Replication - MariaDB Knowledge Base">官方</a>的说明做一下记录. 环境: master:192.168.1.111 CentOS6.5 mysql slave:192.18.1.112 CentOS6.5 mariaDB <strong>配置master上</strong>. 1\master上设置bin-log,用于slave同步的时候读取 1.1</p>
-<p>vim /etc/my.cnf<br>#其中修改/添加<br>server-id=1#1就是master 2^32-1的则为slave.<br>log-bin=log#这个log为日志名称随便写</p>
-<p>binlog-do-db=xxx binlog-do-db=yyy binlog-do-db=zzz#这三个xxx yyy zzz是需要同步数据库名称. binlog-ignore-db=aaa#忽略同步的数据库一般是忽略掉mysql这个库. 以上就是master上配置文件中需要修改的地方. 1.2</p>
+        <p>记录一下mysql&#x2F;MariaDB的主从设置，因为5.5之后在配置文件中撤销了Master_host, Master_user, Master_password等关键字的支持所以网上查到的很多信息都是错误的用不了。这里根据<a target="_blank" rel="noopener" href="https://mariadb.com/kb/en/mariadb/mariadb-documentation/replication-cluster-multi-master/replication/setting-up-replication/" title="Setting Up Replication - MariaDB Knowledge Base">官方</a>的说明做一下记录. 环境: master:192.168.1.111 CentOS6.5 mysql slave:192.18.1.112 CentOS6.5 mariaDB <strong>配置master上</strong>. 1\master上设置bin-log,用于slave同步的时候读取 1.1</p>
+<p>vim &#x2F;etc&#x2F;my.cnf<br>#其中修改&#x2F;添加<br>server-id&#x3D;1#1就是master 2^32-1的则为slave.<br>log-bin&#x3D;log#这个log为日志名称随便写</p>
+<p>binlog-do-db&#x3D;xxx binlog-do-db&#x3D;yyy binlog-do-db&#x3D;zzz#这三个xxx yyy zzz是需要同步数据库名称. binlog-ignore-db&#x3D;aaa#忽略同步的数据库一般是忽略掉mysql这个库. 以上就是master上配置文件中需要修改的地方. 1.2</p>
 <p>#在master 上执行show master status\G</p>
 <p>会出现<strong>File Position Binlog_Do_Db Binlog_Ignore_Db</strong>也就是刚刚设置的一些信息。 特别要注意这里有个File和Position需要记录一下待会儿要用到. 1.3 给同步账号一个权限再重启服务</p>
 <p>GRANT REPLICATION SLAVE ON <em>.</em> TO ‘WhichUserDoYouWantToUse’ @ ‘%’ identified by ‘ThisIsPassWord’;</p>
 <p>重启服务</p>
-<p>service mysqld/mariadb restart<br>FLUSH TABLES WITH READ LOCK#锁表.</p>
+<p>service mysqld&#x2F;mariadb restart<br>FLUSH TABLES WITH READ LOCK#锁表.</p>
 <p>1.4</p>
 <p>#配置完slave之后再执行这一步.<br>UNLOCK TABLES;</p>
 <p>配置slave 2.1.1 配置文件中加入</p>
-<p>replicate-wild-ignore-table=EXAMPLE_DATABASES.%<br>#例如, 避免复制 garbage数据库中的数据表的安全的方案是 配置:  replicate-wild-ignore-table=garbage.%如果有多个重复此行<br>replicate-wild-ignore-table=EXAMPLE_DATABASES_FIRST.%<br>replicate-wild-ignore-table=EXAMPLE_DATABASES_SECOND.%<br>#这种方案解决了当master做修改之后导致slave找不到表, 或者新增了之后slave中又没有而引起的错误</p>
+<p>replicate-wild-ignore-table&#x3D;EXAMPLE_DATABASES.%<br>#例如, 避免复制 garbage数据库中的数据表的安全的方案是 配置:  replicate-wild-ignore-table&#x3D;garbage.%如果有多个重复此行<br>replicate-wild-ignore-table&#x3D;EXAMPLE_DATABASES_FIRST.%<br>replicate-wild-ignore-table&#x3D;EXAMPLE_DATABASES_SECOND.%<br>#这种方案解决了当master做修改之后导致slave找不到表, 或者新增了之后slave中又没有而引起的错误</p>
 <p>2.1.2</p>
-<p>mysql -u xxx -p yyy<br>CHANGE MASTER TO<br>  MASTER_HOST=’192.168.111’<br>  MASTER_USER=’WhichUserDoYouWantToUse’,<br>  MASTER_PASSWORD=’ThisIsPassWord’,<br>  MASTER_PORT=3306,<br>  MASTER_LOG_FILE=’ContentShouldLikexxx.0001In1.2<strong>File</strong>Above’,<br>  MASTER_LOG_POS=’ContentShouldLikexxx.0001In1.2<strong>Position</strong>Above’,<br>  MASTER_CONNECT_RETRY=10;</p>
-<p>#重启服务<br>service mysqld/mariadb restart<br>＃进入mysql查看一下状态, 关键是查看Slave_IO_RUNNING和Slave_SQL_Running是否为YES.<br>#其他根据字面意思就可以知道其他信息<br>start slave;<br>show slave status\G</p>
+<p>mysql -u xxx -p yyy<br>CHANGE MASTER TO<br>  MASTER_HOST&#x3D;’192.168.111’<br>  MASTER_USER&#x3D;’WhichUserDoYouWantToUse’,<br>  MASTER_PASSWORD&#x3D;’ThisIsPassWord’,<br>  MASTER_PORT&#x3D;3306,<br>  MASTER_LOG_FILE&#x3D;’ContentShouldLikexxx.0001In1.2<strong>File</strong>Above’,<br>  MASTER_LOG_POS&#x3D;’ContentShouldLikexxx.0001In1.2<strong>Position</strong>Above’,<br>  MASTER_CONNECT_RETRY&#x3D;10;</p>
+<p>#重启服务<br>service mysqld&#x2F;mariadb restart<br>＃进入mysql查看一下状态, 关键是查看Slave_IO_RUNNING和Slave_SQL_Running是否为YES.<br>#其他根据字面意思就可以知道其他信息<br>start slave;<br>show slave status\G</p>
 <p>1\在做公司服务器上配置的时候还出现一个小插曲。 slave上配置好之后一直报错说有一个表是read only。起了怪了mysql是直接复制的文件过去， 又没有在mysql中锁表怎么会RO呢，后来登录系统看了看权限，尼玛750，并且是root.mysql。 组不可写，于是立即chown+chmod一下，在restart 一下mysql解决. 2\windows上的mysql默认不区分大小写,而linux下是区分的所以同步的时候如果你的表里面面有类似TableName这样形式的表明就会报xxx不存在，在不修改表的前提下可以把『lower_case_table_name』打开这样就可以了</p>
-<p>#查看一下状态<br>show variables like ‘%case%’;<br>#修改<br>vim /etc/my.cnf<br>#在[mysqld]之后加入<br>lower_case_table_name=1;<br>＃之后<br>service mysqld restart</p>
+<p>#查看一下状态<br>show variables like ‘%case%’;<br>#修改<br>vim &#x2F;etc&#x2F;my.cnf<br>#在[mysqld]之后加入<br>lower_case_table_name&#x3D;1;<br>＃之后<br>service mysqld restart</p>
 <p>打完收工.</p>
 
         

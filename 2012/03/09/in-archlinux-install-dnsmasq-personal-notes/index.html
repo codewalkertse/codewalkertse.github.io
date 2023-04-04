@@ -148,37 +148,35 @@
 <p><strong>1</strong></p>
 <p><strong>yaourt -S dnsmasq</strong></p>
 <p><strong>2</strong></p>
-<p>** 2.1 sudo cp -v dnsmasq.conf{,.orig}**</p>
-<p>** 2.2 sudo vim dnsmasq.conf**</p>
-<p>** 2.3 找到下面语句并修改如下**</p>
-<p>resolv-file=/etc/dnsmasq.resolv.conf</p>
-<pre><code>addn-hosts=/etc/dnsmasq.hosts
-
-local=/localnet/
-
-no-dhcp-interface=eth0
-
-conf-dir=/etc/dnsmasq.d</code></pre><p>** 3**</p>
+<p>** 2.1 sudo cp -v dnsmasq.conf{,.orig}**</p>
+<p>** 2.2 sudo vim dnsmasq.conf**</p>
+<p>** 2.3 找到下面语句并修改如下**</p>
+<p>resolv-file&#x3D;&#x2F;etc&#x2F;dnsmasq.resolv.conf</p>
+<p>    addn-hosts&#x3D;&#x2F;etc&#x2F;dnsmasq.hosts</p>
+<p>    local&#x3D;&#x2F;localnet&#x2F;</p>
+<p>    no-dhcp-interface&#x3D;eth0</p>
+<p>    conf-dir&#x3D;&#x2F;etc&#x2F;dnsmasq.d</p>
+<p>** 3**</p>
 <p>sudo cp -v resolv.conf dnsmasq.resolv.conf</p>
 <p><strong>`resolv.conf’ -&gt; `dnsmasq.resolv.conf’</strong></p>
-<p>sudo mkdir /etc/dnsmasq.d</p>
-<p>sudo touch /etc/dnsmasq.hosts</p>
+<p>sudo mkdir &#x2F;etc&#x2F;dnsmasq.d</p>
+<p>sudo touch &#x2F;etc&#x2F;dnsmasq.hosts</p>
 <p>4</p>
-<p>sudo /etc/rc.d/dnsmasq start</p>
+<p>sudo &#x2F;etc&#x2F;rc.d&#x2F;dnsmasq start</p>
 <p>启动之后效果还是挺明显的</p>
 <p>启动前</p>
-<p>=&gt;$sudo rc.d/dnsmasq stop</p>
-<p>:: Stopping DNS/DHCP daemon  </p>
-<p>=&gt;$dig archlinux.org | grep “Query time”</p>
+<p>&#x3D;&gt;$sudo rc.d&#x2F;dnsmasq stop</p>
+<p>:: Stopping DNS&#x2F;DHCP daemon  </p>
+<p>&#x3D;&gt;$dig archlinux.org | grep “Query time”</p>
 <p>;; Query time: 516 msec</p>
-<p>=&gt;$sudo rc.d/dnsmasq restart</p>
-<p>:: Stopping DNS/DHCP daemon                                                                                        [FAIL] </p>
-<p>:: Starting DNS/DHCP daemon </p>
-<p>=&gt;$dig archlinux.org | grep “Query time”</p>
+<p>&#x3D;&gt;$sudo rc.d&#x2F;dnsmasq restart</p>
+<p>:: Stopping DNS&#x2F;DHCP daemon                                                                                        [FAIL] </p>
+<p>:: Starting DNS&#x2F;DHCP daemon </p>
+<p>&#x3D;&gt;$dig archlinux.org | grep “Query time”</p>
 <p>;; Query time: 7 msec</p>
-<p>{codewalker}&lt;=Fri Mar 09-09:04 PM=&gt;</p>
-<p>==&gt;/etc&lt;==</p>
-<p>=&gt;$dig baidu.com</p>
+<p>{codewalker}&lt;&#x3D;Fri Mar 09-09:04 PM&#x3D;&gt;</p>
+<p>&#x3D;&#x3D;&gt;&#x2F;etc&lt;&#x3D;&#x3D;</p>
+<p>&#x3D;&gt;$dig baidu.com</p>
 <p>; &lt;&lt;&gt;&gt; DiG 9.9.0 &lt;&lt;&gt;&gt; baidu.com</p>
 <p>;; global options: +cmd</p>
 <p>;; Got answer:</p>
@@ -217,11 +215,11 @@ conf-dir=/etc/dnsmasq.d</code></pre><p>** 3**</p>
 <p>l.gtld-servers.net. 108146 IN A 192.41.162.30</p>
 <p>;; Query time: 10 msec</p>
 <p>;; SERVER: 127.0.0.1#53(127.0.0.1)</p>
-<p>;; WHEN: Fri Mar  9 21:04:19 2012</p>
-<p>;; MSG SIZE  rcvd: 438</p>
-<p>{codewalker}&lt;=Fri Mar 09-09:04 PM=&gt;</p>
-<p>==&gt;/etc&lt;==</p>
-<p>=&gt;$dig baidu.com</p>
+<p>;; WHEN: Fri Mar  9 21:04:19 2012</p>
+<p>;; MSG SIZE  rcvd: 438</p>
+<p>{codewalker}&lt;&#x3D;Fri Mar 09-09:04 PM&#x3D;&gt;</p>
+<p>&#x3D;&#x3D;&gt;&#x2F;etc&lt;&#x3D;&#x3D;</p>
+<p>&#x3D;&gt;$dig baidu.com</p>
 <p>; &lt;&lt;&gt;&gt; DiG 9.9.0 &lt;&lt;&gt;&gt; baidu.com</p>
 <p>;; global options: +cmd</p>
 <p>;; Got answer:</p>
@@ -235,8 +233,8 @@ conf-dir=/etc/dnsmasq.d</code></pre><p>** 3**</p>
 <p>baidu.com. 209 IN A 220.181.111.85</p>
 <p>;; Query time: 3 msec</p>
 <p>;; SERVER: 127.0.0.1#53(127.0.0.1)</p>
-<p>;; WHEN: Fri Mar  9 21:04:24 2012</p>
-<p>;; MSG SIZE  rcvd: 75</p>
+<p>;; WHEN: Fri Mar  9 21:04:24 2012</p>
+<p>;; MSG SIZE  rcvd: 75</p>
 
         
             <div class="donate-container">

@@ -145,10 +145,10 @@
 </span>
     </div>
     <div class="post-content ">
-        <p><strong>原文地址：</strong><a href="http://blog.sina.com.cn/s/blog_701300bc0100vn0j.html" target="_blank" rel="noopener" title="netstat &lt;wbr&gt;查看连接数">查看连接数”&gt;netstat 查看连接数</a><strong>作者：</strong><a href="http://blog.sina.com.cn/u/1880293564" target="_blank" rel="noopener" title="第四V空间">第四V空间</a></p>
-<p>1、查看Web服务器（Nginx Apache）的并发请求数及其TCP连接状态：  </p>
-<p><code>netstat -n | awk &#39;/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}&#39;</code>  </p>
-<p>或者：<br><code>netstat -n | awk &#39;/^tcp/ {++state[$NF]} END {for(key in state) print key,&quot;t&quot;,state[key]}&#39;</code>  </p>
+        <p><strong>原文地址：</strong><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_701300bc0100vn0j.html" title="netstat &lt;wbr&gt;查看连接数">查看连接数”&gt;netstat 查看连接数</a><strong>作者：</strong><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/u/1880293564" title="第四V空间">第四V空间</a></p>
+<p>1、查看Web服务器（Nginx Apache）的并发请求数及其TCP连接状态：  </p>
+<p><code>netstat -n | awk &#39;/^tcp/ &#123;++S[$NF]&#125; END &#123;for(a in S) print a, S[a]&#125;&#39;</code>  </p>
+<p>或者：<br><code>netstat -n | awk &#39;/^tcp/ &#123;++state[$NF]&#125; END &#123;for(key in state) print key,&quot;t&quot;,state[key]&#125;&#39;</code>  </p>
 <p>返回结果一般如下：</p>
 <blockquote>
 <p>LAST_ACK 5 （正在等待处理的请求数）<br>SYN_RECV 30<br>ESTABLISHED 1597 （正常数据传输状态）<br>FIN_WAIT1 51<br>FIN_WAIT2 504<br>TIME_WAIT 1057 （处理完毕，等待超时结束的请求数）</p>

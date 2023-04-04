@@ -148,7 +148,7 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>$ cat check.website.status.sh<br>#!/bin/bash<br>echo “{time_connect}    {time_starttransfer}    {time_total}”<br>cat /etc/hosts.work.net| awk -F ‘ ‘ ‘{print $2}’ | while read LINE<br>do<br>    echo -e “t$LINE: “;<br>    curl -o “/dev/null” -s -w “%{time_connect}t%{time_starttransfer}t%{time_total}” $LINE ;<br>done</p>
+        <p>$ cat check.website.status.sh<br>#!&#x2F;bin&#x2F;bash<br>echo “{time_connect}    {time_starttransfer}    {time_total}”<br>cat &#x2F;etc&#x2F;hosts.work.net| awk -F ‘ ‘ ‘{print $2}’ | while read LINE<br>do<br>    echo -e “t$LINE: “;<br>    curl -o “&#x2F;dev&#x2F;null” -s -w “%{time_connect}t%{time_starttransfer}t%{time_total}” $LINE ;<br>done</p>
 
         
             <div class="donate-container">

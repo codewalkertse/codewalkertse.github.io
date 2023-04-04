@@ -149,20 +149,20 @@
     </div>
     <div class="post-content ">
         <p>前段时间做了微信开放平台的项目，一下为此项目重点，其实就是<strong>源代码</strong>啦～ 当然删掉了一些数据库的操作以及敏感信息. 并感谢前人共享在网上的资料.更多的信息还请参考官方手册.</p>
-<p>creatMenu();//创建菜单</p>
-<p>$wechatObj = new wechatCallbackapi();<br>$wechatObj-&gt;weixin_run(); //执行接收器方法</p>
-<p>function getCurl($url){//get https的内容<br>    $ch = curl_init();<br>    curl_setopt($ch, CURLOPT_URL,$url);<br>    curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);//不输出内容<br>    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);<br>    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);<br>    $result =  curl_exec($ch);<br>    curl_close ($ch);<br>    return $result;<br>}</p>
-<p>function dataPost($post_string, $url) {//POST方式提交数据<br>    $context = array (‘http’ =&gt; array (‘method’ =&gt; “POST”, ‘header’ =&gt; “User-Agent: Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US) \r\n Accept: <em>/</em>“, ‘content’ =&gt; $post_string ) );<br>    $stream_context = stream_context_create ( $context );<br>    $data = file_get_contents ( $url, FALSE, $stream_context );<br>    return $data;<br>}</p>
-<p>class wechatCallbackapi<br>{<br>    private $fromUsername;<br>    private $toUsername;<br>    private $times;<br>    private $keyword;<br>    private $keyevent;<br>    private $event;<br>    private $default_string_inbuilding = ‘建设中…’;</p>
-<pre><code>public function AutomaticReplyFromMenu($k){
+<p>creatMenu();&#x2F;&#x2F;创建菜单</p>
+<p>$wechatObj &#x3D; new wechatCallbackapi();<br>$wechatObj-&gt;weixin_run(); &#x2F;&#x2F;执行接收器方法</p>
+<p>function getCurl($url){&#x2F;&#x2F;get https的内容<br>    $ch &#x3D; curl_init();<br>    curl_setopt($ch, CURLOPT_URL,$url);<br>    curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);&#x2F;&#x2F;不输出内容<br>    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);<br>    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);<br>    $result &#x3D;  curl_exec($ch);<br>    curl_close ($ch);<br>    return $result;<br>}</p>
+<p>function dataPost($post_string, $url) {&#x2F;&#x2F;POST方式提交数据<br>    $context &#x3D; array (‘http’ &#x3D;&gt; array (‘method’ &#x3D;&gt; “POST”, ‘header’ &#x3D;&gt; “User-Agent: Mozilla&#x2F;5.0 (Windows; U; Windows NT 6.0; en-US) \r\n Accept: <em>&#x2F;</em>“, ‘content’ &#x3D;&gt; $post_string ) );<br>    $stream_context &#x3D; stream_context_create ( $context );<br>    $data &#x3D; file_get_contents ( $url, FALSE, $stream_context );<br>    return $data;<br>}</p>
+<p>class wechatCallbackapi<br>{<br>    private $fromUsername;<br>    private $toUsername;<br>    private $times;<br>    private $keyword;<br>    private $keyevent;<br>    private $event;<br>    private $default_string_inbuilding &#x3D; ‘建设中…’;</p>
+<pre><code>public function AutomaticReplyFromMenu($k)&#123;
     //do some CURD
     return $r;
-}
-public function AutomaticReplyFromKeywordDynamic($k){
+&#125;
+public function AutomaticReplyFromKeywordDynamic($k)&#123;
     //do some CURD
     return $r;
-}
-public function weixin_run(){
+&#125;
+public function weixin_run()&#123;
     $this-&gt;responseMsg();
     // $arr\[\]=array(&quot;title1&quot;,&quot;Description1&quot;,&quot;http://www.chuangen.com/pic/hj/s_4.png&quot;,&quot;http://www.smesc.gov.cn/&quot;);
     // $arr\[\]=array(&quot;title2&quot;,&quot;Description2&quot;,&quot;http://www.chuangen.com/pic/hj/s_4.png&quot;,&quot;http://www.smesc.gov.cn/&quot;);
@@ -173,50 +173,50 @@ public function weixin_run(){
     这样设置
     你返回的微信信息也可以换行
     拉啦拉啦这里是新的一行&quot;;
-    if($this-&gt;keyword){
+    if($this-&gt;keyword)&#123;
         // $arr\[\]=&quot;$this-&gt;keyword&quot;;
         // $this-&gt;create_xml(&quot;text&quot;,$arr,array(2,0));
          //$this-&gt;create_xml(&quot;news&quot;,$arr,array(2,0));
         //判断关键词自动回复
         //do something...
-        switch ($this-&gt;keyword) {
-            case &apos;1001&apos;:
+        switch ($this-&gt;keyword) &#123;
+            case &#39;1001&#39;:
                 $r=$this-&gt;AutomaticReplyFromMenu(1001);
                 $this-&gt;create_xml(&quot;news&quot;,$r,array(2,0));
                 break;
-            case &apos;1002&apos;:
+            case &#39;1002&#39;:
                 //按照发送的关键词处理信息
-            case &apos;?&apos;:
+            case &#39;?&#39;:
                 //keyword default.
                 break;
             default:
                 $arr\[\]= $default_string;
                 $this-&gt;create_xml(&quot;text&quot;,$arr,array(2,0));
                 break;
-        }
-    }elseif(!$this-&gt;keyword){
-        if ($this-&gt;event==&apos;CLICK&apos;) {//按照自定义菜单的值处理并生成返回信息.
-            switch ($this-&gt;keyevent){
-                case &apos;1001&apos;:
+        &#125;
+    &#125;elseif(!$this-&gt;keyword)&#123;
+        if ($this-&gt;event==&#39;CLICK&#39;) &#123;//按照自定义菜单的值处理并生成返回信息.
+            switch ($this-&gt;keyevent)&#123;
+                case &#39;1001&#39;:
                     $r=$this-&gt;AutomaticReplyFromMenu(1001);
                     $this-&gt;create_xml(&quot;news&quot;,$r,array(2,0));
                   break;
-                case &apos;1002&apos;:
+                case &#39;1002&#39;:
                     //do some by your keyword.
                 default:
                   //default.
-        } else {
+        &#125; else &#123;
             $arr\[\]=$default_string;
             $this-&gt;create_xml(&quot;text&quot;,$arr,array(2,0));
-        }
-
+        &#125;
+        
         //根据自定义菜单点击事件判断关键词自动回复
-
-    }else{
+        
+    &#125;else&#123;
         $arr\[\]=$default_string;
         $this-&gt;create_xml(&quot;text&quot;,$arr,array(2,0));
-    } 
-}   
+    &#125; 
+&#125;   
 
 
 
@@ -226,160 +226,166 @@ public function weixin_run(){
 // keyword
 // times
 public function responseMsg()// 初始化信息
-{
+&#123;
     $postStr = $GLOBALS\[&quot;HTTP\_RAW\_POST_DATA&quot;\];
-    if (!empty($postStr)){
-        $postObj = simplexml\_load\_string($postStr, &apos;SimpleXMLElement&apos;, LIBXML_NOCDATA);
+    if (!empty($postStr))&#123;
+        $postObj = simplexml\_load\_string($postStr, &#39;SimpleXMLElement&#39;, LIBXML_NOCDATA);
         $this-&gt;fromUsername = $postObj-&gt;FromUserName;
         $this-&gt;toUsername = $postObj-&gt;ToUserName;
         $this-&gt;keyword = trim($postObj-&gt;Content);//收到的内容
         $this-&gt;times = time();
         $this-&gt;keyevent = $postObj-&gt;EventKey;//事件keyword
         $this-&gt;event = $postObj-&gt;Event;//事件
-    }else {
-        echo &quot;this file only for weixin API!  </code></pre><p><a href="http://codewalker.me" target="_blank" rel="noopener">SA</a>“;<br>            exit;<br>        }<br>    }</p>
+    &#125;else &#123;
+        echo &quot;this file only for weixin API!  
+</code></pre>
+<p><a target="_blank" rel="noopener" href="http://codewalker.me/">SA</a>“;<br>            exit;<br>        }<br>    }</p>
 <pre><code>//微信封装类,
 //type: text 文本类型, news 图文类型
 //text,array(内容),array(ID)
 //news,array(array(标题,介绍,图片,超链接),...小于10条),array(条数,ID)
-
-private function create\_xml($type,$value\_arr,$o_arr=array(0)){
+ 
+private function create\_xml($type,$value\_arr,$o_arr=array(0))&#123;
     //=================xml header============
-    $con=&quot; fromUsername}\]\]&gt;
-    toUsername}\]\]&gt;
-    {$this-&gt;times}
+    $con=&quot; fromUsername&#125;\]\]&gt;
+    toUsername&#125;\]\]&gt;
+    &#123;$this-&gt;times&#125;
     &quot;;
-
+     
           //=================type content============
-    switch($type){
+    switch($type)&#123;
 
         case &quot;text&quot; : 
             $con.=&quot;
-            {$o_arr}&quot;;  
+            &#123;$o_arr&#125;&quot;;  
             break;
         case &quot;news&quot; : 
-            $con.=&quot;{$o_arr\[0\]}&quot;;
-            foreach($value_arr as $id=&gt;$v){
+            $con.=&quot;&#123;$o_arr\[0\]&#125;&quot;;
+            foreach($value_arr as $id=&gt;$v)&#123;
                 if($id&gt;=$o_arr\[0\]) break; else null; //判断数组数不超过设置数
-                         $con.=&quot; &lt;!\[CDATA\[{$v\[0\]}\]\]&gt; &quot;;
-            }
-            $con.=&quot;{$o_arr\[1\]}&quot;;
+                         $con.=&quot; &lt;!\[CDATA\[&#123;$v\[0\]&#125;\]\]&gt; &quot;;
+            &#125;
+            $con.=&quot;&#123;$o_arr\[1\]&#125;&quot;;
             break;
-    } //end switch
-
+    &#125; //end switch
+     
     //=================end return============
      echo $con.&quot;&quot;;
-}
+&#125;
 
 //===========default DO NOT MODIFY======//
 public function valid()
-{
+&#123;
     $echoStr = $_GET\[&quot;echostr&quot;\];
 
     //valid signature , option
-    if($this-&gt;checkSignature()){
+    if($this-&gt;checkSignature())&#123;
      echo $echoStr;
      exit;
-    }
-}
+    &#125;
+&#125;
 private function checkSignature()
-{
+&#123;
         $signature = $_GET\[&quot;signature&quot;\];
         $timestamp = $_GET\[&quot;timestamp&quot;\];
         $nonce = $_GET\[&quot;nonce&quot;\]; 
-
+         
         $token = TOKEN;
         $tmpArr = array($token, $timestamp, $nonce);
         sort($tmpArr);
         $tmpStr = implode( $tmpArr );
         $tmpStr = sha1( $tmpStr );
-
-        if( $tmpStr == $signature ){
+ 
+        if( $tmpStr == $signature )&#123;
             return true;
-        }else{
+        &#125;else&#123;
             return false;
-        }
-}
-//===========default DO NOT MODIFY======//</code></pre><p>}</p>
-<p>class WechatMenu<br>{<br>    private function getAccessToken() //获取access_token<br>    {<br>     $url = “<a href="https://api.weixin.qq.com/cgi-bin/token?grant\_type=client\_credential&amp;appid=&quot;.AppId.&quot;&amp;secret=&quot;.AppSecret" target="_blank" rel="noopener">https://api.weixin.qq.com/cgi-bin/token?grant\_type=client\_credential&amp;appid=&quot;.AppId.&quot;&amp;secret=&quot;.AppSecret</a>;<br>     $data = getCurl($url);//通过自定义函数getCurl得到https的内容<br>     $resultArr = json_decode($data, true);//转为数组<br>     return $resultArr[“access_token”];//获取access_token<br>    }</p>
+        &#125;
+&#125;
+//===========default DO NOT MODIFY======//
+</code></pre>
+<p>}</p>
+<p>class WechatMenu<br>{<br>    private function getAccessToken() &#x2F;&#x2F;获取access_token<br>    {<br>     $url &#x3D; “<a target="_blank" rel="noopener" href="https://api.weixin.qq.com/cgi-bin/token?grant%5C_type=client%5C_credential&appid=%22.AppId.%22&secret=%22.AppSecret">https://api.weixin.qq.com/cgi-bin/token?grant\_type=client\_credential&amp;appid=&quot;.AppId.&quot;&amp;secret=&quot;.AppSecret</a>;<br>     $data &#x3D; getCurl($url);&#x2F;&#x2F;通过自定义函数getCurl得到https的内容<br>     $resultArr &#x3D; json_decode($data, true);&#x2F;&#x2F;转为数组<br>     return $resultArr[“access_token”];&#x2F;&#x2F;获取access_token<br>    }</p>
 <pre><code>public function creatMenu()//创建菜单
-{
+&#123;
     $accessToken = $this-&gt;getAccessToken();//获取access_token
-    $menuPostString = &apos;
-    {
+    $menuPostString = &#39;
+    &#123;
     &quot;button&quot;: \[
-        {
+        &#123;
             &quot;name&quot;: &quot;资讯&quot;,
             &quot;sub_button&quot;: \[
-                {
+                &#123;
                     &quot;type&quot;: &quot;click&quot;,
                     &quot;name&quot;: &quot;通知公告&quot;,
                     &quot;key&quot;: &quot;1001&quot;
-                },
-                {
+                &#125;,
+                &#123;
                     &quot;type&quot;: &quot;click&quot;,
                     &quot;name&quot;: &quot;政策法规&quot;,
                     &quot;key&quot;: &quot;1002&quot;
-                },
-                {
+                &#125;,
+                &#123;
                     &quot;type&quot;: &quot;click&quot;,
                     &quot;name&quot;: &quot;服务体系&quot;,
                     &quot;key&quot;: &quot;1003&quot;
-                },
-                {
+                &#125;,
+                &#123;
                     &quot;type&quot;: &quot;click&quot;,
                     &quot;name&quot;: &quot;手机报&quot;,
                     &quot;key&quot;: &quot;1004&quot;
-                }
+                &#125;
             \]
-        },
-        {
+        &#125;,
+        &#123;
             &quot;name&quot;: &quot;E服务&quot;,
             &quot;sub_button&quot;: \[
-                {
+                &#123;
                     &quot;type&quot;: &quot;click&quot;,
                     &quot;name&quot;: &quot;服务产品&quot;,
                     &quot;key&quot;: &quot;2001&quot;
-                },
-                {
+                &#125;,
+                &#123;
                     &quot;type&quot;: &quot;click&quot;,
                     &quot;name&quot;: &quot;服务需求&quot;,
                     &quot;key&quot;: &quot;2002&quot;
-                },
-                {
+                &#125;,
+                &#123;
                     &quot;type&quot;: &quot;click&quot;,
                     &quot;name&quot;: &quot;服务专家&quot;,
                     &quot;key&quot;: &quot;2003&quot;
-                },
-                {
+                &#125;,
+                &#123;
                     &quot;type&quot;: &quot;click&quot;,
                     &quot;name&quot;: &quot;订单服务&quot;,
                     &quot;key&quot;: &quot;2004&quot;
-                }
+                &#125;
             \]
-        },
-        {
+        &#125;,
+        &#123;
             &quot;name&quot;: &quot;互动&quot;,
             &quot;sub_button&quot;: \[
-                {
+                &#123;
                     &quot;type&quot;: &quot;click&quot;,
                     &quot;name&quot;: &quot;调查问卷&quot;,
                     &quot;key&quot;: &quot;3001&quot;
-                },
-                {
+                &#125;,
+                &#123;
                     &quot;type&quot;: &quot;click&quot;,
                     &quot;name&quot;: &quot;联系我们&quot;,
                     &quot;key&quot;: &quot;3002&quot;
-                }
+                &#125;
             \]
-        }
+        &#125;
     \]
-    }
-    &apos;;
+    &#125;
+    &#39;;
     $menuPostUrl = &quot;https://api.weixin.qq.com/cgi-bin/menu/create?access_token=&quot;.$accessToken;//POST的url
     $menu = dataPost($menuPostString, $menuPostUrl);//将菜单结构体POST给微信服务器
-}</code></pre><p>}</p>
-<p>class sqltool<br>{<br> //do some sql.<br>}<br>?&gt;</p>
+&#125;
+</code></pre>
+<p>}</p>
+<p>class sqltool<br>{<br> &#x2F;&#x2F;do some sql.<br>}<br>?&gt;</p>
 
         
             <div class="donate-container">

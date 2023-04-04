@@ -149,22 +149,24 @@
     </div>
     <div class="post-content ">
         <p>update：修改了一下输出样式，增加地点的输出</p>
-<p>#!/usr/bin/python2</p>
-<p>#auth:codewalker #mail:<a href="mailto:001@codewalker.me">001@codewalker.me</a><br>#date: 2013-11-21</p>
+<p>#!&#x2F;usr&#x2F;bin&#x2F;python2</p>
+<p>#auth:codewalker #mail:<a href="mailto:&#x30;&#48;&#x31;&#64;&#99;&#x6f;&#x64;&#x65;&#119;&#x61;&#x6c;&#107;&#101;&#x72;&#46;&#109;&#101;">&#x30;&#48;&#x31;&#64;&#99;&#x6f;&#x64;&#x65;&#119;&#x61;&#x6c;&#107;&#101;&#x72;&#46;&#109;&#101;</a><br>#date: 2013-11-21</p>
 <p>from bs4 import BeautifulSoup<br>import urllib2<br>import sys</p>
-<p>def main():<br>    if len(sys.argv) !=  2:<br>        print “Need a track number”<br>        exit(1)<br>    track_number = sys.argv[1]<br>    track_date = []<br>    track_location = []<br>    headers = { ‘User-Agent’ : ‘Mozilla/5.0’ }<br>    url = “<a href="https://tools.usps.com/go/TrackConfirmAction!input.action?tRef=qt&amp;tLc=1&amp;tLabels=&quot;" target="_blank" rel="noopener">https://tools.usps.com/go/TrackConfirmAction!input.action?tRef=qt&amp;tLc=1&amp;tLabels=&quot;</a> + track_number<br>    req = urllib2.Request(url, None, headers)<br>    htmltext = urllib2.urlopen(req).read()<br>    soup = BeautifulSoup(htmltext)<br>    track_info = soup.find_all(“span”, { “class” : “info-text” })<br>    dates = soup.find_all(“td”, { “class” : “date-time” })<br>    locations = soup.find_all(“td”, { “class” : “location” })</p>
+<p>def main():<br>    if len(sys.argv) !&#x3D;  2:<br>        print “Need a track number”<br>        exit(1)<br>    track_number &#x3D; sys.argv[1]<br>    track_date &#x3D; []<br>    track_location &#x3D; []<br>    headers &#x3D; { ‘User-Agent’ : ‘Mozilla&#x2F;5.0’ }<br>    url &#x3D; “<a target="_blank" rel="noopener" href="https://tools.usps.com/go/TrackConfirmAction!input.action?tRef=qt&tLc=1&tLabels=">https://tools.usps.com/go/TrackConfirmAction!input.action?tRef=qt&amp;tLc=1&amp;tLabels=</a>“ + track_number<br>    req &#x3D; urllib2.Request(url, None, headers)<br>    htmltext &#x3D; urllib2.urlopen(req).read()<br>    soup &#x3D; BeautifulSoup(htmltext)<br>    track_info &#x3D; soup.find_all(“span”, { “class” : “info-text” })<br>    dates &#x3D; soup.find_all(“td”, { “class” : “date-time” })<br>    locations &#x3D; soup.find_all(“td”, { “class” : “location” })</p>
 <pre><code>for date in dates:
-    d =  &apos; &apos;.join(date.p.text.split())
+    d =  &#39; &#39;.join(date.p.text.split())
     track_date.append(d)
 
 for location in locations:
-    l =  &apos; &apos;.join(location.p.text.split())
+    l =  &#39; &#39;.join(location.p.text.split())
     track_location.append(l)
 
 for i in range(len(track_date)):
     print &quot;%s : %s&quot; % (i,track_date\[i\])
     print &quot;%s IN %s&quot; % (track\_info\[i\].text,track\_location\[i\])
-    print &apos;#&apos; * 30</code></pre><p>if __name__ == “__main__“:<br>    main()<br>#INPUT:<br>#    ./track.package.py LC945862504US<br>#OUTPUT:<br># 0 : November 21, 2013 , 12:04 am<br># Processed at USPS Origin Sort Facility  IN BALTIMORE, MD 21233<br>##############################<br># 1 : November 20, 2013 , 6:14 pm<br>#  Dispatched to Sort Facility  IN BALTIMORE, MD 21202<br>##############################<br># 2 : November 20, 2013 , 4:07 pm<br>#   Acceptance  IN BALTIMORE, MD 21202</p>
+    print &#39;#&#39; * 30
+</code></pre>
+<p>if __name__ &#x3D;&#x3D; “__main__“:<br>    main()<br>#INPUT:<br>#    .&#x2F;track.package.py LC945862504US<br>#OUTPUT:<br># 0 : November 21, 2013 , 12:04 am<br># Processed at USPS Origin Sort Facility  IN BALTIMORE, MD 21233<br>##############################<br># 1 : November 20, 2013 , 6:14 pm<br>#  Dispatched to Sort Facility  IN BALTIMORE, MD 21202<br>##############################<br># 2 : November 20, 2013 , 4:07 pm<br>#   Acceptance  IN BALTIMORE, MD 21202</p>
 
         
             <div class="donate-container">

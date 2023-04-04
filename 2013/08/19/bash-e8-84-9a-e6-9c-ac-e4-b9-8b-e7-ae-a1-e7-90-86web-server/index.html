@@ -154,7 +154,7 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>#!/bin/bash<br>function startWebServer(){<br>    sudo systemctl start php-fpm<br>    echo ‘start php DONE’<br>    sudo systemctl start  nginx<br>    echo ‘start nginx DONE’<br>    sudo systemctl start  mysqld<br>    echo ‘start mysqld DONE’<br>}</p>
+        <p>#!&#x2F;bin&#x2F;bash<br>function startWebServer(){<br>    sudo systemctl start php-fpm<br>    echo ‘start php DONE’<br>    sudo systemctl start  nginx<br>    echo ‘start nginx DONE’<br>    sudo systemctl start  mysqld<br>    echo ‘start mysqld DONE’<br>}</p>
 <p>function stopWebServer(){<br>    sudo systemctl stop php-fpm<br>    echo ‘stop php DONE’<br>    sudo systemctl stop nginx<br>    echo ‘stop nginx DONE’<br>    sudo systemctl stop mysqld<br>    echo ‘stop mysqld DONE’<br>}</p>
 <p>function statusWebServer(){<br>    echo ‘PHP:’<br>    sudo systemctl status php-fpm|grep Active<br>    echo ‘NGINX:’<br>    sudo systemctl status nginx|grep Active<br>    echo ‘MYSQL:’<br>    sudo systemctl status mysqld|grep Active<br>}</p>
 <p>case $1 in<br>    start)  startWebServer   ;;<br>    stop)   stopWebServer   ;;<br>    status) statusWebServer ;;<br>    *)<br>        echo “USAGE:    $0 start|stop|status” &gt;&amp;2 ;;<br>esac</p>

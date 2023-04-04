@@ -145,38 +145,38 @@
         <p>最近一次更新arch之后发现强制从netcfg更新为netctl</p>
 <p>据说是因为前者无人维护，后者的话加入了对systemd的支持。</p>
 <p>今天捣鼓了一下没什么难点很简单。直接上配置文件类似这样</p>
-<p>Description=’随便填写描述信息’</p>
-<p>ESSID=’你的wifi名字’</p>
-<p>Interface=网卡名字</p>
-<p>Connection=wireless</p>
-<p>Security=wpa</p>
-<p>#IP=dhcp</p>
-<p>IP=static</p>
-<p>Address=’192.168.1.100/24’</p>
-<p>DNS=(‘8.8.8.8’)</p>
-<p>Gateway=’192.168.1.1’</p>
-<p>Key=”fba9286e2781cd570be0672e3a3283d4ebjskajsuxj9</p>
+<p>Description&#x3D;’随便填写描述信息’</p>
+<p>ESSID&#x3D;’你的wifi名字’</p>
+<p>Interface&#x3D;网卡名字</p>
+<p>Connection&#x3D;wireless</p>
+<p>Security&#x3D;wpa</p>
+<p>#IP&#x3D;dhcp</p>
+<p>IP&#x3D;static</p>
+<p>Address&#x3D;’192.168.1.100&#x2F;24’</p>
+<p>DNS&#x3D;(‘8.8.8.8’)</p>
+<p>Gateway&#x3D;’192.168.1.1’</p>
+<p>Key&#x3D;”fba9286e2781cd570be0672e3a3283d4ebjskajsuxj9</p>
 <p>发现个问题。查看man之后说的dns配置为array但是不管我用什么格式去写还是不能配置多个dns。</p>
-<p>比如这样DNS=(‘8.8.8.8’ ‘8.8.4.4’)</p>
+<p>比如这样DNS&#x3D;(‘8.8.8.8’ ‘8.8.4.4’)</p>
 <p>man中的说明为</p>
-<p> DNS=()</p>
-<pre><code>An array of DNS nameservers. Simply specify the IP addresses of each of the DNS
-
-nameservers.</code></pre><p>在官方论坛上看到有人也有同样的问题。可能会在下个版本中修复吧。</p>
+<p> DNS&#x3D;()</p>
+<p>         An array of DNS nameservers. Simply specify the IP addresses of each of the DNS</p>
+<p>         nameservers.</p>
+<p>在官方论坛上看到有人也有同样的问题。可能会在下个版本中修复吧。</p>
 <p>上面的各项参数都一目了然，提一下key就是你的password。这里我用了256位的加密，所使用的软件为wpa_actiond带的wpa_passphrase生成256位加密 PSK，</p>
-<p>需要注意的是：这里用加密的密码必须以<strong>“</strong>开头,用明文的话就直接跟密码就好了。</p>
+<p>需要注意的是：这里用加密的密码必须以**”**开头,用明文的话就直接跟密码就好了。</p>
 <p>Usage: wpa_passphrase [ssid] [passphrase]</p>
 <p>最后netctl使用方法：</p>
 <p>你可以用原生 netctl start xxx来启动一个配置文件</p>
-<p>也可以加入开机启动 netctl enable xxx</p>
+<p>也可以加入开机启动 netctl enable xxx</p>
 <p>可以用netctl stop xxx 或者netctl stop-all 来关闭链接</p>
 <p>或者用<strong>systemctl</strong>来管理也更好就不赘述了</p>
 <p>自动链接wifi</p>
 <p>首先把需要的配置文件在netctl 中enable</p>
 <p>再在systemctl 中打开netctl的自动连接</p>
-<p>systemctl enable <a href="mailto:netctl-auto@wlan0.service">netctl-auto@wlan0.service</a></p>
+<p>systemctl enable <a href="mailto:&#x6e;&#x65;&#116;&#99;&#x74;&#108;&#45;&#x61;&#117;&#116;&#x6f;&#x40;&#119;&#108;&#x61;&#x6e;&#48;&#46;&#x73;&#101;&#114;&#x76;&#105;&#x63;&#101;">&#x6e;&#x65;&#116;&#99;&#x74;&#108;&#45;&#x61;&#117;&#116;&#x6f;&#x40;&#119;&#108;&#x61;&#x6e;&#48;&#46;&#x73;&#101;&#114;&#x76;&#105;&#x63;&#101;</a></p>
 <p>以及把网卡设置为自动开启</p>
-<p>systemctl enable <a href="mailto:netctl-ifplugd@eth0.service">netctl-ifplugd@eth0.service</a></p>
+<p>systemctl enable <a href="mailto:&#110;&#x65;&#116;&#99;&#116;&#x6c;&#x2d;&#105;&#102;&#112;&#x6c;&#117;&#103;&#100;&#64;&#101;&#116;&#104;&#48;&#x2e;&#x73;&#101;&#114;&#x76;&#105;&#99;&#x65;">&#110;&#x65;&#116;&#99;&#116;&#x6c;&#x2d;&#105;&#102;&#112;&#x6c;&#117;&#103;&#100;&#64;&#101;&#116;&#104;&#48;&#x2e;&#x73;&#101;&#114;&#x76;&#105;&#99;&#x65;</a></p>
 
         
             <div class="donate-container">

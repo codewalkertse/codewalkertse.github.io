@@ -146,13 +146,13 @@
     </div>
     <div class="post-content ">
         <p>没事儿写个脚本工作日以及周末的统计 可输出相对应的日期号数.</p>
-<p>#!/usr/bin/python2</p>
-<p>#auth:codewalker #mail:<a href="mailto:001@codewalker.me">001@codewalker.me</a><br>#date:2013-12-15</p>
+<p>#!&#x2F;usr&#x2F;bin&#x2F;python2</p>
+<p>#auth:codewalker #mail:<a href="mailto:&#x30;&#x30;&#x31;&#64;&#99;&#111;&#x64;&#101;&#119;&#97;&#108;&#107;&#x65;&#x72;&#46;&#x6d;&#101;">&#x30;&#x30;&#x31;&#64;&#99;&#111;&#x64;&#101;&#119;&#97;&#108;&#107;&#x65;&#x72;&#46;&#x6d;&#101;</a><br>#date:2013-12-15</p>
 <p>import datetime<br>from calendar import monthrange</p>
 <p>def get_year():<br>    return str(datetime.date.today())[:4]</p>
 <p>def get_month():<br>    return str(datetime.date.today())[5:7]</p>
 <p>def get_day():<br>    return str(datetime.date.today())[-2:]</p>
-<p>def get_weekenddays_and_businessdays(year, month):<br>    i = 1<br>    weekenddays = []<br>    businessdays = []<br>    already_work_days = []<br>    count_days = monthrange(year, month)</p>
+<p>def get_weekenddays_and_businessdays(year, month):<br>    i &#x3D; 1<br>    weekenddays &#x3D; []<br>    businessdays &#x3D; []<br>    already_work_days &#x3D; []<br>    count_days &#x3D; monthrange(year, month)</p>
 <pre><code>if (year, month) == (int(get\_year()), int(get\_month())):
     currentday = int(get_day())
 else:
@@ -167,7 +167,9 @@ while i &lt;= count_days\[1\]:
     else:
         weekenddays.append(i)
     i += 1
-return (businessdays, weekenddays, already\_work\_days)</code></pre><p>def main():</p>
+return (businessdays, weekenddays, already\_work\_days)
+</code></pre>
+<p>def main():</p>
 <pre><code>y = int(get_year())
 m = int(get_month())
 
@@ -181,7 +183,9 @@ print &quot;businessdays: \[%s\], weekenddays: \[%s\].&quot; % \
 print &quot;You have ALREAD work \[%d\] days. Remaining \[%s\] days to work...&quot; % \
         (len(d\[2\]), len(d\[0\])-len(d\[2\]))
 
-print d</code></pre><p>if __name__ == “__main__“:<br>    main()</p>
+print d
+</code></pre>
+<p>if __name__ &#x3D;&#x3D; “__main__“:<br>    main()</p>
 <p>#OUTPUT<br>#2013 - 12:<br>#businessdays: [22], weekenddays: [9].<br>#You have ALREAD work [10] days. Remaining [12] days to work…<br>([2, 3, 4, 5, 6, 9, 10, 11, 12, 13, 16, 17, 18, 19, 20, 23, 24, 25, 26, 27, 30, 31], [1, 7, 8, 14, 15, 21, 22, 28, 29], [2, 3, 4, 5, 6, 9, 10, 11, 12, 13])</p>
 
         

@@ -142,152 +142,102 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>{codewalker}&lt;=Sat Mar 03-03:08 PM=&gt;</p>
-<p>==&gt;~/my_script&lt;==</p>
-<p>=&gt;$cat start_web_server.sh </p>
-<p> #!/bin/bash</p>
-<p> USAGE(){</p>
+        <p>{codewalker}&lt;&#x3D;Sat Mar 03-03:08 PM&#x3D;&gt;</p>
+<p>&#x3D;&#x3D;&gt;~&#x2F;my_script&lt;&#x3D;&#x3D;</p>
+<p>&#x3D;&gt;$cat start_web_server.sh </p>
+<p> #!&#x2F;bin&#x2F;bash</p>
+<p> USAGE(){</p>
 <p>cat &lt;&lt;EOF</p>
-<pre><code>1:start php,nginx,varnish;
-
-2:stop php,nginx,varnish;
-
-3:restart php,nginx,varnish;</code></pre><p>EOF</p>
+<p>        1:start php,nginx,varnish;</p>
+<p>        2:stop php,nginx,varnish;</p>
+<p>        3:restart php,nginx,varnish;</p>
+<p>EOF</p>
 <p>}</p>
 <p>function start_php_nginx_varnish (){</p>
-<pre><code>echo &apos;starting php-fpm...&apos;;
-
-sudo /etc/rc.d/php-fpm start
-
-echo &apos;starting nginx...&apos;;
-
-sudo /etc/rc.d/nginx start
-
-echo &apos;starting varnish&apos;;
-
-sudo varnishd -f /etc/varnish/default.vcl -s malloc,1G -T 127.0.0.1:2000 -a 0.0.0.0:8080
-
-sudo /etc/rc.d/varnish start</code></pre><p>}</p>
-<p>function stop_php_nginx_varnish (){</p>
-<pre><code>echo &apos;stop webserver&apos;;
-
-sudo /etc/rc.d/php-fpm stop
-
-sudo /etc/rc.d/nginx stop 
-
-sudo /etc/rc.d/varnish stop
-
-sudo pkill varnish</code></pre><p>}</p>
-<p>function restart_php_nginx_varnish (){</p>
-<pre><code>stop\_php\_nginx_varnish
-
-start\_php\_nginx_varnish</code></pre><p>}</p>
-<p> function mysql_control(){</p>
-<pre><code>echo &quot;you chose $@ mysql&quot;
-
-case &quot;$1&quot; in
-
- #control mysql case statement
-
-
-
-START|start) echo &quot;now start mysql&quot;
-
-    sudo /etc/rc.d/mysqld start;;
-
-
-
-STOP|stop) echo &quot;now stop mysql&quot;
-
-    sudo /etc/rc.d/mysqld stop;;
-
-
-
-RESTART|restart)
-
-    sudo /etc/rc.d/mysqld start;;
-
-
-
-q|Q) done=&quot;true&quot; #ends while loop 
-
-    ;;
-
- *)   echo &quot;Invalid option, choose again...&quot;;;</code></pre><p>   esac</p>
+<p>    echo ‘starting php-fpm…’;</p>
+<p>    sudo &#x2F;etc&#x2F;rc.d&#x2F;php-fpm start</p>
+<p>    echo ‘starting nginx…’;</p>
+<p>    sudo &#x2F;etc&#x2F;rc.d&#x2F;nginx start</p>
+<p>    echo ‘starting varnish’;</p>
+<p>    sudo varnishd -f &#x2F;etc&#x2F;varnish&#x2F;default.vcl -s malloc,1G -T 127.0.0.1:2000 -a 0.0.0.0:8080</p>
+<p>    sudo &#x2F;etc&#x2F;rc.d&#x2F;varnish start</p>
 <p>}</p>
-<p>count_input=0</p>
-<p> while [ “$switch” == ‘’ ]; do</p>
-<pre><code> read -p &quot;what are you doing?&quot; switch
-
- ((count_input++))
-
-# echo $count_input
-
- if \[ $count_input -ge 3 \];then
-
-    USAGE
-
- fi
-
- if \[ $count_input -ge 5 \];then
-
-     echo &apos;are u nuts!!!&apos;
-
-     mytime=5
-
-     less_time=10
-
-     while \[ $mytime -ge -4 \];do
-
-         sleep 1
-
-         ((less_time--))
-
-         echo $less_time
-
-         ((mytime--))
-
-     done
-
-     echo &apos;quitting....&apos;
-
-     exit 0
-
- fi</code></pre><p> done</p>
-<p>if [ “$switch” == “1” ];then</p>
-<pre><code>start\_php\_nginx_varnish
-
-read -p &apos;Do you start mysql(type:1=yes or 2=no)&apos; is\_start\_mysql
-
-if \[ &quot;$is\_start\_mysql&quot; == &quot;1&quot; \];then
-
-    mysql_control &apos;start&apos;
-
-fi</code></pre><p>fi</p>
-<p>if [ “$switch” == “2” ];then</p>
-<pre><code>stop\_php\_nginx_varnish
-
-read -p &apos;Do you stop mysql(type:1=yes or 2=no)&apos; is\_start\_mysql
-
-if \[ &quot;$is\_start\_mysql&quot; == &quot;1&quot; \];then
-
-     mysql_control &apos;stop&apos;
-
-fi</code></pre><p>fi</p>
-<p>if [ “$switch” == “3” ];then</p>
-<pre><code>restart\_php\_nginx_varnish
-
-read -p &apos;Do you restart mysql(type:1=yes or 2=no)&apos; is\_start\_mysql
-
-if \[ &quot;$is\_start\_mysql&quot; == &quot;1&quot; \];then
-
-    mysql_control &apos;restart&apos;
-
-else
-
-    echo &apos;i chose no&apos;
-
-fi</code></pre><p>fi</p>
+<p>function stop_php_nginx_varnish (){</p>
+<p>    echo ‘stop webserver’;</p>
+<p>    sudo &#x2F;etc&#x2F;rc.d&#x2F;php-fpm stop</p>
+<p>    sudo &#x2F;etc&#x2F;rc.d&#x2F;nginx stop </p>
+<p>    sudo &#x2F;etc&#x2F;rc.d&#x2F;varnish stop</p>
+<p>    sudo pkill varnish</p>
+<p>}</p>
+<p>function restart_php_nginx_varnish (){</p>
+<p>    stop_php_nginx_varnish</p>
+<p>    start_php_nginx_varnish</p>
+<p>}</p>
+<p> function mysql_control(){</p>
+<p>    echo “you chose $@ mysql”</p>
+<p>    case “$1” in</p>
+<p>     #control mysql case statement</p>
+<p>    </p>
+<p>    START|start) echo “now start mysql”</p>
+<p>        sudo &#x2F;etc&#x2F;rc.d&#x2F;mysqld start;;</p>
+<p>    </p>
+<p>    STOP|stop) echo “now stop mysql”</p>
+<p>        sudo &#x2F;etc&#x2F;rc.d&#x2F;mysqld stop;;</p>
+<p>    </p>
+<p>    RESTART|restart)</p>
+<p>        sudo &#x2F;etc&#x2F;rc.d&#x2F;mysqld start;;</p>
+<p>    </p>
+<p>    q|Q) done&#x3D;”true” #ends while loop </p>
+<p>        ;;</p>
+<p>     *)   echo “Invalid option, choose again…”;;</p>
+<p>   esac</p>
+<p>}</p>
+<p>count_input&#x3D;0</p>
+<p> while [ “$switch” &#x3D;&#x3D; ‘’ ]; do</p>
+<p>     read -p “what are you doing?” switch</p>
+<p>     ((count_input++))</p>
+<p>    # echo $count_input</p>
+<p>     if [ $count_input -ge 3 ];then</p>
+<p>        USAGE</p>
+<p>     fi</p>
+<p>     if [ $count_input -ge 5 ];then</p>
+<p>         echo ‘are u nuts!!!’</p>
+<p>         mytime&#x3D;5</p>
+<p>         less_time&#x3D;10</p>
+<p>         while [ $mytime -ge -4 ];do</p>
+<p>             sleep 1</p>
+<p>             ((less_time–))</p>
+<p>             echo $less_time</p>
+<p>             ((mytime–))</p>
+<p>         done</p>
+<p>         echo ‘quitting….’</p>
+<p>         exit 0</p>
+<p>     fi</p>
+<p> done</p>
+<p>             </p>
+<p>if [ “$switch” &#x3D;&#x3D; “1” ];then</p>
+<p>     start_php_nginx_varnish</p>
+<p>     read -p ‘Do you start mysql(type:1&#x3D;yes or 2&#x3D;no)’ is_start_mysql</p>
+<p>     if [ “$is_start_mysql” &#x3D;&#x3D; “1” ];then</p>
+<p>         mysql_control ‘start’</p>
+<p>     fi</p>
+<p>fi</p>
+<p>if [ “$switch” &#x3D;&#x3D; “2” ];then</p>
+<p>    stop_php_nginx_varnish</p>
+<p>    read -p ‘Do you stop mysql(type:1&#x3D;yes or 2&#x3D;no)’ is_start_mysql</p>
+<p>    if [ “$is_start_mysql” &#x3D;&#x3D; “1” ];then</p>
+<p>         mysql_control ‘stop’</p>
+<p>    fi</p>
+<p>fi</p>
+<p>if [ “$switch” &#x3D;&#x3D; “3” ];then</p>
+<p>    restart_php_nginx_varnish</p>
+<p>    read -p ‘Do you restart mysql(type:1&#x3D;yes or 2&#x3D;no)’ is_start_mysql</p>
+<p>    if [ “$is_start_mysql” &#x3D;&#x3D; “1” ];then</p>
+<p>        mysql_control ‘restart’</p>
+<p>    else</p>
+<p>        echo ‘i chose no’</p>
+<p>    fi</p>
+<p>fi</p>
 
         
             <div class="donate-container">

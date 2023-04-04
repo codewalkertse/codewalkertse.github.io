@@ -26,7 +26,7 @@
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
-<link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -145,77 +145,17 @@
 </span>
     </div>
     <div class="post-content ">
-        <p><strong>原文地址：</strong><a href="http://blog.sina.com.cn/s/blog_49f485700100exx9.html" target="_blank" rel="noopener" title="使用jquery做搜索引擎效果">使用jquery做搜索引擎效果</a><strong>作者：</strong><a href="http://blog.sina.com.cn/u/1240761712" target="_blank" rel="noopener" title="Hope">Hope</a></p>
+        <p><strong>原文地址：</strong><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_49f485700100exx9.html" title="使用jquery做搜索引擎效果">使用jquery做搜索引擎效果</a><strong>作者：</strong><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/u/1240761712" title="Hope">Hope</a></p>
 <p>当用户输入电话号码的时候，会自动出现提示。类似于google搜索引擎效果，</p>
 <p>之前用javascript写过一个，但是目前使用jquery更为简单。</p>
-<p>[<img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="[转载]使用jquery做搜索引擎效果" title="[转载]使用jquery做搜索引擎效果">](<a href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100o5gx&amp;url=http://s8.sinaimg.cn/orignal/49f4857046aa2e8bed467&amp;690" target="_blank" rel="noopener">http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100o5gx&amp;url=http://s8.sinaimg.cn/orignal/49f4857046aa2e8bed467&amp;690</a>)</p>
+<p>[<img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="[转载]使用jquery做搜索引擎效果" title="[转载]使用jquery做搜索引擎效果">](<a target="_blank" rel="noopener" href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100o5gx&url=http://s8.sinaimg.cn/orignal/49f4857046aa2e8bed467&690">http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100o5gx&amp;url=http://s8.sinaimg.cn/orignal/49f4857046aa2e8bed467&amp;690</a>)</p>
+<p> </p>
 <p>代码如下：</p>
-<pre><code> var line = 0;  
- var sendType;  
- function del(){  
-     if($(&quot;#newDiv&quot;)){  
-         $(&quot;#newDiv&quot;).remove();  
-         line = 0;  
-     }  
- }     
-$(document).ready(function(){  
-     //文本框失去焦点时层消失  
-     $(document.body).click(function(){  
-         del();  
-     });             
-     $(document).keydown(function(){  
-         // 38 上  40下 13 回车  
-         if($(&quot;#newDiv&quot;)){  
-             if(event.keyCode == 40){  
-                 $(&quot;table tbody tr&quot;).eq(line)  
-                     .css(&quot;backgroundColor&quot;, &quot;blue&quot;)  
-                     .css(&quot;color&quot;, &quot;white&quot;);  
-                 $(&quot;table tbody tr&quot;).eq(line &lt; 0 ? 0 : line - 1)  
-                     .css(&quot;backgroundColor&quot;, &quot;white&quot;)  
-                     .css(&quot;color&quot;, &quot;black&quot;);  
-                 line = (line == $(&quot;table tbody tr&quot;).length ? 0 : line + 1);  
-             }else if(event.keyCode == 38){  
-                 line = (line == 0 ? $(&quot;table tbody tr&quot;).length : line - 1);  
-                 $(&quot;table tbody tr&quot;).eq(line)  
-                     .css(&quot;backgroundColor&quot;, &quot;blue&quot;)  
-                     .css(&quot;color&quot;, &quot;white&quot;);  
-                 $(&quot;table tbody tr&quot;).eq(line &gt; $(&quot;table tbody tr&quot;).length ? 0 : line + 1)  
-                     .css(&quot;backgroundColor&quot;, &quot;white&quot;)  
-                     .css(&quot;color&quot;, &quot;black&quot;);  
-             }else if(event.keyCode == 13){  
-                 $(&quot;#phoneno&quot;).val($(&quot;table tbody tr&quot;).eq(line - 1).find(&quot;td&quot;).eq(0).html());  
-                 del();  
-             }  
-         }    
-     });</code></pre><p>//只要id为phoneno的文本框变化，就调用function()</p>
-<pre><code> $(&quot;#phoneno&quot;).bind(&quot;propertychange&quot;, function(){              
-     del();             
-var top = $(&quot;#phoneno&quot;).offset().top;  
-     var left = $(&quot;#phoneno&quot;).offset().left;  
-     var newDiv = $(&quot;&lt;div/&gt;&quot;).width($(&quot;#phoneno&quot;).width() + 6)  
-         .css(&quot;position&quot;, &quot;absolute&quot;)  
-         .css(&quot;backgroundColor&quot;, &quot;white&quot;)  
-         .css(&quot;left&quot;, left)  
-         .css(&quot;top&quot;, top + $(&quot;#phoneno&quot;).height() + 6)  
-         .css(&quot;border&quot;, &quot;1px solid blue&quot;)  
-         .attr(&quot;id&quot;, &quot;newDiv&quot;);  
+<p>        var line &#x3D; 0;<br>        var sendType;<br>        function del(){<br>            if($(“#newDiv”)){<br>                $(“#newDiv”).remove();<br>                line &#x3D; 0;<br>            }<br>        }   <br>       $(document).ready(function(){<br>            &#x2F;&#x2F;文本框失去焦点时层消失<br>            $(document.body).click(function(){<br>                del();<br>            });           <br>            $(document).keydown(function(){<br>                &#x2F;&#x2F; 38 上  40下 13 回车<br>                if($(“#newDiv”)){<br>                    if(event.keyCode &#x3D;&#x3D; 40){<br>                        $(“table tbody tr”).eq(line)<br>                            .css(“backgroundColor”, “blue”)<br>                            .css(“color”, “white”);<br>                        $(“table tbody tr”).eq(line &lt; 0 ? 0 : line - 1)<br>                            .css(“backgroundColor”, “white”)<br>                            .css(“color”, “black”);<br>                        line &#x3D; (line &#x3D;&#x3D; $(“table tbody tr”).length ? 0 : line + 1);<br>                    }else if(event.keyCode &#x3D;&#x3D; 38){<br>                        line &#x3D; (line &#x3D;&#x3D; 0 ? $(“table tbody tr”).length : line - 1);<br>                        $(“table tbody tr”).eq(line)<br>                            .css(“backgroundColor”, “blue”)<br>                            .css(“color”, “white”);<br>                        $(“table tbody tr”).eq(line &gt; $(“table tbody tr”).length ? 0 : line + 1)<br>                            .css(“backgroundColor”, “white”)<br>                            .css(“color”, “black”);<br>                    }else if(event.keyCode &#x3D;&#x3D; 13){<br>                        $(“#phoneno”).val($(“table tbody tr”).eq(line - 1).find(“td”).eq(0).html());<br>                        del();<br>                    }<br>                }  <br>            });</p>
+<p>&#x2F;&#x2F;只要id为phoneno的文本框变化，就调用function()</p>
+<p>            $(“#phoneno”).bind(“propertychange”, function(){            <br>                del();           <br>           var top &#x3D; $(“#phoneno”).offset().top;<br>                var left &#x3D; $(“#phoneno”).offset().left;<br>                var newDiv &#x3D; $(“<div/>“).width($(“#phoneno”).width() + 6)<br>                    .css(“position”, “absolute”)<br>                    .css(“backgroundColor”, “white”)<br>                    .css(“left”, left)<br>                    .css(“top”, top + $(“#phoneno”).height() + 6)<br>                    .css(“border”, “1px solid blue”)<br>                    .attr(“id”, “newDiv”);<br>                  <br>                var table &#x3D; $(“<table width='100%'/>“)<br>                    .attr(“cellpadding”, “0”)<br>                    .attr(“cellspacing”, “0”);                   <br>            &#x2F;&#x2F;$.get(“xmlPhoneno”, {phoneno: $(“#phoneno”).val()},function(xml){ <br>   $.get(“phoneNoInfo.xml”, {PhoneNumber: $(“#phoneno”).val()},function(xml){ </p>
+<p>&#x2F;&#x2F;这里调用了后台的xmlController来执行发挥xml。以下为解析xml    <br>                    $(xml).find(“phones phone”).each(function(){<br>                     var phoneno &#x3D; $(this).attr(“phoneno”);<br>                        var sname &#x3D; $(this).attr(“sname”);<br>                         var tr &#x3D; $(“<tr/>“).css(“cursor”, “pointer”).mouseout(function(){<br>                            $(this).css(“backgroundColor”, “white”).css(“color”, “black”);<br>                        }).mouseover(function(){<br>                            $(this).css(“backgroundColor”, “blue”).css(“color”, “white”);<br>                        }).click(function(){<br>                            $(“#phoneno”).val($(this).find(“td”).eq(0).html());                          <br>                            del();<br>                        });<br>                        var td1 &#x3D; $(“<td/>“).html(phoneno).css(“fontSize”, “12px”)<br>                            .css(“margin”, “5 5 5 5”);                       <br>                        var td2 &#x3D; $(“<td/>“).html(sname)<br>                        .attr(“align”, “right”).css(“fontSize”, “12px”)<br>                        .css(“color”, “green”).css(“margin”, “5 5 5 5”);<br>                           <br>                        tr.append(td1).append(td2);<br>                        table.append(tr);<br>                        newDiv.append(table);                        <br>                    });<br>                                      });               <br>                $(document.body).append(newDiv);               <br>                if($(“#phoneno”).val() &#x3D;&#x3D; “”){<br>                    $(“#newDiv”).remove();<br>                }              <br>            });<br>        }</p>
 
-     var table = $(&quot;&lt;table width=&apos;100%&apos;/&gt;&quot;)  
-         .attr(&quot;cellpadding&quot;, &quot;0&quot;)  
-         .attr(&quot;cellspacing&quot;, &quot;0&quot;);                     
- //$.get(&quot;xmlPhoneno&quot;, {phoneno: $(&quot;#phoneno&quot;).val()},function(xml){   </code></pre><p>   $.get(“phoneNoInfo.xml”, {PhoneNumber: $(“#phoneno”).val()},function(xml){ </p>
-<p>//这里调用了后台的xmlController来执行发挥xml。以下为解析xml<br>                    $(xml).find(“phones phone”).each(function(){<br>                     var phoneno = $(this).attr(“phoneno”);<br>                        var sname = $(this).attr(“sname”);<br>                         var tr = $(“<tr/>“).css(“cursor”, “pointer”).mouseout(function(){<br>                            $(this).css(“backgroundColor”, “white”).css(“color”, “black”);<br>                        }).mouseover(function(){<br>                            $(this).css(“backgroundColor”, “blue”).css(“color”, “white”);<br>                        }).click(function(){<br>                            $(“#phoneno”).val($(this).find(“td”).eq(0).html());<br>                            del();<br>                        });<br>                        var td1 = $(“<td/>“).html(phoneno).css(“fontSize”, “12px”)<br>                            .css(“margin”, “5 5 5 5”);<br>                        var td2 = $(“<td/>“).html(sname)<br>                        .attr(“align”, “right”).css(“fontSize”, “12px”)<br>                        .css(“color”, “green”).css(“margin”, “5 5 5 5”);  </p>
-<pre><code>                tr.append(td1).append(td2);  
-                table.append(tr);  
-                newDiv.append(table);                          
-            });  
-                              });                 
-        $(document.body).append(newDiv);                 
-        if($(&quot;#phoneno&quot;).val() == &quot;&quot;){  
-            $(&quot;#newDiv&quot;).remove();  
-        }                
-    });  
-}</code></pre>
         
             <div class="donate-container">
     <div class="donate-button">

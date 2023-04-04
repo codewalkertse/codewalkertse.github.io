@@ -26,7 +26,7 @@
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
-<link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -145,19 +145,20 @@
 </span>
     </div>
     <div class="post-content ">
-        <p><strong>原文地址：</strong><a href="http://blog.sina.com.cn/s/blog_4d2bb0b10100lkq4.html" target="_blank" rel="noopener" title="彩色man &lt;wbr&gt;page的配置">page的配置”&gt;彩色man page的配置</a><strong>作者：</strong><a href="http://blog.sina.com.cn/u/1294708913" target="_blank" rel="noopener" title="prongs">prongs</a></p>
+        <p><strong>原文地址：</strong><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_4d2bb0b10100lkq4.html" title="彩色man &lt;wbr&gt;page的配置">page的配置”&gt;彩色man page的配置</a><strong>作者：</strong><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/u/1294708913" title="prongs">prongs</a></p>
 <p>使用终端免不了要查看man page, 默认的显示就只有一种颜色, 再加上一些加粗效果, 看久了着实费力. 配置一个赏心悦目的man page, 既可以增加效率, 还可以愉悦身心, 何乐不为.  </p>
 <p><img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="colorful man page" title="colorful man page"></p>
 <p>方法很简单, 就是修改.bashrc文件, 在其中添加:  </p>
-<p># colorful man page<br> export PAGER=”`which less` -s”</p>
-<p>export BROWSER=”$PAGER”<br> export LESS_TERMCAP_mb=$’E[01;34m’</p>
-<p>export LESS_TERMCAP_md=$’E[01;34m’<br> export LESS_TERMCAP_me=$’E[0m’</p>
-<p>export LESS_TERMCAP_se=$’E[0m’<br> export LESS_TERMCAP_so=$’E[01;44;33m’</p>
-<p>export LESS_TERMCAP_ue=$’E[0m’<br> export LESS_TERMCAP_us=$’E[01;33m’</p>
+<p># colorful man page<br> export PAGER&#x3D;”`which less` -s”</p>
+<p>export BROWSER&#x3D;”$PAGER”<br> export LESS_TERMCAP_mb&#x3D;$’E[01;34m’</p>
+<p>export LESS_TERMCAP_md&#x3D;$’E[01;34m’<br> export LESS_TERMCAP_me&#x3D;$’E[0m’</p>
+<p>export LESS_TERMCAP_se&#x3D;$’E[0m’<br> export LESS_TERMCAP_so&#x3D;$’E[01;44;33m’</p>
+<p>export LESS_TERMCAP_ue&#x3D;$’E[0m’<br> export LESS_TERMCAP_us&#x3D;$’E[01;33m’</p>
+<p> </p>
 <p>然后执行:</p>
-<p><a href="http://www.ericbess.com/ericblog/2008/03/03/wp-codebox/#examples" target="_blank" rel="noopener" title="WP-CodeBox HowTo?">  
+<p><a target="_blank" rel="noopener" href="http://www.ericbess.com/ericblog/2008/03/03/wp-codebox/#examples" title="WP-CodeBox HowTo?">  
 </a></p>
-<p>$ source ~/.bashrc</p>
+<p>$ source ~&#x2F;.bashrc</p>
 <p>非Bash用户可以以此类推.</p>
 
         

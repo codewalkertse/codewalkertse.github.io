@@ -135,13 +135,13 @@
         <a class="tag" href="/tags/#linux" title="linux">linux</a>
         <span>/</span>
         
-        <a class="tag" href="/tags/#archlinux" title="archlinux">archlinux</a>
-        <span>/</span>
-        
         <a class="tag" href="/tags/#nginx" title="nginx">nginx</a>
         <span>/</span>
         
         <a class="tag" href="/tags/#php" title="php">php</a>
+        <span>/</span>
+        
+        <a class="tag" href="/tags/#archlinux" title="archlinux">archlinux</a>
         <span>/</span>
         
         
@@ -151,7 +151,7 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>重装了之后今天想起把nginx+fastcgi php装上,遇到了一些小问题.记录如下,以后遇到问题了也会不定时更新. <strong>No input file specified</strong> 看了看error log是说： Unknown: open_basedir restriction in effect. File(/usr/share/nginx/html/index.php) is not within the allowed path(s): (/srv/http/:/home/:/tmp/:/usr/share/pear/:/usr/share/webapps/) in Unknown on line 0 修改了一下nginx的root dir或者把现有的路径写进php.ini就可以了.</p>
+        <p>重装了之后今天想起把nginx+fastcgi php装上,遇到了一些小问题.记录如下,以后遇到问题了也会不定时更新. <strong>No input file specified</strong> 看了看error log是说： Unknown: open_basedir restriction in effect. File(&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html&#x2F;index.php) is not within the allowed path(s): (&#x2F;srv&#x2F;http&#x2F;:&#x2F;home&#x2F;:&#x2F;tmp&#x2F;:&#x2F;usr&#x2F;share&#x2F;pear&#x2F;:&#x2F;usr&#x2F;share&#x2F;webapps&#x2F;) in Unknown on line 0 修改了一下nginx的root dir或者把现有的路径写进php.ini就可以了.</p>
 
         
             <div class="donate-container">

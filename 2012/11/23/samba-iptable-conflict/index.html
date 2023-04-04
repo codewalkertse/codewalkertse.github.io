@@ -144,30 +144,30 @@
     <div class="post-content ">
         <p>samba iptable 冲突</p>
 <p><strong>在没用ufw的情况；</strong>  </p>
-<p>sudo vim  /etc/services</p>
+<p>sudo vim  &#x2F;etc&#x2F;services</p>
 <p>注释或删掉下面所在行</p>
-<p>netbios-ns        <strong>137</strong>/tcp</p>
-<p>netbios-dgm       <strong>138</strong>/tcp</p>
-<p>netbios-ssn       <strong>139</strong>/udp</p>
-<p>依次运行一下命令（因为这里我已经升级为systemd按照一下执行，否则服务命令替换为/etc/rc.d/xxx）</p>
-<p>sudo systemctl restart smbd.service nmbd.service </p>
-<p>netstat -ln &gt; netstat-ln-smb.before </p>
-<p>sudo systemctl start smbd.service nmbd.service </p>
+<p>netbios-ns        <strong>137</strong>&#x2F;tcp</p>
+<p>netbios-dgm       <strong>138</strong>&#x2F;tcp</p>
+<p>netbios-ssn       <strong>139</strong>&#x2F;udp</p>
+<p>依次运行一下命令（因为这里我已经升级为systemd按照一下执行，否则服务命令替换为&#x2F;etc&#x2F;rc.d&#x2F;xxx）</p>
+<p>sudo systemctl restart smbd.service nmbd.service </p>
+<p>netstat -ln &gt; netstat-ln-smb.before </p>
+<p>sudo systemctl start smbd.service nmbd.service </p>
 <p>netstat -ln &gt; netstat-ln-smb.after</p>
 <p>diff netstat-ln-smb.*</p>
 <p>编辑iptables</p>
-<p>sudo vim /etc/iptables/iptables.rules</p>
+<p>sudo vim &#x2F;etc&#x2F;iptables&#x2F;iptables.rules</p>
 <p>找到如下行并编辑</p>
-<p>-A ufw-after-input -p udp -m udp –dport 137 -j ACCEPT</p>
+<p>-A ufw-after-input -p udp -m udp –dport 137 -j ACCEPT</p>
 <p>-A ufw-after-input -p udp -m udp –dport 138 -j ACCEPT</p>
 <p>#old -A ufw-after-input -p tcp –dport 139 -j ufw-skip-to-policy-input</p>
-<p>-A ufw-after-input -m state –state NEW -m tcp -p tcp –dport 139 -j ACCEPT</p>
+<p>-A ufw-after-input -m state –state NEW -m tcp -p tcp –dport 139 -j ACCEPT</p>
 <p>#old -A ufw-after-input -p tcp –dport 445 -j ufw-skip-to-policy-input</p>
 <p>保存</p>
 <p>重启samba</p>
-<p>sudo systemctl restart smbd.service nmbd.service </p>
+<p>sudo systemctl restart smbd.service nmbd.service </p>
 <p><strong>使用ufw 直接加入允许的ip就行，我这里是加入了虚拟机的ip 网段。</strong></p>
-<p>sudo ufw allow from 192.168.122.0/24 #这里是允许客户端的所有端口访问主机</p>
+<p>sudo ufw allow from 192.168.122.0&#x2F;24 #这里是允许客户端的所有端口访问主机</p>
 <p>不用重启ufw直接生效</p>
 <p><strong>打完收工</strong></p>
 

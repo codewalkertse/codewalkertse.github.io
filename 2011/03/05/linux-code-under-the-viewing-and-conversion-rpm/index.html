@@ -26,7 +26,7 @@
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
-<link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -139,25 +139,25 @@
         <p>一、文件内容编码的查看与转换（enca或者 iconv）</p>
 <p>在linux做开发或者系统管理遇到乱码是经常的事情，主要windows下中 文的默认编码是gb2312，而linux下是utf-8。很多时候 涉及到和windows平台系统的通信免不了编码的转化，可能大部分人都用iconv库函数（包含在glib中）和iconv命令来执行编码转换，今天我 要推荐的是另一个shell下编码转换工具enca。用它不仅可以转换编码，还可以查看文件的原始编码，使用上也比iconv方便一些。</p>
 <p>enca用法如下：</p>
-<p>enca -L zh_CN file  #检查文件的编码</p>
-<p>enca -L zh_CN -x UTF-8 file  #将文件编码转换为”UTF-8″编码</p>
-<p>enca -L zh_CN -x UTF-8 &lt; file1 &gt; file2  #如果不想覆盖原文件可以这样</p>
+<p>enca -L zh_CN file  #检查文件的编码</p>
+<p>enca -L zh_CN -x UTF-8 file  #将文件编码转换为”UTF-8″编码</p>
+<p>enca -L zh_CN -x UTF-8 &lt; file1 &gt; file2  #如果不想覆盖原文件可以这样</p>
 <p>除了有检查文件编码的功能以外，”enca”还有一个好处就是如果文件本来就是你要转换的那种编码，它不会报错，还是会print出结果来， 而”iconv”则会报错。这对于脚本编写是比较方便的事情</p>
-<p>源地址：<a href="http://blog.sina.com.cn/s/blog_44c07fb30100em10.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_44c07fb30100em10.html</a></p>
-<p>======================================================================================</p>
+<p>源地址：<a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_44c07fb30100em10.html">http://blog.sina.com.cn/s/blog_44c07fb30100em10.html</a></p>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
 <p>#安装enca</p>
 <p>yum install enca</p>
 <p>#查询单个文件的编码</p>
 <p>enca index.html</p>
 <p>或者</p>
-<p>enca  -L zh_CN  index.html</p>
+<p>enca  -L zh_CN  index.html</p>
 <p>#转换单个文件的编码</p>
-<p>enca -L none -x utf-8  index.html</p>
+<p>enca -L none -x utf-8  index.html</p>
 <p>#转换批量文件的编码</p>
-<p>find  ./ -type f -name “<em>.htm</em>“ | cat $1 |  sort | grep -v svn &gt;  files.list</p>
+<p>find  .&#x2F; -type f -name “<em>.htm</em>“ | cat $1 |  sort | grep -v svn &gt;  files.list</p>
 <p>vim enca_list.sh</p>
 <p>插入以下代码：</p>
-<p>#!/bin/sh</p>
+<p>#!&#x2F;bin&#x2F;sh</p>
 <p>cat $1 | while read LINE</p>
 <p>do</p>
 <p>echo $LINE</p>
@@ -167,20 +167,20 @@
 <p>done</p>
 <p>保存退出后</p>
 <p>chmod +x enca_list.sh</p>
-<p>执行脚本： ./enca_list.sh files.list</p>
-<p>源地址：<a href="http://www.itqun.net/content-detail/140488.html" target="_blank" rel="noopener">http://www.itqun.net/content-detail/140488.html</a></p>
-<p>也可以使用：iconv –list  &amp;&amp; iconv -f GB2312 -t UTF-8 baidu.htm &gt; new_baidu.htm</p>
-<p>二、文件名编码的转换 </p>
+<p>执行脚本： .&#x2F;enca_list.sh files.list</p>
+<p>源地址：<a target="_blank" rel="noopener" href="http://www.itqun.net/content-detail/140488.html">http://www.itqun.net/content-detail/140488.html</a></p>
+<p>也可以使用：iconv –list  &amp;&amp; iconv -f GB2312 -t UTF-8 baidu.htm &gt; new_baidu.htm</p>
+<p>二、文件名编码的转换 </p>
 <p>从Linux往windows拷贝文件或者从windows往Linux拷贝文件，有时会出现中文文件名乱码的情况，出现这种问题的原因是因为，windows的文件名中文编码默认为GBK，而Linux中默认文件名编码为UTF8，由于编码不一致，所以导致了文件名乱码的问题，解决这个问题需要对文件名进行转码。而在Linux中专门提供了一种工具convmv进行文件名编码的转换，可以将文件名从GBK转换成UTF-8编码，或者从UTF-8转换到GBK</p>
 <p>1、安装convmv</p>
 <p>yum -y install convmv</p>
 <p>2、用法</p>
 <p>convmv -f 源编码 -t 新编码 [选项] 文件名</p>
 <p>常用参数：</p>
-<p>-r  递归处理子文件夹</p>
-<p>–notest  真正进行操作，请注意在默认情况下是不对文件进行真实操作的，而只是试验。</p>
-<p>–list   显示所有支持的编码</p>
-<p>–unescap  可以做一下转义，比如把 变成空格</p>
+<p>-r  递归处理子文件夹</p>
+<p>–notest  真正进行操作，请注意在默认情况下是不对文件进行真实操作的，而只是试验。</p>
+<p>–list   显示所有支持的编码</p>
+<p>–unescap  可以做一下转义，比如把 变成空格</p>
 <p>例如：我们有一个utf8编码的文件名，转换成GBK编码，命令如下：</p>
 <p>convmv -f UTF-8 -t GBK –notest utf8编码的文件名</p>
 <p>这样转换以后”utf8编码的文件名”会被转换成GBK编码（只是文件名编码的转换，文件内容不会发生变化）</p>

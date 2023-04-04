@@ -137,11 +137,11 @@
     </div>
     <div class="post-content ">
         <p>#0 Get current timestamps Put those lines in your .zshrc or bashrc</p>
-<p>alias showmeCurrentTimestamp=”date +%s”</p>
+<p>alias showmeCurrentTimestamp&#x3D;”date +%s”</p>
 <p>Then you need execute one command below</p>
-<p>source ~/.zshrc|| source ~/.bashrc</p>
-<p>#1 Timestamps to date Save this script in anywhere you want and then make a soft link to ‘/usr/local/bin’ just like “ln -s source dst”</p>
-<p>#!/bin/bash<br>#auth:codewalker<br>#mail:<a href="mailto:simon.xie@codewalker.me">simon.xie@codewalker.me</a><br>if [ $# -eq 1 ];then<br>    date -r $1<br>else<br>    echo “Usage: $0 [timestamp]“<br>    date -r $(date +%s)<br>fi</p>
+<p>source ~&#x2F;.zshrc|| source ~&#x2F;.bashrc</p>
+<p>#1 Timestamps to date Save this script in anywhere you want and then make a soft link to ‘&#x2F;usr&#x2F;local&#x2F;bin’ just like “ln -s source dst”</p>
+<p>#!&#x2F;bin&#x2F;bash<br>#auth:codewalker<br>#mail:<a href="mailto:&#115;&#x69;&#x6d;&#x6f;&#110;&#x2e;&#x78;&#105;&#101;&#64;&#x63;&#x6f;&#100;&#x65;&#119;&#97;&#108;&#x6b;&#x65;&#114;&#46;&#109;&#101;">&#115;&#x69;&#x6d;&#x6f;&#110;&#x2e;&#x78;&#105;&#101;&#64;&#x63;&#x6f;&#100;&#x65;&#119;&#97;&#108;&#x6b;&#x65;&#114;&#46;&#109;&#101;</a><br>if [ $# -eq 1 ];then<br>    date -r $1<br>else<br>    echo “Usage: $0 [timestamp]“<br>    date -r $(date +%s)<br>fi</p>
 <p>EOF</p>
 
         

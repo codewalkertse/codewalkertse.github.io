@@ -145,14 +145,14 @@
         <p>这个问题源于一次升级后引起。网上说的方法全部不靠谱，最后还是自己解决。</p>
 <p>也怪自己升级后不注意看说明信息。我在日志中查看到配置文件中自动修改了程序的所属组和用户改为了nobody:nobody，太尼玛讨厌了，也不知道用粗体表示出来，害我这种懒人直接就挂掉了.所以具体情况只能自己分析处理。日志如下</p>
 <p>codewalker@codehost:~</p>
-<p>$ cat /var/log/pacman.log |grep 2013-02-19</p>
-<p>[2013-02-19 22:34] &gt;&gt;&gt; You may need to run ‘rm -rf ~/.libvirt’</p>
+<p>$ cat &#x2F;var&#x2F;log&#x2F;pacman.log |grep 2013-02-19</p>
+<p>[2013-02-19 22:34] &gt;&gt;&gt; You may need to run ‘rm -rf ~&#x2F;.libvirt’</p>
 <p>[2013-02-19 22:34] &gt;&gt;&gt; libvirt runs qemu from <strong>nobody:nobody</strong> by default</p>
-<p>[2013-02-19 22:34] &gt;&gt;&gt; change it in /etc/libvirt/qemu.conf</p>
+<p>[2013-02-19 22:34] &gt;&gt;&gt; change it in &#x2F;etc&#x2F;libvirt&#x2F;qemu.conf</p>
 <p>[2013-02-19 22:34] upgraded libvirt (1.0.2-2 -&gt; 1.0.2-3)</p>
-<p>最后，我把/etc/libvirt/qemu.conf中</p>
-<p>line 198 改为user = “root”</p>
-<p>line 202 改为group = “kvm”</p>
+<p>最后，我把&#x2F;etc&#x2F;libvirt&#x2F;qemu.conf中</p>
+<p>line 198 改为user &#x3D; “root”</p>
+<p>line 202 改为group &#x3D; “kvm”</p>
 <p>顺利解决问题。</p>
 <p>这里要说明一点就是 我自己的账户codewalker已经是加入了kvm组的。</p>
 

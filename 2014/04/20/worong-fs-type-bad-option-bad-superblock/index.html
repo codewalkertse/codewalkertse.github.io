@@ -149,8 +149,8 @@
     </div>
     <div class="post-content ">
         <p>今天可把我给吓坏了，2T的资料盘突然识别不了了。因为上次使用时没有正常Umount的缘故，死活是救不了。 用mac的Verify Disk出现一大段的Error，然后用Repair Disk也是一样救不活怎么办我所有的资料都在里面，虽然用了Time Machine但是也是只是备份的系统 ，我的文娱等资料全在这个盘上这次想不会这么脆弱了吧。 Shit！ 冷静下来想了想，mac救不了先上Linux检查一下分去看有木有。于是乎开老本子上的ArchLinux 先lsblk看,能看到设备，Lable size fstype UUID一样不少，心想应该还有救吧。 试试看能不能mount上，Shit！ Worong fs type, bad option, bad superblock… 不行，那我就检查一下吧</p>
-<p>sudo e2fsck /dev/sdc1</p>
-<p>对了，这个硬盘fstype是ext4，所以检查的话就用这个Linux下的一个工具吧。 <em>e2fsck - check a Linux ext2/ext3/ext4 file system.</em> Yep~ 接着就出现了 <em>One or more block group descriptor checksums are invalid balabalabala…</em> 能发现错误就是好的开始。一路按Y下去直至出现了 <strong>xxx:***FILE SYSTEM WAS MODIFIED*** BALABALABALABALA</strong> 然后怀着忐忑的心情remount了一下 voila～ 可爱的文件们又出现啦。 现在想来，对ext4的来讲mac的支持还不是很好。本生来讲，再Mac OS下挂载ext4我就是用了第三方的软件原生系统不支持的情况下强行Repair果真不是最好的选择。 打完收工.</p>
+<p>sudo e2fsck &#x2F;dev&#x2F;sdc1</p>
+<p>对了，这个硬盘fstype是ext4，所以检查的话就用这个Linux下的一个工具吧。 <em>e2fsck - check a Linux ext2&#x2F;ext3&#x2F;ext4 file system.</em> Yep~ 接着就出现了 <em>One or more block group descriptor checksums are invalid balabalabala…</em> 能发现错误就是好的开始。一路按Y下去直至出现了 <strong>xxx:***FILE SYSTEM WAS MODIFIED*** BALABALABALABALA</strong> 然后怀着忐忑的心情remount了一下 voila～ 可爱的文件们又出现啦。 现在想来，对ext4的来讲mac的支持还不是很好。本生来讲，再Mac OS下挂载ext4我就是用了第三方的软件原生系统不支持的情况下强行Repair果真不是最好的选择。 打完收工.</p>
 
         
             <div class="donate-container">

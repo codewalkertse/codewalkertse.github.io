@@ -155,9 +155,9 @@
     </div>
     <div class="post-content ">
         <p>最近一次启动之后发现无线网卡启动不了，遂iwconfig查看结果从常规的wlan0 变成了一串奇怪的字符串，想应该是udev下的命名出问题了。于是google一圈后找到解决方案，很简单如下。</p>
-<p>rm /usr/lib/udev/rules.d/80-net-name-slot.rules</p>
+<p>rm &#x2F;usr&#x2F;lib&#x2F;udev&#x2F;rules.d&#x2F;80-net-name-slot.rules</p>
 <p>注意这个path，这是arch，其他的发行版可能不再这个地方，只需要用</p>
-<p>find / -type d -name ‘rules.d’</p>
+<p>find &#x2F; -type d -name ‘rules.d’</p>
 <p>查找一下就ok了。 这就是网卡的命名rule。删除之重启会重建这个文件。原理未知。</p>
 
         

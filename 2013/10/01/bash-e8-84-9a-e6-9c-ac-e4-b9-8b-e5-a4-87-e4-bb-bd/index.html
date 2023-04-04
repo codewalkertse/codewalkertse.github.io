@@ -145,9 +145,9 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>#!/bin/bash<br>#all.file.backup.sh<br>BACKDIR=/path/to/your/back/dir/`date +%Y%m%d`/<br>LOGFILE=/path/to/your/log/file.log<br>ORIPATH=/path/to/your/original/dir/</p>
+        <p>#!&#x2F;bin&#x2F;bash<br>#all.file.backup.sh<br>BACKDIR&#x3D;&#x2F;path&#x2F;to&#x2F;your&#x2F;back&#x2F;dir&#x2F;`date +%Y%m%d`&#x2F;<br>LOGFILE&#x3D;&#x2F;path&#x2F;to&#x2F;your&#x2F;log&#x2F;file.log<br>ORIPATH&#x3D;&#x2F;path&#x2F;to&#x2F;your&#x2F;original&#x2F;dir&#x2F;</p>
 <p>echo “Backup BEGIN at `date +%Y%m%d-%H:%M:%S`“ &gt;&gt; $LOGFILE<br># is EXIST the Directory of Backup<br>if [ ! -d $BACKDIR ]; then<br>                mkdir -p $BACKDIR<br>                echo “Created $BACKDIR at `date +%Y%m%d-%H:%M:%S`“ &gt;&gt; $LOGFILE<br>fi<br># is exist of log file<br>if [ ! -f $LOGFILE ]; then<br>                touch $LOGFILE<br>                echo “Create $LOGFILE at `date +%Y%m%d-%H:%M:%S`“ &gt;&gt; $LOGFILE<br>fi</p>
-<p>SUBDIRLIST=`ls -p $ORIPATH | grep / | tr -d /`<br>for subdir in $SUBDIRLIST<br>do<br>        echo ‘#####################’ &gt;&gt; $LOGFILE<br>        echo “Backup $file at `date +%Y%m%d-%H:%M:%S`“ &gt;&gt; $LOGFILE<br>        tar -zcvf $BACKDIR/$subdir.tar.gz $ORIPATH/$subdir<br>        echo ‘#####################’ &gt;&gt; $LOGFILE<br>done</p>
+<p>SUBDIRLIST&#x3D;`ls -p $ORIPATH | grep &#x2F; | tr -d &#x2F;`<br>for subdir in $SUBDIRLIST<br>do<br>        echo ‘#####################’ &gt;&gt; $LOGFILE<br>        echo “Backup $file at `date +%Y%m%d-%H:%M:%S`“ &gt;&gt; $LOGFILE<br>        tar -zcvf $BACKDIR&#x2F;$subdir.tar.gz $ORIPATH&#x2F;$subdir<br>        echo ‘#####################’ &gt;&gt; $LOGFILE<br>done</p>
 <p>echo “Backup END at `date +%Y%m%d-%H:%M:%S`“ &gt;&gt; $LOGFILE</p>
 
         

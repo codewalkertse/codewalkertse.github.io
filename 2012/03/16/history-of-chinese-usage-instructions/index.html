@@ -145,24 +145,24 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>从man中可以获得主要用法，如下：     </p>
-<p>  !      Start a history substitution, except when followed by a blank, newline, = or (.</p>
-<p>  !n     Refer to command line n.</p>
-<p>  !-n    Refer to the current command minus n.</p>
-<p>  !!     Refer to the previous command.  This is a synonym for `!-1’.</p>
-<p>  !string  Refer  to  the  most  recent  command  preceding  the current position in the history list starting with string.</p>
-<p>  !?string[?]</p>
-<pre><code>Refer to the most recent command preceding the current postition in the history list containing  string.
-
-The trailing ? may be omitted if string is followed immediately by a newline.</code></pre><p>  ^string1^string2^</p>
-<pre><code>Quick   substitution.   Repeat  the  last  command,  replacing  string1  with  string2.   Equivalent  to
-
-``!!:s/string1/string2/&apos;&apos; (see Modifiers below).</code></pre><p>  !#     The entire command line typed so far.</p>
+        <p>从man中可以获得主要用法，如下：     </p>
+<p>  !      Start a history substitution, except when followed by a blank, newline, &#x3D; or (.</p>
+<p>  !n     Refer to command line n.</p>
+<p>  !-n    Refer to the current command minus n.</p>
+<p>  !!     Refer to the previous command.  This is a synonym for &#96;!-1’.</p>
+<p>  !string  Refer  to  the  most  recent  command  preceding  the current position in the history list starting with string.</p>
+<p>  !?string[?]</p>
+<p>       Refer to the most recent command preceding the current postition in the history list containing  string.</p>
+<p>       The trailing ? may be omitted if string is followed immediately by a newline.</p>
+<p>  ^string1^string2^</p>
+<p>              Quick   substitution.   Repeat  the  last  command,  replacing  string1  with  string2.   Equivalent  to</p>
+<p>              &#96;&#96;!!:s&#x2F;string1&#x2F;string2&#x2F;‘’ (see Modifiers below).</p>
+<p>  !#     The entire command line typed so far.</p>
 <p>################end###################</p>
 <p>下面的内容来自csdn</p>
 <p>现在大多数的Linux系统都使用bash作为默认的shell吧，下面就介绍一下bash的history命令管理功能吧，history命令可以回顾，修改和重用之前使用过的历史命令。</p>
 <p>1.一些变量说明：</p>
-<p>$HISTFILE bash启动的时候会读取~/.bash_history文件并载入到内存中，这个变量就用于设置.bash_history文件，bash退出时也会把内存中的历史回写到.bash_history文件</p>
+<p>$HISTFILE bash启动的时候会读取~&#x2F;.bash_history文件并载入到内存中，这个变量就用于设置.bash_history文件，bash退出时也会把内存中的历史回写到.bash_history文件</p>
 <p>$HISTSIZE 设置bash会员期间历史包含的命令数量</p>
 <p>$HISTFILESIZE 设置历史文件中实际存储的命令数量</p>
 <p>2.显示历史命令</p>
@@ -172,13 +172,13 @@ The trailing ? may be omitted if string is followed immediately by a newline.</c
 <p>3.运行历史命令</p>
 <p>!! 运行上一条命令</p>
 <p>!88 运行第88条命令</p>
-<p>!88 /test 运行第88条命令并在命令后面加上/test</p>
+<p>!88 &#x2F;test 运行第88条命令并在命令后面加上&#x2F;test</p>
 <p>!?CF? 运行上一个包含CF字符串的命令</p>
 <p>!ls 运行上一个ls命令</p>
-<p>!ls:s/CF/l 运行上一个ls命令，其中把CF替换成l</p>
+<p>!ls:s&#x2F;CF&#x2F;l 运行上一个ls命令，其中把CF替换成l</p>
 <p>fc 编辑并运行上一个历史命令</p>
 <p>fc 66 编辑并运行第66个历史命令</p>
-<p>fc -e /usr/bin/vim 66 使用vim编辑第66个命令并运行</p>
+<p>fc -e &#x2F;usr&#x2F;bin&#x2F;vim 66 使用vim编辑第66个命令并运行</p>
 <p>4.搜索历史命令</p>
 <p>使用ctrl+r搜索历史中的字符串，重复按ctrl+r可以在历史命令列表中不断的向前搜索包含字符串的命令，回车就会执行查找的命令</p>
 <p>5.清空历史命令</p>
@@ -187,24 +187,24 @@ The trailing ? may be omitted if string is followed immediately by a newline.</c
 <p>history -w 让bash将历史命令立即从内存写到.bash_history文件</p>
 <p>history -a 将目前新增的 history 历史命令写入.bash_history文件</p>
 <p>7.history历史命令记录删除</p>
-<p>修改/etc/profile将HISTSIZE=1000改成0或1</p>
+<p>修改&#x2F;etc&#x2F;profile将HISTSIZE&#x3D;1000改成0或1</p>
 <p>清除用户home路径下.bash_history</p>
 <p>8.history配置</p>
 <p>运行 set | grep HISTFILE</p>
-<p>显示：HISTFILE=/root/.bash_history</p>
-<p>HISTFILESIZE=1000</p>
+<p>显示：HISTFILE&#x3D;&#x2F;root&#x2F;.bash_history</p>
+<p>HISTFILESIZE&#x3D;1000</p>
 <p>在.bash_profile文件中添加</p>
-<p>HISTFILE=/root/history</p>
+<p>HISTFILE&#x3D;&#x2F;root&#x2F;history</p>
 <p>export HISTFILE</p>
-<p>重新登录后历史命令都会写入到/root/history文件中</p>
+<p>重新登录后历史命令都会写入到&#x2F;root&#x2F;history文件中</p>
 <p>其余的一些设置可以在.bashrc文件中设置</p>
-<p>export HISTCONTROL=ignoredups #忽略重复的命令</p>
-<p>export HISTIGNORE=”[ ]*:&amp;:bg:fg:exit” #忽略由冒号分割的这些命令</p>
-<p>export HISTFILESIZE=1000 #设置保存的历史命令的文件大小</p>
-<p>export HISTSIZE=100 #设置保存的历史命令的条数</p>
+<p>export HISTCONTROL&#x3D;ignoredups #忽略重复的命令</p>
+<p>export HISTIGNORE&#x3D;”[ ]*:&amp;:bg:fg:exit” #忽略由冒号分割的这些命令</p>
+<p>export HISTFILESIZE&#x3D;1000 #设置保存的历史命令的文件大小</p>
+<p>export HISTSIZE&#x3D;100 #设置保存的历史命令的条数</p>
 <p>技巧：</p>
 <p>shopt -s histappend 在shell中执行这个命令可以使shell保存历史命令的时候使用追加的方式，因为默认是覆盖，在多终端的清空下，最后退出的终端灰覆盖以前的历史记录</p>
-<p>在history历史记录中显示时间和执行命令的用户 echo ‘export HISTTIMEFORMAT=”%F %T `whoami` “‘ &gt;&gt; /etc/profile</p>
+<p>在history历史记录中显示时间和执行命令的用户 echo ‘export HISTTIMEFORMAT&#x3D;”%F %T `whoami` “‘ &gt;&gt; &#x2F;etc&#x2F;profile</p>
 
         
             <div class="donate-container">

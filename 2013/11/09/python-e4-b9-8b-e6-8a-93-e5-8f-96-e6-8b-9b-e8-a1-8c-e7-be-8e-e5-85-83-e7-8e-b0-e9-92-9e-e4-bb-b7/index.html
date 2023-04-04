@@ -150,9 +150,9 @@
     <div class="post-content ">
         <p>由于前几日入了Google 5太子 刷的是招行的信用卡中的美元账户在结算的时候就需要看下哪天的比较低看还款合适，那么在招行的网站中找了下页面很容易就查找到了汇率的走势图，分析了下网页其是一个xml的文件。解析很简单用到了xml.etree 中的 ElementTree.代码如下</p>
 <p>import urllib2<br>from xml.etree import ElementTree as ET</p>
-<p>url = ‘<a href="http://fx.cmbchina.com/CmbFxWebService/RealrateService.aspx?_=1383963963135&amp;func=History&amp;startdate=2009-01-01&amp;enddate=2013-11-09&amp;nbr=%u7F8E%u5143&amp;type=days&#39;" target="_blank" rel="noopener">http://fx.cmbchina.com/CmbFxWebService/RealrateService.aspx?_=1383963963135&amp;func=History&amp;startdate=2009-01-01&amp;enddate=2013-11-09&amp;nbr=%u7F8E%u5143&amp;type=days&#39;</a></p>
-<p>page = urllib2.urlopen(url)<br>tree=ET.parse(page)<br>root = tree.getroot()</p>
-<p>for child in root:<br>    exchange = child.find(‘ZRtcBid’).text<br>    date = child.find(‘ZRatDat’).text<br>    print ‘%s @ %s’ % (exchange, date)</p>
+<p>url &#x3D; ‘<a target="_blank" rel="noopener" href="http://fx.cmbchina.com/CmbFxWebService/RealrateService.aspx?_=1383963963135&func=History&startdate=2009-01-01&enddate=2013-11-09&nbr=%25u7F8E%25u5143&type=days">http://fx.cmbchina.com/CmbFxWebService/RealrateService.aspx?_=1383963963135&amp;func=History&amp;startdate=2009-01-01&amp;enddate=2013-11-09&amp;nbr=%u7F8E%u5143&amp;type=days</a>‘</p>
+<p>page &#x3D; urllib2.urlopen(url)<br>tree&#x3D;ET.parse(page)<br>root &#x3D; tree.getroot()</p>
+<p>for child in root:<br>    exchange &#x3D; child.find(‘ZRtcBid’).text<br>    date &#x3D; child.find(‘ZRatDat’).text<br>    print ‘%s @ %s’ % (exchange, date)</p>
 <p>输出部分数据如下： 601.61 @ 2013-10-27 602.42 @ 2013-10-28 602.86 @ 2013-10-29 603.16 @ 2013-10-30 603.31 @ 2013-10-31 603.14 @ 2013-11-01 603.14 @ 2013-11-03 603.14 @ 2013-11-03 603.85 @ 2013-11-04 603.50 @ 2013-11-05 603.16 @ 2013-11-06 603.01 @ 2013-11-07 602.35 @ 2013-11-08 看样子是一直在走低，所以拖到最后一天再还款啦～～ 打完收工</p>
 
         

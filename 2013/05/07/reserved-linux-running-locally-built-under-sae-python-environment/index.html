@@ -145,42 +145,48 @@
 </span>
     </div>
     <div class="post-content ">
-        <p><strong>原文地址：</strong><a href="http://blog.sina.com.cn/s/blog_6f97247e0101af5e.html" target="_blank" rel="noopener" title="linux下搭建SAE &lt;wbr&gt;Python &lt;wbr&gt;本地运行环境">Python 本地运行环境”&gt;linux下搭建SAE Python 本地运行环境</a><strong>作者：</strong><a href="http://blog.sina.com.cn/u/1872176254" target="_blank" rel="noopener" title="醋根">醋根</a></p>
-<p>我先看的<a href="http://saepy.sinaapp.com/topic/21/轻松搭建sae-python-本地运行环境，但是作者用的是windows，有诸多不同。" target="_blank" rel="noopener">http://saepy.sinaapp.com/topic/21/轻松搭建sae-python-本地运行环境，但是作者用的是windows，有诸多不同。</a>  </p>
+        <p><strong>原文地址：</strong><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_6f97247e0101af5e.html" title="linux下搭建SAE &lt;wbr&gt;Python &lt;wbr&gt;本地运行环境">Python 本地运行环境”&gt;linux下搭建SAE Python 本地运行环境</a><strong>作者：</strong><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/u/1872176254" title="醋根">醋根</a></p>
+<p>我先看的<a target="_blank" rel="noopener" href="http://saepy.sinaapp.com/topic/21/%E8%BD%BB%E6%9D%BE%E6%90%AD%E5%BB%BAsae-python-%E6%9C%AC%E5%9C%B0%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%EF%BC%8C%E4%BD%86%E6%98%AF%E4%BD%9C%E8%80%85%E7%94%A8%E7%9A%84%E6%98%AFwindows%EF%BC%8C%E6%9C%89%E8%AF%B8%E5%A4%9A%E4%B8%8D%E5%90%8C%E3%80%82">http://saepy.sinaapp.com/topic/21/轻松搭建sae-python-本地运行环境，但是作者用的是windows，有诸多不同。</a>  </p>
 <p>下面简单说一下archlinux 下搭建的过程，其它linux基本一样。主要区别是：arch默认地python版本是python3！！  </p>
 <h3 id="环境需求"><a href="#环境需求" class="headerlink" title="环境需求"></a>环境需求</h3><p>比如我想用tornado + Mysql</p>
 <h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3><p>官方说是确保python 版本是<strong>2.6</strong> （2.5不行，我的用2.7.3也可以）</p>
-<p>打开官方的安装文档<br><a href="https://github.com/SAEPython/saepythondevguide" target="_blank" rel="noopener">https://github.com/SAEPython/saepythondevguide</a><br>或者<a href="https://github.com/SAEPython/saepythondevguide/zipball/master" target="_blank" rel="noopener">点这直接下载压缩包</a><br>解压，打开dev_server 目录，<br>按你的需求修改 setup.py，我用tornado 就修改如下  </p>
-<pre><code>install_requires = [
-    &apos;Werkzeug&apos;,
-    &apos;pip&apos;,
-    &apos;PyYAML&apos;,
-    &apos;argparse&apos;,
-    &apos;tornado==2.4.1&apos;,   # 添加
-    &apos;MySQL-python&apos;    # 添加
-    ],</code></pre><p>打开终端，在dev_server 目录下运行（要su或sudo）：<br>python2 setup.py install</p>
+<p>打开官方的安装文档<br><a target="_blank" rel="noopener" href="https://github.com/SAEPython/saepythondevguide">https://github.com/SAEPython/saepythondevguide</a><br>或者<a target="_blank" rel="noopener" href="https://github.com/SAEPython/saepythondevguide/zipball/master">点这直接下载压缩包</a><br>解压，打开dev_server 目录，<br>按你的需求修改 setup.py，我用tornado 就修改如下  </p>
+<pre><code>    install_requires = [
+        &#39;Werkzeug&#39;,
+        &#39;pip&#39;,
+        &#39;PyYAML&#39;,
+        &#39;argparse&#39;,
+        &#39;tornado==2.4.1&#39;,   # 添加
+        &#39;MySQL-python&#39;    # 添加
+        ],
+</code></pre>
+<p>打开终端，在dev_server 目录下运行（要su或sudo）：<br>python2 setup.py install</p>
 <p>要不会出现错误：</p>
 <p>running install<br>error: can’t create or remove files in install directory  </p>
 <p>The following error occurred while trying to add or remove files in the<br>installation directory:  </p>
-<pre><code>\[Errno 13\] Permission denied: &apos;/usr/lib/python2.7/site-packages/test-easy-install-814.write-test&apos;  </code></pre><p>The installation directory you specified (via –install-dir, –prefix, or<br>the distutils default setting) was:  </p>
-<pre><code>/usr/lib/python2.7/site-packages/  </code></pre><p>Perhaps your account does not have write access to this directory?  If the<br>installation directory is a system-owned directory, you may need to sign in<br>as the administrator or “root” account.  If you do not have administrative<br>access to this machine, you may wish to choose a different installation<br>directory, preferably one that is listed in your PYTHONPATH environment<br>variable.  </p>
+<p>    [Errno 13] Permission denied: ‘&#x2F;usr&#x2F;lib&#x2F;python2.7&#x2F;site-packages&#x2F;test-easy-install-814.write-test’  </p>
+<p>The installation directory you specified (via –install-dir, –prefix, or<br>the distutils default setting) was:  </p>
+<p>    &#x2F;usr&#x2F;lib&#x2F;python2.7&#x2F;site-packages&#x2F;  </p>
+<p>Perhaps your account does not have write access to this directory?  If the<br>installation directory is a system-owned directory, you may need to sign in<br>as the administrator or “root” account.  If you do not have administrative<br>access to this machine, you may wish to choose a different installation<br>directory, preferably one that is listed in your PYTHONPATH environment<br>variable.  </p>
 <p>For information on other options, you may wish to consult the<br>documentation at:  </p>
-<p>  <a href="http://packages.python.org/distribute/easy_install.html" target="_blank" rel="noopener">http://packages.python.org/distribute/easy_install.html</a>  </p>
+<p>  <a target="_blank" rel="noopener" href="http://packages.python.org/distribute/easy_install.html">http://packages.python.org/distribute/easy_install.html</a>  </p>
 <p>Please make the appropriate changes for your system and try again.  </p>
-<h3 id="简单建立本地程序测试目录"><a href="#简单建立本地程序测试目录" class="headerlink" title="简单建立本地程序测试目录"></a>简单建立本地程序测试目录</h3><p>随便在某个地方建立一个saeapp来装app，如我的saepy，下面是对应的目录和文件：<br>建立一个index.wsgi 文件放在 saeapp/saepy/ 目录下，index.wsgi 的内容  </p>
+<h3 id="简单建立本地程序测试目录"><a href="#简单建立本地程序测试目录" class="headerlink" title="简单建立本地程序测试目录"></a>简单建立本地程序测试目录</h3><p>随便在某个地方建立一个saeapp来装app，如我的saepy，下面是对应的目录和文件：<br>建立一个index.wsgi 文件放在 saeapp&#x2F;saepy&#x2F; 目录下，index.wsgi 的内容  </p>
 <pre><code>import sae
 
 def app(environ, start_response):
-    status = &apos;200 OK&apos;
-    response_headers = [(&apos;Content-type&apos;, &apos;text/plain&apos;)]
-    start_response(status, response_headers)
-    return [&apos;Hello, world!&apos;]
+    status = &#39;200 OK&#39;
+    response_headers = [(&#39;Content-type&#39;, &#39;text/plain&#39;)]
+    start_response(status, response_headers)
+    return [&#39;Hello, world!&#39;]
 
-application = sae.create_wsgi_app(app)</code></pre><p><strong>把上面dev_server 目录下的dev_server.py 拷贝到saeapp/saepy/ 目录下</strong>（这个不是必要，你可以安装dev_server.py ，让dev_server.py在path中就可以，你可以参考<a href="http://www.douban.com/group/topic/27119337/" target="_blank" rel="noopener">这里安装</a>），</p>
+application = sae.create_wsgi_app(app)
+</code></pre>
+<p><strong>把上面dev_server 目录下的dev_server.py 拷贝到saeapp&#x2F;saepy&#x2F; 目录下</strong>（这个不是必要，你可以安装dev_server.py ，让dev_server.py在path中就可以，你可以参考<a target="_blank" rel="noopener" href="http://www.douban.com/group/topic/27119337/">这里安装</a>），</p>
 <p>还需要一个config.yaml：  </p>
 <p>name: test<br>version: 1<br>如果没出错的话就会出现下面内容：</p>
-<p>MySQL config not found: app.py<br>Start development server on <a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a></p>
-<p>则打开 <a href="http://localhost:8080/" target="_blank" rel="noopener">http://localhost:8080/</a> 就会看到 Hello, world! 了。</p>
+<p>MySQL config not found: app.py<br>Start development server on <a target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080/</a></p>
+<p>则打开 <a target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080/</a> 就会看到 Hello, world! 了。</p>
 <p>这样简单的环境就弄好了，如果要使用Mysql 数据库就装上它，看看能不能单独装上它，或者图省事就安装一个N合一的包，如appserv 或 easyapm</p>
 
         

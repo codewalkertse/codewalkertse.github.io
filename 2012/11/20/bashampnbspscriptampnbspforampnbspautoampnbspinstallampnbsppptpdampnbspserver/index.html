@@ -142,47 +142,47 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>#!/bin/bash </p>
-<p>pacman -S iptables pptpd </p>
-<p>echo “iptables -A INPUT -i ppp+ -j ACCEPT” &gt;&gt; /etc/rc.local</p>
-<p>echo “iptables -A OUTPUT -o ppp+ -j ACCEPT” &gt;&gt; /etc/rc.local</p>
-<p>echo “iptables -A INPUT -p tcp –dport 1723 -j ACCEPT” &gt;&gt; /etc/rc.local</p>
-<p>echo “iptables -A INPUT -p 47 -j ACCEPT” &gt;&gt; /etc/rc.local</p>
-<p>echo “iptables -A OUTPUT -p 47 -j ACCEPT” &gt;&gt; /etc/rc.local</p>
-<p>echo “iptables -F FORWARD” &gt;&gt; /etc/rc.local</p>
-<p>echo “iptables -A FORWARD -j ACCEPT” &gt;&gt; /etc/rc.local</p>
-<p>echo “iptables -A POSTROUTING -t nat -o eth0 -j MASQUERADE” &gt;&gt; /etc/rc.local</p>
-<p>echo “iptables -A POSTROUTING -t nat -o ppp+ -j MASQUERADE” &gt;&gt; /etc/rc.local</p>
-<p>echo “echo 1 &gt; /proc/sys/net/ipv4/ip_forward” &gt;&gt; /etc/rc.local</p>
-<p>echo “option /etc/ppp/pptpd-options” &gt;&gt; /etc/pptpd.conf</p>
-<p>echo “localip 172.16.36.1” &gt;&gt; /etc/pptpd.conf</p>
-<p>echo “remoteip 172.16.36.2-254” &gt;&gt; /etc/pptpd.conf</p>
-<p>touch /etc/ppp/pptpd-options</p>
-<p>echo “name pptpd” &gt;&gt; /etc/ppp/pptpd-options</p>
-<p>echo “refuse-pap” &gt;&gt; /etc/ppp/pptpd-options</p>
-<p>echo “refuse-chap” &gt;&gt; /etc/ppp/pptpd-options</p>
-<p>echo “refuse-mschap” &gt;&gt; /etc/ppp/pptpd-options</p>
-<p>echo “require-mschap-v2” &gt;&gt; /etc/ppp/pptpd-options</p>
-<p>echo “require-mppe-128” &gt;&gt; /etc/ppp/pptpd-options</p>
-<p>echo “proxyarp” &gt;&gt; /etc/ppp/pptpd-options</p>
-<p>echo “lock” &gt;&gt; /etc/ppp/pptpd-options</p>
-<p>echo “nobsdcomp” &gt;&gt; /etc/ppp/pptpd-options</p>
-<p>echo “novj” &gt;&gt; /etc/ppp/pptpd-options</p>
-<p>echo “novjccomp” &gt;&gt; /etc/ppp/pptpd-options</p>
-<p>echo “nologfd” &gt;&gt; /etc/ppp/pptpd-options</p>
-<p>echo “ms-dns 8.8.8.8” &gt;&gt; /etc/ppp/pptpd-options</p>
-<p>echo “ms-dns 8.8.4.4” &gt;&gt; /etc/ppp/pptpd-options</p>
-<p>pass=`openssl rand 18 -base64`</p>
-<p>if [ “$1” != “” ]</p>
-<p>then pass=$1</p>
+        <p>#!&#x2F;bin&#x2F;bash </p>
+<p>pacman -S iptables pptpd </p>
+<p>echo “iptables -A INPUT -i ppp+ -j ACCEPT” &gt;&gt; &#x2F;etc&#x2F;rc.local</p>
+<p>echo “iptables -A OUTPUT -o ppp+ -j ACCEPT” &gt;&gt; &#x2F;etc&#x2F;rc.local</p>
+<p>echo “iptables -A INPUT -p tcp –dport 1723 -j ACCEPT” &gt;&gt; &#x2F;etc&#x2F;rc.local</p>
+<p>echo “iptables -A INPUT -p 47 -j ACCEPT” &gt;&gt; &#x2F;etc&#x2F;rc.local</p>
+<p>echo “iptables -A OUTPUT -p 47 -j ACCEPT” &gt;&gt; &#x2F;etc&#x2F;rc.local</p>
+<p>echo “iptables -F FORWARD” &gt;&gt; &#x2F;etc&#x2F;rc.local</p>
+<p>echo “iptables -A FORWARD -j ACCEPT” &gt;&gt; &#x2F;etc&#x2F;rc.local</p>
+<p>echo “iptables -A POSTROUTING -t nat -o eth0 -j MASQUERADE” &gt;&gt; &#x2F;etc&#x2F;rc.local</p>
+<p>echo “iptables -A POSTROUTING -t nat -o ppp+ -j MASQUERADE” &gt;&gt; &#x2F;etc&#x2F;rc.local</p>
+<p>echo “echo 1 &gt; &#x2F;proc&#x2F;sys&#x2F;net&#x2F;ipv4&#x2F;ip_forward” &gt;&gt; &#x2F;etc&#x2F;rc.local</p>
+<p>echo “option &#x2F;etc&#x2F;ppp&#x2F;pptpd-options” &gt;&gt; &#x2F;etc&#x2F;pptpd.conf</p>
+<p>echo “localip 172.16.36.1” &gt;&gt; &#x2F;etc&#x2F;pptpd.conf</p>
+<p>echo “remoteip 172.16.36.2-254” &gt;&gt; &#x2F;etc&#x2F;pptpd.conf</p>
+<p>touch &#x2F;etc&#x2F;ppp&#x2F;pptpd-options</p>
+<p>echo “name pptpd” &gt;&gt; &#x2F;etc&#x2F;ppp&#x2F;pptpd-options</p>
+<p>echo “refuse-pap” &gt;&gt; &#x2F;etc&#x2F;ppp&#x2F;pptpd-options</p>
+<p>echo “refuse-chap” &gt;&gt; &#x2F;etc&#x2F;ppp&#x2F;pptpd-options</p>
+<p>echo “refuse-mschap” &gt;&gt; &#x2F;etc&#x2F;ppp&#x2F;pptpd-options</p>
+<p>echo “require-mschap-v2” &gt;&gt; &#x2F;etc&#x2F;ppp&#x2F;pptpd-options</p>
+<p>echo “require-mppe-128” &gt;&gt; &#x2F;etc&#x2F;ppp&#x2F;pptpd-options</p>
+<p>echo “proxyarp” &gt;&gt; &#x2F;etc&#x2F;ppp&#x2F;pptpd-options</p>
+<p>echo “lock” &gt;&gt; &#x2F;etc&#x2F;ppp&#x2F;pptpd-options</p>
+<p>echo “nobsdcomp” &gt;&gt; &#x2F;etc&#x2F;ppp&#x2F;pptpd-options</p>
+<p>echo “novj” &gt;&gt; &#x2F;etc&#x2F;ppp&#x2F;pptpd-options</p>
+<p>echo “novjccomp” &gt;&gt; &#x2F;etc&#x2F;ppp&#x2F;pptpd-options</p>
+<p>echo “nologfd” &gt;&gt; &#x2F;etc&#x2F;ppp&#x2F;pptpd-options</p>
+<p>echo “ms-dns 8.8.8.8” &gt;&gt; &#x2F;etc&#x2F;ppp&#x2F;pptpd-options</p>
+<p>echo “ms-dns 8.8.4.4” &gt;&gt; &#x2F;etc&#x2F;ppp&#x2F;pptpd-options</p>
+<p>pass&#x3D;`openssl rand 18 -base64`</p>
+<p>if [ “$1” !&#x3D; “” ]</p>
+<p>then pass&#x3D;$1</p>
 <p>fi</p>
-<p>echo “sushiyant pptpd ${pass} *” &gt;&gt; /etc/ppp/chap-secrets</p>
-<p>/etc/rc.local</p>
-<p>/etc/rc.d/pptpd start</p>
+<p>echo “sushiyant pptpd ${pass} *” &gt;&gt; &#x2F;etc&#x2F;ppp&#x2F;chap-secrets</p>
+<p>&#x2F;etc&#x2F;rc.local</p>
+<p>&#x2F;etc&#x2F;rc.d&#x2F;pptpd start</p>
 <p>echo “VPN service is installed , Your VPN username is sushiyant , VPN password is ${pass}”</p>
-<p>echo “To have pptpd server in any boot add it to DAEMONS=(… pptpd …)”</p>
+<p>echo “To have pptpd server in any boot add it to DAEMONS&#x3D;(… pptpd …)”</p>
 <ol>
-<li>echo “We are here <a href="mailto:me@sushiyant.org">me@sushiyant.org</a> , Thank you !”</li>
+<li>echo “We are here <a href="mailto:&#x6d;&#101;&#x40;&#115;&#x75;&#x73;&#104;&#x69;&#121;&#97;&#110;&#116;&#x2e;&#111;&#x72;&#103;">&#x6d;&#101;&#x40;&#115;&#x75;&#x73;&#104;&#x69;&#121;&#97;&#110;&#116;&#x2e;&#111;&#x72;&#103;</a> , Thank you !”</li>
 </ol>
 
         

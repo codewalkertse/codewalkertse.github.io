@@ -137,13 +137,15 @@
     </div>
     <div class="post-content ">
         <p>改进版支持正则批量修改文件名</p>
-<p>#!/usr/bin/python2</p>
-<p>#auth:codewalker<br>#mail:<a href="mailto:001@codewalker.me">001@codewalker.me</a><br>#version:0.2</p>
+<p>#!&#x2F;usr&#x2F;bin&#x2F;python2</p>
+<p>#auth:codewalker<br>#mail:<a href="mailto:&#48;&#48;&#x31;&#x40;&#x63;&#x6f;&#100;&#x65;&#x77;&#x61;&#x6c;&#x6b;&#101;&#114;&#46;&#x6d;&#101;">&#48;&#48;&#x31;&#x40;&#x63;&#x6f;&#100;&#x65;&#x77;&#x61;&#x6c;&#x6b;&#101;&#114;&#46;&#x6d;&#101;</a><br>#version:0.2</p>
 <p>from sys import argv, exit<br>from os import rename, listdir, getcwd<br>import re</p>
-<p>if len(argv) ==  3:<br>    try:<br>        files = listdir(getcwd())<br>        for old_file_name in files:<br>            if argv[1] in old_file_name:<br>                new_file_name = re.sub(argv[1],argv[2],old_file_name)<br>                rename(old_file_name,new_file_name) #change names<br>                print ‘%s =&gt; %s’ % (old_file_name, new_file_name)<br>    except OSError,e:<br>        print e<br>    else: print “DONE”<br>else:</p>
+<p>if len(argv) &#x3D;&#x3D;  3:<br>    try:<br>        files &#x3D; listdir(getcwd())<br>        for old_file_name in files:<br>            if argv[1] in old_file_name:<br>                new_file_name &#x3D; re.sub(argv[1],argv[2],old_file_name)<br>                rename(old_file_name,new_file_name) #change names<br>                print ‘%s &#x3D;&gt; %s’ % (old_file_name, new_file_name)<br>    except OSError,e:<br>        print e<br>    else: print “DONE”<br>else:</p>
 <pre><code>print &quot;USAGE:%s oldpart newpart&quot; % argv\[0\]
 
-exit(1)</code></pre>
+exit(1)
+</code></pre>
+
         
             <div class="donate-container">
     <div class="donate-button">

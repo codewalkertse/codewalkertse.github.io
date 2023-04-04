@@ -149,11 +149,11 @@
     </div>
     <div class="post-content ">
         <p>这是第三个版本加入了参数选项</p>
-<p>#!/usr/bin/python2</p>
-<p>#auth:codewalker<br>#mail:<a href="mailto:001@codewalker.me">001@codewalker.me</a><br>version = 0.3</p>
+<p>#!&#x2F;usr&#x2F;bin&#x2F;python2</p>
+<p>#auth:codewalker<br>#mail:<a href="mailto:&#48;&#48;&#49;&#64;&#99;&#111;&#100;&#101;&#119;&#x61;&#108;&#107;&#x65;&#x72;&#46;&#x6d;&#x65;">&#48;&#48;&#49;&#64;&#99;&#111;&#100;&#101;&#119;&#x61;&#108;&#107;&#x65;&#x72;&#46;&#x6d;&#x65;</a><br>version &#x3D; 0.3</p>
 <p>from sys import argv, exit<br>from os import rename, listdir, getcwd<br>import re<br>import getopt</p>
 <p>def usage():<br>    print “USAGE:%s oldpart newpart” % argv[0]<br>    print ‘’’<br>    -v|–verbose verbose<br>    -V|–version show version<br>    -h|–help show this<br>    ‘’’</p>
-<p>def main():<br>    try:<br>        opts, args = getopt.getopt(argv[1:], “hvV”, [“help”, “verbose”,”version”])<br>    except getopt.GetoptError, e:<br>        print e<br>        usage()<br>        exit(1)<br>    is_output = False<br>    is_verbose = False<br>    is_show_version = False</p>
+<p>def main():<br>    try:<br>        opts, args &#x3D; getopt.getopt(argv[1:], “hvV”, [“help”, “verbose”,”version”])<br>    except getopt.GetoptError, e:<br>        print e<br>        usage()<br>        exit(1)<br>    is_output &#x3D; False<br>    is_verbose &#x3D; False<br>    is_show_version &#x3D; False</p>
 <pre><code>for o, a in opts:
     if o in (&quot;-v&quot;, &quot;--verbose&quot;):
         is_verbose = True
@@ -161,7 +161,7 @@
         usage()
         exit()
     elif o in (&quot;-V&quot;, &quot;--version&quot;):
-        print &apos;version: %s&apos; % version
+        print &#39;version: %s&#39; % version
         exit()
     else:
         assert False, &quot;option error&quot;
@@ -175,13 +175,15 @@ if len(args) ==  2:
                 new\_file\_name = re.sub(args\[0\],args\[1\],old\_file\_name)
                 #rename(old\_file\_name,new\_file\_name) #change names
                 if is_verbose:
-                    print &apos;%s =&gt; %s&apos; % (old\_file\_name, new\_file\_name)
+                    print &#39;%s =&gt; %s&#39; % (old\_file\_name, new\_file\_name)
     except OSError,e:
         print e
     else: print &quot;DONE&quot;
 else:
     usage()
-    exit(1)</code></pre><p>if __name__ == ‘__main__‘:<br>    main()</p>
+    exit(1)
+</code></pre>
+<p>if __name__ &#x3D;&#x3D; ‘__main__‘:<br>    main()</p>
 
         
             <div class="donate-container">

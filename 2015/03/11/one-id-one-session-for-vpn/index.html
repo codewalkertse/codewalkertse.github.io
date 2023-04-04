@@ -148,8 +148,8 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>一个vpn账号只能生成一个session， 一个vpn账号只允许一个连接。限制登录个数 纯傻瓜操作免去繁琐的配置，原理非常简单只要ppp用户登录即生成一个文件在/var/run/pptpd-users下面. 重复登录的话杀掉原进程生成新的。即把上一个用相同账号的人挤下去. 保存下面的文件到/etc/ppp下面再加上x权限.</p>
-<p>#!/bin/sh<br># get the username/ppp line number from the parameters<br>  REALDEVICE=$1<br>  USER=$2<br># create the directory to keep pid files per user<br>  mkdir -p /var/run/pptpd-users<br># if there is a session already for this user, terminate the old one<br>  if [ -f /var/run/pptpd-users/$USER ]; then<br>    kill -HUP `cat /var/run/pptpd-users/$USER`<br>  fi<br># copy the pid file of current user to /var/run/pptpd-users<br>  cp “/var/run/$REALDEVICE.pid” /var/run/pptpd-users/$USER</p>
+        <p>一个vpn账号只能生成一个session， 一个vpn账号只允许一个连接。限制登录个数 纯傻瓜操作免去繁琐的配置，原理非常简单只要ppp用户登录即生成一个文件在&#x2F;var&#x2F;run&#x2F;pptpd-users下面. 重复登录的话杀掉原进程生成新的。即把上一个用相同账号的人挤下去. 保存下面的文件到&#x2F;etc&#x2F;ppp下面再加上x权限.</p>
+<p>#!&#x2F;bin&#x2F;sh<br># get the username&#x2F;ppp line number from the parameters<br>  REALDEVICE&#x3D;$1<br>  USER&#x3D;$2<br># create the directory to keep pid files per user<br>  mkdir -p &#x2F;var&#x2F;run&#x2F;pptpd-users<br># if there is a session already for this user, terminate the old one<br>  if [ -f &#x2F;var&#x2F;run&#x2F;pptpd-users&#x2F;$USER ]; then<br>    kill -HUP `cat &#x2F;var&#x2F;run&#x2F;pptpd-users&#x2F;$USER`<br>  fi<br># copy the pid file of current user to &#x2F;var&#x2F;run&#x2F;pptpd-users<br>  cp “&#x2F;var&#x2F;run&#x2F;$REALDEVICE.pid” &#x2F;var&#x2F;run&#x2F;pptpd-users&#x2F;$USER</p>
 <p>EOF.</p>
 
         

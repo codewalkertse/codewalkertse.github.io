@@ -149,15 +149,15 @@
     </div>
     <div class="post-content ">
         <p>想了想应该用参数的话更好些加入getopt包</p>
-<p>#!/usr/bin/python2</p>
-<p>#auth:codewalker #mail:<a href="mailto:001@codewalker.me">001@codewalker.me</a><br>#version 0.3<br>#date 2013-10-20<br>from time import sleep<br>from progressbar import ETA,ProgressBar,Bar, Percentage<br>import getopt<br>import sys</p>
-<p>class timer:<br>  def __init__(self, sec):<br>    self.sec = sec</p>
-<p>  def main(self, sec):<br>      widgets = [Bar(‘&gt;’),<br>                 Percentage(),<br>                 “ “,<br>                 ETA()]<br>      pbar = ProgressBar(widgets=widgets, maxval=(self.sec+1)<em>10).start()<br>      for i in range(1,(self.sec+1)</em>10):<br>          sleep(0.1)<br>          pbar.update(i+1)<br>      pbar.finish()</p>
+<p>#!&#x2F;usr&#x2F;bin&#x2F;python2</p>
+<p>#auth:codewalker #mail:<a href="mailto:&#x30;&#x30;&#x31;&#64;&#x63;&#x6f;&#x64;&#101;&#x77;&#x61;&#x6c;&#107;&#x65;&#x72;&#x2e;&#x6d;&#101;">&#x30;&#x30;&#x31;&#64;&#x63;&#x6f;&#x64;&#101;&#x77;&#x61;&#x6c;&#107;&#x65;&#x72;&#x2e;&#x6d;&#101;</a><br>#version 0.3<br>#date 2013-10-20<br>from time import sleep<br>from progressbar import ETA,ProgressBar,Bar, Percentage<br>import getopt<br>import sys</p>
+<p>class timer:<br>  def __init__(self, sec):<br>    self.sec &#x3D; sec</p>
+<p>  def main(self, sec):<br>      widgets &#x3D; [Bar(‘&gt;’),<br>                 Percentage(),<br>                 “ “,<br>                 ETA()]<br>      pbar &#x3D; ProgressBar(widgets&#x3D;widgets, maxval&#x3D;(self.sec+1)*10).start()<br>      for i in range(1,(self.sec+1)*10):<br>          sleep(0.1)<br>          pbar.update(i+1)<br>      pbar.finish()</p>
 <p>  def start(self):<br>    self.main(self)</p>
-<p>def USAGE():<br>  print ‘’’<br>  example:<br>  timer.py -t|–total_time=5<br>  ‘’’</p>
-<p>if __name__ == “__main__“:<br>  if len(sys.argv) &lt;= 1:<br>    print “ERROR: No argvs”<br>    USAGE()<br>    exit(1)<br>  try:<br>    opts, args = getopt.getopt(sys.argv[1:],<br>                               “ht:”,<br>                               [“help”, “total_time=”])<br>  except getopt.GetoptError, err:<br>    print str(err)<br>    USAGE()<br>    sys.exit(2)</p>
-<p>  for o, a in opts:<br>    if o in (“-h”, “–help”):<br>      USAGE()<br>      exit(1)<br>    elif o in (“-t”, “–total_time”):<br>      total_time = int(a)<br>    else:<br>      assert False, “unhandled option”</p>
-<p>  t = timer(total_time)<br>  t.start()</p>
+<p>def USAGE():<br>  print ‘’’<br>  example:<br>  timer.py -t|–total_time&#x3D;5<br>  ‘’’</p>
+<p>if __name__ &#x3D;&#x3D; “__main__“:<br>  if len(sys.argv) &lt;&#x3D; 1:<br>    print “ERROR: No argvs”<br>    USAGE()<br>    exit(1)<br>  try:<br>    opts, args &#x3D; getopt.getopt(sys.argv[1:],<br>                               “ht:”,<br>                               [“help”, “total_time&#x3D;”])<br>  except getopt.GetoptError, err:<br>    print str(err)<br>    USAGE()<br>    sys.exit(2)</p>
+<p>  for o, a in opts:<br>    if o in (“-h”, “–help”):<br>      USAGE()<br>      exit(1)<br>    elif o in (“-t”, “–total_time”):<br>      total_time &#x3D; int(a)<br>    else:<br>      assert False, “unhandled option”</p>
+<p>  t &#x3D; timer(total_time)<br>  t.start()</p>
 
         
             <div class="donate-container">

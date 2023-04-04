@@ -143,55 +143,55 @@
     </div>
     <div class="post-content ">
         <p>本本儿的cpu最近老是过热然后风扇狂转网上找咯一个软件Cpufrequtils可控制频率最终达到降温的目的。</p>
-<p>配置说明参照<a href="https://wiki.archlinux.org/index.php/CPU\_Frequency\_Scaling_(简体中文)" target="_blank" rel="noopener">https://wiki.archlinux.org/index.php/CPU\_Frequency\_Scaling_(简体中文)</a></p>
-<p>1/ install</p>
-<p><strong>yaourt -S cpufrequtils</strong></p>
-<p>2/ </p>
-<p>   2.1/ add to MODULES when booting</p>
-<p><strong>vim /etc/rc.conf</strong></p>
-<p><strong>MODULES=(vboxdrv vboxnetflt fuse acpi-cpufreq)</strong></p>
-<p>  2.2/ Temporarily add MODULES </p>
+<p>配置说明参照<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/CPU/_Frequency/_Scaling_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">https://wiki.archlinux.org/index.php/CPU\_Frequency\_Scaling_(简体中文)</a></p>
+<p>1&#x2F; install</p>
+<p><strong>yaourt -S cpufrequtils</strong></p>
+<p>2&#x2F; </p>
+<p>   2.1&#x2F; add to MODULES when booting</p>
+<p><strong>vim &#x2F;etc&#x2F;rc.conf</strong></p>
+<p><strong>MODULES&#x3D;(vboxdrv vboxnetflt fuse acpi-cpufreq)</strong></p>
+<p>  2.2&#x2F; Temporarily add MODULES </p>
 <p><strong>sudo modprobe acpi-cpufreq</strong></p>
-<p>3/ #configuration for cpufreq control</p>
-<p>just change </p>
-<p><strong>#governor=”ondemand</strong></p>
-<p>to </p>
-<p><strong>governor=”ondemand”</strong></p>
+<p>3&#x2F; #configuration for cpufreq control</p>
+<p>just change </p>
+<p><strong>#governor&#x3D;”ondemand</strong></p>
+<p>to </p>
+<p><strong>governor&#x3D;”ondemand”</strong></p>
 <p><strong>在未手动设置最低与最高频率时自动设置，我这里是1.2-2.1下面我会有输出。</strong></p>
-<p>4/ add DAEMONS</p>
-<p>sudo vim /etc/rc.conf</p>
-<p>DAEMONS=(hwclock syslog-ng dbus crond fam hal <strong>cpufreq</strong> als vbox-service)</p>
-<p>5/ reboot</p>
+<p>4&#x2F; add DAEMONS</p>
+<p>sudo vim &#x2F;etc&#x2F;rc.conf</p>
+<p>DAEMONS&#x3D;(hwclock syslog-ng dbus crond fam hal <strong>cpufreq</strong> als vbox-service)</p>
+<p>5&#x2F; reboot</p>
 <p>这样做完之后效果还是挺明显的从默认2.1降成1.20 GHz 咱们也为节能减排做出贡献了</p>
-<p>{codewalker}&lt;=Sun Mar 04-01:35 AM=&gt;</p>
-<p>==&gt;~&lt;==</p>
-<p>=&gt;$cpufreq-info -m</p>
+<p>{codewalker}&lt;&#x3D;Sun Mar 04-01:35 AM&#x3D;&gt;</p>
+<p>&#x3D;&#x3D;&gt;~&lt;&#x3D;&#x3D;</p>
+<p>&#x3D;&gt;$cpufreq-info -m</p>
 <p>cpufrequtils 008: cpufreq-info (C) Dominik Brodowski 2004-2009</p>
-<p>Report errors and bugs to <a href="mailto:cpufreq@vger.kernel.org">cpufreq@vger.kernel.org</a>, please.</p>
+<p>Report errors and bugs to <a href="mailto:&#x63;&#x70;&#x75;&#102;&#114;&#x65;&#x71;&#64;&#x76;&#103;&#101;&#x72;&#x2e;&#x6b;&#101;&#x72;&#x6e;&#x65;&#108;&#46;&#x6f;&#x72;&#x67;">&#x63;&#x70;&#x75;&#102;&#114;&#x65;&#x71;&#64;&#x76;&#103;&#101;&#x72;&#x2e;&#x6b;&#101;&#x72;&#x6e;&#x65;&#108;&#46;&#x6f;&#x72;&#x67;</a>, please.</p>
 <p>analyzing CPU 0:</p>
-<p>  driver: acpi-cpufreq</p>
-<p>  CPUs which run at the same hardware frequency: 0 1</p>
-<p>  CPUs which need to have their frequency coordinated by software: 0</p>
-<p>  maximum transition latency: 10.0 us.</p>
-<p>  hardware limits: 1.20 GHz - 2.10 GHz</p>
-<p>  available frequency steps: 2.10 GHz, 1.60 GHz, 1.20 GHz</p>
-<p>  available cpufreq governors: ondemand, performance</p>
-<p>  current policy: frequency should be within 1.20 GHz and 2.10 GHz.</p>
-<pre><code>The governor &quot;ondemand&quot; may decide which speed to use
-
-within this range.</code></pre><p>  <strong>current CPU frequency is 1.20 GHz.</strong></p>
+<p>  driver: acpi-cpufreq</p>
+<p>  CPUs which run at the same hardware frequency: 0 1</p>
+<p>  CPUs which need to have their frequency coordinated by software: 0</p>
+<p>  maximum transition latency: 10.0 us.</p>
+<p>  hardware limits: 1.20 GHz - 2.10 GHz</p>
+<p>  available frequency steps: 2.10 GHz, 1.60 GHz, 1.20 GHz</p>
+<p>  available cpufreq governors: ondemand, performance</p>
+<p>  current policy: frequency should be within 1.20 GHz and 2.10 GHz.</p>
+<p>                  The governor “ondemand” may decide which speed to use</p>
+<p>                  within this range.</p>
+<p>  <strong>current CPU frequency is 1.20 GHz.</strong></p>
 <p>analyzing CPU 1:</p>
-<p>  driver: acpi-cpufreq</p>
-<p>  CPUs which run at the same hardware frequency: 0 1</p>
-<p>  CPUs which need to have their frequency coordinated by software: 1</p>
-<p>  maximum transition latency: 10.0 us.</p>
-<p>  hardware limits: 1.20 GHz - 2.10 GHz</p>
-<p>  available frequency steps: 2.10 GHz, 1.60 GHz, 1.20 GHz</p>
-<p>  available cpufreq governors: ondemand, performance</p>
-<p>  current policy: frequency should be within 1.20 GHz and 2.10 GHz.</p>
-<pre><code>The governor &quot;ondemand&quot; may decide which speed to use
-
-within this range.</code></pre><p>  <strong>current CPU frequency is 1.20 GHz.</strong></p>
+<p>  driver: acpi-cpufreq</p>
+<p>  CPUs which run at the same hardware frequency: 0 1</p>
+<p>  CPUs which need to have their frequency coordinated by software: 1</p>
+<p>  maximum transition latency: 10.0 us.</p>
+<p>  hardware limits: 1.20 GHz - 2.10 GHz</p>
+<p>  available frequency steps: 2.10 GHz, 1.60 GHz, 1.20 GHz</p>
+<p>  available cpufreq governors: ondemand, performance</p>
+<p>  current policy: frequency should be within 1.20 GHz and 2.10 GHz.</p>
+<p>                  The governor “ondemand” may decide which speed to use</p>
+<p>                  within this range.</p>
+<p>  <strong>current CPU frequency is 1.20 GHz.</strong></p>
 
         
             <div class="donate-container">

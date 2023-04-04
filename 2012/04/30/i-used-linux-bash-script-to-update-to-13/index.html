@@ -145,259 +145,168 @@
         <p>由于懒放弃写自行管理网络的脚本在archlinux官网找到一个软件netcfg2借助这个软件完成了网络控制的部分。</p>
 <p>netcfg是需要自己去修改配置文件。我新增的功能是直接搜索到wifi后按数字键选择然后在输入密码就可以了。</p>
 <p>也就不用在去编辑任何文本文件。</p>
-<p>懒人万岁 </p>
-<p>┌─{codewalker}&lt;=Mon Apr 30-12:48 AM=&gt;</p>
-<p>|=&gt;/tmp</p>
-<p>└─$cat ~/my_script/start_web_server.sh </p>
-<p>#!/bin/bash</p>
+<p>懒人万岁 </p>
+<p>┌─{codewalker}&lt;&#x3D;Mon Apr 30-12:48 AM&#x3D;&gt;</p>
+<p>|&#x3D;&gt;&#x2F;tmp</p>
+<p>└─$cat ~&#x2F;my_script&#x2F;start_web_server.sh </p>
+<p>#!&#x2F;bin&#x2F;bash</p>
 <p>#writen by codewalker</p>
-<p>#email <a href="mailto:xyy.xx.victor@gmail.com">xyy.xx.victor@gmail.com</a></p>
+<p>#email <a href="mailto:&#x78;&#121;&#121;&#46;&#120;&#x78;&#x2e;&#x76;&#105;&#99;&#116;&#x6f;&#114;&#x40;&#103;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#99;&#111;&#x6d;">&#x78;&#121;&#121;&#46;&#120;&#x78;&#x2e;&#x76;&#105;&#99;&#116;&#x6f;&#114;&#x40;&#103;&#x6d;&#97;&#x69;&#x6c;&#x2e;&#99;&#111;&#x6d;</a></p>
 <p>#qq 58626619</p>
-<p>#Modify date: 2012-4-30 </p>
+<p>#Modify date: 2012-4-30 </p>
 <p>#update 1.3 comlete network control with netcfg2</p>
 <p>#update 1.2 add startx function,ifi control and NOT comlete</p>
 <p>#update 1.1 add goagent proxy control</p>
 <p>#version 1.0 web server,php,varnish,mysql control</p>
 <p>USAGE(){</p>
 <p>cat &lt;&lt;EOF</p>
-<pre><code>1:start php,nginx,varnish;
-
-2:stop php,nginx,varnish;
-
-3:restart php,nginx,varnish;
-
-4:online&amp;startx;
-
-5:contact wifi;</code></pre><p>EOF</p>
+<p>        1:start php,nginx,varnish;</p>
+<p>        2:stop php,nginx,varnish;</p>
+<p>        3:restart php,nginx,varnish;</p>
+<p>        4:online&amp;startx;</p>
+<p>        5:contact wifi;</p>
+<p>EOF</p>
 <p>}</p>
 <p>function go(){</p>
-<pre><code>startx</code></pre><p>}</p>
-<p>function online (){</p>
-<pre><code>echo &apos;get ip&apos;;
-
-sudo dhcpcd eth0
-
-echo &apos;starting goagent...&apos;;
-
-sudo /etc/rc.d/goagent start
-
-echo &apos;starting dnsmasq...&apos;;
-
-sudo /etc/rc.d/dnsmasq start</code></pre><p>}</p>
-<p>function start_php_nginx_varnish (){</p>
-<pre><code>echo &apos;starting php-fpm...&apos;;
-
-sudo /etc/rc.d/php-fpm start
-
-echo &apos;starting nginx...&apos;;
-
-sudo /etc/rc.d/nginx start
-
-echo &apos;starting varnish&apos;;
-
-sudo varnishd -f /etc/varnish/default.vcl -s malloc,1G -T 127.0.0.1:2000 -a 0.0.0.0:8080
-
-sudo /etc/rc.d/varnish start</code></pre><p>}</p>
-<p>function stop_php_nginx_varnish (){</p>
-<pre><code>echo &apos;stop webserver&apos;;
-
-sudo /etc/rc.d/php-fpm stop
-
-sudo /etc/rc.d/nginx stop 
-
-sudo /etc/rc.d/varnish stop
-
-sudo pkill varnish</code></pre><p>}</p>
-<p>function restart_php_nginx_varnish (){</p>
-<pre><code>stop\_php\_nginx_varnish
-
-start\_php\_nginx_varnish</code></pre><p>}</p>
-<p> function mysql_control(){</p>
-<pre><code>echo &quot;you chose $@ mysql&quot;
-
-case &quot;$1&quot; in
-
- #control mysql case statement
-
-
-
-START|start) echo &quot;now start mysql&quot;
-
-    sudo /etc/rc.d/mysqld start;;
-
-
-
-STOP|stop) echo &quot;now stop mysql&quot;
-
-    sudo /etc/rc.d/mysqld stop;;
-
-
-
-RESTART|restart)
-
-    sudo /etc/rc.d/mysqld restart;;
-
-
-
-q|Q) done=&quot;true&quot; #ends while loop 
-
-    ;;
-
- *)   echo &quot;Invalid option, choose again...&quot;;;</code></pre><p>   esac</p>
+<p>    startx</p>
 <p>}</p>
-<p>count_input=0</p>
-<p> while [ “$switch” == ‘’ ]; do</p>
-<pre><code> read -p &quot;what are you doing?&quot; switch
-
- ((count_input++))
-
-# echo $count_input
-
- if \[ $count_input -ge 3 \];then
-
-    USAGE
-
- fi
-
- if \[ $count_input -ge 5 \];then
-
-     echo &apos;are u nuts!!!&apos;
-
-     mytime=5
-
-     less_time=10
-
-     while \[ $mytime -ge -4 \];do
-
-         sleep 1
-
-         ((less_time--))
-
-         echo $less_time
-
-         ((mytime--))
-
-     done
-
-     echo &apos;quitting....&apos;
-
-     exit 0
-
- fi</code></pre><p> done</p>
-<p>if [ “$switch” == “1” ];then</p>
-<pre><code>start\_php\_nginx_varnish
-
-read -p &apos;Do you start mysql(type:1=yes or 2=no)&apos; is\_start\_mysql
-
-if \[ &quot;$is\_start\_mysql&quot; == &quot;1&quot; \];then
-
-    mysql_control &apos;start&apos;
-
-fi</code></pre><p>fi</p>
-<p>if [ “$switch” == “2” ];then</p>
-<pre><code>stop\_php\_nginx_varnish
-
-read -p &apos;Do you stop mysql(type:1=yes or 2=no)&apos; is\_start\_mysql
-
-if \[ &quot;$is\_start\_mysql&quot; == &quot;1&quot; \];then
-
-     mysql_control &apos;stop&apos;
-
-fi</code></pre><p>fi</p>
-<p>if [ “$switch” == “3” ];then</p>
-<pre><code>restart\_php\_nginx_varnish
-
-read -p &apos;Do you restart mysql(type:1=yes or 2=no)&apos; is\_start\_mysql
-
-if \[ &quot;$is\_start\_mysql&quot; == &quot;1&quot; \];then
-
-    mysql_control &apos;restart&apos;
-
-else
-
-    echo &apos;i chose no&apos;;
-
-    exit 1
-
-fi</code></pre><p>fi</p>
-<p>if [ “$switch” == “4” ];then</p>
-<pre><code>online;
-
-read -p &quot;go?(1=yes or 2=no)&quot; is_go
-
-if \[ &quot;$is_go&quot; == &quot;1&quot; \];then
-
-    go;
-
-else
-
-    echo &apos;You chose NOT startx&apos;;
-
-    exit 1
-
-fi</code></pre><p>fi</p>
-<p>if [ “$switch” == “5” ];then</p>
-<pre><code>\_net\_config_file=&apos;/tmp/wireless-cfg&apos;;
-
-#sudo ifconfig wlan0 up;
-
-echo &apos;scan wifi...&apos;;
-
-if \[ ! -f /tmp/enable_wifi \];then
-
-    sudo iwlist wlan0 scan|grep ESSID:|cut -d&apos;&quot;&apos; -f2 &gt; /tmp/enable_wifi;
-
-fi
-
-tc=$(cat /tmp/enable_wifi|wc -l);
-
-echo -n &quot;You have $tc  enable wifi to use&quot;;
-
-echo &apos; &apos;;
-
-awk &apos;{num=num+1; printf&quot;%d:%sn&quot;, num, $0}&apos; /tmp/enable_wifi
-
-#rm /tmp/enable_wifi
-
-read -p &quot;Chose which one?    &quot; index\_of\_wifi_ESSID
-
-cw=$(sed -n &quot;$index\_of\_wifi\_ESSID p&quot; /tmp/enable\_wifi);
-
-echo  &quot;Now you contact to $cw&quot;;
-
-if \[ -f $\_net\_config_file \];then
-
-    echo &apos;&apos; &gt; $\_net\_config_file;
-
-    echo &apos;the $\_net\_config_file is cunzai,re it&apos;;
-
-else
-
-    touch $\_net\_config_file;
-
-    echo &apos;this is no $\_net\_config_file, touch it&apos;;
-
-fi
-
-echo &quot;ESSID=&apos;$cw&apos;&quot; &gt;&gt; $\_net\_config_file;
-
-read -p &quot;Please type your wireless_password==&gt;    &quot; wireless_password
-
-echo &quot;KEY=&apos;$wireless\_password&apos;&quot; &gt;&gt; $\_net\_config\_file;
-
-echo &quot;INTERFACE=&apos;wlan0&apos;&quot; &gt;&gt; $\_net\_config_file;
-
-echo &quot;IP=&apos;dhcp&apos;&quot; &gt;&gt; $\_net\_config_file;
-
-echo &quot;SECURITY=&apos;wpa&apos;&quot;&gt;&gt; $\_net\_config_file;
-
-sudo mv /tmp/wireless-cfg /etc/network.d/wireless.cfg;
-
-sudo chmod 644 /etc/network.d/wireless.cfg;
-
-sudo chown root.root /etc/network.d/wireless.cfg;
-
-sudo netcfg2 wireless.cfg</code></pre><p>fi</p>
+<p>function online (){</p>
+<p>    echo ‘get ip’;</p>
+<p>    sudo dhcpcd eth0</p>
+<p>    echo ‘starting goagent…’;</p>
+<p>    sudo &#x2F;etc&#x2F;rc.d&#x2F;goagent start</p>
+<p>    echo ‘starting dnsmasq…’;</p>
+<p>    sudo &#x2F;etc&#x2F;rc.d&#x2F;dnsmasq start</p>
+<p>}</p>
+<p>function start_php_nginx_varnish (){</p>
+<p>    echo ‘starting php-fpm…’;</p>
+<p>    sudo &#x2F;etc&#x2F;rc.d&#x2F;php-fpm start</p>
+<p>    echo ‘starting nginx…’;</p>
+<p>    sudo &#x2F;etc&#x2F;rc.d&#x2F;nginx start</p>
+<p>    echo ‘starting varnish’;</p>
+<p>    sudo varnishd -f &#x2F;etc&#x2F;varnish&#x2F;default.vcl -s malloc,1G -T 127.0.0.1:2000 -a 0.0.0.0:8080</p>
+<p>    sudo &#x2F;etc&#x2F;rc.d&#x2F;varnish start</p>
+<p>}</p>
+<p>function stop_php_nginx_varnish (){</p>
+<p>    echo ‘stop webserver’;</p>
+<p>    sudo &#x2F;etc&#x2F;rc.d&#x2F;php-fpm stop</p>
+<p>    sudo &#x2F;etc&#x2F;rc.d&#x2F;nginx stop </p>
+<p>    sudo &#x2F;etc&#x2F;rc.d&#x2F;varnish stop</p>
+<p>    sudo pkill varnish</p>
+<p>}</p>
+<p>function restart_php_nginx_varnish (){</p>
+<p>    stop_php_nginx_varnish</p>
+<p>    start_php_nginx_varnish</p>
+<p>}</p>
+<p> function mysql_control(){</p>
+<p>    echo “you chose $@ mysql”</p>
+<p>    case “$1” in</p>
+<p>     #control mysql case statement</p>
+<p>    </p>
+<p>    START|start) echo “now start mysql”</p>
+<p>        sudo &#x2F;etc&#x2F;rc.d&#x2F;mysqld start;;</p>
+<p>    </p>
+<p>    STOP|stop) echo “now stop mysql”</p>
+<p>        sudo &#x2F;etc&#x2F;rc.d&#x2F;mysqld stop;;</p>
+<p>    </p>
+<p>    RESTART|restart)</p>
+<p>        sudo &#x2F;etc&#x2F;rc.d&#x2F;mysqld restart;;</p>
+<p>    </p>
+<p>    q|Q) done&#x3D;”true” #ends while loop </p>
+<p>        ;;</p>
+<p>     *)   echo “Invalid option, choose again…”;;</p>
+<p>   esac</p>
+<p>}</p>
+<p>count_input&#x3D;0</p>
+<p> while [ “$switch” &#x3D;&#x3D; ‘’ ]; do</p>
+<p>     read -p “what are you doing?” switch</p>
+<p>     ((count_input++))</p>
+<p>    # echo $count_input</p>
+<p>     if [ $count_input -ge 3 ];then</p>
+<p>        USAGE</p>
+<p>     fi</p>
+<p>     if [ $count_input -ge 5 ];then</p>
+<p>         echo ‘are u nuts!!!’</p>
+<p>         mytime&#x3D;5</p>
+<p>         less_time&#x3D;10</p>
+<p>         while [ $mytime -ge -4 ];do</p>
+<p>             sleep 1</p>
+<p>             ((less_time–))</p>
+<p>             echo $less_time</p>
+<p>             ((mytime–))</p>
+<p>         done</p>
+<p>         echo ‘quitting….’</p>
+<p>         exit 0</p>
+<p>     fi</p>
+<p> done</p>
+<p>             </p>
+<p>if [ “$switch” &#x3D;&#x3D; “1” ];then</p>
+<p>     start_php_nginx_varnish</p>
+<p>     read -p ‘Do you start mysql(type:1&#x3D;yes or 2&#x3D;no)’ is_start_mysql</p>
+<p>     if [ “$is_start_mysql” &#x3D;&#x3D; “1” ];then</p>
+<p>         mysql_control ‘start’</p>
+<p>     fi</p>
+<p>fi</p>
+<p>if [ “$switch” &#x3D;&#x3D; “2” ];then</p>
+<p>    stop_php_nginx_varnish</p>
+<p>    read -p ‘Do you stop mysql(type:1&#x3D;yes or 2&#x3D;no)’ is_start_mysql</p>
+<p>    if [ “$is_start_mysql” &#x3D;&#x3D; “1” ];then</p>
+<p>         mysql_control ‘stop’</p>
+<p>    fi</p>
+<p>fi</p>
+<p>if [ “$switch” &#x3D;&#x3D; “3” ];then</p>
+<p>    restart_php_nginx_varnish</p>
+<p>    read -p ‘Do you restart mysql(type:1&#x3D;yes or 2&#x3D;no)’ is_start_mysql</p>
+<p>    if [ “$is_start_mysql” &#x3D;&#x3D; “1” ];then</p>
+<p>        mysql_control ‘restart’</p>
+<p>    else</p>
+<p>        echo ‘i chose no’;</p>
+<p>        exit 1</p>
+<p>    fi</p>
+<p>fi</p>
+<p>if [ “$switch” &#x3D;&#x3D; “4” ];then</p>
+<p>    online;</p>
+<p>    read -p “go?(1&#x3D;yes or 2&#x3D;no)” is_go</p>
+<p>    if [ “$is_go” &#x3D;&#x3D; “1” ];then</p>
+<p>        go;</p>
+<p>    else</p>
+<p>        echo ‘You chose NOT startx’;</p>
+<p>        exit 1</p>
+<p>    fi</p>
+<p>fi</p>
+<p>if [ “$switch” &#x3D;&#x3D; “5” ];then</p>
+<p>    _net_config_file&#x3D;’&#x2F;tmp&#x2F;wireless-cfg’;</p>
+<p>    #sudo ifconfig wlan0 up;</p>
+<p>    echo ‘scan wifi…’;</p>
+<p>    if [ ! -f &#x2F;tmp&#x2F;enable_wifi ];then</p>
+<p>        sudo iwlist wlan0 scan|grep ESSID:|cut -d’”‘ -f2 &gt; &#x2F;tmp&#x2F;enable_wifi;</p>
+<p>    fi</p>
+<p>    tc&#x3D;$(cat &#x2F;tmp&#x2F;enable_wifi|wc -l);</p>
+<p>    echo -n “You have $tc  enable wifi to use”;</p>
+<p>    echo ‘ ‘;</p>
+<p>    awk ‘{num&#x3D;num+1; printf”%d:%sn”, num, $0}’ &#x2F;tmp&#x2F;enable_wifi</p>
+<p>    #rm &#x2F;tmp&#x2F;enable_wifi</p>
+<p>    read -p “Chose which one?    “ index_of_wifi_ESSID</p>
+<p>    cw&#x3D;$(sed -n “$index_of_wifi_ESSID p” &#x2F;tmp&#x2F;enable_wifi);</p>
+<p>    echo  “Now you contact to $cw”;</p>
+<p>    if [ -f $_net_config_file ];then</p>
+<p>        echo ‘’ &gt; $_net_config_file;</p>
+<p>        echo ‘the $_net_config_file is cunzai,re it’;</p>
+<p>    else</p>
+<p>        touch $_net_config_file;</p>
+<p>        echo ‘this is no $_net_config_file, touch it’;</p>
+<p>    fi</p>
+<p>    echo “ESSID&#x3D;’$cw’” &gt;&gt; $_net_config_file;</p>
+<p>    read -p “Please type your wireless_password&#x3D;&#x3D;&gt;    “ wireless_password</p>
+<p>    echo “KEY&#x3D;’$wireless_password’” &gt;&gt; $_net_config_file;</p>
+<p>    echo “INTERFACE&#x3D;’wlan0’” &gt;&gt; $_net_config_file;</p>
+<p>    echo “IP&#x3D;’dhcp’” &gt;&gt; $_net_config_file;</p>
+<p>    echo “SECURITY&#x3D;’wpa’”&gt;&gt; $_net_config_file;</p>
+<p>    sudo mv &#x2F;tmp&#x2F;wireless-cfg &#x2F;etc&#x2F;network.d&#x2F;wireless.cfg;</p>
+<p>    sudo chmod 644 &#x2F;etc&#x2F;network.d&#x2F;wireless.cfg;</p>
+<p>    sudo chown root.root &#x2F;etc&#x2F;network.d&#x2F;wireless.cfg;</p>
+<p>    sudo netcfg2 wireless.cfg</p>
+<p>fi</p>
 
         
             <div class="donate-container">

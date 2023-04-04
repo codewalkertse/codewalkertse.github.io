@@ -136,17 +136,19 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>$ cat ~/.bashrc<br>#<br># ~/.bashrc<br>#</p>
-<p># If not running interactively, don’t do anything<br>[[ $- != *i* ]] &amp;&amp; return<br>function online(){<br>    echo “online…”<br>    read -p “what are you doing?” where<br>    case “$where” in<br>    1)<br>        echo “now conacting to xxx”<br>        sudo netctl xxx;;<br>    2)<br>        echo “now conacting to xxx”<br>        sudo netcfg xxx;;<br>    *)<br>        echo “Invalid option, choose again…”;;<br>    esac</p>
-<pre><code>echo &quot;online \[Done\]&quot;</code></pre><p>}<br>function mkcd(){<br>    dir=”$1”<br>    mkdir -p “$dir” &amp;&amp; cd “$dir”<br>}<br>alias online=online<br>alias pcu=’sudo pacman -Syu’<br>alias ls=’ls –color=auto’<br>alias diff=’colordiff’ # requires colordiff package<br>alias grep=’grep –color=auto’<br>alias dmidecode=’sudo dmidecode’<br>alias df=’pydf -h’<br>alias ll=’ls -l’<br>alias la=’ll -A’<br>alias ..=”cd ..”<br>alias du=’du -c -h’<br>alias mkdir=’mkdir -p -v’<br>alias ping=’ping -c 5’<br>alias ..=’cd ..’<br>alias devtemp=’sudo hddtemp /dev/sda /dev/sdb’<br>alias go=’startx’<br>alias mkSystemd-analyzePng=’sudo systemd-analyze plot &gt; /tmp/plot.svg &amp;&amp; rsvg-convert -o /tmp/plot.png /tmp/plot.svg &amp;&amp; rm /tmp/plot.svg’<br>alias sambaStart=’sudo systemctl start smbd.service nmbd.service’<br>alias libvirtdStart=’sudo systemctl start libvirtd.service’<br>alias conkyStart=’sh /home/codewalker/conky/conkyStart.sh’<br>alias todolist=’/home/codewalker/conky/todolist’<br>alias goagentStart=’sudo systemctl start goagent.service’<br>alias sc=’scrot -s /tmp/1.png’<br>alias pdf=’zathura&amp;’<br>alias aria2c=’aria2c -c -s 5 ‘<br>alias remote_kvm=’rdesktop 192.168.122.203 -u codewalker -p codewalker -g 1280x768 -D -clipboard -r sound:local -r disk:cdrom=/dev/shm -r lspci’<br>#PS1=’[u@h W]$ ‘<br>PS1=”[e[36;1m]u[e[0m]@[e[33;1m]h[e[0m]:[e[31;1m]w[e[0m]n$ “<br>export EDITOR=”vim”<br>extract() {<br>    local c e i</p>
+        <p>$ cat ~&#x2F;.bashrc<br>#<br># ~&#x2F;.bashrc<br>#</p>
+<p># If not running interactively, don’t do anything<br>[[ $- !&#x3D; *i* ]] &amp;&amp; return<br>function online(){<br>    echo “online…”<br>    read -p “what are you doing?” where<br>    case “$where” in<br>    1)<br>        echo “now conacting to xxx”<br>        sudo netctl xxx;;<br>    2)<br>        echo “now conacting to xxx”<br>        sudo netcfg xxx;;<br>    *)<br>        echo “Invalid option, choose again…”;;<br>    esac</p>
+<pre><code>echo &quot;online \[Done\]&quot;
+</code></pre>
+<p>}<br>function mkcd(){<br>    dir&#x3D;”$1”<br>    mkdir -p “$dir” &amp;&amp; cd “$dir”<br>}<br>alias online&#x3D;online<br>alias pcu&#x3D;’sudo pacman -Syu’<br>alias ls&#x3D;’ls –color&#x3D;auto’<br>alias diff&#x3D;’colordiff’ # requires colordiff package<br>alias grep&#x3D;’grep –color&#x3D;auto’<br>alias dmidecode&#x3D;’sudo dmidecode’<br>alias df&#x3D;’pydf -h’<br>alias ll&#x3D;’ls -l’<br>alias la&#x3D;’ll -A’<br>alias ..&#x3D;”cd ..”<br>alias du&#x3D;’du -c -h’<br>alias mkdir&#x3D;’mkdir -p -v’<br>alias ping&#x3D;’ping -c 5’<br>alias ..&#x3D;’cd ..’<br>alias devtemp&#x3D;’sudo hddtemp &#x2F;dev&#x2F;sda &#x2F;dev&#x2F;sdb’<br>alias go&#x3D;’startx’<br>alias mkSystemd-analyzePng&#x3D;’sudo systemd-analyze plot &gt; &#x2F;tmp&#x2F;plot.svg &amp;&amp; rsvg-convert -o &#x2F;tmp&#x2F;plot.png &#x2F;tmp&#x2F;plot.svg &amp;&amp; rm &#x2F;tmp&#x2F;plot.svg’<br>alias sambaStart&#x3D;’sudo systemctl start smbd.service nmbd.service’<br>alias libvirtdStart&#x3D;’sudo systemctl start libvirtd.service’<br>alias conkyStart&#x3D;’sh &#x2F;home&#x2F;codewalker&#x2F;conky&#x2F;conkyStart.sh’<br>alias todolist&#x3D;’&#x2F;home&#x2F;codewalker&#x2F;conky&#x2F;todolist’<br>alias goagentStart&#x3D;’sudo systemctl start goagent.service’<br>alias sc&#x3D;’scrot -s &#x2F;tmp&#x2F;1.png’<br>alias pdf&#x3D;’zathura&amp;’<br>alias aria2c&#x3D;’aria2c -c -s 5 ‘<br>alias remote_kvm&#x3D;’rdesktop 192.168.122.203 -u codewalker -p codewalker -g 1280x768 -D -clipboard -r sound:local -r disk:cdrom&#x3D;&#x2F;dev&#x2F;shm -r lspci’<br>#PS1&#x3D;’[u@h W]$ ‘<br>PS1&#x3D;”[e[36;1m]u[e[0m]@[e[33;1m]h[e[0m]:[e[31;1m]w[e[0m]n$ “<br>export EDITOR&#x3D;”vim”<br>extract() {<br>    local c e i</p>
 <pre><code>(($#)) || return
 
 for i; do
-    c=&apos;&apos;
+    c=&#39;&#39;
     e=1
 
     if \[\[ ! -r $i \]\]; then
-        echo &quot;$0: file is unreadable: `$i&apos;&quot; &gt;&amp;2
+        echo &quot;$0: file is unreadable: `$i&#39;&quot; &gt;&amp;2
         continue
     fi
 
@@ -158,22 +160,24 @@ for i; do
     *.tbz2)      tar xvjf $1     ;;
     *.tgz)       tar xvzf $1     ;;
     *.zip)       unzip $1        ;;
-        *.7z)  c=&apos;7z x&apos;;;
-    *.Z)   c=&apos;uncompress&apos;;;
-    *.bz2) c=&apos;bunzip2&apos;;;
-    *.exe) c=&apos;cabextract&apos;;;
-    *.gz)  c=&apos;gunzip&apos;;;
-    *.rar) c=&apos;unrar x&apos;;;
-    *.xz)  c=&apos;unxz&apos;;;
-    *.zip) c=&apos;unzip&apos;;;
-    *)     echo &quot;$0: unrecognized file extension: `$i&apos;&quot; &gt;&amp;2
-    *)     echo &quot;$0: unrecognized file extension: `$i&apos;&quot; &gt;&amp;2
+        *.7z)  c=&#39;7z x&#39;;;
+    *.Z)   c=&#39;uncompress&#39;;;
+    *.bz2) c=&#39;bunzip2&#39;;;
+    *.exe) c=&#39;cabextract&#39;;;
+    *.gz)  c=&#39;gunzip&#39;;;
+    *.rar) c=&#39;unrar x&#39;;;
+    *.xz)  c=&#39;unxz&#39;;;
+    *.zip) c=&#39;unzip&#39;;;
+    *)     echo &quot;$0: unrecognized file extension: `$i&#39;&quot; &gt;&amp;2
+    *)     echo &quot;$0: unrecognized file extension: `$i&#39;&quot; &gt;&amp;2
            continue;;
     esac
 done
 
-return $e</code></pre><p>}</p>
-<p>export LC_ALL=en_US.UTF-8<br>export LC_CTYPE=zh_CN<br>export LANG=en_US.UTF-8<br>#export GTK_IM_MODULE=ibus<br>#export XMODIFIERS=@im=ibus<br>#export QT_IM_MODULE=ibus<br>export GTK_IM_MODULE=fcitx<br>export QT_IM_MODULE=fcitx<br>export XMODIFIERS=”@im=fcitx”<br>export XIM=fcitx</p>
+return $e
+</code></pre>
+<p>}</p>
+<p>export LC_ALL&#x3D;en_US.UTF-8<br>export LC_CTYPE&#x3D;zh_CN<br>export LANG&#x3D;en_US.UTF-8<br>#export GTK_IM_MODULE&#x3D;ibus<br>#export XMODIFIERS&#x3D;@im&#x3D;ibus<br>#export QT_IM_MODULE&#x3D;ibus<br>export GTK_IM_MODULE&#x3D;fcitx<br>export QT_IM_MODULE&#x3D;fcitx<br>export XMODIFIERS&#x3D;”@im&#x3D;fcitx”<br>export XIM&#x3D;fcitx</p>
 
         
             <div class="donate-container">

@@ -150,11 +150,11 @@
 <p>Description : Repository UUID ‘f8fe39fa-cc5c-426a-9b6e-de096234f0a1’ doesn’t match expected UUID ‘f3dc4da7-9f31-4e67-aa99-e69c329e4832’ Suggestion : The operation could not be completed.</p>
 </blockquote>
 <p>To fix that issue you need to do those steps below. #1 To check current UUID of you svn repo.</p>
-<p>svnlook uuid /path/to/your/svn/repo</p>
+<p>svnlook uuid &#x2F;path&#x2F;to&#x2F;your&#x2F;svn&#x2F;repo</p>
 <p>It will show you some string like:f8fe39fa-cc5c-426a-9b6e-de096234f0a1 #2 To reset UUID to old one.</p>
-<p>svnadmin setuuid /opt/svn/hellomoneyv5/ f3dc4da7-9f31-4e67-aa99-e69c329e4832</p>
+<p>svnadmin setuuid &#x2F;opt&#x2F;svn&#x2F;hellomoneyv5&#x2F; f3dc4da7-9f31-4e67-aa99-e69c329e4832</p>
 <p>#3 Recheck repo’s UUID currently.</p>
-<p>svnlook uuid /path/to/your/svn/repo</p>
+<p>svnlook uuid &#x2F;path&#x2F;to&#x2F;your&#x2F;svn&#x2F;repo</p>
 <p>#4 Synchronise your repo EOF.</p>
 
         

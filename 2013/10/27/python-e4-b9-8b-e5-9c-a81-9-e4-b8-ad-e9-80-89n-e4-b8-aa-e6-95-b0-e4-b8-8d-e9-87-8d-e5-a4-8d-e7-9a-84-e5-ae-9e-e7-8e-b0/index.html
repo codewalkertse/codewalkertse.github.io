@@ -149,10 +149,10 @@
     </div>
     <div class="post-content ">
         <p>昨天看书想到一个问题，在1-9中选n个数出来，组成不重复的组合一个有多少中组合方式。下面的例子是选三个数</p>
-<p>#!/usr/bin/python2<br>import itertools</p>
-<p>def get_list(item = 2):<br>    irange = range(1,10,1)<br>    ilist = list(itertools.permutations(irange,item))<br>    nlist = []<br>    for l in ilist:<br>        nlist.append(‘’.join(str(e) for e in l))<br>    return nlist</p>
-<p>def test():<br>    l = get_list(item = 3)<br>    print “Found %d, there are:\n\t%s” % (len(l),l)</p>
-<p>if __name__ == ‘__main__‘:<br>    test()</p>
+<p>#!&#x2F;usr&#x2F;bin&#x2F;python2<br>import itertools</p>
+<p>def get_list(item &#x3D; 2):<br>    irange &#x3D; range(1,10,1)<br>    ilist &#x3D; list(itertools.permutations(irange,item))<br>    nlist &#x3D; []<br>    for l in ilist:<br>        nlist.append(‘’.join(str(e) for e in l))<br>    return nlist</p>
+<p>def test():<br>    l &#x3D; get_list(item &#x3D; 3)<br>    print “Found %d, there are:\n\t%s” % (len(l),l)</p>
+<p>if __name__ &#x3D;&#x3D; ‘__main__‘:<br>    test()</p>
 
         
             <div class="donate-container">

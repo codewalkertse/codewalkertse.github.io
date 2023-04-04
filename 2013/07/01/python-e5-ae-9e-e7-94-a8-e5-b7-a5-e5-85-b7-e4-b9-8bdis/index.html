@@ -152,14 +152,14 @@
     </div>
     <div class="post-content ">
         <p>这是一个可以追踪代码的工具，其强大之处是可以显示出每行代码所具体执行的过程。 简单使用如下:</p>
-<p>#!/usr/bin/python2<br>import dis</p>
-<p>def m():<br>    a = 2<br>    b = 3<br>    sum = a + b<br>    print “a + b = %s” % sum</p>
+<p>#!&#x2F;usr&#x2F;bin&#x2F;python2<br>import dis</p>
+<p>def m():<br>    a &#x3D; 2<br>    b &#x3D; 3<br>    sum &#x3D; a + b<br>    print “a + b &#x3D; %s” % sum</p>
 <p>dis.dis(m)</p>
 <p>输出结果如下:</p>
-<p>$ ./u.py<br>  5           0 LOAD_CONST               1 (2)<br>              3 STORE_FAST               0 (a)</p>
+<p>$ .&#x2F;u.py<br>  5           0 LOAD_CONST               1 (2)<br>              3 STORE_FAST               0 (a)</p>
 <p>  6           6 LOAD_CONST               2 (3)<br>              9 STORE_FAST               1 (b)</p>
 <p>  7          12 LOAD_FAST                0 (a)<br>             15 LOAD_FAST                1 (b)<br>             18 BINARY_ADD<br>             19 STORE_FAST               2 (sum)</p>
-<p>  8          22 LOAD_CONST               3 (‘a + b = %s’)<br>             25 LOAD_FAST                2 (sum)<br>             28 BINARY_MODULO<br>             29 PRINT_ITEM<br>             30 PRINT_NEWLINE<br>             31 LOAD_CONST               0 (None)<br>             34 RETURN_VALUE</p>
+<p>  8          22 LOAD_CONST               3 (‘a + b &#x3D; %s’)<br>             25 LOAD_FAST                2 (sum)<br>             28 BINARY_MODULO<br>             29 PRINT_ITEM<br>             30 PRINT_NEWLINE<br>             31 LOAD_CONST               0 (None)<br>             34 RETURN_VALUE</p>
 
         
             <div class="donate-container">

@@ -150,7 +150,7 @@
     <div class="post-content ">
         <p>nginx的均衡负载其实很简单。加入如下代码之后再重新加载配置就可完成。</p>
 <pre><code>###!!!####
-upstream  www.example.com{
+upstream  www.example.com&#123;
     #不写为默认的轮询，其他的方式还有一下3种，加起来就是一共四种方式
     #ip_hash;
     #fair;
@@ -158,14 +158,16 @@ upstream  www.example.com{
     server 192.168.122.100;
     server 192.168.122.101;
     server 127.0.0.1 backup;
-}
+&#125;
 ###!!!###
-server {
+server &#123;
     listen 8899;
-    location / {
+    location / &#123;
         proxy_pass  http://www.example.com;
-    }
-}</code></pre><p>其中192.168.122.100和192.168.122.101是局域网中另外两台。 web测试是用的8899端口，使用的是默认的轮询. 更详细的内容可以参看<a href="http://freeloda.blog.51cto.com/2033581/1288553" target="_blank" rel="noopener">这里</a></p>
+    &#125;
+&#125;
+</code></pre>
+<p>其中192.168.122.100和192.168.122.101是局域网中另外两台。 web测试是用的8899端口，使用的是默认的轮询. 更详细的内容可以参看<a target="_blank" rel="noopener" href="http://freeloda.blog.51cto.com/2033581/1288553">这里</a></p>
 
         
             <div class="donate-container">

@@ -146,10 +146,10 @@
     </div>
     <div class="post-content ">
         <p>最近项目需求需要用到一个ActiveMQ的服务。需要与php对接，所以在php中就要用到一个焦作stomp的扩展。 一 安装 Linux;</p>
-<p>#下载<br>wget <a href="http://pecl.php.net/get/stomp-1.0.5.tgz" target="_blank" rel="noopener">http://pecl.php.net/get/stomp-1.0.5.tgz</a><br>tar zxf stomp-1.0.5.tgz<br>cd stomp-1.0.5<br>#通过phpize 生成编译所需配置文件 [注1]<br>/usr/local/php/bin/phpize<br>#编译安装三部曲1/configure 2/make 3/make install<br>./configure –enable-stomp –with-php-config=/usr/local/php/bin/php-config<br>make &amp;&amp; make install</p>
+<p>#下载<br>wget <a target="_blank" rel="noopener" href="http://pecl.php.net/get/stomp-1.0.5.tgz">http://pecl.php.net/get/stomp-1.0.5.tgz</a><br>tar zxf stomp-1.0.5.tgz<br>cd stomp-1.0.5<br>#通过phpize 生成编译所需配置文件 [注1]<br>&#x2F;usr&#x2F;local&#x2F;php&#x2F;bin&#x2F;phpize<br>#编译安装三部曲1&#x2F;configure 2&#x2F;make 3&#x2F;make install<br>.&#x2F;configure –enable-stomp –with-php-config&#x3D;&#x2F;usr&#x2F;local&#x2F;php&#x2F;bin&#x2F;php-config<br>make &amp;&amp; make install</p>
 <p>完成之后就可以在结果里面看到</p>
-<p>Installing shared extensions: /usr/local/php/lib/php/extensions/no-debug-non-zts-20090626/</p>
-<p>二 配置 修改php.ini 最后加上 [stomp] extension=/usr/local/php/lib/php/extensions/no-debug-non-zts-20090626/stomp.so 三 验证 打开phpinfo.php文件可以看到 <a href="http://codewalker.me/wp-content/uploads/2014/01/QQ截图20140103100222.png" target="_blank" rel="noopener"><img src="http://codewalker.me/wp-content/uploads/2014/01/QQ%E6%88%AA%E5%9B%BE20140103100222-300x133.png" alt="QQ截图20140103100222"></a> 就表示安装没问题了。 下一篇文章讲记录一下stomp-php-1.0.0的应用。 [注1]<a href="http://www.php.net/manual/zh/install.pecl.phpize.php" target="_blank" rel="noopener" title="用 phpize 编译共享 PECL 扩展库">用 phpize 编译共享 PECL 扩展库</a></p>
+<p>Installing shared extensions: &#x2F;usr&#x2F;local&#x2F;php&#x2F;lib&#x2F;php&#x2F;extensions&#x2F;no-debug-non-zts-20090626&#x2F;</p>
+<p>二 配置 修改php.ini 最后加上 [stomp] extension&#x3D;&#x2F;usr&#x2F;local&#x2F;php&#x2F;lib&#x2F;php&#x2F;extensions&#x2F;no-debug-non-zts-20090626&#x2F;stomp.so 三 验证 打开phpinfo.php文件可以看到 <a target="_blank" rel="noopener" href="http://codewalker.me/wp-content/uploads/2014/01/QQ%E6%88%AA%E5%9B%BE20140103100222.png"><img src="http://codewalker.me/wp-content/uploads/2014/01/QQ%E6%88%AA%E5%9B%BE20140103100222-300x133.png" alt="QQ截图20140103100222"></a> 就表示安装没问题了。 下一篇文章讲记录一下stomp-php-1.0.0的应用。 [注1]<a target="_blank" rel="noopener" href="http://www.php.net/manual/zh/install.pecl.phpize.php" title="用 phpize 编译共享 PECL 扩展库">用 phpize 编译共享 PECL 扩展库</a></p>
 
         
             <div class="donate-container">

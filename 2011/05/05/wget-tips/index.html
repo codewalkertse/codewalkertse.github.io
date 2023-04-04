@@ -26,7 +26,7 @@
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
-<link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Simon Xie" type="application/atom+xml">
 </head>
 
 <body>
@@ -136,16 +136,16 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>转自：<a href="http://linuxtoy.org/" target="_blank" rel="noopener">http://linuxtoy.org</a></p>
-<p><a href="http://www.gnu.org/software/wget/" target="_blank" rel="noopener">wget</a> 是一个命令行的下载工具。对于我们这些 Linux 用户来说，几乎每天都在使用它。下面为大家介绍几个有用的 wget 小技巧，可以让你更加高效而灵活的使用 wget。</p>
+        <p>转自：<a target="_blank" rel="noopener" href="http://linuxtoy.org/">http://linuxtoy.org</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.gnu.org/software/wget/">wget</a> 是一个命令行的下载工具。对于我们这些 Linux 用户来说，几乎每天都在使用它。下面为大家介绍几个有用的 wget 小技巧，可以让你更加高效而灵活的使用 wget。</p>
 <ul>
 <li><code>$ wget -r -np -nd http://example.com/packages/</code></li>
 </ul>
-<p>这条命令可以下载 <a href="http://example.com" target="_blank" rel="noopener">http://example.com</a> 网站上 packages 目录中的所有文件。其中，<code>-np</code> 的作用是不遍历父目录，<code>-nd</code> 表示不在本机重新创建目录结构。</p>
+<p>这条命令可以下载 <a target="_blank" rel="noopener" href="http://example.com/">http://example.com</a> 网站上 packages 目录中的所有文件。其中，<code>-np</code> 的作用是不遍历父目录，<code>-nd</code> 表示不在本机重新创建目录结构。</p>
 <ul>
 <li><code>$ wget -r -np -nd --accept=iso http://example.com/centos-5/i386/</code></li>
 </ul>
-<p>与上一条命令相似，但多加了一个 <code>--accept=iso</code> 选项，这指示 wget 仅下载 i386 目录中所有扩展名为 iso 的文件。你也可以指定多个扩展名，只需用逗号分隔即可。</p>
+<p>与上一条命令相似，但多加了一个 <code>--accept=iso</code> 选项，这指示 wget 仅下载 i386 目录中所有扩展名为 iso 的文件。你也可以指定多个扩展名，只需用逗号分隔即可。</p>
 <ul>
 <li><code>$ wget -i filename.txt</code></li>
 </ul>
@@ -153,11 +153,11 @@
 <ul>
 <li><code>$ wget -c http://example.com/really-big-file.iso</code></li>
 </ul>
-<p>这里所指定的 <code>-c</code> 选项的作用为断点续传。</p>
+<p>这里所指定的 <code>-c</code> 选项的作用为断点续传。</p>
 <ul>
 <li><code>$ wget -m -k (-H) http://www.example.com/</code></li>
 </ul>
-<p>该命令可用来镜像一个网站，wget 将对链接进行转换。如果网站中的图像是放在另外的站点，那么可以使用 <code>-H</code> 选项。</p>
+<p>该命令可用来镜像一个网站，wget 将对链接进行转换。如果网站中的图像是放在另外的站点，那么可以使用 <code>-H</code> 选项。</p>
 
         
             <div class="donate-container">

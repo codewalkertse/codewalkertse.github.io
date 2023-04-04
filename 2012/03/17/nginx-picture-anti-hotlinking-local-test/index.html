@@ -145,30 +145,25 @@
         <p>今晚闲来无事学习了一下nginx的防盗链或者准确的说是防止非指定域名访问。</p>
 <p>测试中出现的域名均为本地测试不用去访问了。</p>
 <p>核心代码如下：</p>
-<pre><code>location ~* .(gif|jpg|png|swf|flv)$ {
-
-    valid_referers none blocked codewalker.com ;
-
-    if ($invalid_referer) {
-
-        rewrite ^/ http://codewalker.com:8080/234_s.gif;
-
-        #return 404;
-
-    }
-
-}</code></pre><p>正常访问；<a href="http://codewalker.com:8080/indexc.php" target="_blank" rel="noopener">http://codewalker.com:8080/indexc.php</a></p>
+<p>        location ~* .(gif|jpg|png|swf|flv)$ {</p>
+<p>            valid_referers none blocked codewalker.com ;</p>
+<p>            if ($invalid_referer) {</p>
+<p>                rewrite ^&#x2F; <a target="_blank" rel="noopener" href="http://codewalker.com:8080/234_s.gif">http://codewalker.com:8080/234_s.gif</a>;</p>
+<p>                #return 404;</p>
+<p>            }</p>
+<p>        }</p>
+<p>正常访问；<a target="_blank" rel="noopener" href="http://codewalker.com:8080/indexc.php">http://codewalker.com:8080/indexc.php</a></p>
 <p>网页代码如下；</p>
 <p>this is a test web<img src="./icon\_topic\_attach.gif" width="14" height="18" alt="附件" title="附件"></p>
 <p>正常访问如图,图片为网上随便找的附件图片；</p>
-<p><a href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100yuw1&url=http://s13.sinaimg.cn/orignal/6c7cb607hbb5f0dad33ec" target="_blank" rel="noopener"><img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="nginx &lt;wbr&gt;图片防盗链本地测试">图片防盗链本地测试” TITLE=”nginx 图片防盗链本地测试” /&gt;</a></p>
+<p><a target="_blank" rel="noopener" href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100yuw1&url=http://s13.sinaimg.cn/orignal/6c7cb607hbb5f0dad33ec"><img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="nginx &lt;wbr&gt;图片防盗链本地测试">图片防盗链本地测试” TITLE&#x3D;”nginx 图片防盗链本地测试” &#x2F;&gt;</a></p>
 <p>下面是codewalker2.com盗链上面网站中的icon_topic_attach.gif这张图片</p>
 <p>网页代码如下：</p>
-<p><a href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100yuw1&url=http://s4.sinaimg.cn/orignal/6c7cb607h79231be27ad3" target="_blank" rel="noopener"><img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="nginx &lt;wbr&gt;图片防盗链本地测试">图片防盗链本地测试” TITLE=”nginx 图片防盗链本地测试” /&gt;</a><br>其中加上端口为避免varnish缓存.</p>
+<p><a target="_blank" rel="noopener" href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100yuw1&url=http://s4.sinaimg.cn/orignal/6c7cb607h79231be27ad3"><img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="nginx &lt;wbr&gt;图片防盗链本地测试">图片防盗链本地测试” TITLE&#x3D;”nginx 图片防盗链本地测试” &#x2F;&gt;</a><br>其中加上端口为避免varnish缓存.</p>
 <p>浏览器返回结果如下图  </p>
-<p><a href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100yuw1&url=http://s9.sinaimg.cn/orignal/6c7cb607h79231afc0fd8" target="_blank" rel="noopener"><img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="nginx &lt;wbr&gt;图片防盗链本地测试">图片防盗链本地测试” TITLE=”nginx 图片防盗链本地测试” /&gt;</a>  </p>
+<p><a target="_blank" rel="noopener" href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100yuw1&url=http://s9.sinaimg.cn/orignal/6c7cb607h79231afc0fd8"><img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="nginx &lt;wbr&gt;图片防盗链本地测试">图片防盗链本地测试” TITLE&#x3D;”nginx 图片防盗链本地测试” &#x2F;&gt;</a>  </p>
 <p>可以看出访问图片时已经被服务器重定向。</p>
-<p><a href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100yuw1&url=http://s16.sinaimg.cn/orignal/6c7cb607h79231e4fe62f" target="_blank" rel="noopener"><img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="nginx &lt;wbr&gt;图片防盗链本地测试">图片防盗链本地测试” TITLE=”nginx 图片防盗链本地测试” /&gt;</a>  </p>
+<p><a target="_blank" rel="noopener" href="http://photo.blog.sina.com.cn/showpic.html#blogid=6c7cb6070100yuw1&url=http://s16.sinaimg.cn/orignal/6c7cb607h79231e4fe62f"><img src="http://simg.sinajs.cn/blog7style/images/common/sg_trans.gif" alt="nginx &lt;wbr&gt;图片防盗链本地测试">图片防盗链本地测试” TITLE&#x3D;”nginx 图片防盗链本地测试” &#x2F;&gt;</a>  </p>
 <p>但是我不解的问题是为什么会多次重定向</p>
 
         

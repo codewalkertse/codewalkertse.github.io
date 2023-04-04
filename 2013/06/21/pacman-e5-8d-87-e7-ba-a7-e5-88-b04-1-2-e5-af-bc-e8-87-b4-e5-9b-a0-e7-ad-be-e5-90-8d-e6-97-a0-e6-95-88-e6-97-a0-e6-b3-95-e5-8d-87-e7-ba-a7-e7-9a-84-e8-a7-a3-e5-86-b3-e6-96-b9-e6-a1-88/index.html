@@ -136,7 +136,7 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>昨天更新了pacman 之后今天升级报错<code>error: database &#39;core&#39; is not valid (invalid or corrupted database (PGP signature))</code> google了一下在官方论坛找到了方法。 1在 <code>/etc/pacman.conf</code>的相应位置加上<code>SigLevel = Required DatabaseOptional TrustedOnly</code> 2sudo pacman pacman-key –init 3sudo pacman-key –populate archlinux 应该就可以了，但是我这样操作之后还是无法验证签名，所以我刷新了一下密钥<code>sudo pacman-key --refresh-keys</code>然后在重复2-3，就解决问题了。 4打完收工。 $ pacman –version .–. Pacman v4.1.2 - libalpm v8.0.2 / _.-‘ .-. .-. .-. Copyright (C) 2006-2013 Pacman Development Team ‘-. ‘-‘ ‘-‘ ‘-‘ Copyright (C) 2002-2006 Judd Vinet ‘–’ This program may be freely redistributed under the terms of the GNU General Public License.</p>
+        <p>昨天更新了pacman 之后今天升级报错<code>error: database &#39;core&#39; is not valid (invalid or corrupted database (PGP signature))</code> google了一下在官方论坛找到了方法。 1在 <code>/etc/pacman.conf</code>的相应位置加上<code>SigLevel = Required DatabaseOptional TrustedOnly</code> 2sudo pacman pacman-key –init 3sudo pacman-key –populate archlinux 应该就可以了，但是我这样操作之后还是无法验证签名，所以我刷新了一下密钥<code>sudo pacman-key --refresh-keys</code>然后在重复2-3，就解决问题了。 4打完收工。 $ pacman –version .–. Pacman v4.1.2 - libalpm v8.0.2 &#x2F; _.-‘ .-. .-. .-. Copyright (C) 2006-2013 Pacman Development Team ‘-. ‘-‘ ‘-‘ ‘-‘ Copyright (C) 2002-2006 Judd Vinet ‘–’ This program may be freely redistributed under the terms of the GNU General Public License.</p>
 
         
             <div class="donate-container">

@@ -146,7 +146,7 @@
     </div>
     <div class="post-content ">
         <p>For some reason couldn’t connect to vsftp from “out side”. Today something happened on new software and my workmate must go back to office. That’s a bad idea. But finally, I just solved and figured out why it’s happened. Just because of iptables problems. In .conf file of vsftpd. There’re some configuration lines must be careful. they are look like:</p>
-<p>pasv_enable=YES<br>pasv_min_port=xxxxx<br>pasv_max_port=yyyyy</p>
+<p>pasv_enable&#x3D;YES<br>pasv_min_port&#x3D;xxxxx<br>pasv_max_port&#x3D;yyyyy</p>
 <p>When you active PASV MODE. you MUST accept bits enter or exit via those ports. if not VSFTP will say illegal ports. or 500 error to you. So. you should allow those ports in. From anywhere.</p>
 <p>iptables -A INPUT -p tcp –dport xxxxx:yyyyy -j ACCEPT</p>
 <p>Particular IP such as aaa.bbb.ccc.ddd</p>

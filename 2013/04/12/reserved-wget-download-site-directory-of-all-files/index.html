@@ -145,10 +145,10 @@
 </span>
     </div>
     <div class="post-content ">
-        <p><strong>原文地址：</strong><a href="http://blog.sina.com.cn/s/blog_6f97247e01019ryq.html" target="_blank" rel="noopener" title="wget下载网站目录下的所有文件">wget下载网站目录下的所有文件</a><strong>作者：</strong><a href="http://blog.sina.com.cn/u/1872176254" target="_blank" rel="noopener" title="醋根">醋根</a></p>
+        <p><strong>原文地址：</strong><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_6f97247e01019ryq.html" title="wget下载网站目录下的所有文件">wget下载网站目录下的所有文件</a><strong>作者：</strong><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/u/1872176254" title="醋根">醋根</a></p>
 <p>wget是linux下命令行的下载工具，功能很强大，虽然我很少用，一般下在一些小东西都是直接用firefox，seamonkey这些浏览器自带的下载功能下载，没有必要用wget或者其他下载工具。但是某些时候却不是浏览器自带的下载功能和一些其他的下载软件所能做的的，这时候就得用wget了。比如如果你想下载一个网页目录下的所有文件，如何做呢？  </p>
 <p>先介绍几个参数：<br>-c 断点续传（备注：使用断点续传要求服务器支持断点续传），<br>-r 递归下载（目录下的所有文件,包括子目录），<br>-np 递归下载不搜索上层目录，<br>-k 把绝对链接转为相对链接，这样下载之后的网页方便浏览。<br>-L 递归时不进入其他主机，<br>-p 下载网页所需要的所有文件。  </p>
-<p>比如：#wget -c -r -np -k -L -p <a href="http://www.kuqin.com/itman/liyanhong/" target="_blank" rel="noopener">http://www.kuqin.com/itman/liyanhong/</a> 下载酷勤网下面的目录“李彦宏”</p>
+<p>比如：#wget -c -r -np -k -L -p <a target="_blank" rel="noopener" href="http://www.kuqin.com/itman/liyanhong/">http://www.kuqin.com/itman/liyanhong/</a> 下载酷勤网下面的目录“李彦宏”</p>
 
         
             <div class="donate-container">

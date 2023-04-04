@@ -142,7 +142,7 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>via :<a href="http://www.linuxsig.org/files/bash_scripting.html" target="_blank" rel="noopener">http://www.linuxsig.org/files/bash_scripting.html</a></p>
+        <p>via :<a target="_blank" rel="noopener" href="http://www.linuxsig.org/files/bash_scripting.html">http://www.linuxsig.org/files/bash_scripting.html</a></p>
 <p>Shell Programming</p>
 <p>This section describes the fundamentals of bash shell programming and covers the following topics:</p>
 <p>Creating and running shell programs</p>
@@ -158,19 +158,19 @@
 <p>Example Script: remount</p>
 <p>Assume you have a CD-ROM drive mounted on your Linux system. This CD-ROM device is usually mounted when the system is first started. If you later want to change the CD in the drive, you must unmount the drive, replace the CD, and then remount the drive. Instead of typing these commands each time you change the CD in your drive, you could create a shell program that would execute both of these commands for you. The following bash script named remount accomplishes this:</p>
 <p># bash script to make changing a CD easier</p>
-<p>#!/bin/bash</p>
-<p>umount /dev/cdrom</p>
+<p>#!&#x2F;bin&#x2F;bash</p>
+<p>umount &#x2F;dev&#x2F;cdrom</p>
 <p>echo -n “Press the enter key to continue.”</p>
 <p>read</p>
-<p>mount -t iso9660 /dev/cdrom /cdrom</p>
+<p>mount -t iso9660 &#x2F;dev&#x2F;cdrom &#x2F;cdrom</p>
 <p>The first line is a comment. Comments are a good thing. The second line is a special comment, the only comment that bash does not ignore. A “#!” is a convention that all shells, including bash, understand to indicate that 1) this is a shell script and 2) what kind of shell script it is. This line ensures that even if the user isn’t running a bash shell, the script will be executed with bash. The third line is a standard Linux command to unmount the CD-ROM drive. The fourth line displays a prompt. The fifth line is built in bash shell command to read a line from the standard input. The last line mounts the CD-ROM drive.</p>
-<p>Once the script exists, there are several ways to execute it. One way to accomplish this is to make the file executable. This is done by entering the command “chmod +x remount”. This command changes the permissions of the file so that it is now executable. You can now run your new shell program by typing remount on the command line. The remount shell program must be in a directory that is in your search path, or the shell will not be able to find the program to execute. For security reasons your home directory is not in the path. If you created the script in a directory that is not in your search path, you must prepend a “./“ to the beginning of the script’s name. This is specifies a relative path to the script of “right here”.</p>
+<p>Once the script exists, there are several ways to execute it. One way to accomplish this is to make the file executable. This is done by entering the command “chmod +x remount”. This command changes the permissions of the file so that it is now executable. You can now run your new shell program by typing remount on the command line. The remount shell program must be in a directory that is in your search path, or the shell will not be able to find the program to execute. For security reasons your home directory is not in the path. If you created the script in a directory that is not in your search path, you must prepend a “.&#x2F;“ to the beginning of the script’s name. This is specifies a relative path to the script of “right here”.</p>
 <p>Another way you can execute the shell program is to run the shell that the program was written for and pass the program in as a parameter to the shell. This done by entering the command “bash remount”. This command starts up a new shell and tells it to execute the commands that are found in the remount file.</p>
 <p>A third way of executing the commands in a shell program file is to use the . command. This command tells the shell to execute all the commands in the file that is passed as an argument to the command. For example, the command “. remount” can be used to tell bash to execute the commands in the remount file.</p>
 <p>Using Variables</p>
 <p>As is the case with almost any language, the use of variables is very important in shell programs. You saw some of the ways in which shell variables can be used in the introductory shell sections. Two of the variables that were introduced were the PATH variable and the PS1 variable. These are examples of built-in shell variables, or variables that are defined by the shell program you are using. This section describes how you can create your own variables and use them in simple shell programs.</p>
 <p>Assigning a Value to a Variable</p>
-<p>You can assign a value to a variable simply by typing the variable name followed by an equal sign and the value you want to assign to the variable. For example, if you wanted to assign a value of 5 to the variable count, you would enter the following command “count=5”. With the bash syntax for setting a variable, you must make sure that there are no spaces on either side of the equal sign. Notice that you do not have to declare the variable as you would if you were programming in C or Pascal. This is because the shell language is a non-typed interpretive language. This means that you can use the same variable to store character strings that you use to store integers. You would store a character string into a variable in the same way that you stored the integer into a variable. For example “name=Garry “ is also completely valid.</p>
+<p>You can assign a value to a variable simply by typing the variable name followed by an equal sign and the value you want to assign to the variable. For example, if you wanted to assign a value of 5 to the variable count, you would enter the following command “count&#x3D;5”. With the bash syntax for setting a variable, you must make sure that there are no spaces on either side of the equal sign. Notice that you do not have to declare the variable as you would if you were programming in C or Pascal. This is because the shell language is a non-typed interpretive language. This means that you can use the same variable to store character strings that you use to store integers. You would store a character string into a variable in the same way that you stored the integer into a variable. For example “name&#x3D;Garry “ is also completely valid.</p>
 <p>Accessing the Value of a Variable</p>
 <p>Once you have stored a value into a variable, how do you get the value back out? You do this in the shell by preceding the variable name with a dollar sign ($). If you wanted to print the value stored in the count variable to the screen, you would do so by entering the command “echo -n $count”. If you omitted the $ from the preceding command, the echo command would display the word count on-screen. Also, here “-n” is an option for echo not to append a carriage return to the end of the line.</p>
 <p>Positional Parameters and Other Built-In Shell Variables</p>
@@ -178,7 +178,7 @@
 <p>Example Script: reverse</p>
 <p>The following shell program expects to be invoked with two parameters. The program takes the two parameters and prints the second parameter that was typed on the command line first and the first parameter that was typed on the command line second.</p>
 <p>#program reverse, prints the command line parameters out in reverse order</p>
-<p>#!/bin/bash</p>
+<p>#!&#x2F;bin&#x2F;bash</p>
 <p>echo “$2” “$1”</p>
 <p>Table 1: Built-in shell variables.</p>
 <p>Variable Use</p>
@@ -191,22 +191,22 @@
 <p>The use of the different types of quotation marks is very important in shell programming. Both kinds of quotation marks and the backslash character are used by the shell to perform different functions. The double quotation marks (“”), the single quotation marks (‘’), and the backslash () are all used to hide special characters from the shell. Each of these methods hides varying degrees of special characters from the shell. Remember that everything in this section also applies to the bash command line, so for example you could use a backslash to use a space in the name of a file.</p>
 <p>Double Quotes</p>
 <p>The double quotation marks are the least powerful of the three methods. When you surround characters with double quotes, all the whitespace characters are hidden from the shell, but all other special characters are still interpreted by the shell. This type of quoting is most useful when you are assigning strings that contain more than one word to a variable. For example, if you wanted to assign the string hello there to the variable greeting, you would type the following command:</p>
-<p>greeting=”Hello there”</p>
+<p>greeting&#x3D;”Hello there”</p>
 <p>This command would store the string “Hello there” in the variable “greeting” as one word. If you typed this command without using the quotes, you would not get the results you wanted. bash would not understand the command and would return an error message.</p>
 <p>Single Quotes</p>
 <p>Single quotes are the most powerful form of quoting. They hide all special characters from the shell. This is useful if the command that you enter is intended for a program other than the shell. Because the single quotes are the most powerful, you could have written the previous example using single quotes. You might not always want to do this. If the string being assigned to the greeting variable contained another variable, you would have to use the double quotes. For example, if you wanted to include the name of the user in your greeting, you would type the following command:</p>
-<p>greeting=”Hello there $LOGNAME” </p>
+<p>greeting&#x3D;”Hello there $LOGNAME” </p>
 <p>This would store the string “Hello there “ and the value of $LOGNAME into the variable greeting. The LOGNAME variable is a shell variable that contains the username of the person who is logged in to the system. If you tried to write this command using single quotes it wouldn’t work, because the single quotes would hide the dollar sign from the shell and the shell wouldn’t know that it was supposed to perform a variable substitution.</p>
 <p>Backslash</p>
 <p>Using the backslash is the third way of hiding special characters from the shell. Like the single quotation mark method, the backslash hides all special characters from the shell, but it can hide only one character at a time, as opposed to groups of characters. You could rewrite the greeting example using the backslash instead of double quotation marks by using the following command:</p>
-<p>greeting=Hello There</p>
+<p>greeting&#x3D;Hello There</p>
 <p>In this command, the backslash hides the space character from the shell, and the string “Hello there” is assigned to the variable “greeting”.</p>
 <p>Backslash quoting is used most often when you want to hide only a single character from the shell. This is usually done when you want to include a special character in a string. For example, if you wanted to store the price of a box of computer disks into a variable named disk_price, you would use the following command:</p>
-<p>disk_price=$5.00</p>
+<p>disk_price&#x3D;$5.00</p>
 <p>The backslash in this example would hide the dollar sign from the shell. If the backslash were not there, the shell would try to find a variable named 5 and perform a variable substitution on that variable. Assuming that no variable named 5 were defined, the shell would assign a value of .00 to the disk_price variable. This is because the shell would substitute a value of null for the $5 variable. The disk_price example could also have used single quotes to hide the dollar sign from the shell.</p>
 <p>Back Quotes</p>
 <p>The back quote marks (“) perform a different function. They are used when you want to use the results of a command in another command. For example, if you wanted to set the value of the variable contents equal to the list of files in the current directory, you would type the following command:</p>
-<p>contents=’ls’</p>
+<p>contents&#x3D;’ls’</p>
 <p>This command would execute the ls command and store the results of the command into the contents variable. As you will see in later, this feature can be very useful when you want to write a shell program that performs some action on the results of another command.</p>
 <p>The test Command</p>
 <p>A command called test is used to evaluate conditional expressions. You would typically use the test command to evaluate a condition that is used in a conditional statement or to evaluate the entrance or exit criteria for an iteration statement. The test command has the following syntax:</p>
@@ -224,8 +224,8 @@
 <p>int1 -ne int2 Returns True if int1 is not equal to int2.</p>
 <p>Table 3: The test command’s string operators.</p>
 <p>Operator Meaning</p>
-<p>str1 = str2 Returns True if str1 is identical to str2.</p>
-<p>str1 != str2 Returns True if str1 is not identical to str2.</p>
+<p>str1 &#x3D; str2 Returns True if str1 is identical to str2.</p>
+<p>str1 !&#x3D; str2 Returns True if str1 is not identical to str2.</p>
 <p>str Returns True if str is not null.</p>
 <p>-n str Returns True if the length of str is greater than zero.</p>
 <p>-z str Returns True if the length of str is equal to zero.</p>
@@ -248,38 +248,38 @@
 <p>bash supports nested if…then…else statements. These statements provide you with a way of performing complicated conditional tests in your shell programs. The syntax of the if statement is shown here:</p>
 <p>if [ expression ]</p>
 <p>then</p>
-<p>   commands</p>
+<p>   commands</p>
 <p>elif [ expression2 ]</p>
 <p>then</p>
-<p>   commands</p>
+<p>   commands</p>
 <p>else</p>
-<p>   commands</p>
+<p>   commands</p>
 <p>fi</p>
 <p>The elif and else clauses are both optional parts of the if statement. Also note that bash use the reverse of the statement name in most of their complex statements to signal the end of the statement. In this statement the fi keyword is used to signal the end of the if statement. The elif statement is an abbreviation of else if. This statement is executed only if none of the expressions associated with the if statement or any elif statements before it were true. The commands associated with the else statement are executed only if none of the expressions associated with the if statement or any of the elif statements were true.</p>
 <p>The case Statement</p>
 <p>The case statement enables you to compare a pattern with several other patterns and execute a block of code if a match is found. The shell case statement is quite a bit more powerful than the case statement in Pascal or the switch statement in C. This is because in the shell case statement you can compare strings with wildcard characters in them, whereas with the Pascal and C equivalents you can compare only enumerated types or integer values. The syntax for the case statement is the following:</p>
 <p>case string1 in</p>
 <p>str1)</p>
-<p>   commands;;</p>
+<p>   commands;;</p>
 <p>str2)</p>
-<p>   commands;;</p>
+<p>   commands;;</p>
 <p>*)</p>
-<p>   commands;;</p>
+<p>   commands;;</p>
 <p>esac</p>
 <p>The string string1 is compared to str1 and str2. If one of these strings matches string1, the commands up until the double semicolon (;;) are executed. If neither str1 nor str2 matches string1, the commands associated with the asterisk are executed. This is the default case condition because the asterisk matches all strings.</p>
 <p>The following code is an example of a bash case statement. This code checks to see if the first command-line option was -i or -e. If it was -i, the program counts the number of lines in the file specified by the second command-line option that begins with the letter i. If the first option was -e, the program counts the number of lines in the file specified by the second command-line option that begins with the letter e. If the first command-line option was not -i or -e, the program prints a brief error message to the screen.</p>
 <p>case $1 in</p>
 <p>-i)</p>
-<p>   count=’grep ^i $2 | wc -l’</p>
-<p>   echo “The number of lines in $2 that start with an i is $count”</p>
-<p>   ;;</p>
+<p>   count&#x3D;’grep ^i $2 | wc -l’</p>
+<p>   echo “The number of lines in $2 that start with an i is $count”</p>
+<p>   ;;</p>
 <p>-e)</p>
-<p>   count=’grep ^e $2 | wc -l’</p>
-<p>   echo “The number of lines in $2 that start with an e is $count”</p>
-<p>   ;;</p>
+<p>   count&#x3D;’grep ^e $2 | wc -l’</p>
+<p>   echo “The number of lines in $2 that start with an e is $count”</p>
+<p>   ;;</p>
 <p>*)</p>
-<p>   echo “That option is not recognized”</p>
-<p>   ;;</p>
+<p>   echo “That option is not recognized”</p>
+<p>   ;;</p>
 <p>esac</p>
 <p>Iteration Statements</p>
 <p>The shell languages also provide several iteration or looping statements.</p>
@@ -287,131 +287,128 @@
 <p>The for statement executes the commands that are contained within it a specified number of times. bash has two variations of the for statement. The first form of the for statement that bash support has the following syntax:</p>
 <p>for var1 in list</p>
 <p>do</p>
-<p>   commands</p>
+<p>   commands</p>
 <p>done</p>
 <p>In this form, the for statement executes once for each item in the list. This list can be a variable that contains several words separated by spaces, or it can be a list of values that is typed directly into the statement. Each time through the loop, the variable var1 is assigned the current item in the list, until the last one is reached. The second form of for statement has the following syntax:</p>
 <p>for var1</p>
 <p>do</p>
-<p>   statements</p>
+<p>   statements</p>
 <p>done</p>
 <p>In this form, the for statement executes once for each item in the variable var1. When this syntax of the for statement is used, the shell program assumes that the var1 variable contains all the positional parameters that were passed in to the shell program on the command line. Typically this form of for statement is the equivalent of writing the following for statement:</p>
 <p>for var1 in “$@”</p>
 <p>do</p>
-<p>   statements</p>
+<p>   statements</p>
 <p>done</p>
 <p>The following is an example of the for statement. This example takes as command-line options any number of text files. The program reads in each of these files, converts all the letters to uppercase, and then stores the results in a file of the same name but with a .caps extension.</p>
 <p>for file</p>
 <p>do</p>
-<p>   tr a-z A-Z &lt; $file &gt;$file.caps</p>
+<p>   tr a-z A-Z &lt; $file &gt;$file.caps</p>
 <p>done</p>
 <p>The while Statement</p>
 <p>Another iteration statement offered by the shell programming language is the while statement. This statement causes a block of code to be executed while a provided conditional expression is true. The syntax for the while statement is the following:</p>
 <p>while expression</p>
 <p>do</p>
-<p>   statements</p>
+<p>   statements</p>
 <p>done</p>
 <p>The following is an example of the while statement. This program lists the parameters that were passed to the program, along with the parameter number.</p>
-<p>count=1</p>
+<p>count&#x3D;1</p>
 <p>while [ -n “$*” ]</p>
 <p>do</p>
-<p>   echo “This is parameter number $count $1”</p>
-<p>   shift</p>
-<p>   count=’expr $count + 1’</p>
+<p>   echo “This is parameter number $count $1”</p>
+<p>   shift</p>
+<p>   count&#x3D;’expr $count + 1’</p>
 <p>done</p>
 <p>As you will see later the shift command moves the command-line parameters over one to the left.</p>
 <p>The until Statement</p>
 <p>The until statement is very similar in syntax and function to the while statement. The only real difference between the two is that the until statement executes its code block while its conditional expression is false, and the while statement executes its code block while its conditional expression is true. The syntax for the until statement is:</p>
 <p>until expression</p>
 <p>do</p>
-<p>   commands</p>
+<p>   commands</p>
 <p>done</p>
 <p>The same example that was used for the while statement can be used for the until statement. All you have to do to make it work is negate the condition. This is shown in the following code:</p>
-<p>count=1</p>
+<p>count&#x3D;1</p>
 <p>until [ -z “$*” ]</p>
 <p>do</p>
-<p>   echo “This is parameter number $count $1”</p>
-<p>   shift</p>
-<p>   count=’expr $count + 1’</p>
+<p>   echo “This is parameter number $count $1”</p>
+<p>   shift</p>
+<p>   count&#x3D;’expr $count + 1’</p>
 <p>done</p>
 <p>The only difference between this example and the while statement example is that the -n test command option (which means that the string has nonzero length) was removed, and the -z test option (which means that the string has zero length) was put in its place. In practice the until statement is not very useful, because any until statement you write can also be written as a while statement.</p>
 <p>The shift Command</p>
 <p>The shift command moves the current values stored in the positional parameters to the left one position. For example, if the values of the current positional parameters are:</p>
-<p>$1 = -r </p>
-<p>$2 = file1 </p>
-<p>$3 = file2</p>
+<p>$1 &#x3D; -r </p>
+<p>$2 &#x3D; file1 </p>
+<p>$3 &#x3D; file2</p>
 <p>and you executed the shift command the resulting positional parameters would be as follows:</p>
-<p>$1 = file1 </p>
-<p>$2 = file2</p>
+<p>$1 &#x3D; file1 </p>
+<p>$2 &#x3D; file2</p>
 <p>You can also move the positional parameters over more than one place by specifying a number with the shift command. This is a very useful command when you have a shell program that needs to parse command-line options. This is true because options are typically preceded by a hyphen and a letter that indicates what the option is to be used for. Because options are usually processed in a loop of some kind, you often want to skip to the next positional parameter once you have identified which option should be coming next. For example, the following shell program expects two command-line options, one that specifies an input file and one that specifies an output file. The program reads the input file, translates all the characters in the input file into uppercase, then stores the results in the specified output file.</p>
 <p>while [ “$1” ]</p>
 <p>do</p>
-<p>   if [ “$1” = “-i” ]; then</p>
-<pre><code>infile=&quot;$2&quot;
-
-shift 2</code></pre><p>   elif [ “$1” = “-o” ] </p>
-<p>   then</p>
-<pre><code>outfile=&quot;$2&quot;
-
-shift 2</code></pre><p>   else</p>
-<pre><code>echo &quot;Program $0 does not recognize option $1&quot;</code></pre><p>   fi</p>
+<p>   if [ “$1” &#x3D; “-i” ]; then</p>
+<p>      infile&#x3D;”$2”</p>
+<p>      shift 2</p>
+<p>   elif [ “$1” &#x3D; “-o” ] </p>
+<p>   then</p>
+<p>      outfile&#x3D;”$2”</p>
+<p>      shift 2</p>
+<p>   else</p>
+<p>      echo “Program $0 does not recognize option $1”</p>
+<p>   fi</p>
 <p>done</p>
 <p>tr a-z A-Z &lt; $infile &gt; $outfile</p>
 <p>Functions</p>
 <p>The shell languages enable you to define your own functions. These functions behave in much the same way as functions you define in C or other programming languages. The main advantage of using functions as opposed to writing all of your shell code in line is for organizational purposes. Code written using functions tends to be much easier to read and maintain and also tends to be smaller, because you can group common code into functions instead of putting it everywhere it is needed.</p>
 <p>The syntax for creating a function in is the following:</p>
 <p>fname () {</p>
-<p>   shell commands</p>
+<p>   shell commands</p>
 <p>}</p>
 <p>Once you have defined your function using one of these forms, you can invoke it by entering the following command:</p>
 <p>fname [parm1 parm2 parm3 …]</p>
 <p>Notice that you can pass any number of parameters to your function. When you do pass parameters to a function, it sees those parameters as positional parameters, just as a shell program does when you pass it parameters on the command line.</p>
 <p>The following shell program contains several functions, each of which is performing a task associated with one of the command-line options. This example illustrates many of the topics covered in this section. It reads all the files that are passed on the command line and—depending on the option that was used—writes the files out in all uppercase letters, writes the files out in all lowercase letters, or prints the files.</p>
 <p>upper () {</p>
-<p>   shift</p>
-<p>   for i</p>
-<p>   do</p>
-<pre><code>tr a-z A-Z &lt; $1 &gt; $1.out
-
-rm $1
-
-mv $1.out $1
-
-shift</code></pre><p>   done;</p>
+<p>   shift</p>
+<p>   for i</p>
+<p>   do</p>
+<p>      tr a-z A-Z &lt; $1 &gt; $1.out</p>
+<p>      rm $1</p>
+<p>      mv $1.out $1</p>
+<p>      shift</p>
+<p>   done;</p>
 <p>}</p>
 <p>lower () {</p>
-<p>   shift</p>
-<p>   for i</p>
-<p>   do</p>
-<pre><code>tr A-Z a-z &lt; $1 &gt; $1.out
-
-rm $1
-
-mv $1.out $1
-
-shift</code></pre><p>   done;</p>
+<p>   shift</p>
+<p>   for i</p>
+<p>   do</p>
+<p>      tr A-Z a-z &lt; $1 &gt; $1.out</p>
+<p>      rm $1</p>
+<p>      mv $1.out $1</p>
+<p>      shift</p>
+<p>   done;</p>
 <p>}</p>
 <p>print () {</p>
-<p>   shift</p>
-<p>   for i</p>
-<p>   do</p>
-<pre><code>lpr $1
-
-shift</code></pre><p>   done;</p>
+<p>   shift</p>
+<p>   for i</p>
+<p>   do</p>
+<p>      lpr $1</p>
+<p>      shift</p>
+<p>   done;</p>
 <p>}</p>
 <p>usage_error () {</p>
-<p>   echo “$1 syntax is $1 <option> <input files>“</p>
-<p>   echo “”</p>
-<p>   echo “where option is one of the following”</p>
-<p>   echo “p to print frame files”</p>
-<p>   echo “u to save as uppercase”</p>
-<p>   echo “l to save as lowercase”</p>
+<p>   echo “$1 syntax is $1 <option> <input files>“</p>
+<p>   echo “”</p>
+<p>   echo “where option is one of the following”</p>
+<p>   echo “p to print frame files”</p>
+<p>   echo “u to save as uppercase”</p>
+<p>   echo “l to save as lowercase”</p>
 <p>; }</p>
 <p>case $1</p>
 <p>in</p>
-<p>   p | -p) print $@;;</p>
-<p>   u | -u) upper $@;;</p>
-<p>   l | -l) lower $@;;</p>
-<p>   *) usage_error $0;;</p>
+<p>   p | -p) print $@;;</p>
+<p>   u | -u) upper $@;;</p>
+<p>   l | -l) lower $@;;</p>
+<p>   *) usage_error $0;;</p>
 <p>esac</p>
 <p>;}</p>
 <p>Summary</p>

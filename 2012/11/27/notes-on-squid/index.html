@@ -144,9 +144,9 @@
     <div class="post-content ">
         <p>安装配置很简单，如果要设置一个健壮的规则需要配置详细的信任列表即allow list。</p>
 <p>这里只说一点如下访问控制一行只能加一条记录</p>
-<p>http_access allow localhost  localnet    #这是错误的，即使使用<strong>sudo squid -k check 也不会报错只能一行添加一条rule</strong></p>
+<p>http_access allow localhost  localnet    #这是错误的，即使使用<strong>sudo squid -k check 也不会报错只能一行添加一条rule</strong></p>
 <p>http_access allow localnet</p>
-<p>http_access allow manager </p>
+<p>http_access allow manager </p>
 <p>http_access allow localhost</p>
 <p>如上所示。</p>
 <p>这是检查多次才验证出来的结果，但我是archlinux不知道其他的发行版是不是这样。</p>

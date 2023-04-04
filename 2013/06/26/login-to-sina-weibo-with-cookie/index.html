@@ -145,7 +145,7 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>via <a href="http://whoop.sinaapp.com/download/weibo-login/" target="_blank" rel="noopener">http://whoop.sinaapp.com/download/weibo-login/</a> 成功后直接会print title，然后该干嘛干嘛去 <code>#coding=utf8 import urllib2 import re &quot;&quot;&quot; Login to Sina Weibo with cookie &quot;&quot;&quot; COOKIE = &#39;&#39; #fill with your weibo.com cookie HEADERS = {&quot;cookie&quot;: COOKIE} def test_login(): url = &#39;http://weibo.com&#39; req = urllib2.Request(url, headers=HEADERS) text = urllib2.urlopen(req).read() pat_title = re.compile(&#39;(.+?)&#39;) r = pat_title.search(text) if r: print r.group(1) if __name__ == &#39;__main__&#39;: test_login()</code></p>
+        <p>via <a target="_blank" rel="noopener" href="http://whoop.sinaapp.com/download/weibo-login/">http://whoop.sinaapp.com/download/weibo-login/</a> 成功后直接会print title，然后该干嘛干嘛去 <code>#coding=utf8 import urllib2 import re &quot;&quot;&quot; Login to Sina Weibo with cookie &quot;&quot;&quot; COOKIE = &#39;&#39; #fill with your weibo.com cookie HEADERS = &#123;&quot;cookie&quot;: COOKIE&#125; def test_login(): url = &#39;http://weibo.com&#39; req = urllib2.Request(url, headers=HEADERS) text = urllib2.urlopen(req).read() pat_title = re.compile(&#39;(.+?)&#39;) r = pat_title.search(text) if r: print r.group(1) if __name__ == &#39;__main__&#39;: test_login()</code></p>
 
         
             <div class="donate-container">
