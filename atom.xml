@@ -6,7 +6,7 @@
   <link href="https://blog.codewalker.me/atom.xml" rel="self"/>
   
   <link href="https://blog.codewalker.me/"/>
-  <updated>2023-04-03T18:12:57.880Z</updated>
+  <updated>2023-04-04T06:23:22.824Z</updated>
   <id>https://blog.codewalker.me/</id>
   
   <author>
@@ -21,19 +21,18 @@
     <link href="https://blog.codewalker.me/2023/04/04/fix-github-submitt-error/"/>
     <id>https://blog.codewalker.me/2023/04/04/fix-github-submitt-error/</id>
     <published>2023-04-03T18:10:13.803Z</published>
-    <updated>2023-04-03T18:12:57.880Z</updated>
+    <updated>2023-04-04T06:23:22.824Z</updated>
     
-    <content type="html"><![CDATA[<hr><p>title: ‘[FIX] how to fix github submitt error’<br>date: 2023-04-04 02:10:13<br>tags:</p><ul><li>inode</li><li>linux</li><li>logrotate<br>url: 729.html<br>id: 729<br>categories:</li><li>Linux</li></ul><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -vT git@github.com</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>title: ‘[FIX] how to fix github submitt error’<br>date: 2023-04-04 02:10:13<br>tags:</p><ul><li>inode</li><li>linux</li><li>logrotate<br>url: 729.html<br>id: 729<br>categories:</li><li>Linux</li></ul><h2 id="test"><a href="#test" class="headerlink" title="test"></a>test</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -vT git@github.com</span><br></pre></td></tr></table></figure><h2 id="Steps"><a href="#Steps" class="headerlink" title="Steps"></a>Steps</h2><p>在边栏的“访问”部分中，单击 “SSH 和 GPG 密钥”。</p><p>单击“新建 SSH 密钥”或“添加 SSH 密钥” 。<br>SSH 密钥按钮<br>在 “Title”（标题）字段中，为新密钥添加描述性标签。 例如，如果使用的是个人笔记本电脑，则可以将此密钥称为“个人笔记本电脑”。</p><p>选择密钥类型（身份验证或签名）。 有关提交签名的详细信息，请参阅“关于提交签名验证”。</p><p>将公钥粘贴到“密钥”字段。</p><p>单击“添加 SSH 密钥”。</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;hr&gt;
-&lt;p&gt;title: ‘[FIX] how to fix github submitt error’&lt;br&gt;date: 2023-04-04 02:10:13&lt;br&gt;tags:&lt;/p&gt;
+    <summary type="html">&lt;p&gt;title: ‘[FIX] how to fix github submitt error’&lt;br&gt;date: 2023-04-04 02:10:13&lt;br&gt;tags:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;inode&lt;/li&gt;
 &lt;li&gt;linux&lt;/li&gt;
-&lt;li&gt;logr</summary>
+&lt;li&gt;logrotate</summary>
       
     
     
