@@ -1,3 +1,4 @@
+https://blog.codewalker.me/2023/04/20/fix-unable-to-access-github-git-when-brew-update/
 https://blog.codewalker.me/2023/04/04/fix-github-submitt-error/
 https://blog.codewalker.me/2021/08/11/fix-solrCloud-A-previous-ephemeral-live-node-still-exists/
 https://blog.codewalker.me/2021/01/24/Your-CLT-does-not-support-macOS-11/
@@ -495,3 +496,4 @@ https://blog.codewalker.me/categories/Linux/OSX/web/
 https://blog.codewalker.me/categories/iOS/OSX/
 https://blog.codewalker.me/categories/database/
 https://blog.codewalker.me/categories/Linux/%E6%9D%82%E8%B0%88/
+https://blog.codewalker.me/categories/MacOS/
