@@ -6,7 +6,7 @@
   <link href="https://blog.codewalker.me/atom.xml" rel="self"/>
   
   <link href="https://blog.codewalker.me/"/>
-  <updated>2023-04-19T16:44:37.690Z</updated>
+  <updated>2023-04-21T15:13:41.231Z</updated>
   <id>https://blog.codewalker.me/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>tips in shell script</title>
+    <link href="https://blog.codewalker.me/2023/04/21/tips-in-shell-script/"/>
+    <id>https://blog.codewalker.me/2023/04/21/tips-in-shell-script/</id>
+    <published>2023-04-21T14:57:44.000Z</published>
+    <updated>2023-04-21T15:13:41.231Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Simple-shell-script"><a href="#Simple-shell-script" class="headerlink" title="Simple shell script"></a>Simple shell script</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">if</span>  <span class="built_in">command</span> -v docker &gt; /dev/null 2&gt;&amp;1; <span class="keyword">then</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&#x27;docker installed&#x27;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  curl -fsSL https://get.docker.com | sudo bash</span><br><span class="line">  systemctl <span class="built_in">enable</span> --now docker</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Shell scripts are an essential part of Linux systems, providing a way to automate tasks and execute commands in a systematic and efficient manner. In this article, we will discuss the issues related to a specific shell script that checks whether Docker is installed or not, and installs it if it’s not already present.</p><h2 id="Shell-Script-Overview"><a href="#Shell-Script-Overview" class="headerlink" title="Shell Script Overview"></a>Shell Script Overview</h2><p>The script starts by declaring the shebang line <code>#!/bin/bash</code>, which indicates that it will be executed using the Bash shell. The next line checks whether the <code>docker</code> command is available by using the <code>command</code> utility, which searches the system path for the command and returns its status. The <code>&gt; /dev/null 2&gt;&amp;1</code> redirects the standard output and error messages to the null device, effectively suppressing any output from the command.</p><p>If the <code>docker</code> command is found, the script echoes ‘docker installed’ to the console. However, if the command is not found, the script downloads and installs Docker by executing the <code>curl</code> command and piping its output to the bash command with root privileges using <code>sudo</code>. Finally, the <code>systemctl</code> command is used to enable and start the Docker service.</p><h2 id="Issues-and-Solutions"><a href="#Issues-and-Solutions" class="headerlink" title="Issues and Solutions"></a>Issues and Solutions</h2><p>The above script is a simple yet useful way to ensure that Docker is installed on a Linux system. However, there are some issues that should be considered:</p><ol><li><p>Security risks: Downloading and executing scripts from the internet using root privileges can be risky, as it can potentially expose the system to malware or other security vulnerabilities. One solution to mitigate this risk is to download and inspect the script manually before executing it.</p></li><li><p>Error handling: The script does not provide any error handling for the <code>curl</code> or <code>systemctl</code> commands, which could lead to unexpected results or failure to install Docker. One solution is to use the <code>set -e</code> option at the beginning of the script, which will cause it to exit immediately if any command returns a non-zero status.</p></li><li><p>Compatibility issues: The script assumes that the system is running a version of Linux that supports the <code>systemctl</code> command. However, this may not be the case for some older distributions or non-Linux systems. In these cases, an alternative command should be used to start and enable the Docker service.</p></li></ol><h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>In summary, shell scripts are a powerful tool for automating tasks and executing commands on Linux systems. However, it’s important to consider security risks, error handling, and compatibility issues when writing and executing scripts. The shell script presented in this article is a simple yet useful example of how to install Docker if it’s not already present, but it can be improved by addressing the issues discussed above.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Simple-shell-script&quot;&gt;&lt;a href=&quot;#Simple-shell-script&quot; class=&quot;headerlink&quot; title=&quot;Simple shell script&quot;&gt;&lt;/a&gt;Simple shell script&lt;/h2&gt;&lt;figu</summary>
+      
+    
+    
+    
+    <category term="Linux" scheme="https://blog.codewalker.me/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://blog.codewalker.me/tags/Linux/"/>
+    
+    <category term="Shell" scheme="https://blog.codewalker.me/tags/Shell/"/>
+    
+  </entry>
   
   <entry>
     <title>fix unable to access github.git when brew update</title>
@@ -48,13 +74,13 @@
     <published>2023-04-03T18:10:13.000Z</published>
     <updated>2023-04-04T06:35:47.928Z</updated>
     
-    <content type="html"><![CDATA[<p>test</p><p>ssh -vT <a href="mailto:&#103;&#x69;&#116;&#x40;&#x67;&#105;&#116;&#104;&#x75;&#x62;&#46;&#x63;&#x6f;&#x6d;">&#103;&#x69;&#116;&#x40;&#x67;&#105;&#116;&#104;&#x75;&#x62;&#46;&#x63;&#x6f;&#x6d;</a></p><p>Steps<br>在边栏的“访问”部分中，单击 “SSH 和 GPG 密钥”。</p><p>单击“新建 SSH 密钥”或“添加 SSH 密钥” 。<br>SSH 密钥按钮<br>在 “Title”（标题）字段中，为新密钥添加描述性标签。 例如，如果使用的是个人笔记本电脑，则可以将此密钥称为“个人笔记本电脑”。</p><p>选择密钥类型（身份验证或签名）。 有关提交签名的详细信息，请参阅“关于提交签名验证”。</p><p>将公钥粘贴到“密钥”字段。</p><p>单击“添加 SSH 密钥”。</p>]]></content>
+    <content type="html"><![CDATA[<p>test</p><p>ssh -vT <a href="mailto:&#x67;&#x69;&#116;&#x40;&#x67;&#x69;&#x74;&#x68;&#x75;&#x62;&#46;&#99;&#x6f;&#109;">&#x67;&#x69;&#116;&#x40;&#x67;&#x69;&#x74;&#x68;&#x75;&#x62;&#46;&#99;&#x6f;&#109;</a></p><p>Steps<br>在边栏的“访问”部分中，单击 “SSH 和 GPG 密钥”。</p><p>单击“新建 SSH 密钥”或“添加 SSH 密钥” 。<br>SSH 密钥按钮<br>在 “Title”（标题）字段中，为新密钥添加描述性标签。 例如，如果使用的是个人笔记本电脑，则可以将此密钥称为“个人笔记本电脑”。</p><p>选择密钥类型（身份验证或签名）。 有关提交签名的详细信息，请参阅“关于提交签名验证”。</p><p>将公钥粘贴到“密钥”字段。</p><p>单击“添加 SSH 密钥”。</p>]]></content>
     
     
       
       
     <summary type="html">&lt;p&gt;test&lt;/p&gt;
-&lt;p&gt;ssh -vT &lt;a href=&quot;mailto:&amp;#103;&amp;#x69;&amp;#116;&amp;#x40;&amp;#x67;&amp;#105;&amp;#116;&amp;#104;&amp;#x75;&amp;#x62;&amp;#46;&amp;#x63;&amp;#x6f;&amp;#x6d;&quot;&gt;&amp;#103;&amp;#x69;&amp;#11</summary>
+&lt;p&gt;ssh -vT &lt;a href=&quot;mailto:&amp;#x67;&amp;#x69;&amp;#116;&amp;#x40;&amp;#x67;&amp;#x69;&amp;#x74;&amp;#x68;&amp;#x75;&amp;#x62;&amp;#46;&amp;#99;&amp;#x6f;&amp;#109;&quot;&gt;&amp;#x67;&amp;#x69;&amp;#116</summary>
       
     
     
@@ -495,28 +521,6 @@
     <category term="mysql" scheme="https://blog.codewalker.me/tags/mysql/"/>
     
     <category term="database" scheme="https://blog.codewalker.me/tags/database/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>How to turn on &#39;install App from anywhere&#39; on macOS Sierra 10.12 and above</title>
-    <link href="https://blog.codewalker.me/2018/10/10/How-to-turn-on-install-App-from-anywhere/"/>
-    <id>https://blog.codewalker.me/2018/10/10/How-to-turn-on-install-App-from-anywhere/</id>
-    <published>2018-10-10T01:49:44.000Z</published>
-    <updated>2018-10-10T02:04:58.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="How-to-turn-on-‘install-App-from-anywhere’-on-macOS-Sierra-10-12-and-above"><a href="#How-to-turn-on-‘install-App-from-anywhere’-on-macOS-Sierra-10-12-and-above" class="headerlink" title="How to turn on ‘install App from anywhere’ on macOS Sierra 10.12 and above"></a>How to turn on ‘install App from anywhere’ on macOS Sierra 10.12 and above</h1><p>In System Preferences &gt;&gt; Security &amp; Privacy &gt;&gt; Allow apps downloaded from you cannot see <code>Anywhere</code> when you want to install an App not from AppStore or any developer who is NOT identified.</p><ol><li><p><code>Open your Terminal</code></p></li><li><p>Type in <code>sudo spctl --master-disable</code></p></li><li><p>Press <code>enter</code> then type in your system password</p></li><li><p>Re-launch – (close then open) your System Preferences setting panel then you can see the option <code>Anywhere</code></p></li><li><p>Done</p></li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;How-to-turn-on-‘install-App-from-anywhere’-on-macOS-Sierra-10-12-and-above&quot;&gt;&lt;a href=&quot;#How-to-turn-on-‘install-App-from-anywhere’-on-</summary>
-      
-    
-    
-    
-    
-    <category term="MacOSX" scheme="https://blog.codewalker.me/tags/MacOSX/"/>
     
   </entry>
   

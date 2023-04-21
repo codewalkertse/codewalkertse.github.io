@@ -150,7 +150,7 @@
     <div class="post-content ">
         <p>这是第三个版本加入了参数选项</p>
 <p>#!&#x2F;usr&#x2F;bin&#x2F;python2</p>
-<p>#auth:codewalker<br>#mail:<a href="mailto:&#48;&#48;&#49;&#64;&#99;&#111;&#100;&#101;&#119;&#x61;&#108;&#107;&#x65;&#x72;&#46;&#x6d;&#x65;">&#48;&#48;&#49;&#64;&#99;&#111;&#100;&#101;&#119;&#x61;&#108;&#107;&#x65;&#x72;&#46;&#x6d;&#x65;</a><br>version &#x3D; 0.3</p>
+<p>#auth:codewalker<br>#mail:<a href="mailto:&#x30;&#48;&#49;&#x40;&#99;&#x6f;&#100;&#x65;&#x77;&#97;&#108;&#107;&#x65;&#x72;&#x2e;&#109;&#x65;">&#x30;&#48;&#49;&#x40;&#99;&#x6f;&#100;&#x65;&#x77;&#97;&#108;&#107;&#x65;&#x72;&#x2e;&#109;&#x65;</a><br>version &#x3D; 0.3</p>
 <p>from sys import argv, exit<br>from os import rename, listdir, getcwd<br>import re<br>import getopt</p>
 <p>def usage():<br>    print “USAGE:%s oldpart newpart” % argv[0]<br>    print ‘’’<br>    -v|–verbose verbose<br>    -V|–version show version<br>    -h|–help show this<br>    ‘’’</p>
 <p>def main():<br>    try:<br>        opts, args &#x3D; getopt.getopt(argv[1:], “hvV”, [“help”, “verbose”,”version”])<br>    except getopt.GetoptError, e:<br>        print e<br>        usage()<br>        exit(1)<br>    is_output &#x3D; False<br>    is_verbose &#x3D; False<br>    is_show_version &#x3D; False</p>

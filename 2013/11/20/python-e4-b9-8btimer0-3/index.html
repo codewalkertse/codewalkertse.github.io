@@ -150,7 +150,7 @@
     <div class="post-content ">
         <p>想了想应该用参数的话更好些加入getopt包</p>
 <p>#!&#x2F;usr&#x2F;bin&#x2F;python2</p>
-<p>#auth:codewalker #mail:<a href="mailto:&#x30;&#x30;&#x31;&#64;&#x63;&#x6f;&#x64;&#101;&#x77;&#x61;&#x6c;&#107;&#x65;&#x72;&#x2e;&#x6d;&#101;">&#x30;&#x30;&#x31;&#64;&#x63;&#x6f;&#x64;&#101;&#x77;&#x61;&#x6c;&#107;&#x65;&#x72;&#x2e;&#x6d;&#101;</a><br>#version 0.3<br>#date 2013-10-20<br>from time import sleep<br>from progressbar import ETA,ProgressBar,Bar, Percentage<br>import getopt<br>import sys</p>
+<p>#auth:codewalker #mail:<a href="mailto:&#x30;&#48;&#49;&#x40;&#x63;&#111;&#100;&#x65;&#x77;&#x61;&#x6c;&#107;&#101;&#x72;&#x2e;&#x6d;&#x65;">&#x30;&#48;&#49;&#x40;&#x63;&#111;&#100;&#x65;&#x77;&#x61;&#x6c;&#107;&#101;&#x72;&#x2e;&#x6d;&#x65;</a><br>#version 0.3<br>#date 2013-10-20<br>from time import sleep<br>from progressbar import ETA,ProgressBar,Bar, Percentage<br>import getopt<br>import sys</p>
 <p>class timer:<br>  def __init__(self, sec):<br>    self.sec &#x3D; sec</p>
 <p>  def main(self, sec):<br>      widgets &#x3D; [Bar(‘&gt;’),<br>                 Percentage(),<br>                 “ “,<br>                 ETA()]<br>      pbar &#x3D; ProgressBar(widgets&#x3D;widgets, maxval&#x3D;(self.sec+1)*10).start()<br>      for i in range(1,(self.sec+1)*10):<br>          sleep(0.1)<br>          pbar.update(i+1)<br>      pbar.finish()</p>
 <p>  def start(self):<br>    self.main(self)</p>

@@ -153,7 +153,7 @@
     <div class="post-content ">
         <p>最近工作中需要用的web service的一些数据调用，本生是php调用.net的需求。顺便就查了下python怎样用。如下： 例子中的 1电话是网上随便搜索的一个标注为诈骗号码的电话。 2web service是网上随便搜索的一个源。 本例用的是suds的一个lib 安装很简单不赘述了。</p>
 <p>#!&#x2F;usr&#x2F;bin&#x2F;python2</p>
-<p>#auth:codewalker #mail:<a href="mailto:&#48;&#48;&#49;&#x40;&#x63;&#x6f;&#100;&#x65;&#x77;&#x61;&#108;&#107;&#x65;&#114;&#46;&#109;&#x65;">&#48;&#48;&#49;&#x40;&#x63;&#x6f;&#100;&#x65;&#x77;&#x61;&#108;&#107;&#x65;&#114;&#46;&#109;&#x65;</a></p>
+<p>#auth:codewalker #mail:<a href="mailto:&#48;&#x30;&#x31;&#64;&#x63;&#x6f;&#100;&#x65;&#119;&#x61;&#108;&#107;&#101;&#114;&#x2e;&#109;&#101;">&#48;&#x30;&#x31;&#64;&#x63;&#x6f;&#100;&#x65;&#119;&#x61;&#108;&#107;&#101;&#114;&#x2e;&#109;&#101;</a></p>
 <p>from suds.client import Client</p>
 <p>def websevice(phone):<br>    url &#x3D; ‘<a target="_blank" rel="noopener" href="http://webservice.webxml.com.cn/WebServices/MobileCodeWS.asmx?wsdl">http://webservice.webxml.com.cn/WebServices/MobileCodeWS.asmx?wsdl</a>‘<br>    c &#x3D; Client(url)<br>    r &#x3D; c.service.getMobileCodeInfo(phone)<br>    #print client可以直接查看有哪些方法可以调用<br>    return r</p>
 <p>def main():<br>    phone_number &#x3D; ‘13802792784’<br>    r &#x3D; websevice(phone_number)<br>    print r</p>
