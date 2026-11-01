@@ -63,14 +63,14 @@
     <category term="inode" scheme="https://blog.codewalker.me/tags/inode/"/>
     <category term="logrotate" scheme="https://blog.codewalker.me/tags/logrotate/"/>
     <content>
-      <![CDATA[<p>test</p><p>ssh -vT <a href="mailto:&#x67;&#x69;&#116;&#64;&#x67;&#105;&#x74;&#x68;&#x75;&#x62;&#46;&#x63;&#x6f;&#109;">git@github.com</a></p><p>Steps<br>在边栏的“访问”部分中，单击 “SSH 和 GPG 密钥”。</p><p>单击“新建 SSH 密钥”或“添加 SSH 密钥” 。<br>SSH 密钥按钮<br>在 “Title”（标题）字段中，为新密钥添加描述性标签。 例如，如果使用的是个人笔记本电脑，则可以将此密钥称为“个人笔记本电脑”。</p><p>选择密钥类型（身份验证或签名）。 有关提交签名的详细信息，请参阅“关于提交签名验证”。</p><p>将公钥粘贴到“密钥”字段。</p><p>单击“添加 SSH 密钥”。</p>]]>
+      <![CDATA[<p>test</p><p>ssh -vT <a href="mailto:&#103;&#105;&#116;&#x40;&#103;&#x69;&#x74;&#104;&#x75;&#x62;&#46;&#x63;&#x6f;&#109;">git@github.com</a></p><p>Steps<br>在边栏的“访问”部分中，单击 “SSH 和 GPG 密钥”。</p><p>单击“新建 SSH 密钥”或“添加 SSH 密钥” 。<br>SSH 密钥按钮<br>在 “Title”（标题）字段中，为新密钥添加描述性标签。 例如，如果使用的是个人笔记本电脑，则可以将此密钥称为“个人笔记本电脑”。</p><p>选择密钥类型（身份验证或签名）。 有关提交签名的详细信息，请参阅“关于提交签名验证”。</p><p>将公钥粘贴到“密钥”字段。</p><p>单击“添加 SSH 密钥”。</p>]]>
     </content>
     <id>https://blog.codewalker.me/2023/04/04/fix-github-submitt-error/</id>
     <link href="https://blog.codewalker.me/2023/04/04/fix-github-submitt-error/"/>
     <published>2023-04-04T06:10:13.000Z</published>
     <summary>
       <![CDATA[<p>test</p>
-<p>ssh -vT <a href="mailto:&#x67;&#x69;&#116;&#64;&#x67;&#105;&#x74;&#x68;&#x75;&#x62;&#46;&#x63;&#x6f;&#109;">git@github.com</a]]>
+<p>ssh -vT <a href="mailto:&#103;&#105;&#116;&#x40;&#103;&#x69;&#x74;&#104;&#x75;&#x62;&#46;&#x63;&#x6f;&#109;">git@github.com</]]>
     </summary>
     <title>[FIX] how to fix github submitt error</title>
     <updated>2023-04-04T06:35:47.928Z</updated>
