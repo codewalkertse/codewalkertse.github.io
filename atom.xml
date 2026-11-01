@@ -12,7 +12,29 @@
   <rights>All rights reserved 2026, Simon Xie</rights>
   <subtitle>All magic comes with a price.</subtitle>
   <title>Simon Xie</title>
-  <updated>2023-04-21T15:13:41.231Z</updated>
+  <updated>2026-11-01T23:30:09.929Z</updated>
+  <entry>
+    <author>
+      <name>Simon Xie</name>
+      <email>simon.xie@codewalker.me</email>
+    </author>
+    <category term="Hexo" scheme="https://blog.codewalker.me/categories/Hexo/"/>
+    <category term="Hexo" scheme="https://blog.codewalker.me/tags/Hexo/"/>
+    <category term="nodejs" scheme="https://blog.codewalker.me/tags/nodejs/"/>
+    <category term="GitHub" scheme="https://blog.codewalker.me/tags/GitHub/"/>
+    <content>
+      <![CDATA[<p>这个博客从 2023 年 4 月之后就没再动过，依赖还停留在 Hexo 6.3.0 + Node 12 + gulp 4。最近借着「升级依赖 + 修复潜在问题」的机会做了一次完整清理，中间踩了不少坑，记录下来方便以后回看，也给遇到同类问题的朋友一个参考。</p><blockquote><p>说明：本次升级从诊断、升级到修复全程由 <strong>DeepSeek Harness</strong> 辅助完成。因为博客停更太久，依赖老化、配置过时、密钥泄露等问题成堆，整个排查和处理过程基本是全自动跑完的，我主要负责关键决策和最终发布。</p></blockquote><h2 id="升级前先诊断，发现这些问题"><a href="#升级前先诊断，发现这些问题" class="headerlink" title="升级前先诊断，发现这些问题"></a>升级前先诊断，发现这些问题</h2><p>升级不是简单改个版本号。动手之前先把整个项目扫了一遍，发现的问题比想象中多：</p><ol><li><strong>部署脚本其实早就坏了</strong>。<code>gulpfile.js</code> 里写的是 gulp 3 的数组语法 <code>gulp.task(&#39;hexo&#39;, [&#39;minify-html&#39;, &#39;minify-css&#39;])</code>，但实际装的是 gulp 4，<code>gulp hexo</code> 会直接报 <code>Task function must be specified</code>。也就是说 <code>npm run deploy</code> 一直是废的。</li><li><strong>构建报废弃警告</strong>。<code>_config.yml</code> 里 <code>external_link: true</code> 是布尔值，Hexo 提示应该改成对象形式。</li><li><strong>部署器缺失</strong>。<code>_config.yml</code> 的 deploy 配了 <code>baidu_url_submitter</code>，但插件根本没装，<code>hexo deploy</code> 会报 <code>Deployer not found</code>。</li><li><strong>模板残留调试代码</strong>。主题 <code>index.ejs</code> 里留了一行 <code>console.log(post.tags)</code>，每次构建都往外刷几千行对象日志。</li><li><strong>配置笔误</strong>。<code>word_count: ture</code>（ture 拼错）、<code>plugins:</code> 块格式错误（Hexo 压根不读它）。</li><li><strong>安全隐患</strong>。旧评论系统 Gitment 的 OAuth <code>client_secret</code> 被写进了页面内联 JS，等于把密钥公开暴露在网页上。</li><li><strong>信息泄露</strong>。<code>source/</code> 目录下残留一个 82KB 的 <code>debug.log</code>（2018 年的调试日志，含本机路径和主机名），会被一起发布到站点根目录。</li><li><strong>Hexo 8 挂死的根因</strong>。<code>hexo-migrator-wordpress</code> 依赖的 <code>camaro</code> 用了 worker_threads，导致 <code>hexo generate</code> 跑完后进程不退出（MessagePort 没关）。</li></ol><h2 id="升级清单"><a href="#升级清单" class="headerlink" title="升级清单"></a>升级清单</h2><p>先确认了各依赖在 npmmirror 上的最新版本，然后一次性重写了 <code>package.json</code>：</p><table><thead><tr><th>组件</th><th>旧版本</th><th>新版本</th></tr></thead><tbody><tr><td>Node</td><td>12.16.3</td><td>22.20.0</td></tr><tr><td>hexo</td><td>6.3.0</td><td>8.1.2</td></tr><tr><td>gulp</td><td>4.0.2</td><td>5.0.1</td></tr><tr><td>渲染&#x2F;生成器全系</td><td>旧</td><td>最新</td></tr></tbody></table><p>同时做了这些事：</p><ul><li><strong>删僵尸依赖</strong>：<code>help</code>、<code>to</code>、<code>update</code>、<code>npm</code>、<code>npm-check</code>、<code>npm-upgrade</code>、<code>gulp-strip-debug</code>、<code>gulp-uglify</code> 等一堆没用的包。</li><li><strong>删 <code>hexo-migrator-wordpress</code></strong>：解决上面第 8 条挂死问题（这个 migrator 已经用不上了）。</li><li><strong>重写 <code>gulpfile.js</code></strong>：改成 gulp 5 的 <code>gulp.series()</code>，压缩 HTML 换成 <code>gulp-html-minifier-terser</code>，压缩 CSS 换成 <code>gulp-clean-css</code>。</li><li><strong>补装 <code>hexo-baidu-url-submit</code></strong>：让百度推送部署器能正常注册。</li></ul><p><code>gulp-html-minifier-terser</code> 最新 8.x 要求 Node 24，所以这里用了 7.1.0 兼容 Node 22。</p><h2 id="Node-环境的处理"><a href="#Node-环境的处理" class="headerlink" title="Node 环境的处理"></a>Node 环境的处理</h2><p>系统自带的 Node 是 12，但 Hexo 8 要求 Node ≥ 20.19。本来想用 Homebrew 装 <code>node@22</code>，结果这台机器 brew 的缓存目录权限有问题一直装不上，最后改成<strong>项目内独立 Node</strong>：把 Node 22.20.0 解压到项目的 <code>.node/</code> 目录，用的时候把它的 <code>bin</code> 提到 PATH 前面。</p><p>这样有个好处：<strong>不影响系统其他环境</strong>，这个博客用 Node 22，别的地方继续用系统 Node 12，互不干扰。代价是每次构建前要手动 export 一下，或者干脆在 <code>~/.zshrc</code> 里加个 <code>chpwd</code> 钩子，<code>cd</code> 进这个目录自动切换、<code>cd</code> 出去自动还原。</p><h2 id="评论系统：Gitment-→-giscus"><a href="#评论系统：Gitment-→-giscus" class="headerlink" title="评论系统：Gitment → giscus"></a>评论系统：Gitment → giscus</h2><p>换掉 Gitment 主要有两个原因：</p><ol><li><strong>安全</strong>：Gitment 需要把 OAuth <code>client_secret</code> 写进前端页面，这是硬伤，密钥等于公开。</li><li><strong>维护</strong>：Gitment 已经很久没更新了，GitHub 侧的授权也经常出问题。</li></ol><p>替换方案选了 <a href="https://giscus.app/">giscus</a>，它用 GitHub Discussions 当评论后端，不需要自己暴露任何密钥，只需要公开的 <code>repo_id</code> 和 <code>category_id</code>。</p><p>配置步骤就三步：</p><ol><li>仓库开启 Discussions（Settings → General → Features）。</li><li>安装 <a href="https://github.com/apps/giscus">giscus app</a>，授权仓库。</li><li>到 giscus.app 填仓库名，拿到 <code>repo_id</code>、<code>category_id</code> 回填到 <code>_config.yml</code> 的 <code>comment</code> 块。</li></ol><p>改完之后模板里的守卫条件是「giscus 且 <code>repo_id</code> 非空才渲染」，这样 ID 没填之前页面不会出现坏掉的评论区。</p><h2 id="部署遇坑：SSH-密钥被-GitHub-拒了"><a href="#部署遇坑：SSH-密钥被-GitHub-拒了" class="headerlink" title="部署遇坑：SSH 密钥被 GitHub 拒了"></a>部署遇坑：SSH 密钥被 GitHub 拒了</h2><p>构建、压缩都通了之后，<code>hexo deploy</code> 卡在推送：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git@github.com: Permission denied (publickey).</span><br></pre></td></tr></table></figure><p>排查下来，机器上只有一把 <strong>2015 年的 2048 位 RSA 密钥</strong>。把它加到 GitHub 时，GitHub 直接拒绝：</p><blockquote><p>Key is too short. GitHub recommends using ssh-keygen to generate a RSA key of at least 3072 bits.</p></blockquote><p>GitHub 现在不接受 2048 位 RSA 了。解决办法是换 Ed25519：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t ed25519 -C <span class="string">&quot;you@example.com&quot;</span> -f ~/.ssh/id_ed25519 -N <span class="string">&quot;&quot;</span></span><br></pre></td></tr></table></figure><p>然后把新公钥加到 GitHub，再配一下 <code>~/.ssh/config</code> 让 GitHub 连接只走新密钥：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">  HostName github.com</span><br><span class="line">  User git</span><br><span class="line">  IdentityFile ~/.ssh/id_ed25519</span><br><span class="line">  IdentitiesOnly yes</span><br></pre></td></tr></table></figure><p><code>ssh -T git@github.com</code> 返回 <code>Hi xxx! You&#39;ve successfully authenticated</code> 就通了，重新 <code>npm run deploy</code> 即可。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这次升级本质上是「把 3 年没动的项目救回来」：</p><ul><li><strong>依赖</strong>：Hexo 6 → 8，Node 12 → 22，gulp 3 → 5，全部生成器&#x2F;渲染器升级到最新。</li><li><strong>修复</strong>：部署脚本、废弃配置、拼写错误、模板调试代码、挂死问题。</li><li><strong>安全</strong>：换掉泄露密钥的 Gitment，删掉会被发布的 debug.log。</li><li><strong>新功能</strong>：giscus 评论、百度 URL 推送。</li></ul><p>如果你也在维护一个很久没动的 Hexo 博客，建议重点检查三件事：<code>gulpfile.js</code> 的 gulp 版本语法、<code>_config.yml</code> 里被弃用的布尔配置、以及评论插件是否把密钥写进了前端。这三样是重灾区。</p>]]>
+    </content>
+    <id>https://blog.codewalker.me/2026/11/01/upgrade-hexo-6-to-8-and-node-22/</id>
+    <link href="https://blog.codewalker.me/2026/11/01/upgrade-hexo-6-to-8-and-node-22/"/>
+    <published>2026-11-01T23:27:57.000Z</published>
+    <summary>
+      <![CDATA[<p>这个博客从 2023 年 4 月之后就没再动过，依赖还停留在 Hexo 6.3.0 + Node 12 + gulp 4。最近借着「升级依赖 + 修复潜在问题」的机会做了一次完整清理，中间踩了不少坑，记录下来方便以后回看，也给遇到同类问题的朋友一个参考。</p>
+<bloc]]>
+    </summary>
+    <title>Hexo 博客升级记录：6.3.0 → 8.1.2 踩坑与修复</title>
+    <updated>2026-11-01T23:30:09.929Z</updated>
+  </entry>
   <entry>
     <author>
       <name>Simon Xie</name>
@@ -63,14 +85,14 @@
     <category term="inode" scheme="https://blog.codewalker.me/tags/inode/"/>
     <category term="logrotate" scheme="https://blog.codewalker.me/tags/logrotate/"/>
     <content>
-      <![CDATA[<p>test</p><p>ssh -vT <a href="mailto:&#103;&#105;&#116;&#x40;&#103;&#x69;&#x74;&#104;&#x75;&#x62;&#46;&#x63;&#x6f;&#109;">git@github.com</a></p><p>Steps<br>在边栏的“访问”部分中，单击 “SSH 和 GPG 密钥”。</p><p>单击“新建 SSH 密钥”或“添加 SSH 密钥” 。<br>SSH 密钥按钮<br>在 “Title”（标题）字段中，为新密钥添加描述性标签。 例如，如果使用的是个人笔记本电脑，则可以将此密钥称为“个人笔记本电脑”。</p><p>选择密钥类型（身份验证或签名）。 有关提交签名的详细信息，请参阅“关于提交签名验证”。</p><p>将公钥粘贴到“密钥”字段。</p><p>单击“添加 SSH 密钥”。</p>]]>
+      <![CDATA[<p>test</p><p>ssh -vT <a href="mailto:&#103;&#x69;&#x74;&#x40;&#x67;&#x69;&#116;&#104;&#117;&#98;&#x2e;&#x63;&#x6f;&#x6d;">git@github.com</a></p><p>Steps<br>在边栏的“访问”部分中，单击 “SSH 和 GPG 密钥”。</p><p>单击“新建 SSH 密钥”或“添加 SSH 密钥” 。<br>SSH 密钥按钮<br>在 “Title”（标题）字段中，为新密钥添加描述性标签。 例如，如果使用的是个人笔记本电脑，则可以将此密钥称为“个人笔记本电脑”。</p><p>选择密钥类型（身份验证或签名）。 有关提交签名的详细信息，请参阅“关于提交签名验证”。</p><p>将公钥粘贴到“密钥”字段。</p><p>单击“添加 SSH 密钥”。</p>]]>
     </content>
     <id>https://blog.codewalker.me/2023/04/04/fix-github-submitt-error/</id>
     <link href="https://blog.codewalker.me/2023/04/04/fix-github-submitt-error/"/>
     <published>2023-04-04T06:10:13.000Z</published>
     <summary>
       <![CDATA[<p>test</p>
-<p>ssh -vT <a href="mailto:&#103;&#105;&#116;&#x40;&#103;&#x69;&#x74;&#104;&#x75;&#x62;&#46;&#x63;&#x6f;&#109;">git@github.com</]]>
+<p>ssh -vT <a href="mailto:&#103;&#x69;&#x74;&#x40;&#x67;&#x69;&#116;&#104;&#117;&#98;&#x2e;&#x63;&#x6f;&#x6d;">git@github.com</]]>
     </summary>
     <title>[FIX] how to fix github submitt error</title>
     <updated>2023-04-04T06:35:47.928Z</updated>
@@ -392,24 +414,5 @@
     </summary>
     <title>docker-zsh-completion with oh-my-zsh</title>
     <updated>2019-10-30T01:38:20.000Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Simon Xie</name>
-      <email>simon.xie@codewalker.me</email>
-    </author>
-    <category term="mysql" scheme="https://blog.codewalker.me/tags/mysql/"/>
-    <category term="database" scheme="https://blog.codewalker.me/tags/database/"/>
-    <content>
-      <![CDATA[<h1 id="Talk-is-cheap"><a href="#Talk-is-cheap" class="headerlink" title="Talk is cheap"></a>Talk is cheap</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT id,amount FROM product</span><br><span class="line">LEFT JOIN product_details</span><br><span class="line">    ON  (product.id = product_details.id)</span><br><span class="line">        AND product_details.id=2;</span><br></pre></td></tr></table></figure><p>EOF</p>]]>
-    </content>
-    <id>https://blog.codewalker.me/2019/05/31/how-to-use-left-join-with-multi-condition/</id>
-    <link href="https://blog.codewalker.me/2019/05/31/how-to-use-left-join-with-multi-condition/"/>
-    <published>2019-05-31T15:20:03.000Z</published>
-    <summary>
-      <![CDATA[<h1 id="Talk-is-cheap"><a href="#Talk-is-cheap" class="headerlink" title="Talk is cheap"></a>Talk is cheap</h1><figure class="highlight plai]]>
-    </summary>
-    <title>how to use 'left join' with multi-condition</title>
-    <updated>2019-05-31T03:42:01.000Z</updated>
   </entry>
 </feed>
