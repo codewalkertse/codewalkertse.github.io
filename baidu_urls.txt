@@ -1,3 +1,3 @@
 https://blog.codewalker.me/2026/11/01/upgrade-hexo-6-to-8-and-node-22/
+https://blog.codewalker.me/2026/11/01/ne-async-is-not-a-function-dsh-migration/
 https://blog.codewalker.me/2023/04/21/tips-in-shell-script/
-https://blog.codewalker.me/2023/04/20/fix-unable-to-access-github-git-when-brew-update/
