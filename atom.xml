@@ -12,7 +12,30 @@
   <rights>All rights reserved 2026, Simon Xie</rights>
   <subtitle>All magic comes with a price.</subtitle>
   <title>Simon Xie</title>
-  <updated>2026-11-01T23:30:09.929Z</updated>
+  <updated>2026-11-05T16:17:10.247Z</updated>
+  <entry>
+    <author>
+      <name>Simon Xie</name>
+      <email>simon.xie@codewalker.me</email>
+    </author>
+    <category term="技术" scheme="https://blog.codewalker.me/categories/%E6%8A%80%E6%9C%AF/"/>
+    <category term="DeepSeek" scheme="https://blog.codewalker.me/tags/DeepSeek/"/>
+    <category term="Agent" scheme="https://blog.codewalker.me/tags/Agent/"/>
+    <category term="排查复盘" scheme="https://blog.codewalker.me/tags/%E6%8E%92%E6%9F%A5%E5%A4%8D%E7%9B%98/"/>
+    <category term="Node.js" scheme="https://blog.codewalker.me/tags/Node-js/"/>
+    <category term="pnpm" scheme="https://blog.codewalker.me/tags/pnpm/"/>
+    <content>
+      <![CDATA[<h1 id="DSH-核心升级与插件冲突排查排障记录"><a href="#DSH-核心升级与插件冲突排查排障记录" class="headerlink" title="DSH 核心升级与插件冲突排查排障记录"></a>DSH 核心升级与插件冲突排查排障记录</h1><blockquote><p>一次从”老版本跑不起来”到”极简环境彻底清净”的完整复盘。五个报错看着各不相干，最后都指向同一条主线：核心太旧、环境太乱、插件太多。</p></blockquote><h2 id="一、背景：一个旧环境，两个隐藏的雷"><a href="#一、背景：一个旧环境，两个隐藏的雷" class="headerlink" title="一、背景：一个旧环境，两个隐藏的雷"></a>一、背景：一个旧环境，两个隐藏的雷</h2><p>这次升级之前的机器，状态是这样的：</p><ul><li>Node 用 fnm 管理，停在 v22.23.4；</li><li>DSH 全局装的是 <code>0.1.2-alpha.1</code>；</li><li>系统里还留着一个指向 macOS 桌面版 App 的 <code>dsh</code> 软链接（<code>/usr/local/bin/dsh</code>）。</li></ul><p>表面看着能用，实际埋了两个雷：一个是核心版本太旧，一个是终端里敲 <code>dsh</code> 执行的其实不是你装的那个新版。</p><p>触发问题的导火索很普通：想用 <code>npx</code> 跑最新版，或者想加载个第三方插件，结果模块丢失、版本冲突一起冒出来。</p><p>目标就一个：把 DSH 本体从 <code>0.1.2-alpha.1</code> 升到 <code>0.2.2-rc.1</code>，Node 升到 <code>v24.22.2</code>，把僵尸配置清干净，让 Web 端能稳定起来。</p><h2 id="二、五个报错，一条主线"><a href="#二、五个报错，一条主线" class="headerlink" title="二、五个报错，一条主线"></a>二、五个报错，一条主线</h2><h3 id="1-模块缺失：failed-to-import-loader-entry-missed-the-module-table"><a href="#1-模块缺失：failed-to-import-loader-entry-missed-the-module-table" class="headerlink" title="1. 模块缺失：failed to import loader entry ... missed the module table"></a>1. 模块缺失：<code>failed to import loader entry ... missed the module table</code></h3><p><strong>原因</strong>：正在跑的 DSH 核心还是 <code>0.1.2-alpha.1</code>，而插件依赖的新模块（比如 <code>@deepseek-ai/dsh-client-store</code>）是更晚的版本才引入的。核心里压根没有这张模块表，插件自然 import 不到。</p><p><strong>解决</strong>：根子上的办法只有一个——升级 DSH 核心。但这一升，就牵出了后面一连串环境问题。</p><h3 id="2-环境混乱：EBADENGINE-和指向桌面版的幽灵路径"><a href="#2-环境混乱：EBADENGINE-和指向桌面版的幽灵路径" class="headerlink" title="2. 环境混乱：EBADENGINE 和指向桌面版的幽灵路径"></a>2. 环境混乱：<code>EBADENGINE</code> 和指向桌面版的幽灵路径</h3><p><strong>原因</strong>有两个：</p><ul><li>全局旧 DSH 跑在 Node 22 下，新版 DSH 要求更高的 Node 引擎，引擎对不上，报 <code>EBADENGINE</code>；</li><li>终端里敲 <code>dsh</code>，系统实际执行的是 <code>/usr/local/bin/dsh</code>（还指着旧的桌面版 App），而不是 npm 全局装的新版——你以为升级了，其实一直在跑旧的。</li></ul><p><strong>解决</strong>：</p><ul><li>用 <code>fnm install 24</code> 把 Node 升上去；</li><li>找到新版的真实路径（<code>~/.local/share/fnm/node-versions/v24.22.2/installation/bin/dsh</code>）；</li><li>强制覆盖旧软链接：<code>sudo ln -sf &lt;新版真实路径&gt; /usr/local/bin/dsh</code>。</li></ul><h3 id="3-依赖被拦：ERR-PNPM-MINIMUM-RELEASE-AGE-VIOLATION-ERR-PNPM-IGNORED-BUILDS"><a href="#3-依赖被拦：ERR-PNPM-MINIMUM-RELEASE-AGE-VIOLATION-ERR-PNPM-IGNORED-BUILDS" class="headerlink" title="3. 依赖被拦：ERR_PNPM_MINIMUM_RELEASE_AGE_VIOLATION &#x2F; ERR_PNPM_IGNORED_BUILDS"></a>3. 依赖被拦：<code>ERR_PNPM_MINIMUM_RELEASE_AGE_VIOLATION</code> &#x2F; <code>ERR_PNPM_IGNORED_BUILDS</code></h3><p><strong>原因</strong>：pnpm v11 以后默认开了供应链安全保护。它不装”发布不足 24 小时”的包，也不许未经许可就跑底层原生编译脚本（比如 <code>node-pty</code>、<code>cloudflared</code>）。</p><p><strong>解决</strong>：</p><ul><li>安装&#x2F;修复依赖时，强制绕过发布时间限制，加 <code>--config.minimum-release-age=0</code>；</li><li>放行原生编译脚本：编辑 <code>~/.dsh/profiles/web/pnpm-workspace.yaml</code>，加 <code>allowBuilds:</code> 列表；或者 npm 全局安装时追加 <code>--allow-scripts=...</code> 参数。</li></ul><h3 id="4-配置里的”幽灵包”（Zombie-Bundles）"><a href="#4-配置里的”幽灵包”（Zombie-Bundles）" class="headerlink" title="4. 配置里的”幽灵包”（Zombie Bundles）"></a>4. 配置里的”幽灵包”（Zombie Bundles）</h3><p><strong>原因</strong>：反复用 <code>npx</code> 启动、或者网络波动中断，导致插件的依赖被删了，但 <code>package.json</code> 的 <code>dsh.profile.bundles</code> 或者 <code>cordis.patch.yml</code> 里还留着加载指令。启动时按配置去找包，找不到，直接崩。</p><p><strong>解决</strong>：用社区脚本 <code>dsh-fix-duplicate-loader-id</code> 把重复的 <code>insert</code> 转成幂等的 <code>id patch</code>；或者直接手动编辑 <code>cordis.patch.yml</code>，删掉报错的那个包名。</p><h3 id="5-第三方全家桶冲突：duplicate-loader-entry-id-dsh-market"><a href="#5-第三方全家桶冲突：duplicate-loader-entry-id-dsh-market" class="headerlink" title="5. 第三方全家桶冲突：duplicate loader entry id: dsh-market"></a>5. 第三方全家桶冲突：<code>duplicate loader entry id: dsh-market</code></h3><p><strong>原因</strong>：装了一堆第三方 UI 全家桶（比如 <code>@linxin666/dsh-web-all</code>）和实验性功能包，它们内部的依赖互相打架，或者调了已经废弃的旧版 API。</p><p><strong>解决</strong>：<strong>做减法。</strong> 把引发崩溃的插件（比如 <code>dsh-agents</code>、<code>pua</code>、<code>mnemon</code> 还有第三方任务板）逐个或整体卸载：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dsh plugin --profile web remove &lt;包名&gt;</span><br></pre></td></tr></table></figure><p>每卸载一个就立刻 <code>dsh web</code> 测一次，直到能正常起来为止。</p><h2 id="三、从零到可用的完整步骤"><a href="#三、从零到可用的完整步骤" class="headerlink" title="三、从零到可用的完整步骤"></a>三、从零到可用的完整步骤</h2><h3 id="第一步：升级-Node-环境（fnm）"><a href="#第一步：升级-Node-环境（fnm）" class="headerlink" title="第一步：升级 Node 环境（fnm）"></a>第一步：升级 Node 环境（fnm）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fnm install 24</span><br><span class="line">fnm use 24</span><br><span class="line">fnm default 24</span><br></pre></td></tr></table></figure><h3 id="第二步：启用-pnpm，升级-DSH-核心"><a href="#第二步：启用-pnpm，升级-DSH-核心" class="headerlink" title="第二步：启用 pnpm，升级 DSH 核心"></a>第二步：启用 pnpm，升级 DSH 核心</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">corepack <span class="built_in">enable</span> pnpm</span><br><span class="line"></span><br><span class="line"><span class="comment"># 放行底层原生编译脚本，全局安装最新版</span></span><br><span class="line">npm install -g @deepseek-ai/dsh@latest --allow-scripts=@deepseek-ai/dsh-subprocess-local,koffi,node-pty,@google/genai,protobufjs</span><br></pre></td></tr></table></figure><h3 id="第三步：修正系统软链接"><a href="#第三步：修正系统软链接" class="headerlink" title="第三步：修正系统软链接"></a>第三步：修正系统软链接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 强制覆盖指向旧 App 的软链接</span></span><br><span class="line">sudo <span class="built_in">ln</span> -sf ~/.local/share/fnm/node-versions/v24.22.2/installation/bin/dsh /usr/local/bin/dsh</span><br></pre></td></tr></table></figure><h3 id="第四步：修复-profile-依赖、清理僵尸插件"><a href="#第四步：修复-profile-依赖、清理僵尸插件" class="headerlink" title="第四步：修复 profile 依赖、清理僵尸插件"></a>第四步：修复 profile 依赖、清理僵尸插件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 profile 依赖（绕过发布冷却期）</span></span><br><span class="line">dsh plugin --profile web install --config.minimum-release-age=0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 卸载导致崩溃的冗余/过期插件</span></span><br><span class="line">dsh plugin --profile web remove &lt;报错的插件包名&gt; --config.minimum-release-age=0</span><br></pre></td></tr></table></figure><h2 id="四、几条踩出来的经验"><a href="#四、几条踩出来的经验" class="headerlink" title="四、几条踩出来的经验"></a>四、几条踩出来的经验</h2><ol><li><p><strong>放弃 <code>npx</code>，统一用全局命令。</strong> <code>npx</code> 会生成一堆临时缓存（<code>~/.npm/_npx</code>），还特别容易和常驻的 Web Server 撞端口、混版本。统一 <code>npm install -g</code>，省心。</p></li><li><p><strong>警惕第三方”全家桶”。</strong> <code>dsh-web-all</code> 这种聚合包装着省事，但只要里面某个子依赖和新版 DSH 不兼容，整个 DSH 就起不来。按需单独装单项插件，别图省事。</p></li><li><p><strong>认识 DSH 的”双配置文件”。</strong> <code>package.json</code> 里的 <code>dsh.profile.bundles</code> 控制装哪些包，<code>cordis.patch.yml</code> 控制插件树怎么插入。卸载插件时，两处都要清干净，只清一处就是埋雷。</p></li><li><p><strong>PNPM 的供应链策略要会绕。</strong> 开发调试阶段，只要来源可信，记得加 <code>--config.minimum-release-age=0</code>，否则刚发布的新版本插件永远装不上。</p></li><li><p><strong>善用排障工具。</strong> <code>dsh-fix-duplicate-loader-id</code> 能救命，遇到 loader 冲突先拿它 <code>--dry-run</code> 体检一遍。</p></li></ol><h2 id="五、最终能用的极简环境"><a href="#五、最终能用的极简环境" class="headerlink" title="五、最终能用的极简环境"></a>五、最终能用的极简环境</h2><ul><li><strong>Node</strong>：v24.22.2（fnm）</li><li><strong>DSH 核心</strong>：v0.2.2-rc.1（npm 全局）</li><li><strong>pnpm</strong>：Corepack 代理</li><li><strong>启动命令</strong>：<code>dsh web</code></li></ul><blockquote><p>小注：如果之后终端偶尔还报”任务板拿不到 session”，<code>Ctrl+C</code> 停掉服务，执行 <code>dsh plugin --profile web remove @linxin666/dsh-client-ui-task-board --config.minimum-release-age=0</code> 就彻底清净了。</p></blockquote><hr><p>折腾归折腾，这一路的坑其实很有代表性：核心版本、Node 引擎、软链接、依赖缓存、插件配置，任何一个环节错位，都能让一个本来能用的东西说崩就崩。把它们串起来看，排查思路反而清晰了——<strong>先确认你跑的到底是不是你以为的那个版本，再做减法。</strong></p>]]>
+    </content>
+    <id>https://blog.codewalker.me/2026/11/05/dsh-core-upgrade-plugin-conflict-troubleshooting/</id>
+    <link href="https://blog.codewalker.me/2026/11/05/dsh-core-upgrade-plugin-conflict-troubleshooting/"/>
+    <published>2026-11-05T05:00:00.000Z</published>
+    <summary>
+      <![CDATA[<h1 id="DSH-核心升级与插件冲突排查排障记录"><a href="#DSH-核心升级与插件冲突排查排障记录" class="headerlink" title="DSH 核心升级与插件冲突排查排障记录"></a>DSH 核心升级与插件冲突排查排障记录</h1><bloc]]>
+    </summary>
+    <title>DSH 核心升级与插件冲突排查排障记录</title>
+    <updated>2026-11-05T16:17:10.247Z</updated>
+  </entry>
   <entry>
     <author>
       <name>Simon Xie</name>
@@ -108,14 +131,14 @@
     <category term="inode" scheme="https://blog.codewalker.me/tags/inode/"/>
     <category term="logrotate" scheme="https://blog.codewalker.me/tags/logrotate/"/>
     <content>
-      <![CDATA[<p>test</p><p>ssh -vT <a href="mailto:&#103;&#x69;&#116;&#x40;&#103;&#x69;&#x74;&#x68;&#x75;&#x62;&#x2e;&#99;&#x6f;&#x6d;">git@github.com</a></p><p>Steps<br>在边栏的“访问”部分中，单击 “SSH 和 GPG 密钥”。</p><p>单击“新建 SSH 密钥”或“添加 SSH 密钥” 。<br>SSH 密钥按钮<br>在 “Title”（标题）字段中，为新密钥添加描述性标签。 例如，如果使用的是个人笔记本电脑，则可以将此密钥称为“个人笔记本电脑”。</p><p>选择密钥类型（身份验证或签名）。 有关提交签名的详细信息，请参阅“关于提交签名验证”。</p><p>将公钥粘贴到“密钥”字段。</p><p>单击“添加 SSH 密钥”。</p>]]>
+      <![CDATA[<p>test</p><p>ssh -vT <a href="mailto:&#x67;&#105;&#116;&#x40;&#103;&#x69;&#116;&#104;&#117;&#x62;&#x2e;&#99;&#111;&#x6d;">git@github.com</a></p><p>Steps<br>在边栏的“访问”部分中，单击 “SSH 和 GPG 密钥”。</p><p>单击“新建 SSH 密钥”或“添加 SSH 密钥” 。<br>SSH 密钥按钮<br>在 “Title”（标题）字段中，为新密钥添加描述性标签。 例如，如果使用的是个人笔记本电脑，则可以将此密钥称为“个人笔记本电脑”。</p><p>选择密钥类型（身份验证或签名）。 有关提交签名的详细信息，请参阅“关于提交签名验证”。</p><p>将公钥粘贴到“密钥”字段。</p><p>单击“添加 SSH 密钥”。</p>]]>
     </content>
     <id>https://blog.codewalker.me/2023/04/04/fix-github-submitt-error/</id>
     <link href="https://blog.codewalker.me/2023/04/04/fix-github-submitt-error/"/>
     <published>2023-04-04T06:10:13.000Z</published>
     <summary>
       <![CDATA[<p>test</p>
-<p>ssh -vT <a href="mailto:&#103;&#x69;&#116;&#x40;&#103;&#x69;&#x74;&#x68;&#x75;&#x62;&#x2e;&#99;&#x6f;&#x6d;">git@github.com</]]>
+<p>ssh -vT <a href="mailto:&#x67;&#105;&#116;&#x40;&#103;&#x69;&#116;&#104;&#117;&#x62;&#x2e;&#99;&#111;&#x6d;">git@github.com</]]>
     </summary>
     <title>[FIX] how to fix github submitt error</title>
     <updated>2023-04-04T06:35:47.928Z</updated>
@@ -398,24 +421,5 @@
     </summary>
     <title>simple web log analyzer</title>
     <updated>2019-11-08T03:00:58.000Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Simon Xie</name>
-      <email>simon.xie@codewalker.me</email>
-    </author>
-    <category term="bash" scheme="https://blog.codewalker.me/tags/bash/"/>
-    <category term="jenkins" scheme="https://blog.codewalker.me/tags/jenkins/"/>
-    <content>
-      <![CDATA[<h2 id="Talk-is-cheap"><a href="#Talk-is-cheap" class="headerlink" title="Talk is cheap"></a>Talk is cheap</h2><p>This example just for interviewer.It’s triggered by post-receive.</p><h2 id="Run-flow"><a href="#Run-flow" class="headerlink" title="Run flow"></a>Run flow</h2><ul><li><p>Local push -&gt; Git host -&gt; post-receive -&gt; Jenkins -&gt; shell</p></li><li><p><a href="http://motel.codewalker.me/">Simple website</a></p></li><li><p><a href="http://jkens.codewalker.me/">Jenkins website</a></p></li></ul><h2 id="The-Point-of-Technique"><a href="#The-Point-of-Technique" class="headerlink" title="The Point of Technique"></a>The Point of Technique</h2><ul><li>git<ul><li>post-receive: Git will trigger jenkins to do somethins.</li></ul></li><li>jenkins<ul><li>Git will call me when it fired.</li></ul></li><li>shell<ul><li>this script will do somethins when jenkins has been called.</li></ul></li><li>nginx<ul><li>Do some sutff after jenkins deployment doen.</li></ul></li><li>vue<ul><li>Build on local then push <strong>dists</strong> to Git host, a simple html example.</li></ul></li></ul><p>EOF<br>Enjoy<br>I, simon love this world ❤️</p>]]>
-    </content>
-    <id>https://blog.codewalker.me/2019/11/05/new-CD-CI-example/</id>
-    <link href="https://blog.codewalker.me/2019/11/05/new-CD-CI-example/"/>
-    <published>2019-11-05T17:20:54.000Z</published>
-    <summary>
-      <![CDATA[<h2 id="Talk-is-cheap"><a href="#Talk-is-cheap" class="headerlink" title="Talk is cheap"></a>Talk is cheap</h2><p>This example just for inte]]>
-    </summary>
-    <title>new CD/CI example</title>
-    <updated>2019-11-07T02:55:35.000Z</updated>
   </entry>
 </feed>
